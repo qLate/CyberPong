@@ -1,0 +1,2491 @@
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.UART_print_string,"ax",%progbits
+  20              		.align	2
+  21              		.global	UART_print_string
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	UART_print_string, %function
+  25              	UART_print_string:
+  26              	.LFB36:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** #include "main_data.h"
+  15:main.c        **** 
+  16:main.c        **** 
+  17:main.c        **** int8 speed_idx;
+  18:main.c        **** int8 isr_triggered = 0;
+  19:main.c        **** int8 serving_enabled = 0;
+  20:main.c        **** 
+  21:main.c        **** int16_t motor_speeds[1];
+  22:main.c        **** int16 speed_buf;
+  23:main.c        **** 
+  24:main.c        **** 
+  25:main.c        **** void UART_print_string(char text[]) {
+  28              		.loc 1 25 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 2
+
+
+  33 0000 10B5     		push	{r4, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  37 0002 0400     		movs	r4, r0
+  26:main.c        ****     // A utility function to print an array of characters with UART
+  27:main.c        ****     UART_UartPutChar('\n');
+  38              		.loc 1 27 0
+  39 0004 0A20     		movs	r0, #10
+  40              	.LVL1:
+  41 0006 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  42              	.LVL2:
+  28:main.c        ****     UART_UartPutChar('\r');
+  43              		.loc 1 28 0
+  44 000a 0D20     		movs	r0, #13
+  45 000c FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  46              	.LVL3:
+  29:main.c        ****     UART_UartPutString(text);
+  47              		.loc 1 29 0
+  48 0010 2000     		movs	r0, r4
+  49 0012 FFF7FEFF 		bl	UART_UartPutString
+  50              	.LVL4:
+  30:main.c        ****     UART_UartPutChar('\n');
+  51              		.loc 1 30 0
+  52 0016 0A20     		movs	r0, #10
+  53 0018 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  54              	.LVL5:
+  31:main.c        ****     UART_UartPutChar('\r');
+  55              		.loc 1 31 0
+  56 001c 0D20     		movs	r0, #13
+  57 001e FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  58              	.LVL6:
+  32:main.c        **** }
+  59              		.loc 1 32 0
+  60              		@ sp needed
+  61              	.LVL7:
+  62 0022 10BD     		pop	{r4, pc}
+  63              		.cfi_endproc
+  64              	.LFE36:
+  65              		.size	UART_print_string, .-UART_print_string
+  66              		.section	.text.print_all_speed,"ax",%progbits
+  67              		.align	2
+  68              		.global	print_all_speed
+  69              		.code	16
+  70              		.thumb_func
+  71              		.type	print_all_speed, %function
+  72              	print_all_speed:
+  73              	.LFB37:
+  33:main.c        **** 
+  34:main.c        **** 
+  35:main.c        **** void print_all_speed() {
+  74              		.loc 1 35 0
+  75              		.cfi_startproc
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 0, uses_anonymous_args = 0
+  78 0000 70B5     		push	{r4, r5, r6, lr}
+  79              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 3
+
+
+  80              		.cfi_offset 4, -16
+  81              		.cfi_offset 5, -12
+  82              		.cfi_offset 6, -8
+  83              		.cfi_offset 14, -4
+  84              	.LVL8:
+  85              	.LBB2:
+  36:main.c        ****     /*
+  37:main.c        ****     Print all the speeds in a line through UART. Since we don't
+  38:main.c        ****     use dividers, we need to divide the speeds by 2
+  39:main.c        ****     */
+  40:main.c        ****     
+  41:main.c        ****     uint16_t current_rpm = 0;
+  42:main.c        ****     for (int i = 1; i < 2; i++) {
+  86              		.loc 1 42 0
+  87 0002 0124     		movs	r4, #1
+  88 0004 20E0     		b	.L3
+  89              	.LVL9:
+  90              	.L4:
+  91              	.LBB3:
+  43:main.c        ****         current_rpm = FanController_GetActualSpeed(i);
+  92              		.loc 1 43 0 discriminator 3
+  93 0006 2000     		movs	r0, r4
+  94 0008 FFF7FEFF 		bl	FanController_GetActualSpeed
+  95              	.LVL10:
+  96 000c 82B2     		uxth	r2, r0
+  97              	.LVL11:
+  44:main.c        ****         sprintf(uart_rpm_buff, "%u", current_rpm / 2);
+  98              		.loc 1 44 0 discriminator 3
+  99 000e 5208     		lsrs	r2, r2, #1
+ 100              	.LVL12:
+ 101 0010 124E     		ldr	r6, .L5
+ 102 0012 134D     		ldr	r5, .L5+4
+ 103 0014 3100     		movs	r1, r6
+ 104 0016 2800     		movs	r0, r5
+ 105              	.LVL13:
+ 106 0018 FFF7FEFF 		bl	sprintf
+ 107              	.LVL14:
+  45:main.c        ****         UART_UartPutString(uart_rpm_buff);
+ 108              		.loc 1 45 0 discriminator 3
+ 109 001c 2800     		movs	r0, r5
+ 110 001e FFF7FEFF 		bl	UART_UartPutString
+ 111              	.LVL15:
+  46:main.c        ****         UART_UartPutChar(' ');
+ 112              		.loc 1 46 0 discriminator 3
+ 113 0022 2020     		movs	r0, #32
+ 114 0024 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 115              	.LVL16:
+  47:main.c        ****         
+  48:main.c        ****         current_rpm = FanController_GetDesiredSpeed(i);
+ 116              		.loc 1 48 0 discriminator 3
+ 117 0028 2000     		movs	r0, r4
+ 118 002a FFF7FEFF 		bl	FanController_GetDesiredSpeed
+ 119              	.LVL17:
+ 120 002e 82B2     		uxth	r2, r0
+ 121              	.LVL18:
+  49:main.c        ****         sprintf(uart_rpm_buff, "%u", current_rpm / 2);
+ 122              		.loc 1 49 0 discriminator 3
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 4
+
+
+ 123 0030 5208     		lsrs	r2, r2, #1
+ 124              	.LVL19:
+ 125 0032 3100     		movs	r1, r6
+ 126 0034 2800     		movs	r0, r5
+ 127              	.LVL20:
+ 128 0036 FFF7FEFF 		bl	sprintf
+ 129              	.LVL21:
+  50:main.c        ****         UART_UartPutString(uart_rpm_buff);
+ 130              		.loc 1 50 0 discriminator 3
+ 131 003a 2800     		movs	r0, r5
+ 132 003c FFF7FEFF 		bl	UART_UartPutString
+ 133              	.LVL22:
+  51:main.c        ****         UART_UartPutChar(' ');
+ 134              		.loc 1 51 0 discriminator 3
+ 135 0040 2020     		movs	r0, #32
+ 136 0042 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 137              	.LVL23:
+ 138              	.LBE3:
+  42:main.c        ****         current_rpm = FanController_GetActualSpeed(i);
+ 139              		.loc 1 42 0 discriminator 3
+ 140 0046 0134     		adds	r4, r4, #1
+ 141              	.LVL24:
+ 142              	.L3:
+  42:main.c        ****         current_rpm = FanController_GetActualSpeed(i);
+ 143              		.loc 1 42 0 is_stmt 0 discriminator 1
+ 144 0048 012C     		cmp	r4, #1
+ 145 004a DCDD     		ble	.L4
+ 146              	.LBE2:
+  52:main.c        ****     }
+  53:main.c        ****     UART_UartPutChar('\n');
+ 147              		.loc 1 53 0 is_stmt 1
+ 148 004c 0A20     		movs	r0, #10
+ 149 004e FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 150              	.LVL25:
+  54:main.c        ****     UART_UartPutChar('\r');
+ 151              		.loc 1 54 0
+ 152 0052 0D20     		movs	r0, #13
+ 153 0054 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 154              	.LVL26:
+  55:main.c        **** }
+ 155              		.loc 1 55 0
+ 156              		@ sp needed
+ 157              	.LVL27:
+ 158 0058 70BD     		pop	{r4, r5, r6, pc}
+ 159              	.L6:
+ 160 005a C046     		.align	2
+ 161              	.L5:
+ 162 005c 00000000 		.word	.LC0
+ 163 0060 00000000 		.word	uart_rpm_buff
+ 164              		.cfi_endproc
+ 165              	.LFE37:
+ 166              		.size	print_all_speed, .-print_all_speed
+ 167              		.section	.text.write_motor_speed,"ax",%progbits
+ 168              		.align	2
+ 169              		.global	write_motor_speed
+ 170              		.code	16
+ 171              		.thumb_func
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 5
+
+
+ 172              		.type	write_motor_speed, %function
+ 173              	write_motor_speed:
+ 174              	.LFB38:
+  56:main.c        **** 
+  57:main.c        **** 
+  58:main.c        **** void write_motor_speed(int16_t speeds[]) {
+ 175              		.loc 1 58 0
+ 176              		.cfi_startproc
+ 177              		@ args = 0, pretend = 0, frame = 0
+ 178              		@ frame_needed = 0, uses_anonymous_args = 0
+ 179              	.LVL28:
+ 180 0000 70B5     		push	{r4, r5, r6, lr}
+ 181              		.cfi_def_cfa_offset 16
+ 182              		.cfi_offset 4, -16
+ 183              		.cfi_offset 5, -12
+ 184              		.cfi_offset 6, -8
+ 185              		.cfi_offset 14, -4
+ 186 0002 0500     		movs	r5, r0
+ 187              	.LVL29:
+ 188              	.LBB4:
+  59:main.c        ****     // Write the speed of all motors(An option that limits the speed and the option to stop the mot
+  60:main.c        ****     for (int i = 0; i < MOTOR_COUNT; i++) {
+ 189              		.loc 1 60 0
+ 190 0004 0024     		movs	r4, #0
+ 191 0006 12E0     		b	.L8
+ 192              	.LVL30:
+ 193              	.L11:
+  61:main.c        ****         if (speeds[i] > MIN_RPM && speeds[i] < MAX_RPM) {
+ 194              		.loc 1 61 0
+ 195 0008 6300     		lsls	r3, r4, #1
+ 196 000a 595F     		ldrsh	r1, [r3, r5]
+ 197 000c 094B     		ldr	r3, .L12
+ 198 000e CB18     		adds	r3, r1, r3
+ 199 0010 9BB2     		uxth	r3, r3
+ 200 0012 094A     		ldr	r2, .L12+4
+ 201 0014 9342     		cmp	r3, r2
+ 202 0016 04D8     		bhi	.L9
+ 203              	.LBB5:
+  62:main.c        ****             FanController_SetDesiredSpeed(i+1, 2*speeds[i]);
+ 204              		.loc 1 62 0
+ 205 0018 4900     		lsls	r1, r1, #1
+ 206 001a 601C     		adds	r0, r4, #1
+ 207 001c FFF7FEFF 		bl	FanController_SetDesiredSpeed
+ 208              	.LVL31:
+ 209              	.LBE5:
+ 210 0020 04E0     		b	.L10
+ 211              	.L9:
+  63:main.c        ****         } else if (speeds[i] == 0) {
+ 212              		.loc 1 63 0
+ 213 0022 0029     		cmp	r1, #0
+ 214 0024 02D1     		bne	.L10
+ 215              	.LBB6:
+  64:main.c        ****             FanController_SetDesiredSpeed(i+1, 0);
+ 216              		.loc 1 64 0
+ 217 0026 601C     		adds	r0, r4, #1
+ 218 0028 FFF7FEFF 		bl	FanController_SetDesiredSpeed
+ 219              	.LVL32:
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 6
+
+
+ 220              	.L10:
+ 221              	.LBE6:
+  60:main.c        ****         if (speeds[i] > MIN_RPM && speeds[i] < MAX_RPM) {
+ 222              		.loc 1 60 0 discriminator 2
+ 223 002c 0134     		adds	r4, r4, #1
+ 224              	.LVL33:
+ 225              	.L8:
+  60:main.c        ****         if (speeds[i] > MIN_RPM && speeds[i] < MAX_RPM) {
+ 226              		.loc 1 60 0 is_stmt 0 discriminator 1
+ 227 002e 032C     		cmp	r4, #3
+ 228 0030 EADD     		ble	.L11
+ 229              	.LBE4:
+  65:main.c        ****         } else {
+  66:main.c        ****             continue;
+  67:main.c        ****         }
+  68:main.c        ****     }
+  69:main.c        **** }
+ 230              		.loc 1 69 0 is_stmt 1
+ 231              		@ sp needed
+ 232              	.LVL34:
+ 233              	.LVL35:
+ 234 0032 70BD     		pop	{r4, r5, r6, pc}
+ 235              	.L13:
+ 236              		.align	2
+ 237              	.L12:
+ 238 0034 17FCFFFF 		.word	-1001
+ 239 0038 140D0000 		.word	3348
+ 240              		.cfi_endproc
+ 241              	.LFE38:
+ 242              		.size	write_motor_speed, .-write_motor_speed
+ 243              		.section	.text.handle_UART_input,"ax",%progbits
+ 244              		.align	2
+ 245              		.global	handle_UART_input
+ 246              		.code	16
+ 247              		.thumb_func
+ 248              		.type	handle_UART_input, %function
+ 249              	handle_UART_input:
+ 250              	.LFB39:
+  70:main.c        **** 
+  71:main.c        **** void handle_UART_input(char inp_ch) {
+ 251              		.loc 1 71 0
+ 252              		.cfi_startproc
+ 253              		@ args = 0, pretend = 0, frame = 0
+ 254              		@ frame_needed = 0, uses_anonymous_args = 0
+ 255              	.LVL36:
+ 256 0000 70B5     		push	{r4, r5, r6, lr}
+ 257              		.cfi_def_cfa_offset 16
+ 258              		.cfi_offset 4, -16
+ 259              		.cfi_offset 5, -12
+ 260              		.cfi_offset 6, -8
+ 261              		.cfi_offset 14, -4
+  72:main.c        ****     /* 
+  73:main.c        ****     Main input function.
+  74:main.c        ****     Responsible for setting modes and writing speeds.
+  75:main.c        ****     Operates with most of the global variables.
+  76:main.c        ****     */
+  77:main.c        ****     
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 7
+
+
+  78:main.c        ****     if (manual_control_flag) {
+ 262              		.loc 1 78 0
+ 263 0002 314B     		ldr	r3, .L23
+ 264 0004 1B78     		ldrb	r3, [r3]
+ 265 0006 5BB2     		sxtb	r3, r3
+ 266 0008 002B     		cmp	r3, #0
+ 267 000a 5BD0     		beq	.L14
+  79:main.c        ****         if(inp_ch == 'p'){
+ 268              		.loc 1 79 0
+ 269 000c 7028     		cmp	r0, #112
+ 270 000e 06D1     		bne	.L16
+  80:main.c        ****             print_speed_flag = 0;
+ 271              		.loc 1 80 0
+ 272 0010 0022     		movs	r2, #0
+ 273 0012 2E4B     		ldr	r3, .L23+4
+ 274 0014 1A70     		strb	r2, [r3]
+  81:main.c        ****             UART_print_string("Set The Speeds:");
+ 275              		.loc 1 81 0
+ 276 0016 2E48     		ldr	r0, .L23+8
+ 277              	.LVL37:
+ 278 0018 FFF7FEFF 		bl	UART_print_string
+ 279              	.LVL38:
+ 280 001c 52E0     		b	.L14
+ 281              	.LVL39:
+ 282              	.L16:
+  82:main.c        ****         }
+  83:main.c        ****         else if(inp_ch == 's'){
+ 283              		.loc 1 83 0
+ 284 001e 7328     		cmp	r0, #115
+ 285 0020 03D1     		bne	.L17
+  84:main.c        ****             print_speed_flag = 1;
+ 286              		.loc 1 84 0
+ 287 0022 0122     		movs	r2, #1
+ 288 0024 294B     		ldr	r3, .L23+4
+ 289 0026 1A70     		strb	r2, [r3]
+ 290 0028 4CE0     		b	.L14
+ 291              	.L17:
+  85:main.c        ****         }
+  86:main.c        ****         else if(inp_ch == 'x') {
+ 292              		.loc 1 86 0
+ 293 002a 7828     		cmp	r0, #120
+ 294 002c 09D1     		bne	.L18
+ 295              	.LBB7:
+  87:main.c        ****             UART_print_string("Enabled Serving:");
+ 296              		.loc 1 87 0
+ 297 002e 2948     		ldr	r0, .L23+12
+ 298              	.LVL40:
+ 299 0030 FFF7FEFF 		bl	UART_print_string
+ 300              	.LVL41:
+  88:main.c        ****             serving_enabled = 1;
+ 301              		.loc 1 88 0
+ 302 0034 0122     		movs	r2, #1
+ 303 0036 284B     		ldr	r3, .L23+16
+ 304 0038 1A70     		strb	r2, [r3]
+  89:main.c        ****             Pin_Serve_Write(1);
+ 305              		.loc 1 89 0
+ 306 003a 0120     		movs	r0, #1
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 8
+
+
+ 307 003c FFF7FEFF 		bl	Pin_Serve_Write
+ 308              	.LVL42:
+ 309              	.LBE7:
+ 310 0040 40E0     		b	.L14
+ 311              	.LVL43:
+ 312              	.L18:
+  90:main.c        ****         }
+  91:main.c        ****         else if (inp_ch == 'z') {
+ 313              		.loc 1 91 0
+ 314 0042 7A28     		cmp	r0, #122
+ 315 0044 09D1     		bne	.L19
+ 316              	.LBB8:
+  92:main.c        ****             UART_print_string("Disabled Serving:");
+ 317              		.loc 1 92 0
+ 318 0046 2548     		ldr	r0, .L23+20
+ 319              	.LVL44:
+ 320 0048 FFF7FEFF 		bl	UART_print_string
+ 321              	.LVL45:
+  93:main.c        ****             serving_enabled = 0;
+ 322              		.loc 1 93 0
+ 323 004c 0022     		movs	r2, #0
+ 324 004e 224B     		ldr	r3, .L23+16
+ 325 0050 1A70     		strb	r2, [r3]
+  94:main.c        ****             Pin_Serve_Write(0);
+ 326              		.loc 1 94 0
+ 327 0052 0020     		movs	r0, #0
+ 328 0054 FFF7FEFF 		bl	Pin_Serve_Write
+ 329              	.LVL46:
+ 330              	.LBE8:
+ 331 0058 34E0     		b	.L14
+ 332              	.LVL47:
+ 333              	.L19:
+  95:main.c        ****         }
+  96:main.c        ****         else if (inp_ch == ' ') {
+ 334              		.loc 1 96 0
+ 335 005a 2028     		cmp	r0, #32
+ 336 005c 0CD1     		bne	.L20
+  97:main.c        ****             motor_speeds[speed_idx] = speed_buf;
+ 337              		.loc 1 97 0
+ 338 005e 2049     		ldr	r1, .L23+24
+ 339 0060 0023     		movs	r3, #0
+ 340 0062 CB56     		ldrsb	r3, [r1, r3]
+ 341 0064 5C00     		lsls	r4, r3, #1
+ 342 0066 1F4A     		ldr	r2, .L23+28
+ 343 0068 1588     		ldrh	r5, [r2]
+ 344 006a 1F48     		ldr	r0, .L23+32
+ 345              	.LVL48:
+ 346 006c 2552     		strh	r5, [r4, r0]
+  98:main.c        ****             speed_idx++;
+ 347              		.loc 1 98 0
+ 348 006e 0133     		adds	r3, r3, #1
+ 349 0070 0B70     		strb	r3, [r1]
+  99:main.c        ****             speed_buf = 0;
+ 350              		.loc 1 99 0
+ 351 0072 0023     		movs	r3, #0
+ 352 0074 1380     		strh	r3, [r2]
+ 353 0076 25E0     		b	.L14
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 9
+
+
+ 354              	.LVL49:
+ 355              	.L20:
+ 100:main.c        ****         }
+ 101:main.c        ****         else if(inp_ch == '\r'){
+ 356              		.loc 1 101 0
+ 357 0078 0D28     		cmp	r0, #13
+ 358 007a 15D1     		bne	.L21
+ 102:main.c        ****             if (speed_idx == MOTOR_COUNT - 1) {
+ 359              		.loc 1 102 0
+ 360 007c 184B     		ldr	r3, .L23+24
+ 361 007e 1B78     		ldrb	r3, [r3]
+ 362 0080 5BB2     		sxtb	r3, r3
+ 363 0082 032B     		cmp	r3, #3
+ 364 0084 04D1     		bne	.L22
+ 103:main.c        ****                 motor_speeds[speed_idx] = speed_buf;
+ 365              		.loc 1 103 0
+ 366 0086 5B00     		lsls	r3, r3, #1
+ 367 0088 164A     		ldr	r2, .L23+28
+ 368 008a 1188     		ldrh	r1, [r2]
+ 369 008c 164A     		ldr	r2, .L23+32
+ 370 008e 9952     		strh	r1, [r3, r2]
+ 371              	.L22:
+ 104:main.c        ****             }
+ 105:main.c        ****             write_motor_speed(motor_speeds);
+ 372              		.loc 1 105 0
+ 373 0090 1548     		ldr	r0, .L23+32
+ 374              	.LVL50:
+ 375 0092 FFF7FEFF 		bl	write_motor_speed
+ 376              	.LVL51:
+ 106:main.c        ****             speed_buf = 0;
+ 377              		.loc 1 106 0
+ 378 0096 0022     		movs	r2, #0
+ 379 0098 124B     		ldr	r3, .L23+28
+ 380 009a 1A80     		strh	r2, [r3]
+ 107:main.c        ****             speed_idx = 0;
+ 381              		.loc 1 107 0
+ 382 009c 104B     		ldr	r3, .L23+24
+ 383 009e 1A70     		strb	r2, [r3]
+ 108:main.c        ****             UART_UartPutChar('\n');
+ 384              		.loc 1 108 0
+ 385 00a0 0A20     		movs	r0, #10
+ 386 00a2 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 387              	.LVL52:
+ 388 00a6 0DE0     		b	.L14
+ 389              	.LVL53:
+ 390              	.L21:
+ 109:main.c        ****         }
+ 110:main.c        ****         else if(inp_ch < HIGHER_NUM_BORDER && inp_ch > LOWER_NUM_BORDER){
+ 391              		.loc 1 110 0
+ 392 00a8 0300     		movs	r3, r0
+ 393 00aa 303B     		subs	r3, r3, #48
+ 394 00ac DBB2     		uxtb	r3, r3
+ 395 00ae 092B     		cmp	r3, #9
+ 396 00b0 08D8     		bhi	.L14
+ 111:main.c        ****             speed_buf *= 10;
+ 397              		.loc 1 111 0
+ 398 00b2 0C4A     		ldr	r2, .L23+28
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 10
+
+
+ 399 00b4 1188     		ldrh	r1, [r2]
+ 400 00b6 8B00     		lsls	r3, r1, #2
+ 401 00b8 CB18     		adds	r3, r1, r3
+ 402 00ba 5B00     		lsls	r3, r3, #1
+ 403 00bc 9BB2     		uxth	r3, r3
+ 112:main.c        ****             speed_buf += inp_ch - '0';
+ 404              		.loc 1 112 0
+ 405 00be 1818     		adds	r0, r3, r0
+ 406              	.LVL54:
+ 407 00c0 3038     		subs	r0, r0, #48
+ 408 00c2 1080     		strh	r0, [r2]
+ 409              	.L14:
+ 113:main.c        ****         }
+ 114:main.c        ****     }
+ 115:main.c        **** }
+ 410              		.loc 1 115 0
+ 411              		@ sp needed
+ 412 00c4 70BD     		pop	{r4, r5, r6, pc}
+ 413              	.L24:
+ 414 00c6 C046     		.align	2
+ 415              	.L23:
+ 416 00c8 00000000 		.word	manual_control_flag
+ 417 00cc 00000000 		.word	print_speed_flag
+ 418 00d0 04000000 		.word	.LC5
+ 419 00d4 14000000 		.word	.LC7
+ 420 00d8 00000000 		.word	.LANCHOR0
+ 421 00dc 28000000 		.word	.LC10
+ 422 00e0 00000000 		.word	speed_idx
+ 423 00e4 00000000 		.word	speed_buf
+ 424 00e8 00000000 		.word	motor_speeds
+ 425              		.cfi_endproc
+ 426              	.LFE39:
+ 427              		.size	handle_UART_input, .-handle_UART_input
+ 428              		.section	.text.Ball_Trigger_Handler,"ax",%progbits
+ 429              		.align	2
+ 430              		.global	Ball_Trigger_Handler
+ 431              		.code	16
+ 432              		.thumb_func
+ 433              		.type	Ball_Trigger_Handler, %function
+ 434              	Ball_Trigger_Handler:
+ 435              	.LFB40:
+ 116:main.c        **** 
+ 117:main.c        **** // Set isr trigger flag to avoid bouncing
+ 118:main.c        **** CY_ISR (Ball_Trigger_Handler) {
+ 436              		.loc 1 118 0
+ 437              		.cfi_startproc
+ 438              		@ args = 0, pretend = 0, frame = 0
+ 439              		@ frame_needed = 0, uses_anonymous_args = 0
+ 440              		@ link register save eliminated.
+ 119:main.c        ****     isr_triggered = 1;
+ 441              		.loc 1 119 0
+ 442 0000 0122     		movs	r2, #1
+ 443 0002 014B     		ldr	r3, .L26
+ 444 0004 5A70     		strb	r2, [r3, #1]
+ 120:main.c        **** }
+ 445              		.loc 1 120 0
+ 446              		@ sp needed
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 11
+
+
+ 447 0006 7047     		bx	lr
+ 448              	.L27:
+ 449              		.align	2
+ 450              	.L26:
+ 451 0008 00000000 		.word	.LANCHOR0
+ 452              		.cfi_endproc
+ 453              	.LFE40:
+ 454              		.size	Ball_Trigger_Handler, .-Ball_Trigger_Handler
+ 455              		.section	.text.main,"ax",%progbits
+ 456              		.align	2
+ 457              		.global	main
+ 458              		.code	16
+ 459              		.thumb_func
+ 460              		.type	main, %function
+ 461              	main:
+ 462              	.LFB41:
+ 121:main.c        **** 
+ 122:main.c        **** 
+ 123:main.c        **** int main(void)
+ 124:main.c        **** {
+ 463              		.loc 1 124 0
+ 464              		.cfi_startproc
+ 465              		@ args = 0, pretend = 0, frame = 0
+ 466              		@ frame_needed = 0, uses_anonymous_args = 0
+ 467 0000 10B5     		push	{r4, lr}
+ 468              		.cfi_def_cfa_offset 8
+ 469              		.cfi_offset 4, -8
+ 470              		.cfi_offset 14, -4
+ 125:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ 471              		.loc 1 125 0
+ 472              		.syntax divided
+ 473              	@ 125 "main.c" 1
+ 474 0002 62B6     		CPSIE   i
+ 475              	@ 0 "" 2
+ 126:main.c        **** 
+ 127:main.c        ****     //FanController_Start();
+ 128:main.c        ****     //FanController_SetDesiredSpeed(1,5000);
+ 129:main.c        ****     UART_Start();
+ 476              		.loc 1 129 0
+ 477              		.thumb
+ 478              		.syntax unified
+ 479 0004 FFF7FEFF 		bl	UART_Start
+ 480              	.LVL55:
+ 481              	.L29:
+ 482              	.LBB9:
+ 130:main.c        ****     
+ 131:main.c        ****     
+ 132:main.c        ****     for(;;){
+ 133:main.c        ****         //print_all_speed();
+ 134:main.c        ****         uint16_t current_rpm = Pin_Input_DOWN_Read();
+ 483              		.loc 1 134 0 discriminator 1
+ 484 0008 FFF7FEFF 		bl	Pin_Input_DOWN_Read
+ 485              	.LVL56:
+ 486 000c 82B2     		uxth	r2, r0
+ 487              	.LVL57:
+ 135:main.c        ****         sprintf(uart_rpm_buff, "%u", current_rpm / 2);
+ 488              		.loc 1 135 0 discriminator 1
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 12
+
+
+ 489 000e 5208     		lsrs	r2, r2, #1
+ 490              	.LVL58:
+ 491 0010 054C     		ldr	r4, .L30
+ 492 0012 0649     		ldr	r1, .L30+4
+ 493 0014 2000     		movs	r0, r4
+ 494              	.LVL59:
+ 495 0016 FFF7FEFF 		bl	sprintf
+ 496              	.LVL60:
+ 136:main.c        ****         UART_UartPutString(uart_rpm_buff);
+ 497              		.loc 1 136 0 discriminator 1
+ 498 001a 2000     		movs	r0, r4
+ 499 001c FFF7FEFF 		bl	UART_UartPutString
+ 500              	.LVL61:
+ 137:main.c        ****         UART_UartPutChar(' ');
+ 501              		.loc 1 137 0 discriminator 1
+ 502 0020 2020     		movs	r0, #32
+ 503 0022 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 504              	.LVL62:
+ 505 0026 EFE7     		b	.L29
+ 506              	.L31:
+ 507              		.align	2
+ 508              	.L30:
+ 509 0028 00000000 		.word	uart_rpm_buff
+ 510 002c 00000000 		.word	.LC0
+ 511              	.LBE9:
+ 512              		.cfi_endproc
+ 513              	.LFE41:
+ 514              		.size	main, .-main
+ 515              		.comm	speed_buf,2,2
+ 516              		.comm	motor_speeds,2,4
+ 517              		.global	serving_enabled
+ 518              		.global	isr_triggered
+ 519              		.comm	speed_idx,1,1
+ 520              		.global	conf_iterator
+ 521              		.global	conf_size
+ 522              		.global	speed_configs
+ 523              		.comm	uart_rpm_buff,4,4
+ 524              		.comm	manual_control_flag,1,1
+ 525              		.comm	print_speed_flag,1,1
+ 526              		.data
+ 527              		.align	2
+ 528              		.type	conf_size, %object
+ 529              		.size	conf_size, 2
+ 530              	conf_size:
+ 531 0000 0400     		.short	4
+ 532 0002 0000     		.space	2
+ 533              		.type	speed_configs, %object
+ 534              		.size	speed_configs, 32
+ 535              	speed_configs:
+ 536 0004 A00F     		.short	4000
+ 537 0006 0000     		.short	0
+ 538 0008 A00F     		.short	4000
+ 539 000a A00F     		.short	4000
+ 540 000c 0000     		.short	0
+ 541 000e A00F     		.short	4000
+ 542 0010 A00F     		.short	4000
+ 543 0012 A00F     		.short	4000
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 13
+
+
+ 544 0014 A00F     		.short	4000
+ 545 0016 A00F     		.short	4000
+ 546 0018 0000     		.short	0
+ 547 001a A00F     		.short	4000
+ 548 001c A00F     		.short	4000
+ 549 001e A00F     		.short	4000
+ 550 0020 A00F     		.short	4000
+ 551 0022 0000     		.short	0
+ 552              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 553              		.align	2
+ 554              	.LC0:
+ 555 0000 257500   		.ascii	"%u\000"
+ 556 0003 00       		.space	1
+ 557              	.LC5:
+ 558 0004 53657420 		.ascii	"Set The Speeds:\000"
+ 558      54686520 
+ 558      53706565 
+ 558      64733A00 
+ 559              	.LC7:
+ 560 0014 456E6162 		.ascii	"Enabled Serving:\000"
+ 560      6C656420 
+ 560      53657276 
+ 560      696E673A 
+ 560      00
+ 561 0025 000000   		.space	3
+ 562              	.LC10:
+ 563 0028 44697361 		.ascii	"Disabled Serving:\000"
+ 563      626C6564 
+ 563      20536572 
+ 563      76696E67 
+ 563      3A00
+ 564              		.bss
+ 565              		.set	.LANCHOR0,. + 0
+ 566              		.type	serving_enabled, %object
+ 567              		.size	serving_enabled, 1
+ 568              	serving_enabled:
+ 569 0000 00       		.space	1
+ 570              		.type	isr_triggered, %object
+ 571              		.size	isr_triggered, 1
+ 572              	isr_triggered:
+ 573 0001 00       		.space	1
+ 574              		.type	conf_iterator, %object
+ 575              		.size	conf_iterator, 1
+ 576              	conf_iterator:
+ 577 0002 00       		.space	1
+ 578              		.text
+ 579              	.Letext0:
+ 580              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 581              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 582              		.file 4 "Generated_Source\\PSoC4/cytypes.h"
+ 583              		.file 5 "main_data.h"
+ 584              		.file 6 "Generated_Source\\PSoC4/UART_SPI_UART.h"
+ 585              		.file 7 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 586              		.file 8 "Generated_Source\\PSoC4/Pin_Input_DOWN.h"
+ 587              		.file 9 "Generated_Source\\PSoC4/UART.h"
+ 588              		.section	.debug_info,"",%progbits
+ 589              	.Ldebug_info0:
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 14
+
+
+ 590 0000 27060000 		.4byte	0x627
+ 591 0004 0400     		.2byte	0x4
+ 592 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 593 000a 04       		.byte	0x4
+ 594 000b 01       		.uleb128 0x1
+ 595 000c 1F020000 		.4byte	.LASF50
+ 596 0010 0C       		.byte	0xc
+ 597 0011 F2020000 		.4byte	.LASF51
+ 598 0015 96010000 		.4byte	.LASF52
+ 599 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 600 001d 00000000 		.4byte	0
+ 601 0021 00000000 		.4byte	.Ldebug_line0
+ 602 0025 02       		.uleb128 0x2
+ 603 0026 0A000000 		.4byte	.LASF2
+ 604 002a 02       		.byte	0x2
+ 605 002b 1B       		.byte	0x1b
+ 606 002c 30000000 		.4byte	0x30
+ 607 0030 03       		.uleb128 0x3
+ 608 0031 01       		.byte	0x1
+ 609 0032 06       		.byte	0x6
+ 610 0033 13020000 		.4byte	.LASF0
+ 611 0037 03       		.uleb128 0x3
+ 612 0038 01       		.byte	0x1
+ 613 0039 08       		.byte	0x8
+ 614 003a 03010000 		.4byte	.LASF1
+ 615 003e 02       		.uleb128 0x2
+ 616 003f 49000000 		.4byte	.LASF3
+ 617 0043 02       		.byte	0x2
+ 618 0044 29       		.byte	0x29
+ 619 0045 49000000 		.4byte	0x49
+ 620 0049 03       		.uleb128 0x3
+ 621 004a 02       		.byte	0x2
+ 622 004b 05       		.byte	0x5
+ 623 004c 0C030000 		.4byte	.LASF4
+ 624 0050 02       		.uleb128 0x2
+ 625 0051 73010000 		.4byte	.LASF5
+ 626 0055 02       		.byte	0x2
+ 627 0056 2B       		.byte	0x2b
+ 628 0057 5B000000 		.4byte	0x5b
+ 629 005b 03       		.uleb128 0x3
+ 630 005c 02       		.byte	0x2
+ 631 005d 07       		.byte	0x7
+ 632 005e 35010000 		.4byte	.LASF6
+ 633 0062 03       		.uleb128 0x3
+ 634 0063 04       		.byte	0x4
+ 635 0064 05       		.byte	0x5
+ 636 0065 53000000 		.4byte	.LASF7
+ 637 0069 03       		.uleb128 0x3
+ 638 006a 04       		.byte	0x4
+ 639 006b 07       		.byte	0x7
+ 640 006c 23010000 		.4byte	.LASF8
+ 641 0070 03       		.uleb128 0x3
+ 642 0071 08       		.byte	0x8
+ 643 0072 05       		.byte	0x5
+ 644 0073 E4020000 		.4byte	.LASF9
+ 645 0077 03       		.uleb128 0x3
+ 646 0078 08       		.byte	0x8
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 15
+
+
+ 647 0079 07       		.byte	0x7
+ 648 007a D8010000 		.4byte	.LASF10
+ 649 007e 04       		.uleb128 0x4
+ 650 007f 04       		.byte	0x4
+ 651 0080 05       		.byte	0x5
+ 652 0081 696E7400 		.ascii	"int\000"
+ 653 0085 03       		.uleb128 0x3
+ 654 0086 04       		.byte	0x4
+ 655 0087 07       		.byte	0x7
+ 656 0088 CB010000 		.4byte	.LASF11
+ 657 008c 02       		.uleb128 0x2
+ 658 008d 8A000000 		.4byte	.LASF12
+ 659 0091 03       		.byte	0x3
+ 660 0092 14       		.byte	0x14
+ 661 0093 25000000 		.4byte	0x25
+ 662 0097 02       		.uleb128 0x2
+ 663 0098 0B020000 		.4byte	.LASF13
+ 664 009c 03       		.byte	0x3
+ 665 009d 20       		.byte	0x20
+ 666 009e 3E000000 		.4byte	0x3e
+ 667 00a2 02       		.uleb128 0x2
+ 668 00a3 23030000 		.4byte	.LASF14
+ 669 00a7 03       		.byte	0x3
+ 670 00a8 24       		.byte	0x24
+ 671 00a9 50000000 		.4byte	0x50
+ 672 00ad 05       		.uleb128 0x5
+ 673 00ae 8F010000 		.4byte	.LASF15
+ 674 00b2 04       		.byte	0x4
+ 675 00b3 FD01     		.2byte	0x1fd
+ 676 00b5 69000000 		.4byte	0x69
+ 677 00b9 05       		.uleb128 0x5
+ 678 00ba 8A010000 		.4byte	.LASF16
+ 679 00be 04       		.byte	0x4
+ 680 00bf FE01     		.2byte	0x1fe
+ 681 00c1 30000000 		.4byte	0x30
+ 682 00c5 05       		.uleb128 0x5
+ 683 00c6 1D010000 		.4byte	.LASF17
+ 684 00ca 04       		.byte	0x4
+ 685 00cb FF01     		.2byte	0x1ff
+ 686 00cd 49000000 		.4byte	0x49
+ 687 00d1 03       		.uleb128 0x3
+ 688 00d2 04       		.byte	0x4
+ 689 00d3 04       		.byte	0x4
+ 690 00d4 C2000000 		.4byte	.LASF18
+ 691 00d8 03       		.uleb128 0x3
+ 692 00d9 08       		.byte	0x8
+ 693 00da 04       		.byte	0x4
+ 694 00db 7E010000 		.4byte	.LASF19
+ 695 00df 03       		.uleb128 0x3
+ 696 00e0 01       		.byte	0x1
+ 697 00e1 08       		.byte	0x8
+ 698 00e2 F9020000 		.4byte	.LASF20
+ 699 00e6 03       		.uleb128 0x3
+ 700 00e7 08       		.byte	0x8
+ 701 00e8 04       		.byte	0x4
+ 702 00e9 4D030000 		.4byte	.LASF21
+ 703 00ed 03       		.uleb128 0x3
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 16
+
+
+ 704 00ee 04       		.byte	0x4
+ 705 00ef 07       		.byte	0x7
+ 706 00f0 BD020000 		.4byte	.LASF22
+ 707 00f4 06       		.uleb128 0x6
+ 708 00f5 04       		.byte	0x4
+ 709 00f6 DF000000 		.4byte	0xdf
+ 710 00fa 07       		.uleb128 0x7
+ 711 00fb EF010000 		.4byte	.LASF26
+ 712 00ff 01       		.byte	0x1
+ 713 0100 19       		.byte	0x19
+ 714 0101 00000000 		.4byte	.LFB36
+ 715 0105 24000000 		.4byte	.LFE36-.LFB36
+ 716 0109 01       		.uleb128 0x1
+ 717 010a 9C       		.byte	0x9c
+ 718 010b 7B010000 		.4byte	0x17b
+ 719 010f 08       		.uleb128 0x8
+ 720 0110 85000000 		.4byte	.LASF28
+ 721 0114 01       		.byte	0x1
+ 722 0115 19       		.byte	0x19
+ 723 0116 F4000000 		.4byte	0xf4
+ 724 011a 00000000 		.4byte	.LLST0
+ 725 011e 09       		.uleb128 0x9
+ 726 011f 0A000000 		.4byte	.LVL2
+ 727 0123 C5050000 		.4byte	0x5c5
+ 728 0127 31010000 		.4byte	0x131
+ 729 012b 0A       		.uleb128 0xa
+ 730 012c 01       		.uleb128 0x1
+ 731 012d 50       		.byte	0x50
+ 732 012e 01       		.uleb128 0x1
+ 733 012f 3A       		.byte	0x3a
+ 734 0130 00       		.byte	0
+ 735 0131 09       		.uleb128 0x9
+ 736 0132 10000000 		.4byte	.LVL3
+ 737 0136 C5050000 		.4byte	0x5c5
+ 738 013a 44010000 		.4byte	0x144
+ 739 013e 0A       		.uleb128 0xa
+ 740 013f 01       		.uleb128 0x1
+ 741 0140 50       		.byte	0x50
+ 742 0141 01       		.uleb128 0x1
+ 743 0142 3D       		.byte	0x3d
+ 744 0143 00       		.byte	0
+ 745 0144 09       		.uleb128 0x9
+ 746 0145 16000000 		.4byte	.LVL4
+ 747 0149 D1050000 		.4byte	0x5d1
+ 748 014d 58010000 		.4byte	0x158
+ 749 0151 0A       		.uleb128 0xa
+ 750 0152 01       		.uleb128 0x1
+ 751 0153 50       		.byte	0x50
+ 752 0154 02       		.uleb128 0x2
+ 753 0155 74       		.byte	0x74
+ 754 0156 00       		.sleb128 0
+ 755 0157 00       		.byte	0
+ 756 0158 09       		.uleb128 0x9
+ 757 0159 1C000000 		.4byte	.LVL5
+ 758 015d C5050000 		.4byte	0x5c5
+ 759 0161 6B010000 		.4byte	0x16b
+ 760 0165 0A       		.uleb128 0xa
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 17
+
+
+ 761 0166 01       		.uleb128 0x1
+ 762 0167 50       		.byte	0x50
+ 763 0168 01       		.uleb128 0x1
+ 764 0169 3A       		.byte	0x3a
+ 765 016a 00       		.byte	0
+ 766 016b 0B       		.uleb128 0xb
+ 767 016c 22000000 		.4byte	.LVL6
+ 768 0170 C5050000 		.4byte	0x5c5
+ 769 0174 0A       		.uleb128 0xa
+ 770 0175 01       		.uleb128 0x1
+ 771 0176 50       		.byte	0x50
+ 772 0177 01       		.uleb128 0x1
+ 773 0178 3D       		.byte	0x3d
+ 774 0179 00       		.byte	0
+ 775 017a 00       		.byte	0
+ 776 017b 0C       		.uleb128 0xc
+ 777 017c D4020000 		.4byte	.LASF53
+ 778 0180 01       		.byte	0x1
+ 779 0181 23       		.byte	0x23
+ 780 0182 00000000 		.4byte	.LFB37
+ 781 0186 64000000 		.4byte	.LFE37-.LFB37
+ 782 018a 01       		.uleb128 0x1
+ 783 018b 9C       		.byte	0x9c
+ 784 018c B1020000 		.4byte	0x2b1
+ 785 0190 0D       		.uleb128 0xd
+ 786 0191 11010000 		.4byte	.LASF23
+ 787 0195 01       		.byte	0x1
+ 788 0196 29       		.byte	0x29
+ 789 0197 A2000000 		.4byte	0xa2
+ 790 019b 2C000000 		.4byte	.LLST1
+ 791 019f 0E       		.uleb128 0xe
+ 792 01a0 02000000 		.4byte	.LBB2
+ 793 01a4 4A000000 		.4byte	.LBE2-.LBB2
+ 794 01a8 8E020000 		.4byte	0x28e
+ 795 01ac 0F       		.uleb128 0xf
+ 796 01ad 6900     		.ascii	"i\000"
+ 797 01af 01       		.byte	0x1
+ 798 01b0 2A       		.byte	0x2a
+ 799 01b1 7E000000 		.4byte	0x7e
+ 800 01b5 6C000000 		.4byte	.LLST2
+ 801 01b9 10       		.uleb128 0x10
+ 802 01ba 06000000 		.4byte	.LBB3
+ 803 01be 40000000 		.4byte	.LBE3-.LBB3
+ 804 01c2 11       		.uleb128 0x11
+ 805 01c3 E6000000 		.4byte	.LASF24
+ 806 01c7 01       		.byte	0x1
+ 807 01c8 2B       		.byte	0x2b
+ 808 01c9 7E000000 		.4byte	0x7e
+ 809 01cd D3010000 		.4byte	0x1d3
+ 810 01d1 12       		.uleb128 0x12
+ 811 01d2 00       		.byte	0
+ 812 01d3 11       		.uleb128 0x11
+ 813 01d4 A4000000 		.4byte	.LASF25
+ 814 01d8 01       		.byte	0x1
+ 815 01d9 30       		.byte	0x30
+ 816 01da 7E000000 		.4byte	0x7e
+ 817 01de E4010000 		.4byte	0x1e4
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 18
+
+
+ 818 01e2 12       		.uleb128 0x12
+ 819 01e3 00       		.byte	0
+ 820 01e4 09       		.uleb128 0x9
+ 821 01e5 0C000000 		.4byte	.LVL10
+ 822 01e9 DD050000 		.4byte	0x5dd
+ 823 01ed F8010000 		.4byte	0x1f8
+ 824 01f1 0A       		.uleb128 0xa
+ 825 01f2 01       		.uleb128 0x1
+ 826 01f3 50       		.byte	0x50
+ 827 01f4 02       		.uleb128 0x2
+ 828 01f5 74       		.byte	0x74
+ 829 01f6 00       		.sleb128 0
+ 830 01f7 00       		.byte	0
+ 831 01f8 09       		.uleb128 0x9
+ 832 01f9 1C000000 		.4byte	.LVL14
+ 833 01fd E8050000 		.4byte	0x5e8
+ 834 0201 12020000 		.4byte	0x212
+ 835 0205 0A       		.uleb128 0xa
+ 836 0206 01       		.uleb128 0x1
+ 837 0207 50       		.byte	0x50
+ 838 0208 02       		.uleb128 0x2
+ 839 0209 75       		.byte	0x75
+ 840 020a 00       		.sleb128 0
+ 841 020b 0A       		.uleb128 0xa
+ 842 020c 01       		.uleb128 0x1
+ 843 020d 51       		.byte	0x51
+ 844 020e 02       		.uleb128 0x2
+ 845 020f 76       		.byte	0x76
+ 846 0210 00       		.sleb128 0
+ 847 0211 00       		.byte	0
+ 848 0212 09       		.uleb128 0x9
+ 849 0213 22000000 		.4byte	.LVL15
+ 850 0217 D1050000 		.4byte	0x5d1
+ 851 021b 26020000 		.4byte	0x226
+ 852 021f 0A       		.uleb128 0xa
+ 853 0220 01       		.uleb128 0x1
+ 854 0221 50       		.byte	0x50
+ 855 0222 02       		.uleb128 0x2
+ 856 0223 75       		.byte	0x75
+ 857 0224 00       		.sleb128 0
+ 858 0225 00       		.byte	0
+ 859 0226 09       		.uleb128 0x9
+ 860 0227 28000000 		.4byte	.LVL16
+ 861 022b C5050000 		.4byte	0x5c5
+ 862 022f 3A020000 		.4byte	0x23a
+ 863 0233 0A       		.uleb128 0xa
+ 864 0234 01       		.uleb128 0x1
+ 865 0235 50       		.byte	0x50
+ 866 0236 02       		.uleb128 0x2
+ 867 0237 08       		.byte	0x8
+ 868 0238 20       		.byte	0x20
+ 869 0239 00       		.byte	0
+ 870 023a 09       		.uleb128 0x9
+ 871 023b 2E000000 		.4byte	.LVL17
+ 872 023f F3050000 		.4byte	0x5f3
+ 873 0243 4E020000 		.4byte	0x24e
+ 874 0247 0A       		.uleb128 0xa
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 19
+
+
+ 875 0248 01       		.uleb128 0x1
+ 876 0249 50       		.byte	0x50
+ 877 024a 02       		.uleb128 0x2
+ 878 024b 74       		.byte	0x74
+ 879 024c 00       		.sleb128 0
+ 880 024d 00       		.byte	0
+ 881 024e 09       		.uleb128 0x9
+ 882 024f 3A000000 		.4byte	.LVL21
+ 883 0253 E8050000 		.4byte	0x5e8
+ 884 0257 68020000 		.4byte	0x268
+ 885 025b 0A       		.uleb128 0xa
+ 886 025c 01       		.uleb128 0x1
+ 887 025d 50       		.byte	0x50
+ 888 025e 02       		.uleb128 0x2
+ 889 025f 75       		.byte	0x75
+ 890 0260 00       		.sleb128 0
+ 891 0261 0A       		.uleb128 0xa
+ 892 0262 01       		.uleb128 0x1
+ 893 0263 51       		.byte	0x51
+ 894 0264 02       		.uleb128 0x2
+ 895 0265 76       		.byte	0x76
+ 896 0266 00       		.sleb128 0
+ 897 0267 00       		.byte	0
+ 898 0268 09       		.uleb128 0x9
+ 899 0269 40000000 		.4byte	.LVL22
+ 900 026d D1050000 		.4byte	0x5d1
+ 901 0271 7C020000 		.4byte	0x27c
+ 902 0275 0A       		.uleb128 0xa
+ 903 0276 01       		.uleb128 0x1
+ 904 0277 50       		.byte	0x50
+ 905 0278 02       		.uleb128 0x2
+ 906 0279 75       		.byte	0x75
+ 907 027a 00       		.sleb128 0
+ 908 027b 00       		.byte	0
+ 909 027c 0B       		.uleb128 0xb
+ 910 027d 46000000 		.4byte	.LVL23
+ 911 0281 C5050000 		.4byte	0x5c5
+ 912 0285 0A       		.uleb128 0xa
+ 913 0286 01       		.uleb128 0x1
+ 914 0287 50       		.byte	0x50
+ 915 0288 02       		.uleb128 0x2
+ 916 0289 08       		.byte	0x8
+ 917 028a 20       		.byte	0x20
+ 918 028b 00       		.byte	0
+ 919 028c 00       		.byte	0
+ 920 028d 00       		.byte	0
+ 921 028e 09       		.uleb128 0x9
+ 922 028f 52000000 		.4byte	.LVL25
+ 923 0293 C5050000 		.4byte	0x5c5
+ 924 0297 A1020000 		.4byte	0x2a1
+ 925 029b 0A       		.uleb128 0xa
+ 926 029c 01       		.uleb128 0x1
+ 927 029d 50       		.byte	0x50
+ 928 029e 01       		.uleb128 0x1
+ 929 029f 3A       		.byte	0x3a
+ 930 02a0 00       		.byte	0
+ 931 02a1 0B       		.uleb128 0xb
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 20
+
+
+ 932 02a2 58000000 		.4byte	.LVL26
+ 933 02a6 C5050000 		.4byte	0x5c5
+ 934 02aa 0A       		.uleb128 0xa
+ 935 02ab 01       		.uleb128 0x1
+ 936 02ac 50       		.byte	0x50
+ 937 02ad 01       		.uleb128 0x1
+ 938 02ae 3D       		.byte	0x3d
+ 939 02af 00       		.byte	0
+ 940 02b0 00       		.byte	0
+ 941 02b1 07       		.uleb128 0x7
+ 942 02b2 59030000 		.4byte	.LASF27
+ 943 02b6 01       		.byte	0x1
+ 944 02b7 3A       		.byte	0x3a
+ 945 02b8 00000000 		.4byte	.LFB38
+ 946 02bc 3C000000 		.4byte	.LFE38-.LFB38
+ 947 02c0 01       		.uleb128 0x1
+ 948 02c1 9C       		.byte	0x9c
+ 949 02c2 47030000 		.4byte	0x347
+ 950 02c6 08       		.uleb128 0x8
+ 951 02c7 6B030000 		.4byte	.LASF29
+ 952 02cb 01       		.byte	0x1
+ 953 02cc 3A       		.byte	0x3a
+ 954 02cd 47030000 		.4byte	0x347
+ 955 02d1 8B000000 		.4byte	.LLST3
+ 956 02d5 10       		.uleb128 0x10
+ 957 02d6 04000000 		.4byte	.LBB4
+ 958 02da 2E000000 		.4byte	.LBE4-.LBB4
+ 959 02de 0F       		.uleb128 0xf
+ 960 02df 6900     		.ascii	"i\000"
+ 961 02e1 01       		.byte	0x1
+ 962 02e2 3C       		.byte	0x3c
+ 963 02e3 7E000000 		.4byte	0x7e
+ 964 02e7 B7000000 		.4byte	.LLST4
+ 965 02eb 0E       		.uleb128 0xe
+ 966 02ec 18000000 		.4byte	.LBB5
+ 967 02f0 08000000 		.4byte	.LBE5-.LBB5
+ 968 02f4 1A030000 		.4byte	0x31a
+ 969 02f8 11       		.uleb128 0x11
+ 970 02f9 C8000000 		.4byte	.LASF30
+ 971 02fd 01       		.byte	0x1
+ 972 02fe 3E       		.byte	0x3e
+ 973 02ff 7E000000 		.4byte	0x7e
+ 974 0303 09030000 		.4byte	0x309
+ 975 0307 12       		.uleb128 0x12
+ 976 0308 00       		.byte	0
+ 977 0309 0B       		.uleb128 0xb
+ 978 030a 20000000 		.4byte	.LVL31
+ 979 030e FE050000 		.4byte	0x5fe
+ 980 0312 0A       		.uleb128 0xa
+ 981 0313 01       		.uleb128 0x1
+ 982 0314 50       		.byte	0x50
+ 983 0315 02       		.uleb128 0x2
+ 984 0316 74       		.byte	0x74
+ 985 0317 01       		.sleb128 1
+ 986 0318 00       		.byte	0
+ 987 0319 00       		.byte	0
+ 988 031a 10       		.uleb128 0x10
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 21
+
+
+ 989 031b 26000000 		.4byte	.LBB6
+ 990 031f 06000000 		.4byte	.LBE6-.LBB6
+ 991 0323 11       		.uleb128 0x11
+ 992 0324 C8000000 		.4byte	.LASF30
+ 993 0328 01       		.byte	0x1
+ 994 0329 3E       		.byte	0x3e
+ 995 032a 7E000000 		.4byte	0x7e
+ 996 032e 34030000 		.4byte	0x334
+ 997 0332 12       		.uleb128 0x12
+ 998 0333 00       		.byte	0
+ 999 0334 0B       		.uleb128 0xb
+ 1000 0335 2C000000 		.4byte	.LVL32
+ 1001 0339 FE050000 		.4byte	0x5fe
+ 1002 033d 0A       		.uleb128 0xa
+ 1003 033e 01       		.uleb128 0x1
+ 1004 033f 50       		.byte	0x50
+ 1005 0340 02       		.uleb128 0x2
+ 1006 0341 74       		.byte	0x74
+ 1007 0342 01       		.sleb128 1
+ 1008 0343 00       		.byte	0
+ 1009 0344 00       		.byte	0
+ 1010 0345 00       		.byte	0
+ 1011 0346 00       		.byte	0
+ 1012 0347 06       		.uleb128 0x6
+ 1013 0348 04       		.byte	0x4
+ 1014 0349 97000000 		.4byte	0x97
+ 1015 034d 07       		.uleb128 0x7
+ 1016 034e 61010000 		.4byte	.LASF31
+ 1017 0352 01       		.byte	0x1
+ 1018 0353 47       		.byte	0x47
+ 1019 0354 00000000 		.4byte	.LFB39
+ 1020 0358 EC000000 		.4byte	.LFE39-.LFB39
+ 1021 035c 01       		.uleb128 0x1
+ 1022 035d 9C       		.byte	0x9c
+ 1023 035e 39040000 		.4byte	0x439
+ 1024 0362 08       		.uleb128 0x8
+ 1025 0363 74000000 		.4byte	.LASF32
+ 1026 0367 01       		.byte	0x1
+ 1027 0368 47       		.byte	0x47
+ 1028 0369 DF000000 		.4byte	0xdf
+ 1029 036d D6000000 		.4byte	.LLST5
+ 1030 0371 0E       		.uleb128 0xe
+ 1031 0372 2E000000 		.4byte	.LBB7
+ 1032 0376 12000000 		.4byte	.LBE7-.LBB7
+ 1033 037a B6030000 		.4byte	0x3b6
+ 1034 037e 11       		.uleb128 0x11
+ 1035 037f 2C030000 		.4byte	.LASF33
+ 1036 0383 01       		.byte	0x1
+ 1037 0384 59       		.byte	0x59
+ 1038 0385 7E000000 		.4byte	0x7e
+ 1039 0389 8F030000 		.4byte	0x38f
+ 1040 038d 12       		.uleb128 0x12
+ 1041 038e 00       		.byte	0
+ 1042 038f 09       		.uleb128 0x9
+ 1043 0390 34000000 		.4byte	.LVL41
+ 1044 0394 FA000000 		.4byte	0xfa
+ 1045 0398 A6030000 		.4byte	0x3a6
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 22
+
+
+ 1046 039c 0A       		.uleb128 0xa
+ 1047 039d 01       		.uleb128 0x1
+ 1048 039e 50       		.byte	0x50
+ 1049 039f 05       		.uleb128 0x5
+ 1050 03a0 03       		.byte	0x3
+ 1051 03a1 14000000 		.4byte	.LC7
+ 1052 03a5 00       		.byte	0
+ 1053 03a6 0B       		.uleb128 0xb
+ 1054 03a7 40000000 		.4byte	.LVL42
+ 1055 03ab 09060000 		.4byte	0x609
+ 1056 03af 0A       		.uleb128 0xa
+ 1057 03b0 01       		.uleb128 0x1
+ 1058 03b1 50       		.byte	0x50
+ 1059 03b2 01       		.uleb128 0x1
+ 1060 03b3 31       		.byte	0x31
+ 1061 03b4 00       		.byte	0
+ 1062 03b5 00       		.byte	0
+ 1063 03b6 0E       		.uleb128 0xe
+ 1064 03b7 46000000 		.4byte	.LBB8
+ 1065 03bb 12000000 		.4byte	.LBE8-.LBB8
+ 1066 03bf FB030000 		.4byte	0x3fb
+ 1067 03c3 11       		.uleb128 0x11
+ 1068 03c4 2C030000 		.4byte	.LASF33
+ 1069 03c8 01       		.byte	0x1
+ 1070 03c9 59       		.byte	0x59
+ 1071 03ca 7E000000 		.4byte	0x7e
+ 1072 03ce D4030000 		.4byte	0x3d4
+ 1073 03d2 12       		.uleb128 0x12
+ 1074 03d3 00       		.byte	0
+ 1075 03d4 09       		.uleb128 0x9
+ 1076 03d5 4C000000 		.4byte	.LVL45
+ 1077 03d9 FA000000 		.4byte	0xfa
+ 1078 03dd EB030000 		.4byte	0x3eb
+ 1079 03e1 0A       		.uleb128 0xa
+ 1080 03e2 01       		.uleb128 0x1
+ 1081 03e3 50       		.byte	0x50
+ 1082 03e4 05       		.uleb128 0x5
+ 1083 03e5 03       		.byte	0x3
+ 1084 03e6 28000000 		.4byte	.LC10
+ 1085 03ea 00       		.byte	0
+ 1086 03eb 0B       		.uleb128 0xb
+ 1087 03ec 58000000 		.4byte	.LVL46
+ 1088 03f0 09060000 		.4byte	0x609
+ 1089 03f4 0A       		.uleb128 0xa
+ 1090 03f5 01       		.uleb128 0x1
+ 1091 03f6 50       		.byte	0x50
+ 1092 03f7 01       		.uleb128 0x1
+ 1093 03f8 30       		.byte	0x30
+ 1094 03f9 00       		.byte	0
+ 1095 03fa 00       		.byte	0
+ 1096 03fb 09       		.uleb128 0x9
+ 1097 03fc 1C000000 		.4byte	.LVL38
+ 1098 0400 FA000000 		.4byte	0xfa
+ 1099 0404 12040000 		.4byte	0x412
+ 1100 0408 0A       		.uleb128 0xa
+ 1101 0409 01       		.uleb128 0x1
+ 1102 040a 50       		.byte	0x50
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 23
+
+
+ 1103 040b 05       		.uleb128 0x5
+ 1104 040c 03       		.byte	0x3
+ 1105 040d 04000000 		.4byte	.LC5
+ 1106 0411 00       		.byte	0
+ 1107 0412 09       		.uleb128 0x9
+ 1108 0413 96000000 		.4byte	.LVL51
+ 1109 0417 B1020000 		.4byte	0x2b1
+ 1110 041b 29040000 		.4byte	0x429
+ 1111 041f 0A       		.uleb128 0xa
+ 1112 0420 01       		.uleb128 0x1
+ 1113 0421 50       		.byte	0x50
+ 1114 0422 05       		.uleb128 0x5
+ 1115 0423 03       		.byte	0x3
+ 1116 0424 00000000 		.4byte	motor_speeds
+ 1117 0428 00       		.byte	0
+ 1118 0429 0B       		.uleb128 0xb
+ 1119 042a A6000000 		.4byte	.LVL52
+ 1120 042e C5050000 		.4byte	0x5c5
+ 1121 0432 0A       		.uleb128 0xa
+ 1122 0433 01       		.uleb128 0x1
+ 1123 0434 50       		.byte	0x50
+ 1124 0435 01       		.uleb128 0x1
+ 1125 0436 3A       		.byte	0x3a
+ 1126 0437 00       		.byte	0
+ 1127 0438 00       		.byte	0
+ 1128 0439 13       		.uleb128 0x13
+ 1129 043a 7A030000 		.4byte	.LASF54
+ 1130 043e 01       		.byte	0x1
+ 1131 043f 76       		.byte	0x76
+ 1132 0440 00000000 		.4byte	.LFB40
+ 1133 0444 0C000000 		.4byte	.LFE40-.LFB40
+ 1134 0448 01       		.uleb128 0x1
+ 1135 0449 9C       		.byte	0x9c
+ 1136 044a 14       		.uleb128 0x14
+ 1137 044b 85010000 		.4byte	.LASF55
+ 1138 044f 01       		.byte	0x1
+ 1139 0450 7B       		.byte	0x7b
+ 1140 0451 7E000000 		.4byte	0x7e
+ 1141 0455 00000000 		.4byte	.LFB41
+ 1142 0459 30000000 		.4byte	.LFE41-.LFB41
+ 1143 045d 01       		.uleb128 0x1
+ 1144 045e 9C       		.byte	0x9c
+ 1145 045f D4040000 		.4byte	0x4d4
+ 1146 0463 0E       		.uleb128 0xe
+ 1147 0464 08000000 		.4byte	.LBB9
+ 1148 0468 28000000 		.4byte	.LBE9-.LBB9
+ 1149 046c CA040000 		.4byte	0x4ca
+ 1150 0470 0D       		.uleb128 0xd
+ 1151 0471 11010000 		.4byte	.LASF23
+ 1152 0475 01       		.byte	0x1
+ 1153 0476 86       		.byte	0x86
+ 1154 0477 A2000000 		.4byte	0xa2
+ 1155 047b 74010000 		.4byte	.LLST6
+ 1156 047f 15       		.uleb128 0x15
+ 1157 0480 0C000000 		.4byte	.LVL56
+ 1158 0484 14060000 		.4byte	0x614
+ 1159 0488 09       		.uleb128 0x9
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 24
+
+
+ 1160 0489 1A000000 		.4byte	.LVL60
+ 1161 048d E8050000 		.4byte	0x5e8
+ 1162 0491 A5040000 		.4byte	0x4a5
+ 1163 0495 0A       		.uleb128 0xa
+ 1164 0496 01       		.uleb128 0x1
+ 1165 0497 50       		.byte	0x50
+ 1166 0498 02       		.uleb128 0x2
+ 1167 0499 74       		.byte	0x74
+ 1168 049a 00       		.sleb128 0
+ 1169 049b 0A       		.uleb128 0xa
+ 1170 049c 01       		.uleb128 0x1
+ 1171 049d 51       		.byte	0x51
+ 1172 049e 05       		.uleb128 0x5
+ 1173 049f 03       		.byte	0x3
+ 1174 04a0 00000000 		.4byte	.LC0
+ 1175 04a4 00       		.byte	0
+ 1176 04a5 09       		.uleb128 0x9
+ 1177 04a6 20000000 		.4byte	.LVL61
+ 1178 04aa D1050000 		.4byte	0x5d1
+ 1179 04ae B9040000 		.4byte	0x4b9
+ 1180 04b2 0A       		.uleb128 0xa
+ 1181 04b3 01       		.uleb128 0x1
+ 1182 04b4 50       		.byte	0x50
+ 1183 04b5 02       		.uleb128 0x2
+ 1184 04b6 74       		.byte	0x74
+ 1185 04b7 00       		.sleb128 0
+ 1186 04b8 00       		.byte	0
+ 1187 04b9 0B       		.uleb128 0xb
+ 1188 04ba 26000000 		.4byte	.LVL62
+ 1189 04be C5050000 		.4byte	0x5c5
+ 1190 04c2 0A       		.uleb128 0xa
+ 1191 04c3 01       		.uleb128 0x1
+ 1192 04c4 50       		.byte	0x50
+ 1193 04c5 02       		.uleb128 0x2
+ 1194 04c6 08       		.byte	0x8
+ 1195 04c7 20       		.byte	0x20
+ 1196 04c8 00       		.byte	0
+ 1197 04c9 00       		.byte	0
+ 1198 04ca 15       		.uleb128 0x15
+ 1199 04cb 08000000 		.4byte	.LVL55
+ 1200 04cf 1F060000 		.4byte	0x61f
+ 1201 04d3 00       		.byte	0
+ 1202 04d4 16       		.uleb128 0x16
+ 1203 04d5 3C030000 		.4byte	.LASF34
+ 1204 04d9 05       		.byte	0x5
+ 1205 04da 1B       		.byte	0x1b
+ 1206 04db 8C000000 		.4byte	0x8c
+ 1207 04df 05       		.uleb128 0x5
+ 1208 04e0 03       		.byte	0x3
+ 1209 04e1 00000000 		.4byte	print_speed_flag
+ 1210 04e5 16       		.uleb128 0x16
+ 1211 04e6 35000000 		.4byte	.LASF35
+ 1212 04ea 05       		.byte	0x5
+ 1213 04eb 1D       		.byte	0x1d
+ 1214 04ec 8C000000 		.4byte	0x8c
+ 1215 04f0 05       		.uleb128 0x5
+ 1216 04f1 03       		.byte	0x3
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 25
+
+
+ 1217 04f2 00000000 		.4byte	manual_control_flag
+ 1218 04f6 17       		.uleb128 0x17
+ 1219 04f7 DF000000 		.4byte	0xdf
+ 1220 04fb 06050000 		.4byte	0x506
+ 1221 04ff 18       		.uleb128 0x18
+ 1222 0500 ED000000 		.4byte	0xed
+ 1223 0504 03       		.byte	0x3
+ 1224 0505 00       		.byte	0
+ 1225 0506 16       		.uleb128 0x16
+ 1226 0507 53010000 		.4byte	.LASF36
+ 1227 050b 05       		.byte	0x5
+ 1228 050c 1F       		.byte	0x1f
+ 1229 050d F6040000 		.4byte	0x4f6
+ 1230 0511 05       		.uleb128 0x5
+ 1231 0512 03       		.byte	0x3
+ 1232 0513 00000000 		.4byte	uart_rpm_buff
+ 1233 0517 17       		.uleb128 0x17
+ 1234 0518 97000000 		.4byte	0x97
+ 1235 051c 2D050000 		.4byte	0x52d
+ 1236 0520 18       		.uleb128 0x18
+ 1237 0521 ED000000 		.4byte	0xed
+ 1238 0525 03       		.byte	0x3
+ 1239 0526 18       		.uleb128 0x18
+ 1240 0527 ED000000 		.4byte	0xed
+ 1241 052b 03       		.byte	0x3
+ 1242 052c 00       		.byte	0
+ 1243 052d 16       		.uleb128 0x16
+ 1244 052e FE020000 		.4byte	.LASF37
+ 1245 0532 05       		.byte	0x5
+ 1246 0533 21       		.byte	0x21
+ 1247 0534 17050000 		.4byte	0x517
+ 1248 0538 05       		.uleb128 0x5
+ 1249 0539 03       		.byte	0x3
+ 1250 053a 00000000 		.4byte	speed_configs
+ 1251 053e 16       		.uleb128 0x16
+ 1252 053f 7B000000 		.4byte	.LASF38
+ 1253 0543 05       		.byte	0x5
+ 1254 0544 25       		.byte	0x25
+ 1255 0545 97000000 		.4byte	0x97
+ 1256 0549 05       		.uleb128 0x5
+ 1257 054a 03       		.byte	0x3
+ 1258 054b 00000000 		.4byte	conf_size
+ 1259 054f 16       		.uleb128 0x16
+ 1260 0550 27000000 		.4byte	.LASF39
+ 1261 0554 05       		.byte	0x5
+ 1262 0555 26       		.byte	0x26
+ 1263 0556 8C000000 		.4byte	0x8c
+ 1264 055a 05       		.uleb128 0x5
+ 1265 055b 03       		.byte	0x3
+ 1266 055c 00000000 		.4byte	conf_iterator
+ 1267 0560 16       		.uleb128 0x16
+ 1268 0561 01020000 		.4byte	.LASF40
+ 1269 0565 01       		.byte	0x1
+ 1270 0566 11       		.byte	0x11
+ 1271 0567 B9000000 		.4byte	0xb9
+ 1272 056b 05       		.uleb128 0x5
+ 1273 056c 03       		.byte	0x3
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 26
+
+
+ 1274 056d 00000000 		.4byte	speed_idx
+ 1275 0571 16       		.uleb128 0x16
+ 1276 0572 C6020000 		.4byte	.LASF41
+ 1277 0576 01       		.byte	0x1
+ 1278 0577 12       		.byte	0x12
+ 1279 0578 B9000000 		.4byte	0xb9
+ 1280 057c 05       		.uleb128 0x5
+ 1281 057d 03       		.byte	0x3
+ 1282 057e 00000000 		.4byte	isr_triggered
+ 1283 0582 16       		.uleb128 0x16
+ 1284 0583 AD020000 		.4byte	.LASF42
+ 1285 0587 01       		.byte	0x1
+ 1286 0588 13       		.byte	0x13
+ 1287 0589 B9000000 		.4byte	0xb9
+ 1288 058d 05       		.uleb128 0x5
+ 1289 058e 03       		.byte	0x3
+ 1290 058f 00000000 		.4byte	serving_enabled
+ 1291 0593 17       		.uleb128 0x17
+ 1292 0594 97000000 		.4byte	0x97
+ 1293 0598 A3050000 		.4byte	0x5a3
+ 1294 059c 18       		.uleb128 0x18
+ 1295 059d ED000000 		.4byte	0xed
+ 1296 05a1 00       		.byte	0
+ 1297 05a2 00       		.byte	0
+ 1298 05a3 16       		.uleb128 0x16
+ 1299 05a4 16030000 		.4byte	.LASF43
+ 1300 05a8 01       		.byte	0x1
+ 1301 05a9 15       		.byte	0x15
+ 1302 05aa 93050000 		.4byte	0x593
+ 1303 05ae 05       		.uleb128 0x5
+ 1304 05af 03       		.byte	0x3
+ 1305 05b0 00000000 		.4byte	motor_speeds
+ 1306 05b4 16       		.uleb128 0x16
+ 1307 05b5 00000000 		.4byte	.LASF44
+ 1308 05b9 01       		.byte	0x1
+ 1309 05ba 16       		.byte	0x16
+ 1310 05bb C5000000 		.4byte	0xc5
+ 1311 05bf 05       		.uleb128 0x5
+ 1312 05c0 03       		.byte	0x3
+ 1313 05c1 00000000 		.4byte	speed_buf
+ 1314 05c5 19       		.uleb128 0x19
+ 1315 05c6 5C000000 		.4byte	.LASF45
+ 1316 05ca 5C000000 		.4byte	.LASF45
+ 1317 05ce 06       		.byte	0x6
+ 1318 05cf 4403     		.2byte	0x344
+ 1319 05d1 19       		.uleb128 0x19
+ 1320 05d2 91000000 		.4byte	.LASF46
+ 1321 05d6 91000000 		.4byte	.LASF46
+ 1322 05da 06       		.byte	0x6
+ 1323 05db 2A03     		.2byte	0x32a
+ 1324 05dd 1A       		.uleb128 0x1a
+ 1325 05de E6000000 		.4byte	.LASF24
+ 1326 05e2 E6000000 		.4byte	.LASF24
+ 1327 05e6 01       		.byte	0x1
+ 1328 05e7 2B       		.byte	0x2b
+ 1329 05e8 1A       		.uleb128 0x1a
+ 1330 05e9 72030000 		.4byte	.LASF47
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 27
+
+
+ 1331 05ed 72030000 		.4byte	.LASF47
+ 1332 05f1 07       		.byte	0x7
+ 1333 05f2 E7       		.byte	0xe7
+ 1334 05f3 1A       		.uleb128 0x1a
+ 1335 05f4 A4000000 		.4byte	.LASF25
+ 1336 05f8 A4000000 		.4byte	.LASF25
+ 1337 05fc 01       		.byte	0x1
+ 1338 05fd 30       		.byte	0x30
+ 1339 05fe 1A       		.uleb128 0x1a
+ 1340 05ff C8000000 		.4byte	.LASF30
+ 1341 0603 C8000000 		.4byte	.LASF30
+ 1342 0607 01       		.byte	0x1
+ 1343 0608 3E       		.byte	0x3e
+ 1344 0609 1A       		.uleb128 0x1a
+ 1345 060a 2C030000 		.4byte	.LASF33
+ 1346 060e 2C030000 		.4byte	.LASF33
+ 1347 0612 01       		.byte	0x1
+ 1348 0613 59       		.byte	0x59
+ 1349 0614 1A       		.uleb128 0x1a
+ 1350 0615 13000000 		.4byte	.LASF48
+ 1351 0619 13000000 		.4byte	.LASF48
+ 1352 061d 08       		.byte	0x8
+ 1353 061e 32       		.byte	0x32
+ 1354 061f 1A       		.uleb128 0x1a
+ 1355 0620 48010000 		.4byte	.LASF49
+ 1356 0624 48010000 		.4byte	.LASF49
+ 1357 0628 09       		.byte	0x9
+ 1358 0629 72       		.byte	0x72
+ 1359 062a 00       		.byte	0
+ 1360              		.section	.debug_abbrev,"",%progbits
+ 1361              	.Ldebug_abbrev0:
+ 1362 0000 01       		.uleb128 0x1
+ 1363 0001 11       		.uleb128 0x11
+ 1364 0002 01       		.byte	0x1
+ 1365 0003 25       		.uleb128 0x25
+ 1366 0004 0E       		.uleb128 0xe
+ 1367 0005 13       		.uleb128 0x13
+ 1368 0006 0B       		.uleb128 0xb
+ 1369 0007 03       		.uleb128 0x3
+ 1370 0008 0E       		.uleb128 0xe
+ 1371 0009 1B       		.uleb128 0x1b
+ 1372 000a 0E       		.uleb128 0xe
+ 1373 000b 55       		.uleb128 0x55
+ 1374 000c 17       		.uleb128 0x17
+ 1375 000d 11       		.uleb128 0x11
+ 1376 000e 01       		.uleb128 0x1
+ 1377 000f 10       		.uleb128 0x10
+ 1378 0010 17       		.uleb128 0x17
+ 1379 0011 00       		.byte	0
+ 1380 0012 00       		.byte	0
+ 1381 0013 02       		.uleb128 0x2
+ 1382 0014 16       		.uleb128 0x16
+ 1383 0015 00       		.byte	0
+ 1384 0016 03       		.uleb128 0x3
+ 1385 0017 0E       		.uleb128 0xe
+ 1386 0018 3A       		.uleb128 0x3a
+ 1387 0019 0B       		.uleb128 0xb
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 28
+
+
+ 1388 001a 3B       		.uleb128 0x3b
+ 1389 001b 0B       		.uleb128 0xb
+ 1390 001c 49       		.uleb128 0x49
+ 1391 001d 13       		.uleb128 0x13
+ 1392 001e 00       		.byte	0
+ 1393 001f 00       		.byte	0
+ 1394 0020 03       		.uleb128 0x3
+ 1395 0021 24       		.uleb128 0x24
+ 1396 0022 00       		.byte	0
+ 1397 0023 0B       		.uleb128 0xb
+ 1398 0024 0B       		.uleb128 0xb
+ 1399 0025 3E       		.uleb128 0x3e
+ 1400 0026 0B       		.uleb128 0xb
+ 1401 0027 03       		.uleb128 0x3
+ 1402 0028 0E       		.uleb128 0xe
+ 1403 0029 00       		.byte	0
+ 1404 002a 00       		.byte	0
+ 1405 002b 04       		.uleb128 0x4
+ 1406 002c 24       		.uleb128 0x24
+ 1407 002d 00       		.byte	0
+ 1408 002e 0B       		.uleb128 0xb
+ 1409 002f 0B       		.uleb128 0xb
+ 1410 0030 3E       		.uleb128 0x3e
+ 1411 0031 0B       		.uleb128 0xb
+ 1412 0032 03       		.uleb128 0x3
+ 1413 0033 08       		.uleb128 0x8
+ 1414 0034 00       		.byte	0
+ 1415 0035 00       		.byte	0
+ 1416 0036 05       		.uleb128 0x5
+ 1417 0037 16       		.uleb128 0x16
+ 1418 0038 00       		.byte	0
+ 1419 0039 03       		.uleb128 0x3
+ 1420 003a 0E       		.uleb128 0xe
+ 1421 003b 3A       		.uleb128 0x3a
+ 1422 003c 0B       		.uleb128 0xb
+ 1423 003d 3B       		.uleb128 0x3b
+ 1424 003e 05       		.uleb128 0x5
+ 1425 003f 49       		.uleb128 0x49
+ 1426 0040 13       		.uleb128 0x13
+ 1427 0041 00       		.byte	0
+ 1428 0042 00       		.byte	0
+ 1429 0043 06       		.uleb128 0x6
+ 1430 0044 0F       		.uleb128 0xf
+ 1431 0045 00       		.byte	0
+ 1432 0046 0B       		.uleb128 0xb
+ 1433 0047 0B       		.uleb128 0xb
+ 1434 0048 49       		.uleb128 0x49
+ 1435 0049 13       		.uleb128 0x13
+ 1436 004a 00       		.byte	0
+ 1437 004b 00       		.byte	0
+ 1438 004c 07       		.uleb128 0x7
+ 1439 004d 2E       		.uleb128 0x2e
+ 1440 004e 01       		.byte	0x1
+ 1441 004f 3F       		.uleb128 0x3f
+ 1442 0050 19       		.uleb128 0x19
+ 1443 0051 03       		.uleb128 0x3
+ 1444 0052 0E       		.uleb128 0xe
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 29
+
+
+ 1445 0053 3A       		.uleb128 0x3a
+ 1446 0054 0B       		.uleb128 0xb
+ 1447 0055 3B       		.uleb128 0x3b
+ 1448 0056 0B       		.uleb128 0xb
+ 1449 0057 27       		.uleb128 0x27
+ 1450 0058 19       		.uleb128 0x19
+ 1451 0059 11       		.uleb128 0x11
+ 1452 005a 01       		.uleb128 0x1
+ 1453 005b 12       		.uleb128 0x12
+ 1454 005c 06       		.uleb128 0x6
+ 1455 005d 40       		.uleb128 0x40
+ 1456 005e 18       		.uleb128 0x18
+ 1457 005f 9742     		.uleb128 0x2117
+ 1458 0061 19       		.uleb128 0x19
+ 1459 0062 01       		.uleb128 0x1
+ 1460 0063 13       		.uleb128 0x13
+ 1461 0064 00       		.byte	0
+ 1462 0065 00       		.byte	0
+ 1463 0066 08       		.uleb128 0x8
+ 1464 0067 05       		.uleb128 0x5
+ 1465 0068 00       		.byte	0
+ 1466 0069 03       		.uleb128 0x3
+ 1467 006a 0E       		.uleb128 0xe
+ 1468 006b 3A       		.uleb128 0x3a
+ 1469 006c 0B       		.uleb128 0xb
+ 1470 006d 3B       		.uleb128 0x3b
+ 1471 006e 0B       		.uleb128 0xb
+ 1472 006f 49       		.uleb128 0x49
+ 1473 0070 13       		.uleb128 0x13
+ 1474 0071 02       		.uleb128 0x2
+ 1475 0072 17       		.uleb128 0x17
+ 1476 0073 00       		.byte	0
+ 1477 0074 00       		.byte	0
+ 1478 0075 09       		.uleb128 0x9
+ 1479 0076 898201   		.uleb128 0x4109
+ 1480 0079 01       		.byte	0x1
+ 1481 007a 11       		.uleb128 0x11
+ 1482 007b 01       		.uleb128 0x1
+ 1483 007c 31       		.uleb128 0x31
+ 1484 007d 13       		.uleb128 0x13
+ 1485 007e 01       		.uleb128 0x1
+ 1486 007f 13       		.uleb128 0x13
+ 1487 0080 00       		.byte	0
+ 1488 0081 00       		.byte	0
+ 1489 0082 0A       		.uleb128 0xa
+ 1490 0083 8A8201   		.uleb128 0x410a
+ 1491 0086 00       		.byte	0
+ 1492 0087 02       		.uleb128 0x2
+ 1493 0088 18       		.uleb128 0x18
+ 1494 0089 9142     		.uleb128 0x2111
+ 1495 008b 18       		.uleb128 0x18
+ 1496 008c 00       		.byte	0
+ 1497 008d 00       		.byte	0
+ 1498 008e 0B       		.uleb128 0xb
+ 1499 008f 898201   		.uleb128 0x4109
+ 1500 0092 01       		.byte	0x1
+ 1501 0093 11       		.uleb128 0x11
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 30
+
+
+ 1502 0094 01       		.uleb128 0x1
+ 1503 0095 31       		.uleb128 0x31
+ 1504 0096 13       		.uleb128 0x13
+ 1505 0097 00       		.byte	0
+ 1506 0098 00       		.byte	0
+ 1507 0099 0C       		.uleb128 0xc
+ 1508 009a 2E       		.uleb128 0x2e
+ 1509 009b 01       		.byte	0x1
+ 1510 009c 3F       		.uleb128 0x3f
+ 1511 009d 19       		.uleb128 0x19
+ 1512 009e 03       		.uleb128 0x3
+ 1513 009f 0E       		.uleb128 0xe
+ 1514 00a0 3A       		.uleb128 0x3a
+ 1515 00a1 0B       		.uleb128 0xb
+ 1516 00a2 3B       		.uleb128 0x3b
+ 1517 00a3 0B       		.uleb128 0xb
+ 1518 00a4 11       		.uleb128 0x11
+ 1519 00a5 01       		.uleb128 0x1
+ 1520 00a6 12       		.uleb128 0x12
+ 1521 00a7 06       		.uleb128 0x6
+ 1522 00a8 40       		.uleb128 0x40
+ 1523 00a9 18       		.uleb128 0x18
+ 1524 00aa 9742     		.uleb128 0x2117
+ 1525 00ac 19       		.uleb128 0x19
+ 1526 00ad 01       		.uleb128 0x1
+ 1527 00ae 13       		.uleb128 0x13
+ 1528 00af 00       		.byte	0
+ 1529 00b0 00       		.byte	0
+ 1530 00b1 0D       		.uleb128 0xd
+ 1531 00b2 34       		.uleb128 0x34
+ 1532 00b3 00       		.byte	0
+ 1533 00b4 03       		.uleb128 0x3
+ 1534 00b5 0E       		.uleb128 0xe
+ 1535 00b6 3A       		.uleb128 0x3a
+ 1536 00b7 0B       		.uleb128 0xb
+ 1537 00b8 3B       		.uleb128 0x3b
+ 1538 00b9 0B       		.uleb128 0xb
+ 1539 00ba 49       		.uleb128 0x49
+ 1540 00bb 13       		.uleb128 0x13
+ 1541 00bc 02       		.uleb128 0x2
+ 1542 00bd 17       		.uleb128 0x17
+ 1543 00be 00       		.byte	0
+ 1544 00bf 00       		.byte	0
+ 1545 00c0 0E       		.uleb128 0xe
+ 1546 00c1 0B       		.uleb128 0xb
+ 1547 00c2 01       		.byte	0x1
+ 1548 00c3 11       		.uleb128 0x11
+ 1549 00c4 01       		.uleb128 0x1
+ 1550 00c5 12       		.uleb128 0x12
+ 1551 00c6 06       		.uleb128 0x6
+ 1552 00c7 01       		.uleb128 0x1
+ 1553 00c8 13       		.uleb128 0x13
+ 1554 00c9 00       		.byte	0
+ 1555 00ca 00       		.byte	0
+ 1556 00cb 0F       		.uleb128 0xf
+ 1557 00cc 34       		.uleb128 0x34
+ 1558 00cd 00       		.byte	0
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 31
+
+
+ 1559 00ce 03       		.uleb128 0x3
+ 1560 00cf 08       		.uleb128 0x8
+ 1561 00d0 3A       		.uleb128 0x3a
+ 1562 00d1 0B       		.uleb128 0xb
+ 1563 00d2 3B       		.uleb128 0x3b
+ 1564 00d3 0B       		.uleb128 0xb
+ 1565 00d4 49       		.uleb128 0x49
+ 1566 00d5 13       		.uleb128 0x13
+ 1567 00d6 02       		.uleb128 0x2
+ 1568 00d7 17       		.uleb128 0x17
+ 1569 00d8 00       		.byte	0
+ 1570 00d9 00       		.byte	0
+ 1571 00da 10       		.uleb128 0x10
+ 1572 00db 0B       		.uleb128 0xb
+ 1573 00dc 01       		.byte	0x1
+ 1574 00dd 11       		.uleb128 0x11
+ 1575 00de 01       		.uleb128 0x1
+ 1576 00df 12       		.uleb128 0x12
+ 1577 00e0 06       		.uleb128 0x6
+ 1578 00e1 00       		.byte	0
+ 1579 00e2 00       		.byte	0
+ 1580 00e3 11       		.uleb128 0x11
+ 1581 00e4 2E       		.uleb128 0x2e
+ 1582 00e5 01       		.byte	0x1
+ 1583 00e6 3F       		.uleb128 0x3f
+ 1584 00e7 19       		.uleb128 0x19
+ 1585 00e8 03       		.uleb128 0x3
+ 1586 00e9 0E       		.uleb128 0xe
+ 1587 00ea 3A       		.uleb128 0x3a
+ 1588 00eb 0B       		.uleb128 0xb
+ 1589 00ec 3B       		.uleb128 0x3b
+ 1590 00ed 0B       		.uleb128 0xb
+ 1591 00ee 49       		.uleb128 0x49
+ 1592 00ef 13       		.uleb128 0x13
+ 1593 00f0 3C       		.uleb128 0x3c
+ 1594 00f1 19       		.uleb128 0x19
+ 1595 00f2 01       		.uleb128 0x1
+ 1596 00f3 13       		.uleb128 0x13
+ 1597 00f4 00       		.byte	0
+ 1598 00f5 00       		.byte	0
+ 1599 00f6 12       		.uleb128 0x12
+ 1600 00f7 18       		.uleb128 0x18
+ 1601 00f8 00       		.byte	0
+ 1602 00f9 00       		.byte	0
+ 1603 00fa 00       		.byte	0
+ 1604 00fb 13       		.uleb128 0x13
+ 1605 00fc 2E       		.uleb128 0x2e
+ 1606 00fd 00       		.byte	0
+ 1607 00fe 3F       		.uleb128 0x3f
+ 1608 00ff 19       		.uleb128 0x19
+ 1609 0100 03       		.uleb128 0x3
+ 1610 0101 0E       		.uleb128 0xe
+ 1611 0102 3A       		.uleb128 0x3a
+ 1612 0103 0B       		.uleb128 0xb
+ 1613 0104 3B       		.uleb128 0x3b
+ 1614 0105 0B       		.uleb128 0xb
+ 1615 0106 27       		.uleb128 0x27
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 32
+
+
+ 1616 0107 19       		.uleb128 0x19
+ 1617 0108 11       		.uleb128 0x11
+ 1618 0109 01       		.uleb128 0x1
+ 1619 010a 12       		.uleb128 0x12
+ 1620 010b 06       		.uleb128 0x6
+ 1621 010c 40       		.uleb128 0x40
+ 1622 010d 18       		.uleb128 0x18
+ 1623 010e 9742     		.uleb128 0x2117
+ 1624 0110 19       		.uleb128 0x19
+ 1625 0111 00       		.byte	0
+ 1626 0112 00       		.byte	0
+ 1627 0113 14       		.uleb128 0x14
+ 1628 0114 2E       		.uleb128 0x2e
+ 1629 0115 01       		.byte	0x1
+ 1630 0116 3F       		.uleb128 0x3f
+ 1631 0117 19       		.uleb128 0x19
+ 1632 0118 03       		.uleb128 0x3
+ 1633 0119 0E       		.uleb128 0xe
+ 1634 011a 3A       		.uleb128 0x3a
+ 1635 011b 0B       		.uleb128 0xb
+ 1636 011c 3B       		.uleb128 0x3b
+ 1637 011d 0B       		.uleb128 0xb
+ 1638 011e 27       		.uleb128 0x27
+ 1639 011f 19       		.uleb128 0x19
+ 1640 0120 49       		.uleb128 0x49
+ 1641 0121 13       		.uleb128 0x13
+ 1642 0122 8701     		.uleb128 0x87
+ 1643 0124 19       		.uleb128 0x19
+ 1644 0125 11       		.uleb128 0x11
+ 1645 0126 01       		.uleb128 0x1
+ 1646 0127 12       		.uleb128 0x12
+ 1647 0128 06       		.uleb128 0x6
+ 1648 0129 40       		.uleb128 0x40
+ 1649 012a 18       		.uleb128 0x18
+ 1650 012b 9742     		.uleb128 0x2117
+ 1651 012d 19       		.uleb128 0x19
+ 1652 012e 01       		.uleb128 0x1
+ 1653 012f 13       		.uleb128 0x13
+ 1654 0130 00       		.byte	0
+ 1655 0131 00       		.byte	0
+ 1656 0132 15       		.uleb128 0x15
+ 1657 0133 898201   		.uleb128 0x4109
+ 1658 0136 00       		.byte	0
+ 1659 0137 11       		.uleb128 0x11
+ 1660 0138 01       		.uleb128 0x1
+ 1661 0139 31       		.uleb128 0x31
+ 1662 013a 13       		.uleb128 0x13
+ 1663 013b 00       		.byte	0
+ 1664 013c 00       		.byte	0
+ 1665 013d 16       		.uleb128 0x16
+ 1666 013e 34       		.uleb128 0x34
+ 1667 013f 00       		.byte	0
+ 1668 0140 03       		.uleb128 0x3
+ 1669 0141 0E       		.uleb128 0xe
+ 1670 0142 3A       		.uleb128 0x3a
+ 1671 0143 0B       		.uleb128 0xb
+ 1672 0144 3B       		.uleb128 0x3b
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 33
+
+
+ 1673 0145 0B       		.uleb128 0xb
+ 1674 0146 49       		.uleb128 0x49
+ 1675 0147 13       		.uleb128 0x13
+ 1676 0148 3F       		.uleb128 0x3f
+ 1677 0149 19       		.uleb128 0x19
+ 1678 014a 02       		.uleb128 0x2
+ 1679 014b 18       		.uleb128 0x18
+ 1680 014c 00       		.byte	0
+ 1681 014d 00       		.byte	0
+ 1682 014e 17       		.uleb128 0x17
+ 1683 014f 01       		.uleb128 0x1
+ 1684 0150 01       		.byte	0x1
+ 1685 0151 49       		.uleb128 0x49
+ 1686 0152 13       		.uleb128 0x13
+ 1687 0153 01       		.uleb128 0x1
+ 1688 0154 13       		.uleb128 0x13
+ 1689 0155 00       		.byte	0
+ 1690 0156 00       		.byte	0
+ 1691 0157 18       		.uleb128 0x18
+ 1692 0158 21       		.uleb128 0x21
+ 1693 0159 00       		.byte	0
+ 1694 015a 49       		.uleb128 0x49
+ 1695 015b 13       		.uleb128 0x13
+ 1696 015c 2F       		.uleb128 0x2f
+ 1697 015d 0B       		.uleb128 0xb
+ 1698 015e 00       		.byte	0
+ 1699 015f 00       		.byte	0
+ 1700 0160 19       		.uleb128 0x19
+ 1701 0161 2E       		.uleb128 0x2e
+ 1702 0162 00       		.byte	0
+ 1703 0163 3F       		.uleb128 0x3f
+ 1704 0164 19       		.uleb128 0x19
+ 1705 0165 3C       		.uleb128 0x3c
+ 1706 0166 19       		.uleb128 0x19
+ 1707 0167 6E       		.uleb128 0x6e
+ 1708 0168 0E       		.uleb128 0xe
+ 1709 0169 03       		.uleb128 0x3
+ 1710 016a 0E       		.uleb128 0xe
+ 1711 016b 3A       		.uleb128 0x3a
+ 1712 016c 0B       		.uleb128 0xb
+ 1713 016d 3B       		.uleb128 0x3b
+ 1714 016e 05       		.uleb128 0x5
+ 1715 016f 00       		.byte	0
+ 1716 0170 00       		.byte	0
+ 1717 0171 1A       		.uleb128 0x1a
+ 1718 0172 2E       		.uleb128 0x2e
+ 1719 0173 00       		.byte	0
+ 1720 0174 3F       		.uleb128 0x3f
+ 1721 0175 19       		.uleb128 0x19
+ 1722 0176 3C       		.uleb128 0x3c
+ 1723 0177 19       		.uleb128 0x19
+ 1724 0178 6E       		.uleb128 0x6e
+ 1725 0179 0E       		.uleb128 0xe
+ 1726 017a 03       		.uleb128 0x3
+ 1727 017b 0E       		.uleb128 0xe
+ 1728 017c 3A       		.uleb128 0x3a
+ 1729 017d 0B       		.uleb128 0xb
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 34
+
+
+ 1730 017e 3B       		.uleb128 0x3b
+ 1731 017f 0B       		.uleb128 0xb
+ 1732 0180 00       		.byte	0
+ 1733 0181 00       		.byte	0
+ 1734 0182 00       		.byte	0
+ 1735              		.section	.debug_loc,"",%progbits
+ 1736              	.Ldebug_loc0:
+ 1737              	.LLST0:
+ 1738 0000 00000000 		.4byte	.LVL0
+ 1739 0004 06000000 		.4byte	.LVL1
+ 1740 0008 0100     		.2byte	0x1
+ 1741 000a 50       		.byte	0x50
+ 1742 000b 06000000 		.4byte	.LVL1
+ 1743 000f 22000000 		.4byte	.LVL7
+ 1744 0013 0100     		.2byte	0x1
+ 1745 0015 54       		.byte	0x54
+ 1746 0016 22000000 		.4byte	.LVL7
+ 1747 001a 24000000 		.4byte	.LFE36
+ 1748 001e 0400     		.2byte	0x4
+ 1749 0020 F3       		.byte	0xf3
+ 1750 0021 01       		.uleb128 0x1
+ 1751 0022 50       		.byte	0x50
+ 1752 0023 9F       		.byte	0x9f
+ 1753 0024 00000000 		.4byte	0
+ 1754 0028 00000000 		.4byte	0
+ 1755              	.LLST1:
+ 1756 002c 02000000 		.4byte	.LVL8
+ 1757 0030 06000000 		.4byte	.LVL9
+ 1758 0034 0200     		.2byte	0x2
+ 1759 0036 30       		.byte	0x30
+ 1760 0037 9F       		.byte	0x9f
+ 1761 0038 0E000000 		.4byte	.LVL11
+ 1762 003c 10000000 		.4byte	.LVL12
+ 1763 0040 0100     		.2byte	0x1
+ 1764 0042 52       		.byte	0x52
+ 1765 0043 10000000 		.4byte	.LVL12
+ 1766 0047 18000000 		.4byte	.LVL13
+ 1767 004b 0100     		.2byte	0x1
+ 1768 004d 50       		.byte	0x50
+ 1769 004e 30000000 		.4byte	.LVL18
+ 1770 0052 32000000 		.4byte	.LVL19
+ 1771 0056 0100     		.2byte	0x1
+ 1772 0058 52       		.byte	0x52
+ 1773 0059 32000000 		.4byte	.LVL19
+ 1774 005d 36000000 		.4byte	.LVL20
+ 1775 0061 0100     		.2byte	0x1
+ 1776 0063 50       		.byte	0x50
+ 1777 0064 00000000 		.4byte	0
+ 1778 0068 00000000 		.4byte	0
+ 1779              	.LLST2:
+ 1780 006c 02000000 		.4byte	.LVL8
+ 1781 0070 06000000 		.4byte	.LVL9
+ 1782 0074 0200     		.2byte	0x2
+ 1783 0076 31       		.byte	0x31
+ 1784 0077 9F       		.byte	0x9f
+ 1785 0078 06000000 		.4byte	.LVL9
+ 1786 007c 58000000 		.4byte	.LVL27
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 35
+
+
+ 1787 0080 0100     		.2byte	0x1
+ 1788 0082 54       		.byte	0x54
+ 1789 0083 00000000 		.4byte	0
+ 1790 0087 00000000 		.4byte	0
+ 1791              	.LLST3:
+ 1792 008b 00000000 		.4byte	.LVL28
+ 1793 008f 08000000 		.4byte	.LVL30
+ 1794 0093 0100     		.2byte	0x1
+ 1795 0095 50       		.byte	0x50
+ 1796 0096 08000000 		.4byte	.LVL30
+ 1797 009a 32000000 		.4byte	.LVL35
+ 1798 009e 0100     		.2byte	0x1
+ 1799 00a0 55       		.byte	0x55
+ 1800 00a1 32000000 		.4byte	.LVL35
+ 1801 00a5 3C000000 		.4byte	.LFE38
+ 1802 00a9 0400     		.2byte	0x4
+ 1803 00ab F3       		.byte	0xf3
+ 1804 00ac 01       		.uleb128 0x1
+ 1805 00ad 50       		.byte	0x50
+ 1806 00ae 9F       		.byte	0x9f
+ 1807 00af 00000000 		.4byte	0
+ 1808 00b3 00000000 		.4byte	0
+ 1809              	.LLST4:
+ 1810 00b7 04000000 		.4byte	.LVL29
+ 1811 00bb 08000000 		.4byte	.LVL30
+ 1812 00bf 0200     		.2byte	0x2
+ 1813 00c1 30       		.byte	0x30
+ 1814 00c2 9F       		.byte	0x9f
+ 1815 00c3 08000000 		.4byte	.LVL30
+ 1816 00c7 32000000 		.4byte	.LVL34
+ 1817 00cb 0100     		.2byte	0x1
+ 1818 00cd 54       		.byte	0x54
+ 1819 00ce 00000000 		.4byte	0
+ 1820 00d2 00000000 		.4byte	0
+ 1821              	.LLST5:
+ 1822 00d6 00000000 		.4byte	.LVL36
+ 1823 00da 18000000 		.4byte	.LVL37
+ 1824 00de 0100     		.2byte	0x1
+ 1825 00e0 50       		.byte	0x50
+ 1826 00e1 18000000 		.4byte	.LVL37
+ 1827 00e5 1E000000 		.4byte	.LVL39
+ 1828 00e9 0400     		.2byte	0x4
+ 1829 00eb F3       		.byte	0xf3
+ 1830 00ec 01       		.uleb128 0x1
+ 1831 00ed 50       		.byte	0x50
+ 1832 00ee 9F       		.byte	0x9f
+ 1833 00ef 1E000000 		.4byte	.LVL39
+ 1834 00f3 30000000 		.4byte	.LVL40
+ 1835 00f7 0100     		.2byte	0x1
+ 1836 00f9 50       		.byte	0x50
+ 1837 00fa 30000000 		.4byte	.LVL40
+ 1838 00fe 42000000 		.4byte	.LVL43
+ 1839 0102 0400     		.2byte	0x4
+ 1840 0104 F3       		.byte	0xf3
+ 1841 0105 01       		.uleb128 0x1
+ 1842 0106 50       		.byte	0x50
+ 1843 0107 9F       		.byte	0x9f
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 36
+
+
+ 1844 0108 42000000 		.4byte	.LVL43
+ 1845 010c 48000000 		.4byte	.LVL44
+ 1846 0110 0100     		.2byte	0x1
+ 1847 0112 50       		.byte	0x50
+ 1848 0113 48000000 		.4byte	.LVL44
+ 1849 0117 5A000000 		.4byte	.LVL47
+ 1850 011b 0400     		.2byte	0x4
+ 1851 011d F3       		.byte	0xf3
+ 1852 011e 01       		.uleb128 0x1
+ 1853 011f 50       		.byte	0x50
+ 1854 0120 9F       		.byte	0x9f
+ 1855 0121 5A000000 		.4byte	.LVL47
+ 1856 0125 6C000000 		.4byte	.LVL48
+ 1857 0129 0100     		.2byte	0x1
+ 1858 012b 50       		.byte	0x50
+ 1859 012c 6C000000 		.4byte	.LVL48
+ 1860 0130 78000000 		.4byte	.LVL49
+ 1861 0134 0400     		.2byte	0x4
+ 1862 0136 F3       		.byte	0xf3
+ 1863 0137 01       		.uleb128 0x1
+ 1864 0138 50       		.byte	0x50
+ 1865 0139 9F       		.byte	0x9f
+ 1866 013a 78000000 		.4byte	.LVL49
+ 1867 013e 92000000 		.4byte	.LVL50
+ 1868 0142 0100     		.2byte	0x1
+ 1869 0144 50       		.byte	0x50
+ 1870 0145 92000000 		.4byte	.LVL50
+ 1871 0149 A8000000 		.4byte	.LVL53
+ 1872 014d 0400     		.2byte	0x4
+ 1873 014f F3       		.byte	0xf3
+ 1874 0150 01       		.uleb128 0x1
+ 1875 0151 50       		.byte	0x50
+ 1876 0152 9F       		.byte	0x9f
+ 1877 0153 A8000000 		.4byte	.LVL53
+ 1878 0157 C0000000 		.4byte	.LVL54
+ 1879 015b 0100     		.2byte	0x1
+ 1880 015d 50       		.byte	0x50
+ 1881 015e C0000000 		.4byte	.LVL54
+ 1882 0162 EC000000 		.4byte	.LFE39
+ 1883 0166 0400     		.2byte	0x4
+ 1884 0168 F3       		.byte	0xf3
+ 1885 0169 01       		.uleb128 0x1
+ 1886 016a 50       		.byte	0x50
+ 1887 016b 9F       		.byte	0x9f
+ 1888 016c 00000000 		.4byte	0
+ 1889 0170 00000000 		.4byte	0
+ 1890              	.LLST6:
+ 1891 0174 0E000000 		.4byte	.LVL57
+ 1892 0178 10000000 		.4byte	.LVL58
+ 1893 017c 0100     		.2byte	0x1
+ 1894 017e 52       		.byte	0x52
+ 1895 017f 10000000 		.4byte	.LVL58
+ 1896 0183 16000000 		.4byte	.LVL59
+ 1897 0187 0100     		.2byte	0x1
+ 1898 0189 50       		.byte	0x50
+ 1899 018a 00000000 		.4byte	0
+ 1900 018e 00000000 		.4byte	0
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 37
+
+
+ 1901              		.section	.debug_aranges,"",%progbits
+ 1902 0000 44000000 		.4byte	0x44
+ 1903 0004 0200     		.2byte	0x2
+ 1904 0006 00000000 		.4byte	.Ldebug_info0
+ 1905 000a 04       		.byte	0x4
+ 1906 000b 00       		.byte	0
+ 1907 000c 0000     		.2byte	0
+ 1908 000e 0000     		.2byte	0
+ 1909 0010 00000000 		.4byte	.LFB36
+ 1910 0014 24000000 		.4byte	.LFE36-.LFB36
+ 1911 0018 00000000 		.4byte	.LFB37
+ 1912 001c 64000000 		.4byte	.LFE37-.LFB37
+ 1913 0020 00000000 		.4byte	.LFB38
+ 1914 0024 3C000000 		.4byte	.LFE38-.LFB38
+ 1915 0028 00000000 		.4byte	.LFB39
+ 1916 002c EC000000 		.4byte	.LFE39-.LFB39
+ 1917 0030 00000000 		.4byte	.LFB40
+ 1918 0034 0C000000 		.4byte	.LFE40-.LFB40
+ 1919 0038 00000000 		.4byte	.LFB41
+ 1920 003c 30000000 		.4byte	.LFE41-.LFB41
+ 1921 0040 00000000 		.4byte	0
+ 1922 0044 00000000 		.4byte	0
+ 1923              		.section	.debug_ranges,"",%progbits
+ 1924              	.Ldebug_ranges0:
+ 1925 0000 00000000 		.4byte	.LFB36
+ 1926 0004 24000000 		.4byte	.LFE36
+ 1927 0008 00000000 		.4byte	.LFB37
+ 1928 000c 64000000 		.4byte	.LFE37
+ 1929 0010 00000000 		.4byte	.LFB38
+ 1930 0014 3C000000 		.4byte	.LFE38
+ 1931 0018 00000000 		.4byte	.LFB39
+ 1932 001c EC000000 		.4byte	.LFE39
+ 1933 0020 00000000 		.4byte	.LFB40
+ 1934 0024 0C000000 		.4byte	.LFE40
+ 1935 0028 00000000 		.4byte	.LFB41
+ 1936 002c 30000000 		.4byte	.LFE41
+ 1937 0030 00000000 		.4byte	0
+ 1938 0034 00000000 		.4byte	0
+ 1939              		.section	.debug_line,"",%progbits
+ 1940              	.Ldebug_line0:
+ 1941 0000 DF020000 		.section	.debug_str,"MS",%progbits,1
+ 1941      0200F101 
+ 1941      00000201 
+ 1941      FB0E0D00 
+ 1941      01010101 
+ 1942              	.LASF44:
+ 1943 0000 73706565 		.ascii	"speed_buf\000"
+ 1943      645F6275 
+ 1943      6600
+ 1944              	.LASF2:
+ 1945 000a 5F5F696E 		.ascii	"__int8_t\000"
+ 1945      74385F74 
+ 1945      00
+ 1946              	.LASF48:
+ 1947 0013 50696E5F 		.ascii	"Pin_Input_DOWN_Read\000"
+ 1947      496E7075 
+ 1947      745F444F 
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 38
+
+
+ 1947      574E5F52 
+ 1947      65616400 
+ 1948              	.LASF39:
+ 1949 0027 636F6E66 		.ascii	"conf_iterator\000"
+ 1949      5F697465 
+ 1949      7261746F 
+ 1949      7200
+ 1950              	.LASF35:
+ 1951 0035 6D616E75 		.ascii	"manual_control_flag\000"
+ 1951      616C5F63 
+ 1951      6F6E7472 
+ 1951      6F6C5F66 
+ 1951      6C616700 
+ 1952              	.LASF3:
+ 1953 0049 5F5F696E 		.ascii	"__int16_t\000"
+ 1953      7431365F 
+ 1953      7400
+ 1954              	.LASF7:
+ 1955 0053 6C6F6E67 		.ascii	"long int\000"
+ 1955      20696E74 
+ 1955      00
+ 1956              	.LASF45:
+ 1957 005c 55415254 		.ascii	"UART_SpiUartWriteTxData\000"
+ 1957      5F537069 
+ 1957      55617274 
+ 1957      57726974 
+ 1957      65547844 
+ 1958              	.LASF32:
+ 1959 0074 696E705F 		.ascii	"inp_ch\000"
+ 1959      636800
+ 1960              	.LASF38:
+ 1961 007b 636F6E66 		.ascii	"conf_size\000"
+ 1961      5F73697A 
+ 1961      6500
+ 1962              	.LASF28:
+ 1963 0085 74657874 		.ascii	"text\000"
+ 1963      00
+ 1964              	.LASF12:
+ 1965 008a 696E7438 		.ascii	"int8_t\000"
+ 1965      5F7400
+ 1966              	.LASF46:
+ 1967 0091 55415254 		.ascii	"UART_UartPutString\000"
+ 1967      5F556172 
+ 1967      74507574 
+ 1967      53747269 
+ 1967      6E6700
+ 1968              	.LASF25:
+ 1969 00a4 46616E43 		.ascii	"FanController_GetDesiredSpeed\000"
+ 1969      6F6E7472 
+ 1969      6F6C6C65 
+ 1969      725F4765 
+ 1969      74446573 
+ 1970              	.LASF18:
+ 1971 00c2 666C6F61 		.ascii	"float\000"
+ 1971      7400
+ 1972              	.LASF30:
+ 1973 00c8 46616E43 		.ascii	"FanController_SetDesiredSpeed\000"
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 39
+
+
+ 1973      6F6E7472 
+ 1973      6F6C6C65 
+ 1973      725F5365 
+ 1973      74446573 
+ 1974              	.LASF24:
+ 1975 00e6 46616E43 		.ascii	"FanController_GetActualSpeed\000"
+ 1975      6F6E7472 
+ 1975      6F6C6C65 
+ 1975      725F4765 
+ 1975      74416374 
+ 1976              	.LASF1:
+ 1977 0103 756E7369 		.ascii	"unsigned char\000"
+ 1977      676E6564 
+ 1977      20636861 
+ 1977      7200
+ 1978              	.LASF23:
+ 1979 0111 63757272 		.ascii	"current_rpm\000"
+ 1979      656E745F 
+ 1979      72706D00 
+ 1980              	.LASF17:
+ 1981 011d 696E7431 		.ascii	"int16\000"
+ 1981      3600
+ 1982              	.LASF8:
+ 1983 0123 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1983      20756E73 
+ 1983      69676E65 
+ 1983      6420696E 
+ 1983      7400
+ 1984              	.LASF6:
+ 1985 0135 73686F72 		.ascii	"short unsigned int\000"
+ 1985      7420756E 
+ 1985      7369676E 
+ 1985      65642069 
+ 1985      6E7400
+ 1986              	.LASF49:
+ 1987 0148 55415254 		.ascii	"UART_Start\000"
+ 1987      5F537461 
+ 1987      727400
+ 1988              	.LASF36:
+ 1989 0153 75617274 		.ascii	"uart_rpm_buff\000"
+ 1989      5F72706D 
+ 1989      5F627566 
+ 1989      6600
+ 1990              	.LASF31:
+ 1991 0161 68616E64 		.ascii	"handle_UART_input\000"
+ 1991      6C655F55 
+ 1991      4152545F 
+ 1991      696E7075 
+ 1991      7400
+ 1992              	.LASF5:
+ 1993 0173 5F5F7569 		.ascii	"__uint16_t\000"
+ 1993      6E743136 
+ 1993      5F7400
+ 1994              	.LASF19:
+ 1995 017e 646F7562 		.ascii	"double\000"
+ 1995      6C6500
+ 1996              	.LASF55:
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 40
+
+
+ 1997 0185 6D61696E 		.ascii	"main\000"
+ 1997      00
+ 1998              	.LASF16:
+ 1999 018a 696E7438 		.ascii	"int8\000"
+ 1999      00
+ 2000              	.LASF15:
+ 2001 018f 75696E74 		.ascii	"uint32\000"
+ 2001      333200
+ 2002              	.LASF52:
+ 2003 0196 433A5C55 		.ascii	"C:\\Users\\Oleg\\Downloads\\CyberPong-main\\Testing"
+ 2003      73657273 
+ 2003      5C4F6C65 
+ 2003      675C446F 
+ 2003      776E6C6F 
+ 2004 01c4 2E637964 		.ascii	".cydsn\000"
+ 2004      736E00
+ 2005              	.LASF11:
+ 2006 01cb 756E7369 		.ascii	"unsigned int\000"
+ 2006      676E6564 
+ 2006      20696E74 
+ 2006      00
+ 2007              	.LASF10:
+ 2008 01d8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2008      206C6F6E 
+ 2008      6720756E 
+ 2008      7369676E 
+ 2008      65642069 
+ 2009              	.LASF26:
+ 2010 01ef 55415254 		.ascii	"UART_print_string\000"
+ 2010      5F707269 
+ 2010      6E745F73 
+ 2010      7472696E 
+ 2010      6700
+ 2011              	.LASF40:
+ 2012 0201 73706565 		.ascii	"speed_idx\000"
+ 2012      645F6964 
+ 2012      7800
+ 2013              	.LASF13:
+ 2014 020b 696E7431 		.ascii	"int16_t\000"
+ 2014      365F7400 
+ 2015              	.LASF0:
+ 2016 0213 7369676E 		.ascii	"signed char\000"
+ 2016      65642063 
+ 2016      68617200 
+ 2017              	.LASF50:
+ 2018 021f 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2018      43313120 
+ 2018      352E342E 
+ 2018      31203230 
+ 2018      31363036 
+ 2019 0252 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 2019      20726576 
+ 2019      6973696F 
+ 2019      6E203233 
+ 2019      37373135 
+ 2020 0285 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2020      66756E63 
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 41
+
+
+ 2020      74696F6E 
+ 2020      2D736563 
+ 2020      74696F6E 
+ 2021              	.LASF42:
+ 2022 02ad 73657276 		.ascii	"serving_enabled\000"
+ 2022      696E675F 
+ 2022      656E6162 
+ 2022      6C656400 
+ 2023              	.LASF22:
+ 2024 02bd 73697A65 		.ascii	"sizetype\000"
+ 2024      74797065 
+ 2024      00
+ 2025              	.LASF41:
+ 2026 02c6 6973725F 		.ascii	"isr_triggered\000"
+ 2026      74726967 
+ 2026      67657265 
+ 2026      6400
+ 2027              	.LASF53:
+ 2028 02d4 7072696E 		.ascii	"print_all_speed\000"
+ 2028      745F616C 
+ 2028      6C5F7370 
+ 2028      65656400 
+ 2029              	.LASF9:
+ 2030 02e4 6C6F6E67 		.ascii	"long long int\000"
+ 2030      206C6F6E 
+ 2030      6720696E 
+ 2030      7400
+ 2031              	.LASF51:
+ 2032 02f2 6D61696E 		.ascii	"main.c\000"
+ 2032      2E6300
+ 2033              	.LASF20:
+ 2034 02f9 63686172 		.ascii	"char\000"
+ 2034      00
+ 2035              	.LASF37:
+ 2036 02fe 73706565 		.ascii	"speed_configs\000"
+ 2036      645F636F 
+ 2036      6E666967 
+ 2036      7300
+ 2037              	.LASF4:
+ 2038 030c 73686F72 		.ascii	"short int\000"
+ 2038      7420696E 
+ 2038      7400
+ 2039              	.LASF43:
+ 2040 0316 6D6F746F 		.ascii	"motor_speeds\000"
+ 2040      725F7370 
+ 2040      65656473 
+ 2040      00
+ 2041              	.LASF14:
+ 2042 0323 75696E74 		.ascii	"uint16_t\000"
+ 2042      31365F74 
+ 2042      00
+ 2043              	.LASF33:
+ 2044 032c 50696E5F 		.ascii	"Pin_Serve_Write\000"
+ 2044      53657276 
+ 2044      655F5772 
+ 2044      69746500 
+ 2045              	.LASF34:
+ARM GAS  C:\Windows\TEMP\cctU8eWq.s 			page 42
+
+
+ 2046 033c 7072696E 		.ascii	"print_speed_flag\000"
+ 2046      745F7370 
+ 2046      6565645F 
+ 2046      666C6167 
+ 2046      00
+ 2047              	.LASF21:
+ 2048 034d 6C6F6E67 		.ascii	"long double\000"
+ 2048      20646F75 
+ 2048      626C6500 
+ 2049              	.LASF27:
+ 2050 0359 77726974 		.ascii	"write_motor_speed\000"
+ 2050      655F6D6F 
+ 2050      746F725F 
+ 2050      73706565 
+ 2050      6400
+ 2051              	.LASF29:
+ 2052 036b 73706565 		.ascii	"speeds\000"
+ 2052      647300
+ 2053              	.LASF47:
+ 2054 0372 73707269 		.ascii	"sprintf\000"
+ 2054      6E746600 
+ 2055              	.LASF54:
+ 2056 037a 42616C6C 		.ascii	"Ball_Trigger_Handler\000"
+ 2056      5F547269 
+ 2056      67676572 
+ 2056      5F48616E 
+ 2056      646C6572 
+ 2057              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
