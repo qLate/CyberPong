@@ -138,6 +138,7 @@ int main(void)
     manual_control_flag = 1;
     
     write_motor_speed(speed_configs[3]);
+    FanController_SetDesiredSpeed(4, 0);
     
     for(;;)
     {   

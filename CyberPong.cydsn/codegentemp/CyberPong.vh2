@@ -2,7 +2,7 @@
 --	Conversion of CyberPong.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Oct 27 20:49:42 2022
+--	Fri Oct 28 18:53:33 2022
 --
 
 USE cypress.cypress.all;
@@ -626,13 +626,13 @@ SIGNAL \Control_Rotation:control_out_1\ : bit;
 SIGNAL \Control_Rotation:control_out_2\ : bit;
 SIGNAL Net_1307 : bit;
 SIGNAL \Control_Rotation:control_out_3\ : bit;
-SIGNAL Net_1540 : bit;
+SIGNAL Net_1558 : bit;
 SIGNAL \Control_Rotation:control_out_4\ : bit;
-SIGNAL Net_1541 : bit;
+SIGNAL Net_1559 : bit;
 SIGNAL \Control_Rotation:control_out_5\ : bit;
-SIGNAL Net_1542 : bit;
+SIGNAL Net_1560 : bit;
 SIGNAL \Control_Rotation:control_out_6\ : bit;
-SIGNAL Net_1543 : bit;
+SIGNAL Net_1561 : bit;
 SIGNAL \Control_Rotation:control_out_7\ : bit;
 SIGNAL \Control_Rotation:control_7\ : bit;
 SIGNAL \Control_Rotation:control_6\ : bit;
@@ -1740,7 +1740,7 @@ Pin_Input_DOWN:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__Pin_Output_LEFT_net_0),
 		y=>(zero),
-		fb=>Net_823,
+		fb=>Net_779,
 		analog=>(open),
 		io=>(tmpIO_0__Pin_Input_DOWN_net_0),
 		siovref=>(tmpSIOVREF__Pin_Input_DOWN_net_0),
@@ -1880,7 +1880,7 @@ Pin_Input_UP:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__Pin_Output_LEFT_net_0),
 		y=>(zero),
-		fb=>Net_779,
+		fb=>Net_823,
 		analog=>(open),
 		io=>(tmpIO_0__Pin_Input_UP_net_0),
 		siovref=>(tmpSIOVREF__Pin_Input_UP_net_0),
@@ -2107,7 +2107,7 @@ Pin_Output_UP_GROUND:cy_psoc3_pins_v1_10
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__Pin_Output_UP_GROUND_net_0);
 \Control_Rotation:Sync:ctrl_reg\:cy_psoc3_control
-	GENERIC MAP(cy_init_value=>"00000011",
+	GENERIC MAP(cy_init_value=>"00001111",
 		cy_force_order=>'1',
 		cy_ctrl_mode_1=>"00000000",
 		cy_ctrl_mode_0=>"00000000",

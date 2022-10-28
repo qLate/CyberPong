@@ -1,6 +1,6 @@
 // ======================================================================
 // CyberPong.v generated from TopDesign.cysch
-// 10/27/2022 at 20:49
+// 10/28/2022 at 18:53
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1379,12 +1379,12 @@ module top ;
           wire  Net_1552;
           wire  Net_1551;
           wire  Net_1380;
-          wire  Net_1544;
-          wire  Net_1543;
-          wire  Net_1542;
-          wire  Net_1541;
-          wire  Net_1540;
-          wire  Net_1539;
+          wire  Net_1562;
+          wire  Net_1561;
+          wire  Net_1560;
+          wire  Net_1559;
+          wire  Net_1558;
+          wire  Net_1557;
           wire  Net_1350;
           wire  Net_828;
           wire  Net_1351;
@@ -1451,6 +1451,7 @@ module top ;
           wire  Net_186;
           wire  Net_185;
           wire  Net_1549;
+          wire  Net_779;
           wire  Net_1391;
           wire  Net_1399;
           wire  Net_1386;
@@ -1462,7 +1463,6 @@ module top ;
           wire  Net_1381;
           wire  Net_1379;
           wire  Net_823;
-          wire  Net_779;
           wire  Net_825;
           wire  Net_824;
           wire  Net_899;
@@ -1904,7 +1904,7 @@ module top ;
 		Pin_Input_DOWN
 		 (.oe(tmpOE__Pin_Input_DOWN_net),
 		  .y({1'b0}),
-		  .fb({Net_823}),
+		  .fb({Net_779}),
 		  .io({tmpIO_0__Pin_Input_DOWN_net[0:0]}),
 		  .siovref(tmpSIOVREF__Pin_Input_DOWN_net),
 		  .interrupt({tmpINTERRUPT_0__Pin_Input_DOWN_net[0:0]}),
@@ -2053,7 +2053,7 @@ module top ;
 		Pin_Input_UP
 		 (.oe(tmpOE__Pin_Input_UP_net),
 		  .y({1'b0}),
-		  .fb({Net_779}),
+		  .fb({Net_823}),
 		  .io({tmpIO_0__Pin_Input_UP_net[0:0]}),
 		  .siovref(tmpSIOVREF__Pin_Input_UP_net),
 		  .interrupt({tmpINTERRUPT_0__Pin_Input_UP_net[0:0]}),
@@ -2306,10 +2306,10 @@ module top ;
         .control_1(Net_1388),
         .control_2(Net_1378),
         .control_3(Net_1307),
-        .control_4(Net_1540),
-        .control_5(Net_1541),
-        .control_6(Net_1542),
-        .control_7(Net_1543),
+        .control_4(Net_1558),
+        .control_5(Net_1559),
+        .control_6(Net_1560),
+        .control_7(Net_1561),
         .reset(1'b0));
     defparam Control_Rotation.Bit0Mode = 0;
     defparam Control_Rotation.Bit1Mode = 0;
@@ -2319,7 +2319,7 @@ module top ;
     defparam Control_Rotation.Bit5Mode = 0;
     defparam Control_Rotation.Bit6Mode = 0;
     defparam Control_Rotation.Bit7Mode = 0;
-    defparam Control_Rotation.BitValue = 3;
+    defparam Control_Rotation.BitValue = 15;
     defparam Control_Rotation.BusDisplay = 0;
     defparam Control_Rotation.ExtrReset = 0;
     defparam Control_Rotation.NumOutputs = 4;
