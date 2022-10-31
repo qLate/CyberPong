@@ -1,5 +1,5 @@
 -- Project:   CyberPong
--- Generated: 10/28/2022 18:53:34
+-- Generated: 10/29/2022 20:08:32
 -- PSoC Creator  4.4
 
 ENTITY CyberPong IS
@@ -59,6 +59,7 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     SIGNAL Net_1550 : bit;
     SIGNAL Net_1551 : bit;
     SIGNAL Net_1552 : bit;
+    SIGNAL Net_1571 : bit;
     SIGNAL Net_187 : bit;
     SIGNAL Net_196 : bit;
     SIGNAL Net_205 : bit;
@@ -82,6 +83,7 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     SIGNAL Pin_Output_UP(0)__PA : bit;
     SIGNAL Pin_Output_UP_GROUND(0)__PA : bit;
     SIGNAL Pin_Serve(0)__PA : bit;
+    SIGNAL \Bluetooth:Net_15\ : bit;
     SIGNAL \Control_Rotation:control_4\ : bit;
     SIGNAL \Control_Rotation:control_5\ : bit;
     SIGNAL \Control_Rotation:control_6\ : bit;
@@ -200,7 +202,7 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     SIGNAL \FanController:FanTach:FanTachCounter:u1.cmsbo__sig\ : bit;
     ATTRIBUTE Location OF ClockGenBlock : LABEL IS "F(CLK_GEN,0)";
     ATTRIBUTE lib_model OF Pin_Output_LEFT(0) : LABEL IS "iocell1";
-    ATTRIBUTE Location OF Pin_Output_LEFT(0) : LABEL IS "P1[0]";
+    ATTRIBUTE Location OF Pin_Output_LEFT(0) : LABEL IS "P2[0]";
     ATTRIBUTE lib_model OF Pin_Input_LEFT(0) : LABEL IS "iocell2";
     ATTRIBUTE Location OF Pin_Input_LEFT(0) : LABEL IS "P0[0]";
     ATTRIBUTE lib_model OF \UART:tx(0)\ : LABEL IS "iocell3";
@@ -208,27 +210,27 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     ATTRIBUTE lib_model OF \UART:rx(0)\ : LABEL IS "iocell4";
     ATTRIBUTE Location OF \UART:rx(0)\ : LABEL IS "P1[4]";
     ATTRIBUTE lib_model OF Pin_Input_RIGHT(0) : LABEL IS "iocell5";
-    ATTRIBUTE Location OF Pin_Input_RIGHT(0) : LABEL IS "P0[2]";
+    ATTRIBUTE Location OF Pin_Input_RIGHT(0) : LABEL IS "P0[1]";
     ATTRIBUTE lib_model OF Pin_Output_RIGHT(0) : LABEL IS "iocell6";
-    ATTRIBUTE Location OF Pin_Output_RIGHT(0) : LABEL IS "P1[7]";
+    ATTRIBUTE Location OF Pin_Output_RIGHT(0) : LABEL IS "P2[1]";
     ATTRIBUTE lib_model OF Pin_Input_DOWN(0) : LABEL IS "iocell7";
-    ATTRIBUTE Location OF Pin_Input_DOWN(0) : LABEL IS "P0[5]";
+    ATTRIBUTE Location OF Pin_Input_DOWN(0) : LABEL IS "P0[3]";
     ATTRIBUTE lib_model OF Pin_Output_UP(0) : LABEL IS "iocell8";
-    ATTRIBUTE Location OF Pin_Output_UP(0) : LABEL IS "P2[1]";
+    ATTRIBUTE Location OF Pin_Output_UP(0) : LABEL IS "P2[2]";
     ATTRIBUTE lib_model OF Pin_Input_UP(0) : LABEL IS "iocell9";
-    ATTRIBUTE Location OF Pin_Input_UP(0) : LABEL IS "P0[4]";
+    ATTRIBUTE Location OF Pin_Input_UP(0) : LABEL IS "P0[2]";
     ATTRIBUTE lib_model OF Pin_Input_BallTrigger(0) : LABEL IS "iocell10";
     ATTRIBUTE lib_model OF Pin_Serve(0) : LABEL IS "iocell11";
     ATTRIBUTE lib_model OF Pin_Output_UP_GROUND(0) : LABEL IS "iocell12";
-    ATTRIBUTE Location OF Pin_Output_UP_GROUND(0) : LABEL IS "P3[1]";
+    ATTRIBUTE Location OF Pin_Output_UP_GROUND(0) : LABEL IS "P3[2]";
     ATTRIBUTE lib_model OF Pin_Output_DOWN(0) : LABEL IS "iocell13";
-    ATTRIBUTE Location OF Pin_Output_DOWN(0) : LABEL IS "P2[0]";
+    ATTRIBUTE Location OF Pin_Output_DOWN(0) : LABEL IS "P2[3]";
     ATTRIBUTE lib_model OF Pin_Output_DOWN_GROUND(0) : LABEL IS "iocell14";
-    ATTRIBUTE Location OF Pin_Output_DOWN_GROUND(0) : LABEL IS "P3[0]";
+    ATTRIBUTE Location OF Pin_Output_DOWN_GROUND(0) : LABEL IS "P3[3]";
     ATTRIBUTE lib_model OF Pin_Output_LEFT_GROUND(0) : LABEL IS "iocell15";
-    ATTRIBUTE Location OF Pin_Output_LEFT_GROUND(0) : LABEL IS "P1[1]";
+    ATTRIBUTE Location OF Pin_Output_LEFT_GROUND(0) : LABEL IS "P3[0]";
     ATTRIBUTE lib_model OF Pin_Output_RIGHT_GROUND(0) : LABEL IS "iocell16";
-    ATTRIBUTE Location OF Pin_Output_RIGHT_GROUND(0) : LABEL IS "P1[6]";
+    ATTRIBUTE Location OF Pin_Output_RIGHT_GROUND(0) : LABEL IS "P3[1]";
     ATTRIBUTE lib_model OF \FanController:B_FanCtrl:speed_status\ : LABEL IS "macrocell1";
     ATTRIBUTE lib_model OF \FanController:B_FanCtrl:stall_status\ : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF Net_757 : LABEL IS "macrocell3";
@@ -633,6 +635,16 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     ATTRIBUTE udb_chain OF macrocell : COMPONENT IS "cin,cout";
     ATTRIBUTE chain_lsb OF macrocell : COMPONENT IS "cin";
     ATTRIBUTE chain_msb OF macrocell : COMPONENT IS "cout";
+    COMPONENT p4blecell
+        PORT (
+            interrupt : OUT std_ulogic;
+            rfctrl_extpa_en : OUT std_ulogic;
+            wco_in : IN std_ulogic;
+            wco_out : OUT std_ulogic;
+            ext_pa_tx_ctl : OUT std_ulogic;
+            ext_lna_rx_ctl : OUT std_ulogic;
+            ext_pa_lna_chip_en : OUT std_ulogic);
+    END COMPONENT;
     COMPONENT statusicell
         PORT (
             status_0 : IN std_ulogic;
@@ -1309,7 +1321,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_Input_DOWN(0)__PA,
             oe => open,
-            fb => Net_779,
+            fb => Net_823,
             pad_in => Pin_Input_DOWN(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -1400,7 +1412,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_Output_UP(0)__PA,
             oe => open,
-            pin_input => Net_1351,
+            pin_input => Net_757,
             pad_out => Pin_Output_UP(0)_PAD,
             pad_in => Pin_Output_UP(0)_PAD,
             in_clock => open,
@@ -1492,7 +1504,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_Input_UP(0)__PA,
             oe => open,
-            fb => Net_823,
+            fb => Net_779,
             pad_in => Pin_Input_UP(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -1764,7 +1776,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_Output_UP_GROUND(0)__PA,
             oe => open,
-            pin_input => Net_1350,
+            pin_input => Net_1380,
             pad_out => Pin_Output_UP_GROUND(0)_PAD,
             pad_in => Pin_Output_UP_GROUND(0)_PAD,
             in_clock => open,
@@ -1856,7 +1868,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_Output_DOWN(0)__PA,
             oe => open,
-            pin_input => Net_757,
+            pin_input => Net_1351,
             pad_out => Pin_Output_DOWN(0)_PAD,
             pad_in => Pin_Output_DOWN(0)_PAD,
             in_clock => open,
@@ -1948,7 +1960,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_Output_DOWN_GROUND(0)__PA,
             oe => open,
-            pin_input => Net_1380,
+            pin_input => Net_1350,
             pad_out => Pin_Output_DOWN_GROUND(0)_PAD,
             pad_in => Pin_Output_DOWN_GROUND(0)_PAD,
             in_clock => open,
@@ -2617,6 +2629,21 @@ BEGIN
             control_1 => Net_1388,
             control_0 => Net_1399,
             busclk => ClockBlock_HFClk);
+
+    \Bluetooth:cy_m0s8_ble\:p4blecell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            interrupt => \Bluetooth:Net_15\,
+            rfctrl_extpa_en => Net_1571);
+
+    \Bluetooth:bless_isr\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \Bluetooth:Net_15\,
+            clock => ClockBlock_HFClk);
 
     \FanController:drq\:macrocell
         GENERIC MAP(

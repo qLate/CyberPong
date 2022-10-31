@@ -1,6 +1,6 @@
 // ======================================================================
 // CyberPong.v generated from TopDesign.cysch
-// 10/28/2022 at 18:53
+// 10/29/2022 at 20:08
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -841,7 +841,7 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_FanTach_v4_10\B_FanTach_v4_10.v"
 `endif
 
-// FanController_v4_10(AcousticNoiseReduction=0, AlertEnable=0, CoefDerivative=20, CoefIntegral=80, CoefLowerOutputLimit=0, CoefOutputAttenuation=-20, CoefProportional=100, CoefUpperOutputLimit=100, Connection=1, CtlModeReplacementString=SyncCtl, DampingFactor=1, ExternalClock=0, FanMode=0, FanModeManual=false, FanPWMFreq=0, FanPWMRes=1, FanTolerance=1, InitialRPM01=8000, InitialRPM02=7500, InitialRPM03=8000, InitialRPM04=8000, InitialRPM05=5000, InitialRPM06=5000, InitialRPM07=5000, InitialRPM08=5000, InitialRPM09=5000, InitialRPM10=5000, InitialRPM11=5000, InitialRPM12=5000, InitialRPM13=5000, InitialRPM14=5000, InitialRPM15=5000, InitialRPM16=5000, MaxDuty01=100, MaxDuty02=100, MaxDuty03=100, MaxDuty04=100, MaxDuty05=100, MaxDuty06=100, MaxDuty07=100, MaxDuty08=100, MaxDuty09=100, MaxDuty10=100, MaxDuty11=100, MaxDuty12=100, MaxDuty13=100, MaxDuty14=100, MaxDuty15=100, MaxDuty16=100, MaxRPM01=9600, MaxRPM02=9600, MaxRPM03=9600, MaxRPM04=9600, MaxRPM05=10000, MaxRPM06=10000, MaxRPM07=10000, MaxRPM08=10000, MaxRPM09=10000, MaxRPM10=10000, MaxRPM11=10000, MaxRPM12=10000, MaxRPM13=10000, MaxRPM14=10000, MaxRPM15=10000, MaxRPM16=10000, MinDuty01=55, MinDuty02=55, MinDuty03=55, MinDuty04=55, MinDuty05=25, MinDuty06=25, MinDuty07=25, MinDuty08=25, MinDuty09=25, MinDuty10=25, MinDuty11=25, MinDuty12=25, MinDuty13=25, MinDuty14=25, MinDuty15=25, MinDuty16=25, MinRPM01=4400, MinRPM02=4400, MinRPM03=4400, MinRPM04=4400, MinRPM05=1000, MinRPM06=1000, MinRPM07=1000, MinRPM08=1000, MinRPM09=1000, MinRPM10=1000, MinRPM11=1000, MinRPM12=100, MinRPM13=100, MinRPM14=1000, MinRPM15=1000, MinRPM16=1000, MotorType=0, NineOrMoreFans=false, NumberOfBanks=0, NumberOfFanOutputs=4, NumberOfFans=4, pid_A1=8192, pid_A2=-5734, pid_A3=819, pid_output_gain=20, pid_output_sat_H=1006632960, pid_output_sat_L=0, Psoc3or5=false, pwm_period=960, ShowFanOutputs=false, SpeedErrorCount=16, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=FanController_v4_10, CY_CONFIG_TITLE=FanController, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=FanController, CY_INSTANCE_SHORT_NAME=FanController, CY_MAJOR_VERSION=4, CY_MINOR_VERSION=10, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=FanController, )
+// FanController_v4_10(AcousticNoiseReduction=0, AlertEnable=0, CoefDerivative=20, CoefIntegral=80, CoefLowerOutputLimit=0, CoefOutputAttenuation=-20, CoefProportional=100, CoefUpperOutputLimit=100, Connection=1, CtlModeReplacementString=SyncCtl, DampingFactor=1, ExternalClock=0, FanMode=0, FanModeManual=false, FanPWMFreq=0, FanPWMRes=1, FanTolerance=1, InitialRPM01=8000, InitialRPM02=8000, InitialRPM03=8000, InitialRPM04=8000, InitialRPM05=5000, InitialRPM06=5000, InitialRPM07=5000, InitialRPM08=5000, InitialRPM09=5000, InitialRPM10=5000, InitialRPM11=5000, InitialRPM12=5000, InitialRPM13=5000, InitialRPM14=5000, InitialRPM15=5000, InitialRPM16=5000, MaxDuty01=100, MaxDuty02=100, MaxDuty03=100, MaxDuty04=100, MaxDuty05=100, MaxDuty06=100, MaxDuty07=100, MaxDuty08=100, MaxDuty09=100, MaxDuty10=100, MaxDuty11=100, MaxDuty12=100, MaxDuty13=100, MaxDuty14=100, MaxDuty15=100, MaxDuty16=100, MaxRPM01=9600, MaxRPM02=9600, MaxRPM03=9600, MaxRPM04=9600, MaxRPM05=10000, MaxRPM06=10000, MaxRPM07=10000, MaxRPM08=10000, MaxRPM09=10000, MaxRPM10=10000, MaxRPM11=10000, MaxRPM12=10000, MaxRPM13=10000, MaxRPM14=10000, MaxRPM15=10000, MaxRPM16=10000, MinDuty01=55, MinDuty02=55, MinDuty03=55, MinDuty04=55, MinDuty05=25, MinDuty06=25, MinDuty07=25, MinDuty08=25, MinDuty09=25, MinDuty10=25, MinDuty11=25, MinDuty12=25, MinDuty13=25, MinDuty14=25, MinDuty15=25, MinDuty16=25, MinRPM01=4400, MinRPM02=4400, MinRPM03=4400, MinRPM04=4400, MinRPM05=1000, MinRPM06=1000, MinRPM07=1000, MinRPM08=1000, MinRPM09=1000, MinRPM10=1000, MinRPM11=1000, MinRPM12=100, MinRPM13=100, MinRPM14=1000, MinRPM15=1000, MinRPM16=1000, MotorType=0, NineOrMoreFans=false, NumberOfBanks=0, NumberOfFanOutputs=4, NumberOfFans=4, pid_A1=8192, pid_A2=-5734, pid_A3=819, pid_output_gain=20, pid_output_sat_H=1006632960, pid_output_sat_L=0, Psoc3or5=false, pwm_period=960, ShowFanOutputs=false, SpeedErrorCount=16, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=FanController_v4_10, CY_CONFIG_TITLE=FanController, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=FanController, CY_INSTANCE_SHORT_NAME=FanController, CY_MAJOR_VERSION=4, CY_MINOR_VERSION=10, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=FanController, )
 module FanController_v4_10_5 (
     alert,
     bank,
@@ -1373,21 +1373,90 @@ endmodule
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.v"
 `endif
 
+// BLE_v3_66(AutopopulateWhitelist=true, EnableExternalPAcontrol=false, EnableExternalPrepWriteBuff=false, EnableL2capLogicalChannels=true, EnableLinkLayerPrivacy=true, GapConfig=<?xml version="1.0" encoding="utf-16"?>\r\n<CyGapConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">\r\n  <DevAddress>00A050000000</DevAddress>\r\n  <SiliconGeneratedAddress>true</SiliconGeneratedAddress>\r\n  <MtuSize>23</MtuSize>\r\n  <MaxTxPayloadSize>27</MaxTxPayloadSize>\r\n  <MaxRxPayloadSize>27</MaxRxPayloadSize>\r\n  <TxPowerLevel>0</TxPowerLevel>\r\n  <TxPowerLevelConnection>0</TxPowerLevelConnection>\r\n  <TxPowerLevelAdvScan>0</TxPowerLevelAdvScan>\r\n  <SecurityConfig>\r\n    <SecurityMode>SECURITY_MODE_1</SecurityMode>\r\n    <SecurityLevel>NO_SECURITY</SecurityLevel>\r\n    <StrictPairing>false</StrictPairing>\r\n    <KeypressNotifications>false</KeypressNotifications>\r\n    <IOCapability>DISPLAY</IOCapability>\r\n    <PairingMethod>JUST_WORKS</PairingMethod>\r\n    <Bonding>BOND</Bonding>\r\n    <MaxBondedDevices>4</MaxBondedDevices>\r\n    <AutoPopWhitelistBondedDev>true</AutoPopWhitelistBondedDev>\r\n    <MaxWhitelistSize>8</MaxWhitelistSize>\r\n    <EnableLinkLayerPrivacy>true</EnableLinkLayerPrivacy>\r\n    <MaxResolvableDevices>8</MaxResolvableDevices>\r\n    <EncryptionKeySize>16</EncryptionKeySize>\r\n  </SecurityConfig>\r\n  <AdvertisementConfig>\r\n    <AdvScanMode>FAST_CONNECTION</AdvScanMode>\r\n    <AdvFastScanInterval>\r\n      <Minimum>20</Minimum>\r\n      <Maximum>30</Maximum>\r\n    </AdvFastScanInterval>\r\n    <AdvReducedScanInterval>\r\n      <Minimum>1000</Minimum>\r\n      <Maximum>10240</Maximum>\r\n    </AdvReducedScanInterval>\r\n    <AdvDiscoveryMode>GENERAL</AdvDiscoveryMode>\r\n    <AdvType>CONNECTABLE_UNDIRECTED</AdvType>\r\n    <AdvFilterPolicy>SCAN_REQUEST_ANY_CONNECT_REQUEST_ANY</AdvFilterPolicy>\r\n    <AdvChannelMap>ALL</AdvChannelMap>\r\n    <AdvFastTimeout>0</AdvFastTimeout>\r\n    <AdvReducedTimeout>150</AdvReducedTimeout>\r\n    <EnableReducedAdvertising>false</EnableReducedAdvertising>\r\n    <ConnectionInterval>\r\n      <Minimum>7.5</Minimum>\r\n      <Maximum>50</Maximum>\r\n    </ConnectionInterval>\r\n    <ConnectionSlaveLatency>0</ConnectionSlaveLatency>\r\n    <ConnectionTimeout>10000</ConnectionTimeout>\r\n  </AdvertisementConfig>\r\n  <ScanConfig>\r\n    <ScanFastWindow>30</ScanFastWindow>\r\n    <ScanFastInterval>30</ScanFastInterval>\r\n    <ScanTimeout>30</ScanTimeout>\r\n    <ScanReducedWindow>1125</ScanReducedWindow>\r\n    <ScanReducedInterval>1280</ScanReducedInterval>\r\n    <ScanReducedTimeout>150</ScanReducedTimeout>\r\n    <EnableReducedScan>true</EnableReducedScan>\r\n    <ScanDiscoveryMode>GENERAL</ScanDiscoveryMode>\r\n    <ScanningState>ACTIVE</ScanningState>\r\n    <ScanFilterPolicy>ACCEPT_ALL_ADV_PACKETS</ScanFilterPolicy>\r\n    <DuplicateFiltering>false</DuplicateFiltering>\r\n    <ConnectionInterval>\r\n      <Minimum>7.5</Minimum>\r\n      <Maximum>50</Maximum>\r\n    </ConnectionInterval>\r\n    <ConnectionSlaveLatency>0</ConnectionSlaveLatency>\r\n    <ConnectionTimeout>10000</ConnectionTimeout>\r\n  </ScanConfig>\r\n  <AdvertisementPacket>\r\n    <PacketType>ADVERTISEMENT</PacketType>\r\n    <Items>\r\n      <CyADStructure>\r\n        <ADType>1</ADType>\r\n        <ADData>06</ADData>\r\n      </CyADStructure>\r\n      <CyADStructure>\r\n        <ADType>9</ADType>\r\n        <ADData>43:79:62:65:72:50:6F:6E:67</ADData>\r\n      </CyADStructure>\r\n      <CyADStructure>\r\n        <ADType>3</ADType>\r\n        <ADData>02:18</ADData>\r\n      </CyADStructure>\r\n    </Items>\r\n    <IncludedServicesServiceUuid>\r\n      <int>12</int>\r\n    </IncludedServicesServiceUuid>\r\n    <IncludedServicesServiceSolicitation />\r\n    <IncludedServicesServiceData />\r\n  </AdvertisementPacket>\r\n  <ScanResponsePacket>\r\n    <PacketType>SCAN_RESPONSE</PacketType>\r\n    <Items />\r\n    <IncludedServicesServiceUuid />\r\n    <IncludedServicesServiceSolicitation />\r\n    <IncludedServicesServiceData />\r\n  </ScanResponsePacket>\r\n</CyGapConfiguration>, HalBaudRate=115200, HalCtsEnable=true, HalCtsPolarity=0, HalRtsEnable=true, HalRtsPolarity=0, HalRtsTriggerLevel=4, HciMode=0, ImportFilePath=, KeypressNotifications=false, L2capMpsSize=23, L2capMtuSize=23, L2capNumChannels=1, L2capNumPsm=1, LLMaxRxPayloadSize=27, LLMaxTxPayloadSize=27, MaxAttrNoOfBuffer=1, MaxBondedDevices=4, MaxResolvableDevices=8, MaxWhitelistSize=8, Mode=0, ProfileConfig=<?xml version="1.0" encoding="utf-16"?>\r\n<Profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1" DisplayName="Find Me" Name="Find Me" Type="org.bluetooth.profile.find_me">\r\n  <CyProfileRole ID="2" DisplayName="Find Me Target" Name="Find Me Target">\r\n    <CyService ID="3" DisplayName="Generic Access" Name="Generic Access" Type="org.bluetooth.service.generic_access" UUID="1800">\r\n      <CyCharacteristic ID="4" DisplayName="Device Name" Name="Device Name" Type="org.bluetooth.characteristic.gap.device_name" UUID="2A00">\r\n        <Field Name="Name">\r\n          <DataFormat>utf8s</DataFormat>\r\n          <ByteLength>9</ByteLength>\r\n          <FillRequirement>C1</FillRequirement>\r\n          <ValueType>BASIC</ValueType>\r\n          <GeneralValue>CyberPong</GeneralValue>\r\n          <ArrayValue />\r\n        </Field>\r\n        <Properties>\r\n          <Property Type="READ" Present="true" Mandatory="true" />\r\n          <Property Type="WRITE" Present="false" Mandatory="false" />\r\n        </Properties>\r\n        <Permission />\r\n      </CyCharacteristic>\r\n      <CyCharacteristic ID="5" DisplayName="Appearance" Name="Appearance" Type="org.bluetooth.characteristic.gap.appearance" UUID="2A01">\r\n        <Field Name="Category">\r\n          <DataFormat>16bit</DataFormat>\r\n          <ByteLength>2</ByteLength>\r\n          <FillRequirement>C1</FillRequirement>\r\n          <ValueType>ENUM</ValueType>\r\n          <ArrayValue />\r\n        </Field>\r\n        <Properties>\r\n          <Property Type="READ" Present="true" Mandatory="true" />\r\n        </Properties>\r\n        <Permission />\r\n      </CyCharacteristic>\r\n      <CyCharacteristic ID="6" DisplayName="Peripheral Preferred Connection Parameters" Name="Peripheral Preferred Connection Parameters" Type="org.bluetooth.characteristic.gap.peripheral_preferred_connection_parameters" UUID="2A04">\r\n        <Field Name="Minimum Connection Interval">\r\n          <DataFormat>uint16</DataFormat>\r\n          <ByteLength>2</ByteLength>\r\n          <Range>\r\n            <IsDeclared>true</IsDeclared>\r\n            <Minimum>6</Minimum>\r\n            <Maximum>3200</Maximum>\r\n          </Range>\r\n          <FillRequirement>C1</FillRequirement>\r\n          <ValueType>BASIC</ValueType>\r\n          <GeneralValue>0x0006</GeneralValue>\r\n          <ArrayValue />\r\n        </Field>\r\n        <Field Name="Maximum Connection Interval">\r\n          <DataFormat>uint16</DataFormat>\r\n          <ByteLength>2</ByteLength>\r\n          <Range>\r\n            <IsDeclared>true</IsDeclared>\r\n            <Minimum>6</Minimum>\r\n            <Maximum>3200</Maximum>\r\n          </Range>\r\n          <FillRequirement>C1</FillRequirement>\r\n          <ValueType>BASIC</ValueType>\r\n          <GeneralValue>0x0028</GeneralValue>\r\n          <ArrayValue />\r\n        </Field>\r\n        <Field Name="Slave Latency">\r\n          <DataFormat>uint16</DataFormat>\r\n          <ByteLength>2</ByteLength>\r\n          <Range>\r\n            <IsDeclared>true</IsDeclared>\r\n            <Minimum>0</Minimum>\r\n            <Maximum>1000</Maximum>\r\n          </Range>\r\n          <FillRequirement>C1</FillRequirement>\r\n          <ValueType>BASIC</ValueType>\r\n          <GeneralValue>0</GeneralValue>\r\n          <ArrayValue />\r\n        </Field>\r\n        <Field Name="Connection Supervision Timeout Multiplier">\r\n          <DataFormat>uint16</DataFormat>\r\n          <ByteLength>2</ByteLength>\r\n          <Range>\r\n            <IsDeclared>true</IsDeclared>\r\n            <Minimum>10</Minimum>\r\n            <Maximum>3200</Maximum>\r\n          </Range>\r\n          <FillRequirement>C1</FillRequirement>\r\n          <ValueType>BASIC</ValueType>\r\n          <GeneralValue>0x03E8</GeneralValue>\r\n          <ArrayValue />\r\n        </Field>\r\n        <Properties>\r\n          <Property Type="READ" Present="true" Mandatory="true" />\r\n        </Properties>\r\n        <Permission />\r\n      </CyCharacteristic>\r\n      <CyCharacteristic ID="7" DisplayName="Central Address Resolution" Name="Central Address Resolution" Type="org.bluetooth.characteristic.gap.central_address_resolution" UUID="2AA6">\r\n        <Field Name="Central Address Resolution Support">\r\n          <DataFormat>uint8</DataFormat>\r\n          <ByteLength>1</ByteLength>\r\n          <ValueType>ENUM</ValueType>\r\n          <ArrayValue />\r\n        </Field>\r\n        <Properties>\r\n          <Property Type="READ" Present="true" Mandatory="true" />\r\n        </Properties>\r\n        <Permission />\r\n      </CyCharacteristic>\r\n      <CyCharacteristic ID="8" DisplayName="Resolvable Private Address Only" Name="Resolvable Private Address Only" Type="org.bluetooth.characteristic.gap.resolvable_private_address_only" UUID="2AC9">\r\n        <Field Name="Resolvable Private Address Only">\r\n          <DataFormat>uint8</DataFormat>\r\n          <ByteLength>1</ByteLength>\r\n          <ValueType>ENUM</ValueType>\r\n          <ArrayValue />\r\n        </Field>\r\n        <Properties>\r\n          <Property Type="READ" Present="true" Mandatory="true" />\r\n        </Properties>\r\n        <Permission />\r\n      </CyCharacteristic>\r\n      <Declaration>Primary</Declaration>\r\n    </CyService>\r\n    <CyService ID="9" DisplayName="Generic Attribute" Name="Generic Attribute" Type="org.bluetooth.service.generic_attribute" UUID="1801">\r\n      <CyCharacteristic ID="10" DisplayName="Service Changed" Name="Service Changed" Type="org.bluetooth.characteristic.gatt.service_changed" UUID="2A05">\r\n        <CyDescriptor ID="11" DisplayName="Client Characteristic Configuration" Name="Client Characteristic Configuration" Type="org.bluetooth.descriptor.gatt.client_characteristic_configuration" UUID="2902">\r\n          <Field Name="Properties">\r\n            <DataFormat>16bit</DataFormat>\r\n            <ByteLength>2</ByteLength>\r\n            <Range>\r\n              <IsDeclared>true</IsDeclared>\r\n              <Minimum>0</Minimum>\r\n              <Maximum>3</Maximum>\r\n            </Range>\r\n            <ValueType>BITFIELD</ValueType>\r\n            <Bit>\r\n              <Index>0</Index>\r\n              <Size>1</Size>\r\n              <Value>0</Value>\r\n              <Enumerations>\r\n                <Enumeration key="0" value="Notifications disabled" />\r\n                <Enumeration key="1" value="Notifications enabled" />\r\n              </Enumerations>\r\n            </Bit>\r\n            <Bit>\r\n              <Index>1</Index>\r\n              <Size>1</Size>\r\n              <Value>0</Value>\r\n              <Enumerations>\r\n                <Enumeration key="0" value="Indications disabled" />\r\n                <Enumeration key="1" value="Indications enabled" />\r\n              </Enumerations>\r\n            </Bit>\r\n          </Field>\r\n          <Properties>\r\n            <Property Type="READ" Present="true" Mandatory="true" />\r\n            <Property Type="WRITE" Present="true" Mandatory="true" />\r\n          </Properties>\r\n          <Permission>\r\n            <AccessPermission>READ_WRITE</AccessPermission>\r\n          </Permission>\r\n        </CyDescriptor>\r\n        <Field Name="Start of Affected Attribute Handle Range">\r\n          <DataFormat>uint16</DataFormat>\r\n          <ByteLength>2</ByteLength>\r\n          <Range>\r\n            <IsDeclared>true</IsDeclared>\r\n            <Minimum>1</Minimum>\r\n            <Maximum>65535</Maximum>\r\n          </Range>\r\n          <ValueType>BASIC</ValueType>\r\n        </Field>\r\n        <Field Name="End of Affected Attribute Handle Range">\r\n          <DataFormat>uint16</DataFormat>\r\n          <ByteLength>2</ByteLength>\r\n          <Range>\r\n            <IsDeclared>true</IsDeclared>\r\n            <Minimum>1</Minimum>\r\n            <Maximum>65535</Maximum>\r\n          </Range>\r\n          <ValueType>BASIC</ValueType>\r\n        </Field>\r\n        <Properties>\r\n          <Property Type="INDICATE" Present="true" Mandatory="true" />\r\n        </Properties>\r\n        <Permission>\r\n          <AccessPermission>NONE</AccessPermission>\r\n        </Permission>\r\n      </CyCharacteristic>\r\n      <Declaration>Primary</Declaration>\r\n    </CyService>\r\n    <CyService ID="12" DisplayName="Immediate Alert" Name="Immediate Alert" Type="org.bluetooth.service.immediate_alert" UUID="1802">\r\n      <CyCharacteristic ID="13" DisplayName="Alert Level" Name="Alert Level" Type="org.bluetooth.characteristic.alert_level" UUID="2A06">\r\n        <Field Name="Alert Level">\r\n          <DataFormat>uint8</DataFormat>\r\n          <ByteLength>1</ByteLength>\r\n          <Range>\r\n            <IsDeclared>true</IsDeclared>\r\n            <Minimum>0</Minimum>\r\n            <Maximum>2</Maximum>\r\n          </Range>\r\n          <ValueType>ENUM</ValueType>\r\n        </Field>\r\n        <Properties>\r\n          <Property Type="WRITE_WITHOUT_RESPONSE" Present="true" Mandatory="true" />\r\n        </Properties>\r\n        <Permission>\r\n          <AccessPermission>WRITE</AccessPermission>\r\n        </Permission>\r\n      </CyCharacteristic>\r\n      <Declaration>PrimarySingleInstance</Declaration>\r\n    </CyService>\r\n    <ProfileRoleIndex>0</ProfileRoleIndex>\r\n    <RoleType>SERVER</RoleType>\r\n  </CyProfileRole>\r\n  <GapRole>PERIPHERAL</GapRole>\r\n</Profile>, SharingMode=0, StackMode=3, StrictPairing=false, UseDeepSleep=true, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=BLE_v3_66, CY_CONFIG_TITLE=Bluetooth, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=BLE_v3_66.pdf, CY_FITTER_NAME=Bluetooth, CY_INSTANCE_SHORT_NAME=Bluetooth, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=66, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=Bluetooth, )
+module BLE_v3_66_6 (
+    clk,
+    pa_en);
+    output      clk;
+    output      pa_en;
+
+
+          wire  Net_89;
+          wire  Net_107;
+          wire  Net_106;
+          wire  Net_105;
+          wire  Net_93;
+          wire  Net_92;
+          wire  Net_91;
+          wire  Net_101;
+          wire  Net_104;
+          wire  Net_102;
+          wire  Net_103;
+          wire  Net_90;
+          wire  Net_100;
+          wire  Net_99;
+          wire  Net_98;
+          wire  Net_97;
+          wire  Net_96;
+          wire  Net_95;
+          wire  Net_94;
+          wire  Net_88;
+          wire  Net_70;
+          wire  Net_15;
+          wire  Net_14;
+          wire  Net_53;
+          wire  Net_60;
+          wire  Net_55;
+
+    cy_m0s8_ble_v1_0 cy_m0s8_ble (
+        .interrupt(Net_15),
+        .rf_ext_pa_en(pa_en));
+
+
+	cy_isr_v1_0
+		#(.int_type(2'b10))
+		bless_isr
+		 (.int_signal(Net_15));
+
+
+
+	cy_clock_v1_0
+		#(.id("7cde45a2-e947-4f2b-b2fa-28c519437833/5ae6fa4d-f41a-4a35-8821-7ce70389cb0c"),
+		  .source_clock_id("9A908CA6-5BB3-4db0-B098-959E5D90882B"),
+		  .divisor(0),
+		  .period("0"),
+		  .is_direct(1),
+		  .is_digital(0))
+		LFCLK
+		 (.clock_out(Net_53));
+
+
+
+    assign clk = Net_55 | Net_53;
+
+    assign Net_55 = 1'h0;
+
+
+
+endmodule
+
 // top
 module top ;
 
+          wire  Net_1571;
+          wire  Net_1570;
           wire  Net_1552;
           wire  Net_1551;
-          wire  Net_1380;
+          wire  Net_1350;
+          wire  Net_1351;
           wire  Net_1562;
           wire  Net_1561;
           wire  Net_1560;
           wire  Net_1559;
           wire  Net_1558;
           wire  Net_1557;
-          wire  Net_1350;
+          wire  Net_1380;
           wire  Net_828;
-          wire  Net_1351;
           wire  Net_1550;
           wire  Net_757;
           wire  Net_609;
@@ -1904,7 +1973,7 @@ module top ;
 		Pin_Input_DOWN
 		 (.oe(tmpOE__Pin_Input_DOWN_net),
 		  .y({1'b0}),
-		  .fb({Net_779}),
+		  .fb({Net_823}),
 		  .io({tmpIO_0__Pin_Input_DOWN_net[0:0]}),
 		  .siovref(tmpSIOVREF__Pin_Input_DOWN_net),
 		  .interrupt({tmpINTERRUPT_0__Pin_Input_DOWN_net[0:0]}),
@@ -1978,7 +2047,7 @@ module top ;
 		  .input_buffer_sel(2'b00))
 		Pin_Output_UP
 		 (.oe(tmpOE__Pin_Output_UP_net),
-		  .y({Net_1351}),
+		  .y({Net_757}),
 		  .fb({tmpFB_0__Pin_Output_UP_net[0:0]}),
 		  .io({tmpIO_0__Pin_Output_UP_net[0:0]}),
 		  .siovref(tmpSIOVREF__Pin_Output_UP_net),
@@ -2053,7 +2122,7 @@ module top ;
 		Pin_Input_UP
 		 (.oe(tmpOE__Pin_Input_UP_net),
 		  .y({1'b0}),
-		  .fb({Net_823}),
+		  .fb({Net_779}),
 		  .io({tmpIO_0__Pin_Input_UP_net[0:0]}),
 		  .siovref(tmpSIOVREF__Pin_Input_UP_net),
 		  .interrupt({tmpINTERRUPT_0__Pin_Input_UP_net[0:0]}),
@@ -2283,7 +2352,7 @@ module top ;
 		  .input_buffer_sel(2'b00))
 		Pin_Output_UP_GROUND
 		 (.oe(tmpOE__Pin_Output_UP_GROUND_net),
-		  .y({Net_1350}),
+		  .y({Net_1380}),
 		  .fb({tmpFB_0__Pin_Output_UP_GROUND_net[0:0]}),
 		  .io({tmpIO_0__Pin_Output_UP_GROUND_net[0:0]}),
 		  .siovref(tmpSIOVREF__Pin_Output_UP_GROUND_net),
@@ -2388,7 +2457,7 @@ module top ;
 		  .input_buffer_sel(2'b00))
 		Pin_Output_DOWN
 		 (.oe(tmpOE__Pin_Output_DOWN_net),
-		  .y({Net_757}),
+		  .y({Net_1351}),
 		  .fb({tmpFB_0__Pin_Output_DOWN_net[0:0]}),
 		  .io({tmpIO_0__Pin_Output_DOWN_net[0:0]}),
 		  .siovref(tmpSIOVREF__Pin_Output_DOWN_net),
@@ -2466,7 +2535,7 @@ module top ;
 		  .input_buffer_sel(2'b00))
 		Pin_Output_DOWN_GROUND
 		 (.oe(tmpOE__Pin_Output_DOWN_GROUND_net),
-		  .y({Net_1380}),
+		  .y({Net_1350}),
 		  .fb({tmpFB_0__Pin_Output_DOWN_GROUND_net[0:0]}),
 		  .io({tmpIO_0__Pin_Output_DOWN_GROUND_net[0:0]}),
 		  .siovref(tmpSIOVREF__Pin_Output_DOWN_GROUND_net),
@@ -2653,6 +2722,10 @@ module top ;
 		  .out_reset({1'b0}));
 
 	assign tmpOE__Pin_Output_RIGHT_GROUND_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+    BLE_v3_66_6 Bluetooth (
+        .clk(Net_1570),
+        .pa_en(Net_1571));
 
 
 

@@ -3,7 +3,7 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="CyberPong-000" persistent="CyberPong-000.cywrk" platform="NOT_USED">
-<current_project name=".\BluetoothTest.cydsn\BluetoothTest.cyprj" />
+<current_project name=".\CyberPong.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
@@ -11,6 +11,7 @@
 <v>.\Design01.cydsn\Design01.cyprj</v>
 <v>.\CyberPongRemastered.cydsn\CyberPongRemastered.cyprj</v>
 <v>.\BluetoothTest.cydsn\BluetoothTest.cyprj</v>
+<v>..\CyberPong_Copy_01.cydsn\CyberPong_Copy_01.cyprj</v>
 </projects>
 <workspace_id v="79b3272b-4b2e-4784-bd31-5b5e1dc53ecd" />
 <WriteAppVersionLastSavedWith v="4.4.0.80" />

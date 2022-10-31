@@ -12,7 +12,7 @@
 #include "project.h"
 #include <stdio.h>
 #include "main_data.h"
-
+#include "string.h"
 
 int8 speed_idx;
 int8 isr_triggered = 0;
@@ -32,6 +32,7 @@ void UART_print_string(char text[]) {
 }
 
 
+char motor_direction_names[4][16] = {{"LEFT"},{"RIGHT"},{"UP"},{"DOWN"}};
 void print_all_speed() {
     /*
     Print all the speeds in a line through UART. Since we don't
@@ -39,6 +40,9 @@ void print_all_speed() {
     */
     uint16_t current_rpm = 0;
     for (int i = 1; i < MOTOR_COUNT + 1; i++) {
+        UART_UartPutString(motor_direction_names[i-1]);
+        UART_UartPutString(":");
+        
         current_rpm = FanController_GetActualSpeed(i);
         sprintf(uart_rpm_buff, "%u", current_rpm / 2);
         UART_UartPutString(uart_rpm_buff);
@@ -47,7 +51,7 @@ void print_all_speed() {
         current_rpm = FanController_GetDesiredSpeed(i);
         sprintf(uart_rpm_buff, "%u", current_rpm / 2);
         UART_UartPutString(uart_rpm_buff);
-        UART_UartPutChar(' ');
+        UART_UartPutString("   ");
     }
     UART_UartPutChar('\n');
     UART_UartPutChar('\r');
@@ -118,14 +122,39 @@ CY_ISR (Ball_Trigger_Handler) {
     isr_triggered = 1;
 }
 
+void Stack_Handler(uint32 eventCode, void *eventParams)
+{
+    switch(eventCode){
+        case CYBLE_EVT_STACK_ON:
+        case CYBLE_EVT_GAP_DEVICE_DISCONNECTED:
+            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
+            break;
+    }
+}
+
+void Ias_Handler(uint32 eventCode, void *eventParam){
+        CYBLE_IAS_CHAR_VALUE_T *param = (CYBLE_IAS_CHAR_VALUE_T *)eventParam;
+        
+        if(*param->value->val == 0)
+            Control_Rotation_Write(0b1111);
+        else if(*param->value->val == 1)
+            Control_Rotation_Write(0b0000);
+        else
+            Control_Rotation_Write(0b1100);
+} 
 
 int main(void)
 {
+    // 1 - LEFT, 2 - RIGHT, 3 - UP, 4 - DOWN
+    
     CyGlobalIntEnable; /* Enable global interrupts. */
 
     /* Start Everything Up */
     FanController_Start();
     UART_Start();
+    // Bluetooth
+    CyBle_Start(Stack_Handler);
+    CyBle_IasRegisterAttrCallback(Ias_Handler);
     
     ISR_Ball_Trigger_StartEx( Ball_Trigger_Handler );
 
@@ -137,11 +166,13 @@ int main(void)
     // Manual control is enabled by default
     manual_control_flag = 1;
     
-    write_motor_speed(speed_configs[3]);
-    FanController_SetDesiredSpeed(4, 0);
+    int16_t speed_config[4] = {4000, 4000, 4000, 4000};
+    write_motor_speed(speed_config);
     
     for(;;)
     {   
+        CyBle_ProcessEvents();
+        
         ch = UART_UartGetChar();
         if (ch == 'a') {
             // Automatically disable printing speed on automatic mode.

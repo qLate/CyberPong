@@ -90,6 +90,26 @@
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Pin_Output_RIGHT_GROUND.h" value="HEADER;;;;;Pin_Output_RIGHT_GROUND" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Pin_Output_RIGHT_GROUND_aliases.h" value="HEADER;;;;;Pin_Output_RIGHT_GROUND" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Pin_Output_RIGHT_GROUND_PM.c" value="SOURCE_C;CortexM0;;;;Pin_Output_RIGHT_GROUND" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_gatt.h" value="HEADER;;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth.h" value="HEADER;;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth.c" value="SOURCE_C;CortexM0;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_gatt.c" value="SOURCE_C;CortexM0;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_ias.c" value="SOURCE_C;CortexM0;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_ias.h" value="HEADER;;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_eventHandler.c" value="SOURCE_C;CortexM0;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_HAL_INT.c" value="SOURCE_C;CortexM0;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_HAL_PVT.c" value="SOURCE_C;CortexM0;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_HAL_PVT.h" value="HEADER;;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_STACK_PVT.h" value="HEADER;;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_StackGap.h" value="HEADER;;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_StackGatt.h" value="HEADER;;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_StackGattDb.h" value="HEADER;;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_StackHostMain.h" value="HEADER;;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_StackL2cap.h" value="HEADER;;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_StackGattServer.h" value="HEADER;;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_StackGattClient.h" value="HEADER;;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_Stack.h" value="HEADER;;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_eventHandler.h" value="HEADER;;;;;Bluetooth" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\UART_SCBCLK.c" value="SOURCE_C;CortexM0;;;;UART_SCBCLK" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\UART_SCBCLK.h" value="HEADER;;;;;UART_SCBCLK" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\UART_tx.c" value="SOURCE_C;CortexM0;;;;UART_tx" />
@@ -116,6 +136,8 @@
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\FanController_FW_PWM1.c" value="SOURCE_C;CortexM0;;;;FanController_FW_PWM1" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\FanController_FW_PWM1.h" value="HEADER;;;;;FanController_FW_PWM1" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\FanController_FW_PWM1_PM.c" value="SOURCE_C;CortexM0;;;;FanController_FW_PWM1" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_bless_isr.c" value="SOURCE_C;CortexM0;;;;Bluetooth_bless_isr" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_bless_isr.h" value="HEADER;;;;;Bluetooth_bless_isr" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\cm0gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Cm0RealView.scat" value="LINKER_SCRIPT;;;fdb8e1ae-f83a-46cf-9446-1d703716f38a;;cy_boot" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Cm0Start.c" value="SOURCE_C;CortexM0;;;;cy_boot" />

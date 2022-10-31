@@ -2663,8 +2663,8 @@ FanController_fanPropertiesStruct FanController_fanProperties[FanController_NUMB
             (55u * 100u),
             (100u * 100u),
             (((100u - 55u) * 100u) / ((9600u - 4400u) / 100u)),
-            7500u,
-            (82u * 100u)
+            8000u,
+            (86u * 100u)
         },
     #endif /* FanController_NUMBER_OF_FANS >= 2 */
 

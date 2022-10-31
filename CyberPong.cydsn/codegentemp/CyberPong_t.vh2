@@ -1,5 +1,5 @@
 -- Project:   C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\CyberPong.cyprj
--- Generated: 10/28/2022 18:53:35
+-- Generated: 10/29/2022 20:08:33
 -- PSoC Creator  4.4
 
 ENTITY CyberPong IS
@@ -47,9 +47,9 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     SIGNAL Net_1237 : bit;
     SIGNAL Net_1307 : bit;
     SIGNAL Net_1350 : bit;
-    ATTRIBUTE placement_force OF Net_1350 : SIGNAL IS "U(0,1,B)1";
+    ATTRIBUTE placement_force OF Net_1350 : SIGNAL IS "U(1,0,B)1";
     SIGNAL Net_1351 : bit;
-    ATTRIBUTE placement_force OF Net_1351 : SIGNAL IS "U(0,1,B)2";
+    ATTRIBUTE placement_force OF Net_1351 : SIGNAL IS "U(1,0,B)2";
     SIGNAL Net_1378 : bit;
     SIGNAL Net_1379 : bit;
     SIGNAL Net_1380 : bit;
@@ -59,13 +59,14 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     SIGNAL Net_1389 : bit;
     SIGNAL Net_1399 : bit;
     SIGNAL Net_1549 : bit;
-    ATTRIBUTE placement_force OF Net_1549 : SIGNAL IS "U(1,1,B)0";
+    ATTRIBUTE placement_force OF Net_1549 : SIGNAL IS "U(0,0,B)1";
     SIGNAL Net_1550 : bit;
-    ATTRIBUTE placement_force OF Net_1550 : SIGNAL IS "U(0,0,B)2";
+    ATTRIBUTE placement_force OF Net_1550 : SIGNAL IS "U(0,0,B)3";
     SIGNAL Net_1551 : bit;
-    ATTRIBUTE placement_force OF Net_1551 : SIGNAL IS "U(1,1,B)1";
+    ATTRIBUTE placement_force OF Net_1551 : SIGNAL IS "U(0,0,B)0";
     SIGNAL Net_1552 : bit;
-    ATTRIBUTE placement_force OF Net_1552 : SIGNAL IS "U(0,0,B)3";
+    ATTRIBUTE placement_force OF Net_1552 : SIGNAL IS "U(0,0,B)2";
+    SIGNAL Net_1571 : bit;
     SIGNAL Net_187 : bit;
     SIGNAL Net_196 : bit;
     SIGNAL Net_205 : bit;
@@ -90,6 +91,7 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     SIGNAL Pin_Output_UP(0)__PA : bit;
     SIGNAL Pin_Output_UP_GROUND(0)__PA : bit;
     SIGNAL Pin_Serve(0)__PA : bit;
+    SIGNAL \Bluetooth:Net_15\ : bit;
     SIGNAL \Control_Rotation:control_4\ : bit;
     SIGNAL \Control_Rotation:control_5\ : bit;
     SIGNAL \Control_Rotation:control_6\ : bit;
@@ -104,11 +106,11 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     SIGNAL \FanController:B_FanCtrl:control_7\ : bit;
     SIGNAL \FanController:B_FanCtrl:interrupt\ : bit;
     SIGNAL \FanController:B_FanCtrl:speed_status\ : bit;
-    ATTRIBUTE placement_force OF \FanController:B_FanCtrl:speed_status\ : SIGNAL IS "U(0,1,A)3";
+    ATTRIBUTE placement_force OF \FanController:B_FanCtrl:speed_status\ : SIGNAL IS "U(1,1,B)1";
     SIGNAL \FanController:B_FanCtrl:stall_alrt\ : bit;
-    ATTRIBUTE placement_force OF \FanController:B_FanCtrl:stall_alrt\ : SIGNAL IS "U(0,0,B)1";
+    ATTRIBUTE placement_force OF \FanController:B_FanCtrl:stall_alrt\ : SIGNAL IS "U(0,1,B)0";
     SIGNAL \FanController:B_FanCtrl:stall_status\ : bit;
-    ATTRIBUTE placement_force OF \FanController:B_FanCtrl:stall_status\ : SIGNAL IS "U(0,0,B)0";
+    ATTRIBUTE placement_force OF \FanController:B_FanCtrl:stall_status\ : SIGNAL IS "U(0,1,A)3";
     SIGNAL \FanController:FanTach:addrCtrl_2\ : bit;
     SIGNAL \FanController:FanTach:addrCtrl_3\ : bit;
     SIGNAL \FanController:FanTach:co_1\ : bit;
@@ -116,35 +118,35 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     SIGNAL \FanController:FanTach:damping_cntr_cs_2\ : bit;
     SIGNAL \FanController:FanTach:damping_cntr_tc\ : bit;
     SIGNAL \FanController:FanTach:end_of_measurement\ : bit;
-    ATTRIBUTE placement_force OF \FanController:FanTach:end_of_measurement\ : SIGNAL IS "U(1,0,B)0";
+    ATTRIBUTE placement_force OF \FanController:FanTach:end_of_measurement\ : SIGNAL IS "U(1,0,A)0";
     SIGNAL \FanController:FanTach:eom\ : bit;
     SIGNAL \FanController:FanTach:fifo_load\ : bit;
-    ATTRIBUTE placement_force OF \FanController:FanTach:fifo_load\ : SIGNAL IS "U(0,0,A)3";
+    ATTRIBUTE placement_force OF \FanController:FanTach:fifo_load\ : SIGNAL IS "U(1,1,A)3";
     SIGNAL \FanController:FanTach:filtered_rising_tach\ : bit;
-    ATTRIBUTE placement_force OF \FanController:FanTach:filtered_rising_tach\ : SIGNAL IS "U(1,0,B)2";
+    ATTRIBUTE placement_force OF \FanController:FanTach:filtered_rising_tach\ : SIGNAL IS "U(0,0,A)3";
     SIGNAL \FanController:FanTach:gf_dmp_state\ : bit;
-    ATTRIBUTE placement_force OF \FanController:FanTach:gf_dmp_state\ : SIGNAL IS "U(0,1,B)3";
+    ATTRIBUTE placement_force OF \FanController:FanTach:gf_dmp_state\ : SIGNAL IS "U(1,0,A)2";
     SIGNAL \FanController:FanTach:glitch_filter_ld\ : bit;
-    ATTRIBUTE placement_force OF \FanController:FanTach:glitch_filter_ld\ : SIGNAL IS "U(1,1,A)1";
+    ATTRIBUTE placement_force OF \FanController:FanTach:glitch_filter_ld\ : SIGNAL IS "U(0,0,A)1";
     SIGNAL \FanController:FanTach:glitch_filter_state\ : bit;
-    ATTRIBUTE placement_force OF \FanController:FanTach:glitch_filter_state\ : SIGNAL IS "U(1,1,A)2";
+    ATTRIBUTE placement_force OF \FanController:FanTach:glitch_filter_state\ : SIGNAL IS "U(0,0,A)2";
     SIGNAL \FanController:FanTach:glitch_filter_tc\ : bit;
     SIGNAL \FanController:FanTach:nc3\ : bit;
     SIGNAL \FanController:FanTach:nc4\ : bit;
     SIGNAL \FanController:FanTach:nc5\ : bit;
     SIGNAL \FanController:FanTach:reg_enable\ : bit;
-    ATTRIBUTE placement_force OF \FanController:FanTach:reg_enable\ : SIGNAL IS "U(0,0,A)1";
+    ATTRIBUTE placement_force OF \FanController:FanTach:reg_enable\ : SIGNAL IS "U(0,0,A)0";
     SIGNAL \FanController:FanTach:sync2_tach_cnt3\ : bit;
-    ATTRIBUTE placement_force OF \FanController:FanTach:sync2_tach_cnt3\ : SIGNAL IS "U(1,0,A)1";
+    ATTRIBUTE placement_force OF \FanController:FanTach:sync2_tach_cnt3\ : SIGNAL IS "U(1,1,A)1";
     SIGNAL \FanController:FanTach:tach\ : bit;
-    ATTRIBUTE placement_force OF \FanController:FanTach:tach\ : SIGNAL IS "U(1,1,A)0";
+    ATTRIBUTE placement_force OF \FanController:FanTach:tach\ : SIGNAL IS "U(1,0,B)0";
     SIGNAL \FanController:FanTach:tach_data_ready\ : bit;
     SIGNAL \FanController:FanTach:tach_state_0\ : bit;
-    ATTRIBUTE placement_force OF \FanController:FanTach:tach_state_0\ : SIGNAL IS "U(1,0,A)0";
+    ATTRIBUTE placement_force OF \FanController:FanTach:tach_state_0\ : SIGNAL IS "U(1,1,B)0";
     SIGNAL \FanController:FanTach:tach_state_1\ : bit;
-    ATTRIBUTE placement_force OF \FanController:FanTach:tach_state_1\ : SIGNAL IS "U(1,0,B)1";
+    ATTRIBUTE placement_force OF \FanController:FanTach:tach_state_1\ : SIGNAL IS "U(1,0,A)1";
     SIGNAL \FanController:FanTach:tach_state_2\ : bit;
-    ATTRIBUTE placement_force OF \FanController:FanTach:tach_state_2\ : SIGNAL IS "U(0,0,A)2";
+    ATTRIBUTE placement_force OF \FanController:FanTach:tach_state_2\ : SIGNAL IS "U(1,1,A)2";
     SIGNAL \FanController:Net_340\ : bit;
     SIGNAL \FanController:Net_341\ : bit;
     SIGNAL \FanController:Net_342\ : bit;
@@ -161,7 +163,7 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     SIGNAL \FanController:Net_373\ : bit;
     SIGNAL \FanController:Net_374\ : bit;
     SIGNAL \FanController:Net_393\ : bit;
-    ATTRIBUTE placement_force OF \FanController:Net_393\ : SIGNAL IS "U(0,1,B)0";
+    ATTRIBUTE placement_force OF \FanController:Net_393\ : SIGNAL IS "U(1,0,B)3";
     SIGNAL \FanController:Net_417\ : bit;
     SIGNAL \FanController:Net_418\ : bit;
     SIGNAL \FanController:Net_419\ : bit;
@@ -170,7 +172,7 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     SIGNAL \FanController:address_0\ : bit;
     SIGNAL \FanController:address_1\ : bit;
     SIGNAL \FanController:drq\ : bit;
-    ATTRIBUTE placement_force OF \FanController:drq\ : SIGNAL IS "U(0,0,A)0";
+    ATTRIBUTE placement_force OF \FanController:drq\ : SIGNAL IS "U(1,1,A)0";
     SIGNAL \FanController:enable\ : bit;
     SIGNAL \FanController:fan_clk_digital\ : bit;
     ATTRIBUTE udbclken_assigned OF \FanController:fan_clk_digital\ : SIGNAL IS "True";
@@ -227,7 +229,7 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     ATTRIBUTE Location OF ClockGenBlock : LABEL IS "F(CLK_GEN,0)";
     ATTRIBUTE Location OF ClockBlock : LABEL IS "F(Clock,0)";
     ATTRIBUTE lib_model OF Pin_Output_LEFT(0) : LABEL IS "iocell1";
-    ATTRIBUTE Location OF Pin_Output_LEFT(0) : LABEL IS "P1[0]";
+    ATTRIBUTE Location OF Pin_Output_LEFT(0) : LABEL IS "P2[0]";
     ATTRIBUTE lib_model OF Pin_Input_LEFT(0) : LABEL IS "iocell2";
     ATTRIBUTE Location OF Pin_Input_LEFT(0) : LABEL IS "P0[0]";
     ATTRIBUTE lib_model OF \UART:tx(0)\ : LABEL IS "iocell3";
@@ -235,45 +237,45 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     ATTRIBUTE lib_model OF \UART:rx(0)\ : LABEL IS "iocell4";
     ATTRIBUTE Location OF \UART:rx(0)\ : LABEL IS "P1[4]";
     ATTRIBUTE lib_model OF Pin_Input_RIGHT(0) : LABEL IS "iocell5";
-    ATTRIBUTE Location OF Pin_Input_RIGHT(0) : LABEL IS "P0[2]";
+    ATTRIBUTE Location OF Pin_Input_RIGHT(0) : LABEL IS "P0[1]";
     ATTRIBUTE lib_model OF Pin_Output_RIGHT(0) : LABEL IS "iocell6";
-    ATTRIBUTE Location OF Pin_Output_RIGHT(0) : LABEL IS "P1[7]";
+    ATTRIBUTE Location OF Pin_Output_RIGHT(0) : LABEL IS "P2[1]";
     ATTRIBUTE lib_model OF Pin_Input_DOWN(0) : LABEL IS "iocell7";
-    ATTRIBUTE Location OF Pin_Input_DOWN(0) : LABEL IS "P0[5]";
+    ATTRIBUTE Location OF Pin_Input_DOWN(0) : LABEL IS "P0[3]";
     ATTRIBUTE lib_model OF Pin_Output_UP(0) : LABEL IS "iocell8";
-    ATTRIBUTE Location OF Pin_Output_UP(0) : LABEL IS "P2[1]";
+    ATTRIBUTE Location OF Pin_Output_UP(0) : LABEL IS "P2[2]";
     ATTRIBUTE lib_model OF Pin_Input_UP(0) : LABEL IS "iocell9";
-    ATTRIBUTE Location OF Pin_Input_UP(0) : LABEL IS "P0[4]";
+    ATTRIBUTE Location OF Pin_Input_UP(0) : LABEL IS "P0[2]";
     ATTRIBUTE lib_model OF Pin_Input_BallTrigger(0) : LABEL IS "iocell10";
-    ATTRIBUTE Location OF Pin_Input_BallTrigger(0) : LABEL IS "P0[1]";
+    ATTRIBUTE Location OF Pin_Input_BallTrigger(0) : LABEL IS "P0[4]";
     ATTRIBUTE lib_model OF Pin_Serve(0) : LABEL IS "iocell11";
-    ATTRIBUTE Location OF Pin_Serve(0) : LABEL IS "P0[3]";
+    ATTRIBUTE Location OF Pin_Serve(0) : LABEL IS "P0[5]";
     ATTRIBUTE lib_model OF Pin_Output_UP_GROUND(0) : LABEL IS "iocell12";
-    ATTRIBUTE Location OF Pin_Output_UP_GROUND(0) : LABEL IS "P3[1]";
+    ATTRIBUTE Location OF Pin_Output_UP_GROUND(0) : LABEL IS "P3[2]";
     ATTRIBUTE lib_model OF Pin_Output_DOWN(0) : LABEL IS "iocell13";
-    ATTRIBUTE Location OF Pin_Output_DOWN(0) : LABEL IS "P2[0]";
+    ATTRIBUTE Location OF Pin_Output_DOWN(0) : LABEL IS "P2[3]";
     ATTRIBUTE lib_model OF Pin_Output_DOWN_GROUND(0) : LABEL IS "iocell14";
-    ATTRIBUTE Location OF Pin_Output_DOWN_GROUND(0) : LABEL IS "P3[0]";
+    ATTRIBUTE Location OF Pin_Output_DOWN_GROUND(0) : LABEL IS "P3[3]";
     ATTRIBUTE lib_model OF Pin_Output_LEFT_GROUND(0) : LABEL IS "iocell15";
-    ATTRIBUTE Location OF Pin_Output_LEFT_GROUND(0) : LABEL IS "P1[1]";
+    ATTRIBUTE Location OF Pin_Output_LEFT_GROUND(0) : LABEL IS "P3[0]";
     ATTRIBUTE lib_model OF Pin_Output_RIGHT_GROUND(0) : LABEL IS "iocell16";
-    ATTRIBUTE Location OF Pin_Output_RIGHT_GROUND(0) : LABEL IS "P1[6]";
+    ATTRIBUTE Location OF Pin_Output_RIGHT_GROUND(0) : LABEL IS "P3[1]";
     ATTRIBUTE lib_model OF \FanController:B_FanCtrl:speed_status\ : LABEL IS "macrocell1";
-    ATTRIBUTE Location OF \FanController:B_FanCtrl:speed_status\ : LABEL IS "U(0,1)";
+    ATTRIBUTE Location OF \FanController:B_FanCtrl:speed_status\ : LABEL IS "U(1,1)";
     ATTRIBUTE lib_model OF \FanController:B_FanCtrl:stall_status\ : LABEL IS "macrocell2";
-    ATTRIBUTE Location OF \FanController:B_FanCtrl:stall_status\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \FanController:B_FanCtrl:stall_status\ : LABEL IS "U(0,1)";
     ATTRIBUTE lib_model OF Net_757 : LABEL IS "macrocell3";
     ATTRIBUTE Location OF Net_757 : LABEL IS "U(0,1)";
     ATTRIBUTE lib_model OF Net_1380 : LABEL IS "macrocell4";
     ATTRIBUTE Location OF Net_1380 : LABEL IS "U(0,1)";
     ATTRIBUTE lib_model OF Net_1350 : LABEL IS "macrocell5";
-    ATTRIBUTE Location OF Net_1350 : LABEL IS "U(0,1)";
+    ATTRIBUTE Location OF Net_1350 : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF Net_1351 : LABEL IS "macrocell6";
-    ATTRIBUTE Location OF Net_1351 : LABEL IS "U(0,1)";
+    ATTRIBUTE Location OF Net_1351 : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF Net_1551 : LABEL IS "macrocell7";
-    ATTRIBUTE Location OF Net_1551 : LABEL IS "U(1,1)";
+    ATTRIBUTE Location OF Net_1551 : LABEL IS "U(0,0)";
     ATTRIBUTE lib_model OF Net_1549 : LABEL IS "macrocell8";
-    ATTRIBUTE Location OF Net_1549 : LABEL IS "U(1,1)";
+    ATTRIBUTE Location OF Net_1549 : LABEL IS "U(0,0)";
     ATTRIBUTE lib_model OF Net_1552 : LABEL IS "macrocell9";
     ATTRIBUTE Location OF Net_1552 : LABEL IS "U(0,0)";
     ATTRIBUTE lib_model OF Net_1550 : LABEL IS "macrocell10";
@@ -281,7 +283,7 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     ATTRIBUTE Location OF \UART:SCB\ : LABEL IS "F(SCB,0)";
     ATTRIBUTE Location OF \FanController:DataSend\ : LABEL IS "[IntrContainer=(0)][IntrId=(2)]";
     ATTRIBUTE lib_model OF \FanController:B_FanCtrl:GlobalControlReg\ : LABEL IS "controlcell1";
-    ATTRIBUTE Location OF \FanController:B_FanCtrl:GlobalControlReg\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \FanController:B_FanCtrl:GlobalControlReg\ : LABEL IS "U(0,1)";
     ATTRIBUTE lib_model OF \FanController:B_FanCtrl:AlertStatusReg\ : LABEL IS "statusicell1";
     ATTRIBUTE Location OF \FanController:B_FanCtrl:AlertStatusReg\ : LABEL IS "U(0,1)";
     ATTRIBUTE Location OF \FanController:PID_ISR\ : LABEL IS "[IntrContainer=(0)][IntrId=(3)]";
@@ -290,50 +292,52 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     ATTRIBUTE Location OF \FanController:FW_PWM3:cy_m0s8_tcpwm_1\ : LABEL IS "F(TCPWM,2)";
     ATTRIBUTE Location OF \FanController:FW_PWM1:cy_m0s8_tcpwm_1\ : LABEL IS "F(TCPWM,1)";
     ATTRIBUTE lib_model OF \FanController:FanTach:P4:TachAddrControl\ : LABEL IS "controlcell2";
-    ATTRIBUTE Location OF \FanController:FanTach:P4:TachAddrControl\ : LABEL IS "U(1,1)";
+    ATTRIBUTE Location OF \FanController:FanTach:P4:TachAddrControl\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \FanController:FanTach:DmpgFactor:DmpgTimeCntr:u0\ : LABEL IS "datapathcell1";
-    ATTRIBUTE Location OF \FanController:FanTach:DmpgFactor:DmpgTimeCntr:u0\ : LABEL IS "U(0,1)";
+    ATTRIBUTE Location OF \FanController:FanTach:DmpgFactor:DmpgTimeCntr:u0\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \FanController:FanTach:GlitchFilterTimer:u0\ : LABEL IS "datapathcell2";
-    ATTRIBUTE Location OF \FanController:FanTach:GlitchFilterTimer:u0\ : LABEL IS "U(1,1)";
+    ATTRIBUTE Location OF \FanController:FanTach:GlitchFilterTimer:u0\ : LABEL IS "U(0,0)";
     ATTRIBUTE lib_model OF \FanController:FanTach:FanTachCounter:u0\ : LABEL IS "datapathcell3";
-    ATTRIBUTE Location OF \FanController:FanTach:FanTachCounter:u0\ : LABEL IS "U(1,0)";
+    ATTRIBUTE Location OF \FanController:FanTach:FanTachCounter:u0\ : LABEL IS "U(0,1)";
     ATTRIBUTE lib_model OF \FanController:FanTach:FanTachCounter:u1\ : LABEL IS "datapathcell4";
-    ATTRIBUTE Location OF \FanController:FanTach:FanTachCounter:u1\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \FanController:FanTach:FanTachCounter:u1\ : LABEL IS "U(1,1)";
     ATTRIBUTE Location OF ISR_Ball_Trigger : LABEL IS "[IntrContainer=(0)][IntrId=(1)]";
     ATTRIBUTE lib_model OF \Control_Rotation:Sync:ctrl_reg\ : LABEL IS "controlcell3";
-    ATTRIBUTE Location OF \Control_Rotation:Sync:ctrl_reg\ : LABEL IS "U(0,1)";
+    ATTRIBUTE Location OF \Control_Rotation:Sync:ctrl_reg\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \Bluetooth:cy_m0s8_ble\ : LABEL IS "F(BLE,0)";
+    ATTRIBUTE Location OF \Bluetooth:bless_isr\ : LABEL IS "[IntrContainer=(0)][IntrId=(12)]";
     ATTRIBUTE lib_model OF \FanController:drq\ : LABEL IS "macrocell11";
-    ATTRIBUTE Location OF \FanController:drq\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \FanController:drq\ : LABEL IS "U(1,1)";
     ATTRIBUTE lib_model OF \FanController:B_FanCtrl:alert_reg\ : LABEL IS "macrocell12";
     ATTRIBUTE Location OF \FanController:B_FanCtrl:alert_reg\ : LABEL IS "U(0,1)";
     ATTRIBUTE lib_model OF \FanController:B_FanCtrl:stall_alrt\ : LABEL IS "macrocell13";
-    ATTRIBUTE Location OF \FanController:B_FanCtrl:stall_alrt\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \FanController:B_FanCtrl:stall_alrt\ : LABEL IS "U(0,1)";
     ATTRIBUTE lib_model OF \FanController:FanTach:tach\ : LABEL IS "macrocell14";
-    ATTRIBUTE Location OF \FanController:FanTach:tach\ : LABEL IS "U(1,1)";
+    ATTRIBUTE Location OF \FanController:FanTach:tach\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \FanController:Net_393\ : LABEL IS "macrocell15";
-    ATTRIBUTE Location OF \FanController:Net_393\ : LABEL IS "U(0,1)";
+    ATTRIBUTE Location OF \FanController:Net_393\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \FanController:FanTach:end_of_measurement\ : LABEL IS "macrocell16";
     ATTRIBUTE Location OF \FanController:FanTach:end_of_measurement\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \FanController:FanTach:gf_dmp_state\ : LABEL IS "macrocell17";
-    ATTRIBUTE Location OF \FanController:FanTach:gf_dmp_state\ : LABEL IS "U(0,1)";
+    ATTRIBUTE Location OF \FanController:FanTach:gf_dmp_state\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \FanController:FanTach:reg_enable\ : LABEL IS "macrocell18";
     ATTRIBUTE Location OF \FanController:FanTach:reg_enable\ : LABEL IS "U(0,0)";
     ATTRIBUTE lib_model OF \FanController:FanTach:glitch_filter_state\ : LABEL IS "macrocell19";
-    ATTRIBUTE Location OF \FanController:FanTach:glitch_filter_state\ : LABEL IS "U(1,1)";
+    ATTRIBUTE Location OF \FanController:FanTach:glitch_filter_state\ : LABEL IS "U(0,0)";
     ATTRIBUTE lib_model OF \FanController:FanTach:glitch_filter_ld\ : LABEL IS "macrocell20";
-    ATTRIBUTE Location OF \FanController:FanTach:glitch_filter_ld\ : LABEL IS "U(1,1)";
+    ATTRIBUTE Location OF \FanController:FanTach:glitch_filter_ld\ : LABEL IS "U(0,0)";
     ATTRIBUTE lib_model OF \FanController:FanTach:filtered_rising_tach\ : LABEL IS "macrocell21";
-    ATTRIBUTE Location OF \FanController:FanTach:filtered_rising_tach\ : LABEL IS "U(1,0)";
+    ATTRIBUTE Location OF \FanController:FanTach:filtered_rising_tach\ : LABEL IS "U(0,0)";
     ATTRIBUTE lib_model OF \FanController:FanTach:tach_state_2\ : LABEL IS "macrocell22";
-    ATTRIBUTE Location OF \FanController:FanTach:tach_state_2\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \FanController:FanTach:tach_state_2\ : LABEL IS "U(1,1)";
     ATTRIBUTE lib_model OF \FanController:FanTach:tach_state_1\ : LABEL IS "macrocell23";
     ATTRIBUTE Location OF \FanController:FanTach:tach_state_1\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \FanController:FanTach:tach_state_0\ : LABEL IS "macrocell24";
-    ATTRIBUTE Location OF \FanController:FanTach:tach_state_0\ : LABEL IS "U(1,0)";
+    ATTRIBUTE Location OF \FanController:FanTach:tach_state_0\ : LABEL IS "U(1,1)";
     ATTRIBUTE lib_model OF \FanController:FanTach:sync2_tach_cnt3\ : LABEL IS "macrocell25";
-    ATTRIBUTE Location OF \FanController:FanTach:sync2_tach_cnt3\ : LABEL IS "U(1,0)";
+    ATTRIBUTE Location OF \FanController:FanTach:sync2_tach_cnt3\ : LABEL IS "U(1,1)";
     ATTRIBUTE lib_model OF \FanController:FanTach:fifo_load\ : LABEL IS "macrocell26";
-    ATTRIBUTE Location OF \FanController:FanTach:fifo_load\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \FanController:FanTach:fifo_load\ : LABEL IS "U(1,1)";
     COMPONENT controlcell
         PORT (
             control_0 : OUT std_ulogic;
@@ -687,6 +691,16 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
             cout : OUT std_ulogic;
             q : OUT std_ulogic;
             q_fixed : OUT std_ulogic);
+    END COMPONENT;
+    COMPONENT p4blecell
+        PORT (
+            interrupt : OUT std_ulogic;
+            rfctrl_extpa_en : OUT std_ulogic;
+            wco_in : IN std_ulogic;
+            wco_out : OUT std_ulogic;
+            ext_pa_tx_ctl : OUT std_ulogic;
+            ext_lna_rx_ctl : OUT std_ulogic;
+            ext_pa_lna_chip_en : OUT std_ulogic);
     END COMPONENT;
     COMPONENT statusicell
         PORT (
@@ -1374,7 +1388,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_Input_DOWN(0)__PA,
             oe => open,
-            fb => Net_779,
+            fb => Net_823,
             pad_in => Pin_Input_DOWN(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -1465,7 +1479,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_Output_UP(0)__PA,
             oe => open,
-            pin_input => Net_1351,
+            pin_input => Net_757,
             pad_out => Pin_Output_UP(0)_PAD,
             pad_in => Pin_Output_UP(0)_PAD,
             in_clock => open,
@@ -1557,7 +1571,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_Input_UP(0)__PA,
             oe => open,
-            fb => Net_823,
+            fb => Net_779,
             pad_in => Pin_Input_UP(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -1829,7 +1843,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_Output_UP_GROUND(0)__PA,
             oe => open,
-            pin_input => Net_1350,
+            pin_input => Net_1380,
             pad_out => Pin_Output_UP_GROUND(0)_PAD,
             pad_in => Pin_Output_UP_GROUND(0)_PAD,
             in_clock => open,
@@ -1921,7 +1935,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_Output_DOWN(0)__PA,
             oe => open,
-            pin_input => Net_757,
+            pin_input => Net_1351,
             pad_out => Pin_Output_DOWN(0)_PAD,
             pad_in => Pin_Output_DOWN(0)_PAD,
             in_clock => open,
@@ -2013,7 +2027,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_Output_DOWN_GROUND(0)__PA,
             oe => open,
-            pin_input => Net_1380,
+            pin_input => Net_1350,
             pad_out => Pin_Output_DOWN_GROUND(0)_PAD,
             pad_in => Pin_Output_DOWN_GROUND(0)_PAD,
             in_clock => open,
@@ -2682,6 +2696,21 @@ BEGIN
             control_1 => Net_1388,
             control_0 => Net_1399,
             busclk => ClockBlock_HFClk);
+
+    \Bluetooth:cy_m0s8_ble\:p4blecell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            interrupt => \Bluetooth:Net_15\,
+            rfctrl_extpa_en => Net_1571);
+
+    \Bluetooth:bless_isr\:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => \Bluetooth:Net_15\,
+            clock => ClockBlock_HFClk);
 
     \FanController:drq\:macrocell
         GENERIC MAP(
