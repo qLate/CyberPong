@@ -39,7 +39,8 @@ We can set speeds for the motors with UART interface or using Bluetooth, or set 
 - **Create a CyperPongApp to manage the Exercise Machine**
 - **Add new rotation axis and other features in a new model**
 
-![fun](./img/CyberPong2.png)
+<img src="./img/CyberPong2.png" alt="drawing" height="400"/>
+
 - **Elaborate different training modes**
 - **Test & Anylize & Improve  our machine**
 
