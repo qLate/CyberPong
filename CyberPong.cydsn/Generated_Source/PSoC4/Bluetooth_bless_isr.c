@@ -19,7 +19,7 @@
 #include <cydevice_trm.h>
 #include <CyLib.h>
 #include <Bluetooth_bless_isr.h>
-#include "cyapicallbacks.h"
+
 
 #if !defined(Bluetooth_bless_isr__REMOVED) /* Check for removal by optimization */
 

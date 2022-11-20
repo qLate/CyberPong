@@ -2,7 +2,7 @@
 --	Conversion of CyberPong.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sat Oct 29 20:08:31 2022
+--	Sun Nov 20 01:44:52 2022
 --
 
 USE cypress.cypress.all;
@@ -669,9 +669,9 @@ SIGNAL tmpIO_0__Pin_Output_RIGHT_GROUND_net_0 : bit;
 TERMINAL tmpSIOVREF__Pin_Output_RIGHT_GROUND_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Pin_Output_RIGHT_GROUND_net_0 : bit;
 SIGNAL \Bluetooth:Net_15\ : bit;
-SIGNAL Net_1571 : bit;
+SIGNAL Net_1577 : bit;
 SIGNAL \Bluetooth:Net_53\ : bit;
-SIGNAL Net_1570 : bit;
+SIGNAL Net_1576 : bit;
 SIGNAL \Bluetooth:Net_55\ : bit;
 SIGNAL \FanController:drq\\D\ : bit;
 SIGNAL \FanController:B_FanCtrl:alert_reg\\D\ : bit;
@@ -2404,7 +2404,7 @@ Pin_Output_RIGHT_GROUND:cy_psoc3_pins_v1_10
 \Bluetooth:cy_m0s8_ble\:cy_m0s8_ble_v1_0
 	GENERIC MAP(cy_registers=>"")
 	PORT MAP(interrupt=>\Bluetooth:Net_15\,
-		rf_ext_pa_en=>Net_1571);
+		rf_ext_pa_en=>Net_1577);
 \Bluetooth:bless_isr\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')

@@ -35,13 +35,13 @@
 
 #if(CYBLE_GATT_ROLE_SERVER)
 
-#define CYBLE_GATT_DB_INDEX_COUNT                    (0x0012u)
-#define CYBLE_GATT_DB_ATT_VAL_COUNT                  (0x08u)
-#define CYBLE_GATT_DB_MAX_VALUE_LEN                  (0x0009u)
+#define CYBLE_GATT_DB_INDEX_COUNT                    (0x0037u)
+#define CYBLE_GATT_DB_ATT_VAL_COUNT                  (0x29u)
+#define CYBLE_GATT_DB_MAX_VALUE_LEN                  (0x0013u)
 
 #endif /* CYBLE_GATT_ROLE_SERVER */
 
-#define CYBLE_GATT_DB_CCCD_COUNT                     (0x02u)
+#define CYBLE_GATT_DB_CCCD_COUNT                     (0x0Cu)
 
 #if (CYBLE_GATT_DB_CCCD_COUNT == 0u)
     #define CYBLE_GATT_DB_FLASH_CCCD_COUNT          (1u)
@@ -49,8 +49,8 @@
     #define CYBLE_GATT_DB_FLASH_CCCD_COUNT          (CYBLE_GATT_DB_CCCD_COUNT)
 #endif
 
-#define CYBLE_IAS
-#define CYBLE_IAS_SERVER
+#define CYBLE_AIOS
+#define CYBLE_AIOS_SERVER
 
 
 /***************************************

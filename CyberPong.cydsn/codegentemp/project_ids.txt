@@ -1,10 +1,6 @@
-C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\CyberPong.cyprj|1b96ae45-e786-4627-8a60-4efd01d29ed0
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|31b97896-810d-40fa-b52d-3a990fcfa81f
-C:\Users\Oleg\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|57d9fbca-8102-44a6-981a-8974f235896f
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|f79a4eac-855c-4e62-a26b-61da6de9bb90
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|7e316765-a954-4a80-bd24-079069235b82
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|00f72f7b-2123-453f-be4c-58bfcb7ef3d8
-C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\Design01.cydsn\Design01.cyprj|3e8703de-f280-4f91-8400-986fd9742834
-C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\CyberPongRemastered.cydsn\CyberPongRemastered.cyprj|f9e173cb-7f6b-463b-a11d-04de0bac5419
-C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\BluetoothTest.cydsn\BluetoothTest.cyprj|b69680b9-1af4-4b6e-b746-436199c30b75
-C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong_Copy_01.cydsn\CyberPong_Copy_01.cyprj|b5ed91b6-f200-4ae0-8ead-cb27f516d22a
+C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\CyberPong.cyprj|c88bd1ea-5fd1-4d67-bcd7-fb52f4d392ba
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|c131c119-1ec6-4475-b5b3-be3a6074638c
+C:\Users\Oleg\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|3e87d6d2-4de1-4a4e-9a1c-f4609233aa55
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|703af4f4-2bda-41ef-833c-b2c96c6bc01b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|01587d0c-743b-48f0-9473-2975a184b379
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|026da3a2-9f5c-4728-8fb4-b98a2851e8f2

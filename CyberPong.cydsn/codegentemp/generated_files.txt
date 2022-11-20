@@ -94,8 +94,6 @@
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth.h" value="HEADER;;;;;Bluetooth" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth.c" value="SOURCE_C;CortexM0;;;;Bluetooth" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_gatt.c" value="SOURCE_C;CortexM0;;;;Bluetooth" />
-  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_ias.c" value="SOURCE_C;CortexM0;;;;Bluetooth" />
-  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_ias.h" value="HEADER;;;;;Bluetooth" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_eventHandler.c" value="SOURCE_C;CortexM0;;;;Bluetooth" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_HAL_INT.c" value="SOURCE_C;CortexM0;;;;Bluetooth" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_HAL_PVT.c" value="SOURCE_C;CortexM0;;;;Bluetooth" />
@@ -110,6 +108,8 @@
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_StackGattClient.h" value="HEADER;;;;;Bluetooth" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_Stack.h" value="HEADER;;;;;Bluetooth" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_eventHandler.h" value="HEADER;;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_aios.c" value="SOURCE_C;CortexM0;;;;Bluetooth" />
+  <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\Bluetooth_aios.h" value="HEADER;;;;;Bluetooth" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\UART_SCBCLK.c" value="SOURCE_C;CortexM0;;;;UART_SCBCLK" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\UART_SCBCLK.h" value="HEADER;;;;;UART_SCBCLK" />
   <file name="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\codegentemp\UART_tx.c" value="SOURCE_C;CortexM0;;;;UART_tx" />

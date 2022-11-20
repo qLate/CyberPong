@@ -1,0 +1,2031 @@
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"motorController.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Clamp01,"ax",%progbits
+  20              		.align	2
+  21              		.global	Clamp01
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	Clamp01, %function
+  25              	Clamp01:
+  26              	.LFB35:
+  27              		.file 1 "motorController.c"
+   1:motorController.c **** #include "motorController.h"
+   2:motorController.c **** 
+   3:motorController.c **** 
+   4:motorController.c **** int Clamp01(int v, int min, int max){
+  28              		.loc 1 4 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+   5:motorController.c ****     if (v < min)
+  34              		.loc 1 5 0
+  35 0000 8842     		cmp	r0, r1
+  36 0002 02DB     		blt	.L3
+   6:motorController.c ****         v = min;
+   7:motorController.c ****     else if(v > max)
+  37              		.loc 1 7 0
+  38 0004 9042     		cmp	r0, r2
+  39 0006 02DC     		bgt	.L4
+  40 0008 02E0     		b	.L2
+  41              	.L3:
+   6:motorController.c ****         v = min;
+  42              		.loc 1 6 0
+  43 000a 0800     		movs	r0, r1
+  44              	.LVL1:
+  45 000c 00E0     		b	.L2
+  46              	.LVL2:
+  47              	.L4:
+   8:motorController.c ****         v = max;    
+  48              		.loc 1 8 0
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 2
+
+
+  49 000e 1000     		movs	r0, r2
+  50              	.LVL3:
+  51              	.L2:
+   9:motorController.c ****     return v;
+  10:motorController.c **** }
+  52              		.loc 1 10 0
+  53              		@ sp needed
+  54 0010 7047     		bx	lr
+  55              		.cfi_endproc
+  56              	.LFE35:
+  57              		.size	Clamp01, .-Clamp01
+  58 0012 C046     		.section	.text.SetMotorSpeed,"ax",%progbits
+  59              		.align	2
+  60              		.global	SetMotorSpeed
+  61              		.code	16
+  62              		.thumb_func
+  63              		.type	SetMotorSpeed, %function
+  64              	SetMotorSpeed:
+  65              	.LFB36:
+  11:motorController.c **** void SetMotorSpeed(int speeds[]) {
+  66              		.loc 1 11 0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 0
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70              	.LVL4:
+  71 0000 70B5     		push	{r4, r5, r6, lr}
+  72              		.cfi_def_cfa_offset 16
+  73              		.cfi_offset 4, -16
+  74              		.cfi_offset 5, -12
+  75              		.cfi_offset 6, -8
+  76              		.cfi_offset 14, -4
+  77 0002 0500     		movs	r5, r0
+  78              	.LVL5:
+  79              	.LBB2:
+  12:motorController.c ****     for (int i = 0; i < MOTOR_COUNT; i++) {
+  80              		.loc 1 12 0
+  81 0004 0024     		movs	r4, #0
+  82 0006 0DE0     		b	.L6
+  83              	.LVL6:
+  84              	.L7:
+  85              	.LBB3:
+  13:motorController.c ****         int clamped = Clamp01(speeds[i], MIN_RPM, MAX_RPM);
+  86              		.loc 1 13 0 discriminator 3
+  87 0008 A300     		lsls	r3, r4, #2
+  88 000a E858     		ldr	r0, [r5, r3]
+  89 000c 074A     		ldr	r2, .L8
+  90 000e FA21     		movs	r1, #250
+  91 0010 8900     		lsls	r1, r1, #2
+  92 0012 FFF7FEFF 		bl	Clamp01
+  93              	.LVL7:
+  14:motorController.c ****         FanController_SetDesiredSpeed(i+1, 2*clamped);
+  94              		.loc 1 14 0 discriminator 3
+  95 0016 4000     		lsls	r0, r0, #1
+  96              	.LVL8:
+  97 0018 81B2     		uxth	r1, r0
+  98 001a 601C     		adds	r0, r4, #1
+  99 001c C0B2     		uxtb	r0, r0
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 3
+
+
+ 100 001e FFF7FEFF 		bl	FanController_SetDesiredSpeed
+ 101              	.LVL9:
+ 102              	.LBE3:
+  12:motorController.c ****     for (int i = 0; i < MOTOR_COUNT; i++) {
+ 103              		.loc 1 12 0 discriminator 3
+ 104 0022 0134     		adds	r4, r4, #1
+ 105              	.LVL10:
+ 106              	.L6:
+  12:motorController.c ****     for (int i = 0; i < MOTOR_COUNT; i++) {
+ 107              		.loc 1 12 0 is_stmt 0 discriminator 1
+ 108 0024 032C     		cmp	r4, #3
+ 109 0026 EFDD     		ble	.L7
+ 110              	.LBE2:
+  15:motorController.c ****     }
+  16:motorController.c **** }
+ 111              		.loc 1 16 0 is_stmt 1
+ 112              		@ sp needed
+ 113              	.LVL11:
+ 114              	.LVL12:
+ 115 0028 70BD     		pop	{r4, r5, r6, pc}
+ 116              	.L9:
+ 117 002a C046     		.align	2
+ 118              	.L8:
+ 119 002c 9A100000 		.word	4250
+ 120              		.cfi_endproc
+ 121              	.LFE36:
+ 122              		.size	SetMotorSpeed, .-SetMotorSpeed
+ 123              		.section	.text.SetMotorSpeed_Single,"ax",%progbits
+ 124              		.align	2
+ 125              		.global	SetMotorSpeed_Single
+ 126              		.code	16
+ 127              		.thumb_func
+ 128              		.type	SetMotorSpeed_Single, %function
+ 129              	SetMotorSpeed_Single:
+ 130              	.LFB37:
+  17:motorController.c **** void SetMotorSpeed_Single(enum MotorDirection dir, int speed) {
+ 131              		.loc 1 17 0
+ 132              		.cfi_startproc
+ 133              		@ args = 0, pretend = 0, frame = 0
+ 134              		@ frame_needed = 0, uses_anonymous_args = 0
+ 135              	.LVL13:
+ 136 0000 10B5     		push	{r4, lr}
+ 137              		.cfi_def_cfa_offset 8
+ 138              		.cfi_offset 4, -8
+ 139              		.cfi_offset 14, -4
+ 140 0002 0400     		movs	r4, r0
+ 141 0004 0800     		movs	r0, r1
+ 142              	.LVL14:
+  18:motorController.c ****     int clamped = Clamp01(speed, MIN_RPM, MAX_RPM);
+ 143              		.loc 1 18 0
+ 144 0006 054A     		ldr	r2, .L11
+ 145 0008 FA21     		movs	r1, #250
+ 146              	.LVL15:
+ 147 000a 8900     		lsls	r1, r1, #2
+ 148 000c FFF7FEFF 		bl	Clamp01
+ 149              	.LVL16:
+  19:motorController.c ****     FanController_SetDesiredSpeed(dir+1, clamped);
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 4
+
+
+ 150              		.loc 1 19 0
+ 151 0010 81B2     		uxth	r1, r0
+ 152 0012 0134     		adds	r4, r4, #1
+ 153 0014 E0B2     		uxtb	r0, r4
+ 154              	.LVL17:
+ 155 0016 FFF7FEFF 		bl	FanController_SetDesiredSpeed
+ 156              	.LVL18:
+  20:motorController.c **** }
+ 157              		.loc 1 20 0
+ 158              		@ sp needed
+ 159 001a 10BD     		pop	{r4, pc}
+ 160              	.L12:
+ 161              		.align	2
+ 162              	.L11:
+ 163 001c 9A100000 		.word	4250
+ 164              		.cfi_endproc
+ 165              	.LFE37:
+ 166              		.size	SetMotorSpeed_Single, .-SetMotorSpeed_Single
+ 167              		.comm	str,16,4
+ 168              		.comm	uart_rpm_buff,4,4
+ 169              		.text
+ 170              	.Letext0:
+ 171              		.file 2 "Generated_Source\\PSoC4/Bluetooth_Stack.h"
+ 172              		.file 3 "Generated_Source\\PSoC4/Bluetooth_aios.h"
+ 173              		.file 4 "main_data.h"
+ 174              		.file 5 "Generated_Source\\PSoC4/FanController.h"
+ 175              		.section	.debug_info,"",%progbits
+ 176              	.Ldebug_info0:
+ 177 0000 86040000 		.4byte	0x486
+ 178 0004 0400     		.2byte	0x4
+ 179 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 180 000a 04       		.byte	0x4
+ 181 000b 01       		.uleb128 0x1
+ 182 000c 16020000 		.4byte	.LASF108
+ 183 0010 0C       		.byte	0xc
+ 184 0011 2D010000 		.4byte	.LASF109
+ 185 0015 49080000 		.4byte	.LASF110
+ 186 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 187 001d 00000000 		.4byte	0
+ 188 0021 00000000 		.4byte	.Ldebug_line0
+ 189 0025 02       		.uleb128 0x2
+ 190 0026 01       		.byte	0x1
+ 191 0027 06       		.byte	0x6
+ 192 0028 85060000 		.4byte	.LASF0
+ 193 002c 02       		.uleb128 0x2
+ 194 002d 01       		.byte	0x1
+ 195 002e 08       		.byte	0x8
+ 196 002f 14060000 		.4byte	.LASF1
+ 197 0033 02       		.uleb128 0x2
+ 198 0034 02       		.byte	0x2
+ 199 0035 05       		.byte	0x5
+ 200 0036 95000000 		.4byte	.LASF2
+ 201 003a 02       		.uleb128 0x2
+ 202 003b 02       		.byte	0x2
+ 203 003c 07       		.byte	0x7
+ 204 003d C1070000 		.4byte	.LASF3
+ 205 0041 02       		.uleb128 0x2
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 5
+
+
+ 206 0042 04       		.byte	0x4
+ 207 0043 05       		.byte	0x5
+ 208 0044 62040000 		.4byte	.LASF4
+ 209 0048 02       		.uleb128 0x2
+ 210 0049 04       		.byte	0x4
+ 211 004a 07       		.byte	0x7
+ 212 004b 16070000 		.4byte	.LASF5
+ 213 004f 02       		.uleb128 0x2
+ 214 0050 08       		.byte	0x8
+ 215 0051 05       		.byte	0x5
+ 216 0052 3F010000 		.4byte	.LASF6
+ 217 0056 02       		.uleb128 0x2
+ 218 0057 08       		.byte	0x8
+ 219 0058 07       		.byte	0x7
+ 220 0059 16010000 		.4byte	.LASF7
+ 221 005d 03       		.uleb128 0x3
+ 222 005e 04       		.byte	0x4
+ 223 005f 05       		.byte	0x5
+ 224 0060 696E7400 		.ascii	"int\000"
+ 225 0064 02       		.uleb128 0x2
+ 226 0065 04       		.byte	0x4
+ 227 0066 07       		.byte	0x7
+ 228 0067 EE060000 		.4byte	.LASF8
+ 229 006b 02       		.uleb128 0x2
+ 230 006c 04       		.byte	0x4
+ 231 006d 04       		.byte	0x4
+ 232 006e 87030000 		.4byte	.LASF9
+ 233 0072 02       		.uleb128 0x2
+ 234 0073 08       		.byte	0x8
+ 235 0074 04       		.byte	0x4
+ 236 0075 86090000 		.4byte	.LASF10
+ 237 0079 02       		.uleb128 0x2
+ 238 007a 01       		.byte	0x1
+ 239 007b 08       		.byte	0x8
+ 240 007c 3C080000 		.4byte	.LASF11
+ 241 0080 02       		.uleb128 0x2
+ 242 0081 08       		.byte	0x8
+ 243 0082 04       		.byte	0x4
+ 244 0083 E2050000 		.4byte	.LASF12
+ 245 0087 02       		.uleb128 0x2
+ 246 0088 04       		.byte	0x4
+ 247 0089 07       		.byte	0x7
+ 248 008a D7000000 		.4byte	.LASF13
+ 249 008e 04       		.uleb128 0x4
+ 250 008f 04       		.byte	0x4
+ 251 0090 79000000 		.4byte	0x79
+ 252 0094 05       		.uleb128 0x5
+ 253 0095 01       		.byte	0x1
+ 254 0096 2C000000 		.4byte	0x2c
+ 255 009a 02       		.byte	0x2
+ 256 009b 3501     		.2byte	0x135
+ 257 009d 52020000 		.4byte	0x252
+ 258 00a1 06       		.uleb128 0x6
+ 259 00a2 1F030000 		.4byte	.LASF14
+ 260 00a6 00       		.byte	0
+ 261 00a7 06       		.uleb128 0x6
+ 262 00a8 B0010000 		.4byte	.LASF15
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 6
+
+
+ 263 00ac 01       		.byte	0x1
+ 264 00ad 06       		.uleb128 0x6
+ 265 00ae D30A0000 		.4byte	.LASF16
+ 266 00b2 02       		.byte	0x2
+ 267 00b3 06       		.uleb128 0x6
+ 268 00b4 CD090000 		.4byte	.LASF17
+ 269 00b8 03       		.byte	0x3
+ 270 00b9 06       		.uleb128 0x6
+ 271 00ba 01010000 		.4byte	.LASF18
+ 272 00be 04       		.byte	0x4
+ 273 00bf 06       		.uleb128 0x6
+ 274 00c0 1B050000 		.4byte	.LASF19
+ 275 00c4 05       		.byte	0x5
+ 276 00c5 06       		.uleb128 0x6
+ 277 00c6 3E000000 		.4byte	.LASF20
+ 278 00ca 06       		.byte	0x6
+ 279 00cb 06       		.uleb128 0x6
+ 280 00cc 2B0A0000 		.4byte	.LASF21
+ 281 00d0 20       		.byte	0x20
+ 282 00d1 06       		.uleb128 0x6
+ 283 00d2 2E070000 		.4byte	.LASF22
+ 284 00d6 21       		.byte	0x21
+ 285 00d7 06       		.uleb128 0x6
+ 286 00d8 00000000 		.4byte	.LASF23
+ 287 00dc 22       		.byte	0x22
+ 288 00dd 06       		.uleb128 0x6
+ 289 00de 4C050000 		.4byte	.LASF24
+ 290 00e2 23       		.byte	0x23
+ 291 00e3 06       		.uleb128 0x6
+ 292 00e4 D2060000 		.4byte	.LASF25
+ 293 00e8 24       		.byte	0x24
+ 294 00e9 06       		.uleb128 0x6
+ 295 00ea 9F000000 		.4byte	.LASF26
+ 296 00ee 25       		.byte	0x25
+ 297 00ef 06       		.uleb128 0x6
+ 298 00f0 D2040000 		.4byte	.LASF27
+ 299 00f4 26       		.byte	0x26
+ 300 00f5 06       		.uleb128 0x6
+ 301 00f6 91040000 		.4byte	.LASF28
+ 302 00fa 27       		.byte	0x27
+ 303 00fb 06       		.uleb128 0x6
+ 304 00fc C80B0000 		.4byte	.LASF29
+ 305 0100 28       		.byte	0x28
+ 306 0101 06       		.uleb128 0x6
+ 307 0102 69070000 		.4byte	.LASF30
+ 308 0106 29       		.byte	0x29
+ 309 0107 06       		.uleb128 0x6
+ 310 0108 EC070000 		.4byte	.LASF31
+ 311 010c 2A       		.byte	0x2a
+ 312 010d 06       		.uleb128 0x6
+ 313 010e 05090000 		.4byte	.LASF32
+ 314 0112 2B       		.byte	0x2b
+ 315 0113 06       		.uleb128 0x6
+ 316 0114 BB020000 		.4byte	.LASF33
+ 317 0118 2C       		.byte	0x2c
+ 318 0119 06       		.uleb128 0x6
+ 319 011a C1030000 		.4byte	.LASF34
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 7
+
+
+ 320 011e 2D       		.byte	0x2d
+ 321 011f 06       		.uleb128 0x6
+ 322 0120 71000000 		.4byte	.LASF35
+ 323 0124 2E       		.byte	0x2e
+ 324 0125 06       		.uleb128 0x6
+ 325 0126 2F0C0000 		.4byte	.LASF36
+ 326 012a 2F       		.byte	0x2f
+ 327 012b 06       		.uleb128 0x6
+ 328 012c E0000000 		.4byte	.LASF37
+ 329 0130 30       		.byte	0x30
+ 330 0131 06       		.uleb128 0x6
+ 331 0132 BE050000 		.4byte	.LASF38
+ 332 0136 31       		.byte	0x31
+ 333 0137 06       		.uleb128 0x6
+ 334 0138 EA030000 		.4byte	.LASF39
+ 335 013c 32       		.byte	0x32
+ 336 013d 06       		.uleb128 0x6
+ 337 013e 15080000 		.4byte	.LASF40
+ 338 0142 33       		.byte	0x33
+ 339 0143 06       		.uleb128 0x6
+ 340 0144 86070000 		.4byte	.LASF41
+ 341 0148 34       		.byte	0x34
+ 342 0149 06       		.uleb128 0x6
+ 343 014a B0090000 		.4byte	.LASF42
+ 344 014e 35       		.byte	0x35
+ 345 014f 06       		.uleb128 0x6
+ 346 0150 41040000 		.4byte	.LASF43
+ 347 0154 36       		.byte	0x36
+ 348 0155 06       		.uleb128 0x6
+ 349 0156 C3010000 		.4byte	.LASF44
+ 350 015a 37       		.byte	0x37
+ 351 015b 06       		.uleb128 0x6
+ 352 015c 57000000 		.4byte	.LASF45
+ 353 0160 40       		.byte	0x40
+ 354 0161 06       		.uleb128 0x6
+ 355 0162 FB060000 		.4byte	.LASF46
+ 356 0166 41       		.byte	0x41
+ 357 0167 06       		.uleb128 0x6
+ 358 0168 B9000000 		.4byte	.LASF47
+ 359 016c 42       		.byte	0x42
+ 360 016d 06       		.uleb128 0x6
+ 361 016e F8010000 		.4byte	.LASF48
+ 362 0172 43       		.byte	0x43
+ 363 0173 06       		.uleb128 0x6
+ 364 0174 B50A0000 		.4byte	.LASF49
+ 365 0178 44       		.byte	0x44
+ 366 0179 06       		.uleb128 0x6
+ 367 017a 4F0A0000 		.4byte	.LASF50
+ 368 017e 45       		.byte	0x45
+ 369 017f 06       		.uleb128 0x6
+ 370 0180 940A0000 		.4byte	.LASF51
+ 371 0184 46       		.byte	0x46
+ 372 0185 06       		.uleb128 0x6
+ 373 0186 67060000 		.4byte	.LASF52
+ 374 018a 47       		.byte	0x47
+ 375 018b 06       		.uleb128 0x6
+ 376 018c AB060000 		.4byte	.LASF53
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 8
+
+
+ 377 0190 48       		.byte	0x48
+ 378 0191 06       		.uleb128 0x6
+ 379 0192 93030000 		.4byte	.LASF54
+ 380 0196 49       		.byte	0x49
+ 381 0197 06       		.uleb128 0x6
+ 382 0198 C8080000 		.4byte	.LASF55
+ 383 019c 4A       		.byte	0x4a
+ 384 019d 06       		.uleb128 0x6
+ 385 019e DF020000 		.4byte	.LASF56
+ 386 01a2 4B       		.byte	0x4b
+ 387 01a3 06       		.uleb128 0x6
+ 388 01a4 91060000 		.4byte	.LASF57
+ 389 01a8 4C       		.byte	0x4c
+ 390 01a9 06       		.uleb128 0x6
+ 391 01aa 24000000 		.4byte	.LASF58
+ 392 01ae 4D       		.byte	0x4d
+ 393 01af 06       		.uleb128 0x6
+ 394 01b0 760A0000 		.4byte	.LASF59
+ 395 01b4 4E       		.byte	0x4e
+ 396 01b5 06       		.uleb128 0x6
+ 397 01b6 22060000 		.4byte	.LASF60
+ 398 01ba 4F       		.byte	0x4f
+ 399 01bb 06       		.uleb128 0x6
+ 400 01bc A90B0000 		.4byte	.LASF61
+ 401 01c0 50       		.byte	0x50
+ 402 01c1 06       		.uleb128 0x6
+ 403 01c2 E6080000 		.4byte	.LASF62
+ 404 01c6 51       		.byte	0x51
+ 405 01c7 06       		.uleb128 0x6
+ 406 01c8 FA040000 		.4byte	.LASF63
+ 407 01cc 52       		.byte	0x52
+ 408 01cd 06       		.uleb128 0x6
+ 409 01ce 70040000 		.4byte	.LASF64
+ 410 01d2 53       		.byte	0x53
+ 411 01d3 06       		.uleb128 0x6
+ 412 01d4 FE020000 		.4byte	.LASF65
+ 413 01d8 54       		.byte	0x54
+ 414 01d9 06       		.uleb128 0x6
+ 415 01da F90B0000 		.4byte	.LASF66
+ 416 01de 55       		.byte	0x55
+ 417 01df 06       		.uleb128 0x6
+ 418 01e0 6D0B0000 		.4byte	.LASF67
+ 419 01e4 56       		.byte	0x56
+ 420 01e5 06       		.uleb128 0x6
+ 421 01e6 440B0000 		.4byte	.LASF68
+ 422 01ea 57       		.byte	0x57
+ 423 01eb 06       		.uleb128 0x6
+ 424 01ec 9E070000 		.4byte	.LASF69
+ 425 01f0 58       		.byte	0x58
+ 426 01f1 06       		.uleb128 0x6
+ 427 01f2 EE050000 		.4byte	.LASF70
+ 428 01f6 70       		.byte	0x70
+ 429 01f7 06       		.uleb128 0x6
+ 430 01f8 050A0000 		.4byte	.LASF71
+ 431 01fc 71       		.byte	0x71
+ 432 01fd 06       		.uleb128 0x6
+ 433 01fe 8B080000 		.4byte	.LASF72
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 9
+
+
+ 434 0202 72       		.byte	0x72
+ 435 0203 06       		.uleb128 0x6
+ 436 0204 36030000 		.4byte	.LASF73
+ 437 0208 73       		.byte	0x73
+ 438 0209 06       		.uleb128 0x6
+ 439 020a A0050000 		.4byte	.LASF74
+ 440 020e 74       		.byte	0x74
+ 441 020f 06       		.uleb128 0x6
+ 442 0210 6B010000 		.4byte	.LASF75
+ 443 0214 75       		.byte	0x75
+ 444 0215 06       		.uleb128 0x6
+ 445 0216 54030000 		.4byte	.LASF76
+ 446 021a 76       		.byte	0x76
+ 447 021b 06       		.uleb128 0x6
+ 448 021c E6090000 		.4byte	.LASF77
+ 449 0220 77       		.byte	0x77
+ 450 0221 06       		.uleb128 0x6
+ 451 0222 42090000 		.4byte	.LASF78
+ 452 0226 78       		.byte	0x78
+ 453 0227 06       		.uleb128 0x6
+ 454 0228 8D090000 		.4byte	.LASF79
+ 455 022c 79       		.byte	0x79
+ 456 022d 06       		.uleb128 0x6
+ 457 022e E50A0000 		.4byte	.LASF80
+ 458 0232 7A       		.byte	0x7a
+ 459 0233 06       		.uleb128 0x6
+ 460 0234 24090000 		.4byte	.LASF81
+ 461 0238 FA       		.byte	0xfa
+ 462 0239 06       		.uleb128 0x6
+ 463 023a 48060000 		.4byte	.LASF82
+ 464 023e FB       		.byte	0xfb
+ 465 023f 06       		.uleb128 0x6
+ 466 0240 1D0C0000 		.4byte	.LASF83
+ 467 0244 FC       		.byte	0xfc
+ 468 0245 06       		.uleb128 0x6
+ 469 0246 D4070000 		.4byte	.LASF84
+ 470 024a FD       		.byte	0xfd
+ 471 024b 06       		.uleb128 0x6
+ 472 024c 180B0000 		.4byte	.LASF85
+ 473 0250 FF       		.byte	0xff
+ 474 0251 00       		.byte	0
+ 475 0252 07       		.uleb128 0x7
+ 476 0253 01       		.byte	0x1
+ 477 0254 2C000000 		.4byte	0x2c
+ 478 0258 03       		.byte	0x3
+ 479 0259 2B       		.byte	0x2b
+ 480 025a 77020000 		.4byte	0x277
+ 481 025e 06       		.uleb128 0x6
+ 482 025f B5080000 		.4byte	.LASF86
+ 483 0263 00       		.byte	0
+ 484 0264 06       		.uleb128 0x6
+ 485 0265 75030000 		.4byte	.LASF87
+ 486 0269 01       		.byte	0x1
+ 487 026a 06       		.uleb128 0x6
+ 488 026b 37050000 		.4byte	.LASF88
+ 489 026f 02       		.byte	0x2
+ 490 0270 06       		.uleb128 0x6
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 10
+
+
+ 491 0271 0B040000 		.4byte	.LASF89
+ 492 0275 03       		.byte	0x3
+ 493 0276 00       		.byte	0
+ 494 0277 07       		.uleb128 0x7
+ 495 0278 01       		.byte	0x1
+ 496 0279 2C000000 		.4byte	0x2c
+ 497 027d 03       		.byte	0x3
+ 498 027e 34       		.byte	0x34
+ 499 027f BA020000 		.4byte	0x2ba
+ 500 0283 06       		.uleb128 0x6
+ 501 0284 260B0000 		.4byte	.LASF90
+ 502 0288 00       		.byte	0
+ 503 0289 06       		.uleb128 0x6
+ 504 028a 8C010000 		.4byte	.LASF91
+ 505 028e 01       		.byte	0x1
+ 506 028f 06       		.uleb128 0x6
+ 507 0290 72050000 		.4byte	.LASF92
+ 508 0294 02       		.byte	0x2
+ 509 0295 06       		.uleb128 0x6
+ 510 0296 45070000 		.4byte	.LASF93
+ 511 029a 03       		.byte	0x3
+ 512 029b 06       		.uleb128 0x6
+ 513 029c B0040000 		.4byte	.LASF94
+ 514 02a0 04       		.byte	0x4
+ 515 02a1 06       		.uleb128 0x6
+ 516 02a2 65090000 		.4byte	.LASF95
+ 517 02a6 05       		.byte	0x5
+ 518 02a7 06       		.uleb128 0x6
+ 519 02a8 EA0B0000 		.4byte	.LASF96
+ 520 02ac 06       		.byte	0x6
+ 521 02ad 06       		.uleb128 0x6
+ 522 02ae 21040000 		.4byte	.LASF97
+ 523 02b2 06       		.byte	0x6
+ 524 02b3 06       		.uleb128 0x6
+ 525 02b4 A4020000 		.4byte	.LASF98
+ 526 02b8 07       		.byte	0x7
+ 527 02b9 00       		.byte	0
+ 528 02ba 08       		.uleb128 0x8
+ 529 02bb 090B0000 		.4byte	.LASF111
+ 530 02bf 01       		.byte	0x1
+ 531 02c0 2C000000 		.4byte	0x2c
+ 532 02c4 04       		.byte	0x4
+ 533 02c5 0E       		.byte	0xe
+ 534 02c6 E3020000 		.4byte	0x2e3
+ 535 02ca 06       		.uleb128 0x6
+ 536 02cb 6B040000 		.4byte	.LASF99
+ 537 02cf 00       		.byte	0
+ 538 02d0 06       		.uleb128 0x6
+ 539 02d1 8D030000 		.4byte	.LASF100
+ 540 02d5 01       		.byte	0x1
+ 541 02d6 09       		.uleb128 0x9
+ 542 02d7 546F7000 		.ascii	"Top\000"
+ 543 02db 02       		.byte	0x2
+ 544 02dc 06       		.uleb128 0x6
+ 545 02dd 41060000 		.4byte	.LASF101
+ 546 02e1 03       		.byte	0x3
+ 547 02e2 00       		.byte	0
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 11
+
+
+ 548 02e3 0A       		.uleb128 0xa
+ 549 02e4 A10B0000 		.4byte	.LASF112
+ 550 02e8 01       		.byte	0x1
+ 551 02e9 04       		.byte	0x4
+ 552 02ea 5D000000 		.4byte	0x5d
+ 553 02ee 00000000 		.4byte	.LFB35
+ 554 02f2 12000000 		.4byte	.LFE35-.LFB35
+ 555 02f6 01       		.uleb128 0x1
+ 556 02f7 9C       		.byte	0x9c
+ 557 02f8 24030000 		.4byte	0x324
+ 558 02fc 0B       		.uleb128 0xb
+ 559 02fd 7600     		.ascii	"v\000"
+ 560 02ff 01       		.byte	0x1
+ 561 0300 04       		.byte	0x4
+ 562 0301 5D000000 		.4byte	0x5d
+ 563 0305 00000000 		.4byte	.LLST0
+ 564 0309 0C       		.uleb128 0xc
+ 565 030a 6D696E00 		.ascii	"min\000"
+ 566 030e 01       		.byte	0x1
+ 567 030f 04       		.byte	0x4
+ 568 0310 5D000000 		.4byte	0x5d
+ 569 0314 01       		.uleb128 0x1
+ 570 0315 51       		.byte	0x51
+ 571 0316 0C       		.uleb128 0xc
+ 572 0317 6D617800 		.ascii	"max\000"
+ 573 031b 01       		.byte	0x1
+ 574 031c 04       		.byte	0x4
+ 575 031d 5D000000 		.4byte	0x5d
+ 576 0321 01       		.uleb128 0x1
+ 577 0322 52       		.byte	0x52
+ 578 0323 00       		.byte	0
+ 579 0324 0D       		.uleb128 0xd
+ 580 0325 360B0000 		.4byte	.LASF104
+ 581 0329 01       		.byte	0x1
+ 582 032a 0B       		.byte	0xb
+ 583 032b 00000000 		.4byte	.LFB36
+ 584 032f 30000000 		.4byte	.LFE36-.LFB36
+ 585 0333 01       		.uleb128 0x1
+ 586 0334 9C       		.byte	0x9c
+ 587 0335 A5030000 		.4byte	0x3a5
+ 588 0339 0E       		.uleb128 0xe
+ 589 033a 99050000 		.4byte	.LASF102
+ 590 033e 01       		.byte	0x1
+ 591 033f 0B       		.byte	0xb
+ 592 0340 A5030000 		.4byte	0x3a5
+ 593 0344 2C000000 		.4byte	.LLST1
+ 594 0348 0F       		.uleb128 0xf
+ 595 0349 04000000 		.4byte	.LBB2
+ 596 034d 24000000 		.4byte	.LBE2-.LBB2
+ 597 0351 10       		.uleb128 0x10
+ 598 0352 6900     		.ascii	"i\000"
+ 599 0354 01       		.byte	0x1
+ 600 0355 0C       		.byte	0xc
+ 601 0356 5D000000 		.4byte	0x5d
+ 602 035a 58000000 		.4byte	.LLST2
+ 603 035e 0F       		.uleb128 0xf
+ 604 035f 08000000 		.4byte	.LBB3
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 12
+
+
+ 605 0363 1A000000 		.4byte	.LBE3-.LBB3
+ 606 0367 11       		.uleb128 0x11
+ 607 0368 41080000 		.4byte	.LASF103
+ 608 036c 01       		.byte	0x1
+ 609 036d 0D       		.byte	0xd
+ 610 036e 5D000000 		.4byte	0x5d
+ 611 0372 77000000 		.4byte	.LLST3
+ 612 0376 12       		.uleb128 0x12
+ 613 0377 16000000 		.4byte	.LVL7
+ 614 037b E3020000 		.4byte	0x2e3
+ 615 037f 92030000 		.4byte	0x392
+ 616 0383 13       		.uleb128 0x13
+ 617 0384 01       		.uleb128 0x1
+ 618 0385 51       		.byte	0x51
+ 619 0386 03       		.uleb128 0x3
+ 620 0387 0A       		.byte	0xa
+ 621 0388 E803     		.2byte	0x3e8
+ 622 038a 13       		.uleb128 0x13
+ 623 038b 01       		.uleb128 0x1
+ 624 038c 52       		.byte	0x52
+ 625 038d 03       		.uleb128 0x3
+ 626 038e 0A       		.byte	0xa
+ 627 038f 9A10     		.2byte	0x109a
+ 628 0391 00       		.byte	0
+ 629 0392 14       		.uleb128 0x14
+ 630 0393 22000000 		.4byte	.LVL9
+ 631 0397 7E040000 		.4byte	0x47e
+ 632 039b 13       		.uleb128 0x13
+ 633 039c 01       		.uleb128 0x1
+ 634 039d 50       		.byte	0x50
+ 635 039e 02       		.uleb128 0x2
+ 636 039f 74       		.byte	0x74
+ 637 03a0 01       		.sleb128 1
+ 638 03a1 00       		.byte	0
+ 639 03a2 00       		.byte	0
+ 640 03a3 00       		.byte	0
+ 641 03a4 00       		.byte	0
+ 642 03a5 04       		.uleb128 0x4
+ 643 03a6 04       		.byte	0x4
+ 644 03a7 5D000000 		.4byte	0x5d
+ 645 03ab 0D       		.uleb128 0xd
+ 646 03ac AC030000 		.4byte	.LASF105
+ 647 03b0 01       		.byte	0x1
+ 648 03b1 11       		.byte	0x11
+ 649 03b2 00000000 		.4byte	.LFB37
+ 650 03b6 20000000 		.4byte	.LFE37-.LFB37
+ 651 03ba 01       		.uleb128 0x1
+ 652 03bb 9C       		.byte	0x9c
+ 653 03bc 21040000 		.4byte	0x421
+ 654 03c0 0B       		.uleb128 0xb
+ 655 03c1 64697200 		.ascii	"dir\000"
+ 656 03c5 01       		.byte	0x1
+ 657 03c6 11       		.byte	0x11
+ 658 03c7 BA020000 		.4byte	0x2ba
+ 659 03cb 8A000000 		.4byte	.LLST4
+ 660 03cf 0E       		.uleb128 0xe
+ 661 03d0 28070000 		.4byte	.LASF106
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 13
+
+
+ 662 03d4 01       		.byte	0x1
+ 663 03d5 11       		.byte	0x11
+ 664 03d6 5D000000 		.4byte	0x5d
+ 665 03da AB000000 		.4byte	.LLST5
+ 666 03de 11       		.uleb128 0x11
+ 667 03df 41080000 		.4byte	.LASF103
+ 668 03e3 01       		.byte	0x1
+ 669 03e4 12       		.byte	0x12
+ 670 03e5 5D000000 		.4byte	0x5d
+ 671 03e9 D7000000 		.4byte	.LLST6
+ 672 03ed 12       		.uleb128 0x12
+ 673 03ee 10000000 		.4byte	.LVL16
+ 674 03f2 E3020000 		.4byte	0x2e3
+ 675 03f6 10040000 		.4byte	0x410
+ 676 03fa 13       		.uleb128 0x13
+ 677 03fb 01       		.uleb128 0x1
+ 678 03fc 50       		.byte	0x50
+ 679 03fd 03       		.uleb128 0x3
+ 680 03fe F3       		.byte	0xf3
+ 681 03ff 01       		.uleb128 0x1
+ 682 0400 51       		.byte	0x51
+ 683 0401 13       		.uleb128 0x13
+ 684 0402 01       		.uleb128 0x1
+ 685 0403 51       		.byte	0x51
+ 686 0404 03       		.uleb128 0x3
+ 687 0405 0A       		.byte	0xa
+ 688 0406 E803     		.2byte	0x3e8
+ 689 0408 13       		.uleb128 0x13
+ 690 0409 01       		.uleb128 0x1
+ 691 040a 52       		.byte	0x52
+ 692 040b 03       		.uleb128 0x3
+ 693 040c 0A       		.byte	0xa
+ 694 040d 9A10     		.2byte	0x109a
+ 695 040f 00       		.byte	0
+ 696 0410 14       		.uleb128 0x14
+ 697 0411 1A000000 		.4byte	.LVL18
+ 698 0415 7E040000 		.4byte	0x47e
+ 699 0419 13       		.uleb128 0x13
+ 700 041a 01       		.uleb128 0x1
+ 701 041b 50       		.byte	0x50
+ 702 041c 02       		.uleb128 0x2
+ 703 041d 74       		.byte	0x74
+ 704 041e 00       		.sleb128 0
+ 705 041f 00       		.byte	0
+ 706 0420 00       		.byte	0
+ 707 0421 15       		.uleb128 0x15
+ 708 0422 8E000000 		.4byte	0x8e
+ 709 0426 31040000 		.4byte	0x431
+ 710 042a 16       		.uleb128 0x16
+ 711 042b 87000000 		.4byte	0x87
+ 712 042f 03       		.byte	0x3
+ 713 0430 00       		.byte	0
+ 714 0431 17       		.uleb128 0x17
+ 715 0432 8F0B0000 		.4byte	.LASF113
+ 716 0436 04       		.byte	0x4
+ 717 0437 14       		.byte	0x14
+ 718 0438 21040000 		.4byte	0x421
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 14
+
+
+ 719 043c 15       		.uleb128 0x15
+ 720 043d 79000000 		.4byte	0x79
+ 721 0441 4C040000 		.4byte	0x44c
+ 722 0445 16       		.uleb128 0x16
+ 723 0446 87000000 		.4byte	0x87
+ 724 044a 03       		.byte	0x3
+ 725 044b 00       		.byte	0
+ 726 044c 18       		.uleb128 0x18
+ 727 044d A7080000 		.4byte	.LASF107
+ 728 0451 04       		.byte	0x4
+ 729 0452 0B       		.byte	0xb
+ 730 0453 3C040000 		.4byte	0x43c
+ 731 0457 05       		.uleb128 0x5
+ 732 0458 03       		.byte	0x3
+ 733 0459 00000000 		.4byte	uart_rpm_buff
+ 734 045d 15       		.uleb128 0x15
+ 735 045e 79000000 		.4byte	0x79
+ 736 0462 6D040000 		.4byte	0x46d
+ 737 0466 16       		.uleb128 0x16
+ 738 0467 87000000 		.4byte	0x87
+ 739 046b 0F       		.byte	0xf
+ 740 046c 00       		.byte	0
+ 741 046d 19       		.uleb128 0x19
+ 742 046e 73747200 		.ascii	"str\000"
+ 743 0472 04       		.byte	0x4
+ 744 0473 0C       		.byte	0xc
+ 745 0474 5D040000 		.4byte	0x45d
+ 746 0478 05       		.uleb128 0x5
+ 747 0479 03       		.byte	0x3
+ 748 047a 00000000 		.4byte	str
+ 749 047e 1A       		.uleb128 0x1a
+ 750 047f 4D010000 		.4byte	.LASF114
+ 751 0483 4D010000 		.4byte	.LASF114
+ 752 0487 05       		.byte	0x5
+ 753 0488 6B       		.byte	0x6b
+ 754 0489 00       		.byte	0
+ 755              		.section	.debug_abbrev,"",%progbits
+ 756              	.Ldebug_abbrev0:
+ 757 0000 01       		.uleb128 0x1
+ 758 0001 11       		.uleb128 0x11
+ 759 0002 01       		.byte	0x1
+ 760 0003 25       		.uleb128 0x25
+ 761 0004 0E       		.uleb128 0xe
+ 762 0005 13       		.uleb128 0x13
+ 763 0006 0B       		.uleb128 0xb
+ 764 0007 03       		.uleb128 0x3
+ 765 0008 0E       		.uleb128 0xe
+ 766 0009 1B       		.uleb128 0x1b
+ 767 000a 0E       		.uleb128 0xe
+ 768 000b 55       		.uleb128 0x55
+ 769 000c 17       		.uleb128 0x17
+ 770 000d 11       		.uleb128 0x11
+ 771 000e 01       		.uleb128 0x1
+ 772 000f 10       		.uleb128 0x10
+ 773 0010 17       		.uleb128 0x17
+ 774 0011 00       		.byte	0
+ 775 0012 00       		.byte	0
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 15
+
+
+ 776 0013 02       		.uleb128 0x2
+ 777 0014 24       		.uleb128 0x24
+ 778 0015 00       		.byte	0
+ 779 0016 0B       		.uleb128 0xb
+ 780 0017 0B       		.uleb128 0xb
+ 781 0018 3E       		.uleb128 0x3e
+ 782 0019 0B       		.uleb128 0xb
+ 783 001a 03       		.uleb128 0x3
+ 784 001b 0E       		.uleb128 0xe
+ 785 001c 00       		.byte	0
+ 786 001d 00       		.byte	0
+ 787 001e 03       		.uleb128 0x3
+ 788 001f 24       		.uleb128 0x24
+ 789 0020 00       		.byte	0
+ 790 0021 0B       		.uleb128 0xb
+ 791 0022 0B       		.uleb128 0xb
+ 792 0023 3E       		.uleb128 0x3e
+ 793 0024 0B       		.uleb128 0xb
+ 794 0025 03       		.uleb128 0x3
+ 795 0026 08       		.uleb128 0x8
+ 796 0027 00       		.byte	0
+ 797 0028 00       		.byte	0
+ 798 0029 04       		.uleb128 0x4
+ 799 002a 0F       		.uleb128 0xf
+ 800 002b 00       		.byte	0
+ 801 002c 0B       		.uleb128 0xb
+ 802 002d 0B       		.uleb128 0xb
+ 803 002e 49       		.uleb128 0x49
+ 804 002f 13       		.uleb128 0x13
+ 805 0030 00       		.byte	0
+ 806 0031 00       		.byte	0
+ 807 0032 05       		.uleb128 0x5
+ 808 0033 04       		.uleb128 0x4
+ 809 0034 01       		.byte	0x1
+ 810 0035 0B       		.uleb128 0xb
+ 811 0036 0B       		.uleb128 0xb
+ 812 0037 49       		.uleb128 0x49
+ 813 0038 13       		.uleb128 0x13
+ 814 0039 3A       		.uleb128 0x3a
+ 815 003a 0B       		.uleb128 0xb
+ 816 003b 3B       		.uleb128 0x3b
+ 817 003c 05       		.uleb128 0x5
+ 818 003d 01       		.uleb128 0x1
+ 819 003e 13       		.uleb128 0x13
+ 820 003f 00       		.byte	0
+ 821 0040 00       		.byte	0
+ 822 0041 06       		.uleb128 0x6
+ 823 0042 28       		.uleb128 0x28
+ 824 0043 00       		.byte	0
+ 825 0044 03       		.uleb128 0x3
+ 826 0045 0E       		.uleb128 0xe
+ 827 0046 1C       		.uleb128 0x1c
+ 828 0047 0B       		.uleb128 0xb
+ 829 0048 00       		.byte	0
+ 830 0049 00       		.byte	0
+ 831 004a 07       		.uleb128 0x7
+ 832 004b 04       		.uleb128 0x4
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 16
+
+
+ 833 004c 01       		.byte	0x1
+ 834 004d 0B       		.uleb128 0xb
+ 835 004e 0B       		.uleb128 0xb
+ 836 004f 49       		.uleb128 0x49
+ 837 0050 13       		.uleb128 0x13
+ 838 0051 3A       		.uleb128 0x3a
+ 839 0052 0B       		.uleb128 0xb
+ 840 0053 3B       		.uleb128 0x3b
+ 841 0054 0B       		.uleb128 0xb
+ 842 0055 01       		.uleb128 0x1
+ 843 0056 13       		.uleb128 0x13
+ 844 0057 00       		.byte	0
+ 845 0058 00       		.byte	0
+ 846 0059 08       		.uleb128 0x8
+ 847 005a 04       		.uleb128 0x4
+ 848 005b 01       		.byte	0x1
+ 849 005c 03       		.uleb128 0x3
+ 850 005d 0E       		.uleb128 0xe
+ 851 005e 0B       		.uleb128 0xb
+ 852 005f 0B       		.uleb128 0xb
+ 853 0060 49       		.uleb128 0x49
+ 854 0061 13       		.uleb128 0x13
+ 855 0062 3A       		.uleb128 0x3a
+ 856 0063 0B       		.uleb128 0xb
+ 857 0064 3B       		.uleb128 0x3b
+ 858 0065 0B       		.uleb128 0xb
+ 859 0066 01       		.uleb128 0x1
+ 860 0067 13       		.uleb128 0x13
+ 861 0068 00       		.byte	0
+ 862 0069 00       		.byte	0
+ 863 006a 09       		.uleb128 0x9
+ 864 006b 28       		.uleb128 0x28
+ 865 006c 00       		.byte	0
+ 866 006d 03       		.uleb128 0x3
+ 867 006e 08       		.uleb128 0x8
+ 868 006f 1C       		.uleb128 0x1c
+ 869 0070 0B       		.uleb128 0xb
+ 870 0071 00       		.byte	0
+ 871 0072 00       		.byte	0
+ 872 0073 0A       		.uleb128 0xa
+ 873 0074 2E       		.uleb128 0x2e
+ 874 0075 01       		.byte	0x1
+ 875 0076 3F       		.uleb128 0x3f
+ 876 0077 19       		.uleb128 0x19
+ 877 0078 03       		.uleb128 0x3
+ 878 0079 0E       		.uleb128 0xe
+ 879 007a 3A       		.uleb128 0x3a
+ 880 007b 0B       		.uleb128 0xb
+ 881 007c 3B       		.uleb128 0x3b
+ 882 007d 0B       		.uleb128 0xb
+ 883 007e 27       		.uleb128 0x27
+ 884 007f 19       		.uleb128 0x19
+ 885 0080 49       		.uleb128 0x49
+ 886 0081 13       		.uleb128 0x13
+ 887 0082 11       		.uleb128 0x11
+ 888 0083 01       		.uleb128 0x1
+ 889 0084 12       		.uleb128 0x12
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 17
+
+
+ 890 0085 06       		.uleb128 0x6
+ 891 0086 40       		.uleb128 0x40
+ 892 0087 18       		.uleb128 0x18
+ 893 0088 9742     		.uleb128 0x2117
+ 894 008a 19       		.uleb128 0x19
+ 895 008b 01       		.uleb128 0x1
+ 896 008c 13       		.uleb128 0x13
+ 897 008d 00       		.byte	0
+ 898 008e 00       		.byte	0
+ 899 008f 0B       		.uleb128 0xb
+ 900 0090 05       		.uleb128 0x5
+ 901 0091 00       		.byte	0
+ 902 0092 03       		.uleb128 0x3
+ 903 0093 08       		.uleb128 0x8
+ 904 0094 3A       		.uleb128 0x3a
+ 905 0095 0B       		.uleb128 0xb
+ 906 0096 3B       		.uleb128 0x3b
+ 907 0097 0B       		.uleb128 0xb
+ 908 0098 49       		.uleb128 0x49
+ 909 0099 13       		.uleb128 0x13
+ 910 009a 02       		.uleb128 0x2
+ 911 009b 17       		.uleb128 0x17
+ 912 009c 00       		.byte	0
+ 913 009d 00       		.byte	0
+ 914 009e 0C       		.uleb128 0xc
+ 915 009f 05       		.uleb128 0x5
+ 916 00a0 00       		.byte	0
+ 917 00a1 03       		.uleb128 0x3
+ 918 00a2 08       		.uleb128 0x8
+ 919 00a3 3A       		.uleb128 0x3a
+ 920 00a4 0B       		.uleb128 0xb
+ 921 00a5 3B       		.uleb128 0x3b
+ 922 00a6 0B       		.uleb128 0xb
+ 923 00a7 49       		.uleb128 0x49
+ 924 00a8 13       		.uleb128 0x13
+ 925 00a9 02       		.uleb128 0x2
+ 926 00aa 18       		.uleb128 0x18
+ 927 00ab 00       		.byte	0
+ 928 00ac 00       		.byte	0
+ 929 00ad 0D       		.uleb128 0xd
+ 930 00ae 2E       		.uleb128 0x2e
+ 931 00af 01       		.byte	0x1
+ 932 00b0 3F       		.uleb128 0x3f
+ 933 00b1 19       		.uleb128 0x19
+ 934 00b2 03       		.uleb128 0x3
+ 935 00b3 0E       		.uleb128 0xe
+ 936 00b4 3A       		.uleb128 0x3a
+ 937 00b5 0B       		.uleb128 0xb
+ 938 00b6 3B       		.uleb128 0x3b
+ 939 00b7 0B       		.uleb128 0xb
+ 940 00b8 27       		.uleb128 0x27
+ 941 00b9 19       		.uleb128 0x19
+ 942 00ba 11       		.uleb128 0x11
+ 943 00bb 01       		.uleb128 0x1
+ 944 00bc 12       		.uleb128 0x12
+ 945 00bd 06       		.uleb128 0x6
+ 946 00be 40       		.uleb128 0x40
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 18
+
+
+ 947 00bf 18       		.uleb128 0x18
+ 948 00c0 9742     		.uleb128 0x2117
+ 949 00c2 19       		.uleb128 0x19
+ 950 00c3 01       		.uleb128 0x1
+ 951 00c4 13       		.uleb128 0x13
+ 952 00c5 00       		.byte	0
+ 953 00c6 00       		.byte	0
+ 954 00c7 0E       		.uleb128 0xe
+ 955 00c8 05       		.uleb128 0x5
+ 956 00c9 00       		.byte	0
+ 957 00ca 03       		.uleb128 0x3
+ 958 00cb 0E       		.uleb128 0xe
+ 959 00cc 3A       		.uleb128 0x3a
+ 960 00cd 0B       		.uleb128 0xb
+ 961 00ce 3B       		.uleb128 0x3b
+ 962 00cf 0B       		.uleb128 0xb
+ 963 00d0 49       		.uleb128 0x49
+ 964 00d1 13       		.uleb128 0x13
+ 965 00d2 02       		.uleb128 0x2
+ 966 00d3 17       		.uleb128 0x17
+ 967 00d4 00       		.byte	0
+ 968 00d5 00       		.byte	0
+ 969 00d6 0F       		.uleb128 0xf
+ 970 00d7 0B       		.uleb128 0xb
+ 971 00d8 01       		.byte	0x1
+ 972 00d9 11       		.uleb128 0x11
+ 973 00da 01       		.uleb128 0x1
+ 974 00db 12       		.uleb128 0x12
+ 975 00dc 06       		.uleb128 0x6
+ 976 00dd 00       		.byte	0
+ 977 00de 00       		.byte	0
+ 978 00df 10       		.uleb128 0x10
+ 979 00e0 34       		.uleb128 0x34
+ 980 00e1 00       		.byte	0
+ 981 00e2 03       		.uleb128 0x3
+ 982 00e3 08       		.uleb128 0x8
+ 983 00e4 3A       		.uleb128 0x3a
+ 984 00e5 0B       		.uleb128 0xb
+ 985 00e6 3B       		.uleb128 0x3b
+ 986 00e7 0B       		.uleb128 0xb
+ 987 00e8 49       		.uleb128 0x49
+ 988 00e9 13       		.uleb128 0x13
+ 989 00ea 02       		.uleb128 0x2
+ 990 00eb 17       		.uleb128 0x17
+ 991 00ec 00       		.byte	0
+ 992 00ed 00       		.byte	0
+ 993 00ee 11       		.uleb128 0x11
+ 994 00ef 34       		.uleb128 0x34
+ 995 00f0 00       		.byte	0
+ 996 00f1 03       		.uleb128 0x3
+ 997 00f2 0E       		.uleb128 0xe
+ 998 00f3 3A       		.uleb128 0x3a
+ 999 00f4 0B       		.uleb128 0xb
+ 1000 00f5 3B       		.uleb128 0x3b
+ 1001 00f6 0B       		.uleb128 0xb
+ 1002 00f7 49       		.uleb128 0x49
+ 1003 00f8 13       		.uleb128 0x13
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 19
+
+
+ 1004 00f9 02       		.uleb128 0x2
+ 1005 00fa 17       		.uleb128 0x17
+ 1006 00fb 00       		.byte	0
+ 1007 00fc 00       		.byte	0
+ 1008 00fd 12       		.uleb128 0x12
+ 1009 00fe 898201   		.uleb128 0x4109
+ 1010 0101 01       		.byte	0x1
+ 1011 0102 11       		.uleb128 0x11
+ 1012 0103 01       		.uleb128 0x1
+ 1013 0104 31       		.uleb128 0x31
+ 1014 0105 13       		.uleb128 0x13
+ 1015 0106 01       		.uleb128 0x1
+ 1016 0107 13       		.uleb128 0x13
+ 1017 0108 00       		.byte	0
+ 1018 0109 00       		.byte	0
+ 1019 010a 13       		.uleb128 0x13
+ 1020 010b 8A8201   		.uleb128 0x410a
+ 1021 010e 00       		.byte	0
+ 1022 010f 02       		.uleb128 0x2
+ 1023 0110 18       		.uleb128 0x18
+ 1024 0111 9142     		.uleb128 0x2111
+ 1025 0113 18       		.uleb128 0x18
+ 1026 0114 00       		.byte	0
+ 1027 0115 00       		.byte	0
+ 1028 0116 14       		.uleb128 0x14
+ 1029 0117 898201   		.uleb128 0x4109
+ 1030 011a 01       		.byte	0x1
+ 1031 011b 11       		.uleb128 0x11
+ 1032 011c 01       		.uleb128 0x1
+ 1033 011d 31       		.uleb128 0x31
+ 1034 011e 13       		.uleb128 0x13
+ 1035 011f 00       		.byte	0
+ 1036 0120 00       		.byte	0
+ 1037 0121 15       		.uleb128 0x15
+ 1038 0122 01       		.uleb128 0x1
+ 1039 0123 01       		.byte	0x1
+ 1040 0124 49       		.uleb128 0x49
+ 1041 0125 13       		.uleb128 0x13
+ 1042 0126 01       		.uleb128 0x1
+ 1043 0127 13       		.uleb128 0x13
+ 1044 0128 00       		.byte	0
+ 1045 0129 00       		.byte	0
+ 1046 012a 16       		.uleb128 0x16
+ 1047 012b 21       		.uleb128 0x21
+ 1048 012c 00       		.byte	0
+ 1049 012d 49       		.uleb128 0x49
+ 1050 012e 13       		.uleb128 0x13
+ 1051 012f 2F       		.uleb128 0x2f
+ 1052 0130 0B       		.uleb128 0xb
+ 1053 0131 00       		.byte	0
+ 1054 0132 00       		.byte	0
+ 1055 0133 17       		.uleb128 0x17
+ 1056 0134 34       		.uleb128 0x34
+ 1057 0135 00       		.byte	0
+ 1058 0136 03       		.uleb128 0x3
+ 1059 0137 0E       		.uleb128 0xe
+ 1060 0138 3A       		.uleb128 0x3a
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 20
+
+
+ 1061 0139 0B       		.uleb128 0xb
+ 1062 013a 3B       		.uleb128 0x3b
+ 1063 013b 0B       		.uleb128 0xb
+ 1064 013c 49       		.uleb128 0x49
+ 1065 013d 13       		.uleb128 0x13
+ 1066 013e 00       		.byte	0
+ 1067 013f 00       		.byte	0
+ 1068 0140 18       		.uleb128 0x18
+ 1069 0141 34       		.uleb128 0x34
+ 1070 0142 00       		.byte	0
+ 1071 0143 03       		.uleb128 0x3
+ 1072 0144 0E       		.uleb128 0xe
+ 1073 0145 3A       		.uleb128 0x3a
+ 1074 0146 0B       		.uleb128 0xb
+ 1075 0147 3B       		.uleb128 0x3b
+ 1076 0148 0B       		.uleb128 0xb
+ 1077 0149 49       		.uleb128 0x49
+ 1078 014a 13       		.uleb128 0x13
+ 1079 014b 3F       		.uleb128 0x3f
+ 1080 014c 19       		.uleb128 0x19
+ 1081 014d 02       		.uleb128 0x2
+ 1082 014e 18       		.uleb128 0x18
+ 1083 014f 00       		.byte	0
+ 1084 0150 00       		.byte	0
+ 1085 0151 19       		.uleb128 0x19
+ 1086 0152 34       		.uleb128 0x34
+ 1087 0153 00       		.byte	0
+ 1088 0154 03       		.uleb128 0x3
+ 1089 0155 08       		.uleb128 0x8
+ 1090 0156 3A       		.uleb128 0x3a
+ 1091 0157 0B       		.uleb128 0xb
+ 1092 0158 3B       		.uleb128 0x3b
+ 1093 0159 0B       		.uleb128 0xb
+ 1094 015a 49       		.uleb128 0x49
+ 1095 015b 13       		.uleb128 0x13
+ 1096 015c 3F       		.uleb128 0x3f
+ 1097 015d 19       		.uleb128 0x19
+ 1098 015e 02       		.uleb128 0x2
+ 1099 015f 18       		.uleb128 0x18
+ 1100 0160 00       		.byte	0
+ 1101 0161 00       		.byte	0
+ 1102 0162 1A       		.uleb128 0x1a
+ 1103 0163 2E       		.uleb128 0x2e
+ 1104 0164 00       		.byte	0
+ 1105 0165 3F       		.uleb128 0x3f
+ 1106 0166 19       		.uleb128 0x19
+ 1107 0167 3C       		.uleb128 0x3c
+ 1108 0168 19       		.uleb128 0x19
+ 1109 0169 6E       		.uleb128 0x6e
+ 1110 016a 0E       		.uleb128 0xe
+ 1111 016b 03       		.uleb128 0x3
+ 1112 016c 0E       		.uleb128 0xe
+ 1113 016d 3A       		.uleb128 0x3a
+ 1114 016e 0B       		.uleb128 0xb
+ 1115 016f 3B       		.uleb128 0x3b
+ 1116 0170 0B       		.uleb128 0xb
+ 1117 0171 00       		.byte	0
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 21
+
+
+ 1118 0172 00       		.byte	0
+ 1119 0173 00       		.byte	0
+ 1120              		.section	.debug_loc,"",%progbits
+ 1121              	.Ldebug_loc0:
+ 1122              	.LLST0:
+ 1123 0000 00000000 		.4byte	.LVL0
+ 1124 0004 0C000000 		.4byte	.LVL1
+ 1125 0008 0100     		.2byte	0x1
+ 1126 000a 50       		.byte	0x50
+ 1127 000b 0C000000 		.4byte	.LVL1
+ 1128 000f 0E000000 		.4byte	.LVL2
+ 1129 0013 0400     		.2byte	0x4
+ 1130 0015 F3       		.byte	0xf3
+ 1131 0016 01       		.uleb128 0x1
+ 1132 0017 50       		.byte	0x50
+ 1133 0018 9F       		.byte	0x9f
+ 1134 0019 0E000000 		.4byte	.LVL2
+ 1135 001d 12000000 		.4byte	.LFE35
+ 1136 0021 0100     		.2byte	0x1
+ 1137 0023 50       		.byte	0x50
+ 1138 0024 00000000 		.4byte	0
+ 1139 0028 00000000 		.4byte	0
+ 1140              	.LLST1:
+ 1141 002c 00000000 		.4byte	.LVL4
+ 1142 0030 08000000 		.4byte	.LVL6
+ 1143 0034 0100     		.2byte	0x1
+ 1144 0036 50       		.byte	0x50
+ 1145 0037 08000000 		.4byte	.LVL6
+ 1146 003b 28000000 		.4byte	.LVL12
+ 1147 003f 0100     		.2byte	0x1
+ 1148 0041 55       		.byte	0x55
+ 1149 0042 28000000 		.4byte	.LVL12
+ 1150 0046 30000000 		.4byte	.LFE36
+ 1151 004a 0400     		.2byte	0x4
+ 1152 004c F3       		.byte	0xf3
+ 1153 004d 01       		.uleb128 0x1
+ 1154 004e 50       		.byte	0x50
+ 1155 004f 9F       		.byte	0x9f
+ 1156 0050 00000000 		.4byte	0
+ 1157 0054 00000000 		.4byte	0
+ 1158              	.LLST2:
+ 1159 0058 04000000 		.4byte	.LVL5
+ 1160 005c 08000000 		.4byte	.LVL6
+ 1161 0060 0200     		.2byte	0x2
+ 1162 0062 30       		.byte	0x30
+ 1163 0063 9F       		.byte	0x9f
+ 1164 0064 08000000 		.4byte	.LVL6
+ 1165 0068 28000000 		.4byte	.LVL11
+ 1166 006c 0100     		.2byte	0x1
+ 1167 006e 54       		.byte	0x54
+ 1168 006f 00000000 		.4byte	0
+ 1169 0073 00000000 		.4byte	0
+ 1170              	.LLST3:
+ 1171 0077 16000000 		.4byte	.LVL7
+ 1172 007b 18000000 		.4byte	.LVL8
+ 1173 007f 0100     		.2byte	0x1
+ 1174 0081 50       		.byte	0x50
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 22
+
+
+ 1175 0082 00000000 		.4byte	0
+ 1176 0086 00000000 		.4byte	0
+ 1177              	.LLST4:
+ 1178 008a 00000000 		.4byte	.LVL13
+ 1179 008e 06000000 		.4byte	.LVL14
+ 1180 0092 0100     		.2byte	0x1
+ 1181 0094 50       		.byte	0x50
+ 1182 0095 06000000 		.4byte	.LVL14
+ 1183 0099 20000000 		.4byte	.LFE37
+ 1184 009d 0400     		.2byte	0x4
+ 1185 009f F3       		.byte	0xf3
+ 1186 00a0 01       		.uleb128 0x1
+ 1187 00a1 50       		.byte	0x50
+ 1188 00a2 9F       		.byte	0x9f
+ 1189 00a3 00000000 		.4byte	0
+ 1190 00a7 00000000 		.4byte	0
+ 1191              	.LLST5:
+ 1192 00ab 00000000 		.4byte	.LVL13
+ 1193 00af 0A000000 		.4byte	.LVL15
+ 1194 00b3 0100     		.2byte	0x1
+ 1195 00b5 51       		.byte	0x51
+ 1196 00b6 0A000000 		.4byte	.LVL15
+ 1197 00ba 0F000000 		.4byte	.LVL16-1
+ 1198 00be 0100     		.2byte	0x1
+ 1199 00c0 50       		.byte	0x50
+ 1200 00c1 0F000000 		.4byte	.LVL16-1
+ 1201 00c5 20000000 		.4byte	.LFE37
+ 1202 00c9 0400     		.2byte	0x4
+ 1203 00cb F3       		.byte	0xf3
+ 1204 00cc 01       		.uleb128 0x1
+ 1205 00cd 51       		.byte	0x51
+ 1206 00ce 9F       		.byte	0x9f
+ 1207 00cf 00000000 		.4byte	0
+ 1208 00d3 00000000 		.4byte	0
+ 1209              	.LLST6:
+ 1210 00d7 10000000 		.4byte	.LVL16
+ 1211 00db 16000000 		.4byte	.LVL17
+ 1212 00df 0100     		.2byte	0x1
+ 1213 00e1 50       		.byte	0x50
+ 1214 00e2 00000000 		.4byte	0
+ 1215 00e6 00000000 		.4byte	0
+ 1216              		.section	.debug_aranges,"",%progbits
+ 1217 0000 2C000000 		.4byte	0x2c
+ 1218 0004 0200     		.2byte	0x2
+ 1219 0006 00000000 		.4byte	.Ldebug_info0
+ 1220 000a 04       		.byte	0x4
+ 1221 000b 00       		.byte	0
+ 1222 000c 0000     		.2byte	0
+ 1223 000e 0000     		.2byte	0
+ 1224 0010 00000000 		.4byte	.LFB35
+ 1225 0014 12000000 		.4byte	.LFE35-.LFB35
+ 1226 0018 00000000 		.4byte	.LFB36
+ 1227 001c 30000000 		.4byte	.LFE36-.LFB36
+ 1228 0020 00000000 		.4byte	.LFB37
+ 1229 0024 20000000 		.4byte	.LFE37-.LFB37
+ 1230 0028 00000000 		.4byte	0
+ 1231 002c 00000000 		.4byte	0
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 23
+
+
+ 1232              		.section	.debug_ranges,"",%progbits
+ 1233              	.Ldebug_ranges0:
+ 1234 0000 00000000 		.4byte	.LFB35
+ 1235 0004 12000000 		.4byte	.LFE35
+ 1236 0008 00000000 		.4byte	.LFB36
+ 1237 000c 30000000 		.4byte	.LFE36
+ 1238 0010 00000000 		.4byte	.LFB37
+ 1239 0014 20000000 		.4byte	.LFE37
+ 1240 0018 00000000 		.4byte	0
+ 1241 001c 00000000 		.4byte	0
+ 1242              		.section	.debug_line,"",%progbits
+ 1243              	.Ldebug_line0:
+ 1244 0000 DB000000 		.section	.debug_str,"MS",%progbits,1
+ 1244      02008A00 
+ 1244      00000201 
+ 1244      FB0E0D00 
+ 1244      01010101 
+ 1245              	.LASF23:
+ 1246 0000 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST\000"
+ 1246      455F4556 
+ 1246      545F4741 
+ 1246      505F5041 
+ 1246      53534B45 
+ 1247              	.LASF58:
+ 1248 0024 4359424C 		.ascii	"CYBLE_EVT_GATTC_WRITE_RSP\000"
+ 1248      455F4556 
+ 1248      545F4741 
+ 1248      5454435F 
+ 1248      57524954 
+ 1249              	.LASF20:
+ 1250 003e 4359424C 		.ascii	"CYBLE_EVT_MEMORY_REQUEST\000"
+ 1250      455F4556 
+ 1250      545F4D45 
+ 1250      4D4F5259 
+ 1250      5F524551 
+ 1251              	.LASF45:
+ 1252 0057 4359424C 		.ascii	"CYBLE_EVT_GATTC_ERROR_RSP\000"
+ 1252      455F4556 
+ 1252      545F4741 
+ 1252      5454435F 
+ 1252      4552524F 
+ 1253              	.LASF35:
+ 1254 0071 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
+ 1254      455F4556 
+ 1254      545F4741 
+ 1254      505F4B45 
+ 1254      59505245 
+ 1255              	.LASF2:
+ 1256 0095 73686F72 		.ascii	"short int\000"
+ 1256      7420696E 
+ 1256      7400
+ 1257              	.LASF26:
+ 1258 009f 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_FAILED\000"
+ 1258      455F4556 
+ 1258      545F4741 
+ 1258      505F4155 
+ 1258      54485F46 
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 24
+
+
+ 1259              	.LASF47:
+ 1260 00b9 4359424C 		.ascii	"CYBLE_EVT_GATT_DISCONNECT_IND\000"
+ 1260      455F4556 
+ 1260      545F4741 
+ 1260      54545F44 
+ 1260      4953434F 
+ 1261              	.LASF13:
+ 1262 00d7 73697A65 		.ascii	"sizetype\000"
+ 1262      74797065 
+ 1262      00
+ 1263              	.LASF37:
+ 1264 00e0 4359424C 		.ascii	"CYBLE_EVT_GAP_DATA_LENGTH_CHANGE\000"
+ 1264      455F4556 
+ 1264      545F4741 
+ 1264      505F4441 
+ 1264      54415F4C 
+ 1265              	.LASF18:
+ 1266 0101 4359424C 		.ascii	"CYBLE_EVT_HCI_STATUS\000"
+ 1266      455F4556 
+ 1266      545F4843 
+ 1266      495F5354 
+ 1266      41545553 
+ 1267              	.LASF7:
+ 1268 0116 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1268      206C6F6E 
+ 1268      6720756E 
+ 1268      7369676E 
+ 1268      65642069 
+ 1269              	.LASF109:
+ 1270 012d 6D6F746F 		.ascii	"motorController.c\000"
+ 1270      72436F6E 
+ 1270      74726F6C 
+ 1270      6C65722E 
+ 1270      6300
+ 1271              	.LASF6:
+ 1272 013f 6C6F6E67 		.ascii	"long long int\000"
+ 1272      206C6F6E 
+ 1272      6720696E 
+ 1272      7400
+ 1273              	.LASF114:
+ 1274 014d 46616E43 		.ascii	"FanController_SetDesiredSpeed\000"
+ 1274      6F6E7472 
+ 1274      6F6C6C65 
+ 1274      725F5365 
+ 1274      74446573 
+ 1275              	.LASF75:
+ 1276 016b 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_IND\000"
+ 1276      455F4556 
+ 1276      545F4C32 
+ 1276      4341505F 
+ 1276      43424643 
+ 1277              	.LASF91:
+ 1278 018c 4359424C 		.ascii	"CYBLE_AIOS_CHAR_PRESENTATION_FORMAT\000"
+ 1278      455F4149 
+ 1278      4F535F43 
+ 1278      4841525F 
+ 1278      50524553 
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 25
+
+
+ 1279              	.LASF15:
+ 1280 01b0 4359424C 		.ascii	"CYBLE_EVT_STACK_ON\000"
+ 1280      455F4556 
+ 1280      545F5354 
+ 1280      41434B5F 
+ 1280      4F4E00
+ 1281              	.LASF44:
+ 1282 01c3 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_LOC_P256_KEYS_GEN_AND_SET_COMPLET"
+ 1282      455F4556 
+ 1282      545F4741 
+ 1282      505F534D 
+ 1282      505F4C4F 
+ 1283 01f6 4500     		.ascii	"E\000"
+ 1284              	.LASF48:
+ 1285 01f8 4359424C 		.ascii	"CYBLE_EVT_GATTS_XCNHG_MTU_REQ\000"
+ 1285      455F4556 
+ 1285      545F4741 
+ 1285      5454535F 
+ 1285      58434E48 
+ 1286              	.LASF108:
+ 1287 0216 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1287      43313120 
+ 1287      352E342E 
+ 1287      31203230 
+ 1287      31363036 
+ 1288 0249 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1288      20726576 
+ 1288      6973696F 
+ 1288      6E203233 
+ 1288      37373135 
+ 1289 027c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1289      66756E63 
+ 1289      74696F6E 
+ 1289      2D736563 
+ 1289      74696F6E 
+ 1290              	.LASF98:
+ 1291 02a4 4359424C 		.ascii	"CYBLE_AIOS_DESCR_COUNT\000"
+ 1291      455F4149 
+ 1291      4F535F44 
+ 1291      45534352 
+ 1291      5F434F55 
+ 1292              	.LASF33:
+ 1293 02bb 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
+ 1293      455F4556 
+ 1293      545F4741 
+ 1293      505F4B45 
+ 1293      59494E46 
+ 1294              	.LASF56:
+ 1295 02df 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_MULTI_RSP\000"
+ 1295      455F4556 
+ 1295      545F4741 
+ 1295      5454435F 
+ 1295      52454144 
+ 1296              	.LASF65:
+ 1297 02fe 4359424C 		.ascii	"CYBLE_EVT_GATTS_HANDLE_VALUE_CNF\000"
+ 1297      455F4556 
+ 1297      545F4741 
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 26
+
+
+ 1297      5454535F 
+ 1297      48414E44 
+ 1298              	.LASF14:
+ 1299 031f 4359424C 		.ascii	"CYBLE_EVT_HOST_INVALID\000"
+ 1299      455F4556 
+ 1299      545F484F 
+ 1299      53545F49 
+ 1299      4E56414C 
+ 1300              	.LASF73:
+ 1301 0336 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
+ 1301      455F4556 
+ 1301      545F4C32 
+ 1301      4341505F 
+ 1301      43424643 
+ 1302              	.LASF76:
+ 1303 0354 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_CNF\000"
+ 1303      455F4556 
+ 1303      545F4C32 
+ 1303      4341505F 
+ 1303      43424643 
+ 1304              	.LASF87:
+ 1305 0375 4359424C 		.ascii	"CYBLE_AIOS_ANALOG\000"
+ 1305      455F4149 
+ 1305      4F535F41 
+ 1305      4E414C4F 
+ 1305      4700
+ 1306              	.LASF9:
+ 1307 0387 666C6F61 		.ascii	"float\000"
+ 1307      7400
+ 1308              	.LASF100:
+ 1309 038d 52696768 		.ascii	"Right\000"
+ 1309      7400
+ 1310              	.LASF54:
+ 1311 0393 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_RSP\000"
+ 1311      455F4556 
+ 1311      545F4741 
+ 1311      5454435F 
+ 1311      52454144 
+ 1312              	.LASF105:
+ 1313 03ac 5365744D 		.ascii	"SetMotorSpeed_Single\000"
+ 1313      6F746F72 
+ 1313      53706565 
+ 1313      645F5369 
+ 1313      6E676C65 
+ 1314              	.LASF34:
+ 1315 03c1 4359424C 		.ascii	"CYBLE_EVT_GAP_NUMERIC_COMPARISON_REQUEST\000"
+ 1315      455F4556 
+ 1315      545F4741 
+ 1315      505F4E55 
+ 1315      4D455249 
+ 1316              	.LASF39:
+ 1317 03ea 4359424C 		.ascii	"CYBLE_EVT_GAPC_DIRECT_ADV_REPORT\000"
+ 1317      455F4556 
+ 1317      545F4741 
+ 1317      50435F44 
+ 1317      49524543 
+ 1318              	.LASF89:
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 27
+
+
+ 1319 040b 4359424C 		.ascii	"CYBLE_AIOS_CHAR_COUNT\000"
+ 1319      455F4149 
+ 1319      4F535F43 
+ 1319      4841525F 
+ 1319      434F554E 
+ 1320              	.LASF97:
+ 1321 0421 4359424C 		.ascii	"CYBLE_AIOS_NUM_OF_DIGITAL_DESCR\000"
+ 1321      455F4149 
+ 1321      4F535F4E 
+ 1321      554D5F4F 
+ 1321      465F4449 
+ 1322              	.LASF43:
+ 1323 0441 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ_REPLY_ERR\000"
+ 1323      455F4556 
+ 1323      545F4741 
+ 1323      505F4155 
+ 1323      54485F52 
+ 1324              	.LASF4:
+ 1325 0462 6C6F6E67 		.ascii	"long int\000"
+ 1325      20696E74 
+ 1325      00
+ 1326              	.LASF99:
+ 1327 046b 4C656674 		.ascii	"Left\000"
+ 1327      00
+ 1328              	.LASF64:
+ 1329 0470 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_IND\000"
+ 1329      455F4556 
+ 1329      545F4741 
+ 1329      5454435F 
+ 1329      48414E44 
+ 1330              	.LASF28:
+ 1331 0491 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_CONNECTED\000"
+ 1331      455F4556 
+ 1331      545F4741 
+ 1331      505F4445 
+ 1331      56494345 
+ 1332              	.LASF94:
+ 1333 04b0 4359424C 		.ascii	"CYBLE_AIOS_VALUE_TRIGGER_SETTINGS\000"
+ 1333      455F4149 
+ 1333      4F535F56 
+ 1333      414C5545 
+ 1333      5F545249 
+ 1334              	.LASF27:
+ 1335 04d2 4359424C 		.ascii	"CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
+ 1335      455F4556 
+ 1335      545F4741 
+ 1335      50505F41 
+ 1335      44564552 
+ 1336              	.LASF63:
+ 1337 04fa 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
+ 1337      455F4556 
+ 1337      545F4741 
+ 1337      5454435F 
+ 1337      48414E44 
+ 1338              	.LASF19:
+ 1339 051b 4359424C 		.ascii	"CYBLE_EVT_STACK_BUSY_STATUS\000"
+ 1339      455F4556 
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 28
+
+
+ 1339      545F5354 
+ 1339      41434B5F 
+ 1339      42555359 
+ 1340              	.LASF88:
+ 1341 0537 4359424C 		.ascii	"CYBLE_AIOS_AGGREGATE\000"
+ 1341      455F4149 
+ 1341      4F535F41 
+ 1341      47475245 
+ 1341      47415445 
+ 1342              	.LASF24:
+ 1343 054c 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST\000"
+ 1343      455F4556 
+ 1343      545F4741 
+ 1343      505F5041 
+ 1343      53534B45 
+ 1344              	.LASF92:
+ 1345 0572 4359424C 		.ascii	"CYBLE_AIOS_CHAR_USER_DESCRIPTION_DESCR\000"
+ 1345      455F4149 
+ 1345      4F535F43 
+ 1345      4841525F 
+ 1345      55534552 
+ 1346              	.LASF102:
+ 1347 0599 73706565 		.ascii	"speeds\000"
+ 1347      647300
+ 1348              	.LASF74:
+ 1349 05a0 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_CNF\000"
+ 1349      455F4556 
+ 1349      545F4C32 
+ 1349      4341505F 
+ 1349      43424643 
+ 1350              	.LASF38:
+ 1351 05be 4359424C 		.ascii	"CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE\000"
+ 1351      455F4556 
+ 1351      545F4741 
+ 1351      505F454E 
+ 1351      48414E43 
+ 1352              	.LASF12:
+ 1353 05e2 6C6F6E67 		.ascii	"long double\000"
+ 1353      20646F75 
+ 1353      626C6500 
+ 1354              	.LASF70:
+ 1355 05ee 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_REQ\000"
+ 1355      455F4556 
+ 1355      545F4C32 
+ 1355      4341505F 
+ 1355      434F4E4E 
+ 1356              	.LASF1:
+ 1357 0614 756E7369 		.ascii	"unsigned char\000"
+ 1357      676E6564 
+ 1357      20636861 
+ 1357      7200
+ 1358              	.LASF60:
+ 1359 0622 4359424C 		.ascii	"CYBLE_EVT_GATTS_PREP_WRITE_REQ\000"
+ 1359      455F4556 
+ 1359      545F4741 
+ 1359      5454535F 
+ 1359      50524550 
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 29
+
+
+ 1360              	.LASF101:
+ 1361 0641 426F7474 		.ascii	"Bottom\000"
+ 1361      6F6D00
+ 1362              	.LASF82:
+ 1363 0648 4359424C 		.ascii	"CYBLE_EVT_LE_PING_AUTH_TIMEOUT\000"
+ 1363      455F4556 
+ 1363      545F4C45 
+ 1363      5F50494E 
+ 1363      475F4155 
+ 1364              	.LASF52:
+ 1365 0667 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_INFO_RSP\000"
+ 1365      455F4556 
+ 1365      545F4741 
+ 1365      5454435F 
+ 1365      46494E44 
+ 1366              	.LASF0:
+ 1367 0685 7369676E 		.ascii	"signed char\000"
+ 1367      65642063 
+ 1367      68617200 
+ 1368              	.LASF57:
+ 1369 0691 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_REQ\000"
+ 1369      455F4556 
+ 1369      545F4741 
+ 1369      5454535F 
+ 1369      57524954 
+ 1370              	.LASF53:
+ 1371 06ab 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_BY_TYPE_VALUE_RSP\000"
+ 1371      455F4556 
+ 1371      545F4741 
+ 1371      5454435F 
+ 1371      46494E44 
+ 1372              	.LASF25:
+ 1373 06d2 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_COMPLETE\000"
+ 1373      455F4556 
+ 1373      545F4741 
+ 1373      505F4155 
+ 1373      54485F43 
+ 1374              	.LASF8:
+ 1375 06ee 756E7369 		.ascii	"unsigned int\000"
+ 1375      676E6564 
+ 1375      20696E74 
+ 1375      00
+ 1376              	.LASF46:
+ 1377 06fb 4359424C 		.ascii	"CYBLE_EVT_GATT_CONNECT_IND\000"
+ 1377      455F4556 
+ 1377      545F4741 
+ 1377      54545F43 
+ 1377      4F4E4E45 
+ 1378              	.LASF5:
+ 1379 0716 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1379      20756E73 
+ 1379      69676E65 
+ 1379      6420696E 
+ 1379      7400
+ 1380              	.LASF106:
+ 1381 0728 73706565 		.ascii	"speed\000"
+ 1381      6400
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 30
+
+
+ 1382              	.LASF22:
+ 1383 072e 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ\000"
+ 1383      455F4556 
+ 1383      545F4741 
+ 1383      505F4155 
+ 1383      54485F52 
+ 1384              	.LASF93:
+ 1385 0745 4359424C 		.ascii	"CYBLE_AIOS_CHAR_EXTENDED_PROPERTIES\000"
+ 1385      455F4149 
+ 1385      4F535F43 
+ 1385      4841525F 
+ 1385      45585445 
+ 1386              	.LASF30:
+ 1387 0769 4359424C 		.ascii	"CYBLE_EVT_GAP_ENCRYPT_CHANGE\000"
+ 1387      455F4556 
+ 1387      545F4741 
+ 1387      505F454E 
+ 1387      43525950 
+ 1388              	.LASF41:
+ 1389 0786 4359424C 		.ascii	"CYBLE_EVT_GAP_CONN_ESTB\000"
+ 1389      455F4556 
+ 1389      545F4741 
+ 1389      505F434F 
+ 1389      4E4E5F45 
+ 1390              	.LASF69:
+ 1391 079e 4359424C 		.ascii	"CYBLE_EVT_GATTC_LONG_PROCEDURE_END\000"
+ 1391      455F4556 
+ 1391      545F4741 
+ 1391      5454435F 
+ 1391      4C4F4E47 
+ 1392              	.LASF3:
+ 1393 07c1 73686F72 		.ascii	"short unsigned int\000"
+ 1393      7420756E 
+ 1393      7369676E 
+ 1393      65642069 
+ 1393      6E7400
+ 1394              	.LASF84:
+ 1395 07d4 4359424C 		.ascii	"CYBLE_EVT_FLASH_CORRUPT\000"
+ 1395      455F4556 
+ 1395      545F464C 
+ 1395      4153485F 
+ 1395      434F5252 
+ 1396              	.LASF31:
+ 1397 07ec 4359424C 		.ascii	"CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE\000"
+ 1397      455F4556 
+ 1397      545F4741 
+ 1397      505F434F 
+ 1397      4E4E4543 
+ 1398              	.LASF40:
+ 1399 0815 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO\000"
+ 1399      455F4556 
+ 1399      545F4741 
+ 1399      505F534D 
+ 1399      505F4E45 
+ 1400              	.LASF11:
+ 1401 083c 63686172 		.ascii	"char\000"
+ 1401      00
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 31
+
+
+ 1402              	.LASF103:
+ 1403 0841 636C616D 		.ascii	"clamped\000"
+ 1403      70656400 
+ 1404              	.LASF110:
+ 1405 0849 433A5C55 		.ascii	"C:\\Users\\Oleg\\Documents\\Programming\\POK\\Cyber"
+ 1405      73657273 
+ 1405      5C4F6C65 
+ 1405      675C446F 
+ 1405      63756D65 
+ 1406 0876 506F6E67 		.ascii	"Pong\\CyberPong.cydsn\000"
+ 1406      5C437962 
+ 1406      6572506F 
+ 1406      6E672E63 
+ 1406      7964736E 
+ 1407              	.LASF72:
+ 1408 088b 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
+ 1408      455F4556 
+ 1408      545F4C32 
+ 1408      4341505F 
+ 1408      434F4D4D 
+ 1409              	.LASF107:
+ 1410 08a7 75617274 		.ascii	"uart_rpm_buff\000"
+ 1410      5F72706D 
+ 1410      5F627566 
+ 1410      6600
+ 1411              	.LASF86:
+ 1412 08b5 4359424C 		.ascii	"CYBLE_AIOS_DIGITAL\000"
+ 1412      455F4149 
+ 1412      4F535F44 
+ 1412      49474954 
+ 1412      414C00
+ 1413              	.LASF55:
+ 1414 08c8 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BLOB_RSP\000"
+ 1414      455F4556 
+ 1414      545F4741 
+ 1414      5454435F 
+ 1414      52454144 
+ 1415              	.LASF62:
+ 1416 08e6 4359424C 		.ascii	"CYBLE_EVT_GATTC_EXEC_WRITE_RSP\000"
+ 1416      455F4556 
+ 1416      545F4741 
+ 1416      5454435F 
+ 1416      45584543 
+ 1417              	.LASF32:
+ 1418 0905 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
+ 1418      455F4556 
+ 1418      545F4741 
+ 1418      50435F53 
+ 1418      43414E5F 
+ 1419              	.LASF81:
+ 1420 0924 4359424C 		.ascii	"CYBLE_EVT_PENDING_FLASH_WRITE\000"
+ 1420      455F4556 
+ 1420      545F5045 
+ 1420      4E44494E 
+ 1420      475F464C 
+ 1421              	.LASF78:
+ 1422 0942 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_RX_CREDIT_IND\000"
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 32
+
+
+ 1422      455F4556 
+ 1422      545F4C32 
+ 1422      4341505F 
+ 1422      43424643 
+ 1423              	.LASF95:
+ 1424 0965 4359424C 		.ascii	"CYBLE_AIOS_TIME_TRIGGER_SETTINGS\000"
+ 1424      455F4149 
+ 1424      4F535F54 
+ 1424      494D455F 
+ 1424      54524947 
+ 1425              	.LASF10:
+ 1426 0986 646F7562 		.ascii	"double\000"
+ 1426      6C6500
+ 1427              	.LASF79:
+ 1428 098d 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
+ 1428      455F4556 
+ 1428      545F4C32 
+ 1428      4341505F 
+ 1428      43424643 
+ 1429              	.LASF42:
+ 1430 09b0 4359424C 		.ascii	"CYBLE_EVT_GAP_SCAN_REQ_RECVD\000"
+ 1430      455F4556 
+ 1430      545F4741 
+ 1430      505F5343 
+ 1430      414E5F52 
+ 1431              	.LASF17:
+ 1432 09cd 4359424C 		.ascii	"CYBLE_EVT_HARDWARE_ERROR\000"
+ 1432      455F4556 
+ 1432      545F4841 
+ 1432      52445741 
+ 1432      52455F45 
+ 1433              	.LASF77:
+ 1434 09e6 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_READ\000"
+ 1434      455F4556 
+ 1434      545F4C32 
+ 1434      4341505F 
+ 1434      43424643 
+ 1435              	.LASF71:
+ 1436 0a05 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
+ 1436      455F4556 
+ 1436      545F4C32 
+ 1436      4341505F 
+ 1436      434F4E4E 
+ 1437              	.LASF21:
+ 1438 0a2b 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
+ 1438      455F4556 
+ 1438      545F4741 
+ 1438      50435F53 
+ 1438      43414E5F 
+ 1439              	.LASF50:
+ 1440 0a4f 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
+ 1440      455F4556 
+ 1440      545F4741 
+ 1440      5454435F 
+ 1440      52454144 
+ 1441              	.LASF59:
+ 1442 0a76 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_CMD_REQ\000"
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 33
+
+
+ 1442      455F4556 
+ 1442      545F4741 
+ 1442      5454535F 
+ 1442      57524954 
+ 1443              	.LASF51:
+ 1444 0a94 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_TYPE_RSP\000"
+ 1444      455F4556 
+ 1444      545F4741 
+ 1444      5454435F 
+ 1444      52454144 
+ 1445              	.LASF49:
+ 1446 0ab5 4359424C 		.ascii	"CYBLE_EVT_GATTC_XCHNG_MTU_RSP\000"
+ 1446      455F4556 
+ 1446      545F4741 
+ 1446      5454435F 
+ 1446      5843484E 
+ 1447              	.LASF16:
+ 1448 0ad3 4359424C 		.ascii	"CYBLE_EVT_TIMEOUT\000"
+ 1448      455F4556 
+ 1448      545F5449 
+ 1448      4D454F55 
+ 1448      5400
+ 1449              	.LASF80:
+ 1450 0ae5 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
+ 1450      455F4556 
+ 1450      545F4C32 
+ 1450      4341505F 
+ 1450      43424643 
+ 1451              	.LASF111:
+ 1452 0b09 4D6F746F 		.ascii	"MotorDirection\000"
+ 1452      72446972 
+ 1452      65637469 
+ 1452      6F6E00
+ 1453              	.LASF85:
+ 1454 0b18 4359424C 		.ascii	"CYBLE_EVT_MAX\000"
+ 1454      455F4556 
+ 1454      545F4D41 
+ 1454      5800
+ 1455              	.LASF90:
+ 1456 0b26 4359424C 		.ascii	"CYBLE_AIOS_CCCD\000"
+ 1456      455F4149 
+ 1456      4F535F43 
+ 1456      43434400 
+ 1457              	.LASF104:
+ 1458 0b36 5365744D 		.ascii	"SetMotorSpeed\000"
+ 1458      6F746F72 
+ 1458      53706565 
+ 1458      6400
+ 1459              	.LASF68:
+ 1460 0b44 4359424C 		.ascii	"CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
+ 1460      455F4556 
+ 1460      545F4741 
+ 1460      5454535F 
+ 1460      52454144 
+ 1461              	.LASF67:
+ 1462 0b6d 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
+ 1462      455F4556 
+ARM GAS  C:\Windows\TEMP\ccsxmV4T.s 			page 34
+
+
+ 1462      545F4741 
+ 1462      5454435F 
+ 1462      53544F50 
+ 1463              	.LASF113:
+ 1464 0b8f 4D6F746F 		.ascii	"MotorDirectionStr\000"
+ 1464      72446972 
+ 1464      65637469 
+ 1464      6F6E5374 
+ 1464      7200
+ 1465              	.LASF112:
+ 1466 0ba1 436C616D 		.ascii	"Clamp01\000"
+ 1466      70303100 
+ 1467              	.LASF61:
+ 1468 0ba9 4359424C 		.ascii	"CYBLE_EVT_GATTS_EXEC_WRITE_REQ\000"
+ 1468      455F4556 
+ 1468      545F4741 
+ 1468      5454535F 
+ 1468      45584543 
+ 1469              	.LASF29:
+ 1470 0bc8 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_DISCONNECTED\000"
+ 1470      455F4556 
+ 1470      545F4741 
+ 1470      505F4445 
+ 1470      56494345 
+ 1471              	.LASF96:
+ 1472 0bea 4359424C 		.ascii	"CYBLE_AIOS_VRD\000"
+ 1472      455F4149 
+ 1472      4F535F56 
+ 1472      524400
+ 1473              	.LASF66:
+ 1474 0bf9 4359424C 		.ascii	"CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
+ 1474      455F4556 
+ 1474      545F4741 
+ 1474      5454535F 
+ 1474      44415441 
+ 1475              	.LASF83:
+ 1476 0c1d 4359424C 		.ascii	"CYBLE_EVT_HCI_PKT\000"
+ 1476      455F4556 
+ 1476      545F4843 
+ 1476      495F504B 
+ 1476      5400
+ 1477              	.LASF36:
+ 1478 0c2f 4359424C 		.ascii	"CYBLE_EVT_GAP_OOB_GENERATED_NOTIFICATION\000"
+ 1478      455F4556 
+ 1478      545F4741 
+ 1478      505F4F4F 
+ 1478      425F4745 
+ 1479              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

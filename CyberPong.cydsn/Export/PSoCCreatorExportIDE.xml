@@ -25,7 +25,7 @@
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
   </Toolchains>
-  <Project Name="CyberPong" Path="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn" Version="6.0" Type="Normal">
+  <Project Name="CyberPong" Path="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn" Version="6.10" Type="Normal">
     <CMSIS_SVD_File>CyberPong.svd</CMSIS_SVD_File>
     <Datasheet />
     <LinkerFiles>
@@ -37,8 +37,13 @@
       <Folder BuildType="STRICT" Path="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn">
         <Files Root="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn">
           <File BuildType="BUILD" Toolchain="">main.c</File>
-          <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
+          <File BuildType="BUILD" Toolchain="">debug.c</File>
+          <File BuildType="BUILD" Toolchain="">motorController.c</File>
+          <File BuildType="BUILD" Toolchain="">aios.c</File>
           <File BuildType="BUILD" Toolchain="">main_data.h</File>
+          <File BuildType="BUILD" Toolchain="">debug.h</File>
+          <File BuildType="BUILD" Toolchain="">motorController.h</File>
+          <File BuildType="BUILD" Toolchain="">aios.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\Generated_Source\PSoC4">
@@ -195,8 +200,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bluetooth.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bluetooth.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bluetooth_gatt.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bluetooth_ias.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bluetooth_ias.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bluetooth_eventHandler.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bluetooth_HAL_INT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bluetooth_HAL_PVT.c</File>
@@ -211,6 +214,8 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bluetooth_StackGattClient.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bluetooth_Stack.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bluetooth_eventHandler.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bluetooth_aios.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bluetooth_aios.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bluetooth_bless_isr.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Bluetooth_bless_isr.h</File>
         </Files>

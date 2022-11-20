@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: ISR_Ball_Trigger.c  
-* Version 1.70
+* Version 1.71
 *
 *  Description:
 *   API for controlling the state of an interrupt.
@@ -19,7 +19,7 @@
 #include <cydevice_trm.h>
 #include <CyLib.h>
 #include <ISR_Ball_Trigger.h>
-#include "cyapicallbacks.h"
+
 
 #if !defined(ISR_Ball_Trigger__REMOVED) /* Check for removal by optimization */
 
@@ -252,7 +252,7 @@ void ISR_Ball_Trigger_SetPriority(uint8 priority)
     uint32 priorityOffset = ((ISR_Ball_Trigger__INTC_NUMBER % 4u) * 8u) + 6u;
     
 	interruptState = CyEnterCriticalSection();
-    *ISR_Ball_Trigger_INTC_PRIOR = (*ISR_Ball_Trigger_INTC_PRIOR & (uint32)(~ISR_Ball_Trigger__INTC_PRIOR_MASK)) |
+    *ISR_Ball_Trigger_INTC_PRIOR = (*ISR_Ball_Trigger_INTC_PRIOR & (uint32)(~(uint32)ISR_Ball_Trigger__INTC_PRIOR_MASK)) |
                                     ((uint32)priority << priorityOffset);
 	CyExitCriticalSection(interruptState);
 }
