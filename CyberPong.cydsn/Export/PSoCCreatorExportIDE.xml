@@ -40,10 +40,12 @@
           <File BuildType="BUILD" Toolchain="">debug.c</File>
           <File BuildType="BUILD" Toolchain="">motorController.c</File>
           <File BuildType="BUILD" Toolchain="">aios.c</File>
+          <File BuildType="BUILD" Toolchain="">aios_core.c</File>
           <File BuildType="BUILD" Toolchain="">main_data.h</File>
           <File BuildType="BUILD" Toolchain="">debug.h</File>
           <File BuildType="BUILD" Toolchain="">motorController.h</File>
           <File BuildType="BUILD" Toolchain="">aios.h</File>
+          <File BuildType="BUILD" Toolchain="">aios_core.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\Generated_Source\PSoC4">

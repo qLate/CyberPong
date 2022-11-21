@@ -25,18 +25,18 @@
    The array index definitions are located in the CYBLE_custom.h file. */
 const CYBLE_CUSTOMS_T cyBle_customs[0x01u] = {
 
-    /* CyberPong service */
+    /* MotorController service */
     {
-        0x0010u, /* Handle of the CyberPong service */ 
+        0x0010u, /* Handle of the MotorController service */ 
         {
 
-            /* Spin characteristic */
+            /* LeftMotor characteristic */
             {
-                0x0012u, /* Handle of the Spin characteristic */ 
+                0x0012u, /* Handle of the LeftMotor characteristic */ 
                 
                 /* Array of Descriptors handles */
                 {
-                    0x0013u, /* Handle of the Characteristic User Description descriptor */ 
+                    0x0013u, /* Handle of the Description descriptor */ 
                 }, 
             },
         }, 

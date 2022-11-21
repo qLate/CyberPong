@@ -22,7 +22,7 @@
 /* Analog characteristic data */
 static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
     {
-        0x0012u, /* Handle of the Left characteristic */ 
+        0x0012u, /* Handle of the LeftMotor characteristic */ 
         
             /* Array of Descriptors handles */
             {
@@ -36,7 +36,7 @@ static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
             }, 
     },
     {
-        0x001Bu, /* Handle of the RIght characteristic */ 
+        0x001Bu, /* Handle of the RightMotor characteristic */ 
         
             /* Array of Descriptors handles */
             {
@@ -50,7 +50,7 @@ static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
             }, 
     },
     {
-        0x0024u, /* Handle of the Top characteristic */ 
+        0x0024u, /* Handle of the TopMotor characteristic */ 
         
             /* Array of Descriptors handles */
             {
@@ -64,7 +64,7 @@ static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
             }, 
     },
     {
-        0x002Du, /* Handle of the Bottom characteristic */ 
+        0x002Du, /* Handle of the BottomMotor characteristic */ 
         
             /* Array of Descriptors handles */
             {

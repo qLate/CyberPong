@@ -1,4 +1,4 @@
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
   29:Generated_Source\PSoC4/Bluetooth.c **** #endif /* (CYBLE_GATT_ROLE_SERVER) */
   30:Generated_Source\PSoC4/Bluetooth.c ****     
   31:Generated_Source\PSoC4/Bluetooth.c **** 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 2
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 2
 
 
   32:Generated_Source\PSoC4/Bluetooth.c **** /***************************************
@@ -113,12 +113,12 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
   81:Generated_Source\PSoC4/Bluetooth.c **** CYBLE_GAPP_SCAN_RSP_DATA_T cyBle_scanRspData =
   82:Generated_Source\PSoC4/Bluetooth.c **** {
   83:Generated_Source\PSoC4/Bluetooth.c ****     { 0x0Au, 0x09u, 0x43u, 0x79u, 0x62u, 0x65u, 0x72u,
-  84:Generated_Source\PSoC4/Bluetooth.c ****     0x50u, 0x6Fu, 0x6Eu, 0x67u, 0x03u, 0x03u, 0x15u, 0x18u,
+  84:Generated_Source\PSoC4/Bluetooth.c ****     0x50u, 0x6Fu, 0x6Eu, 0x67u, 0x00u, 0x00u, 0x00u, 0x00u,
   85:Generated_Source\PSoC4/Bluetooth.c ****     0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
   86:Generated_Source\PSoC4/Bluetooth.c ****     0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u }, /* uint8 scan_rsp_data[CYBLE_MAX_SCAN
-  87:Generated_Source\PSoC4/Bluetooth.c ****     0x0Fu,      /* uint8 scan_rsp_data_length */
+  87:Generated_Source\PSoC4/Bluetooth.c ****     0x0Bu,      /* uint8 scan_rsp_data_length */
   88:Generated_Source\PSoC4/Bluetooth.c **** };
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 3
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 3
 
 
   89:Generated_Source\PSoC4/Bluetooth.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  143:Generated_Source\PSoC4/Bluetooth.c **** * Function Name: CyBle_Init
  144:Generated_Source\PSoC4/Bluetooth.c **** ***************************************************************************//**
  145:Generated_Source\PSoC4/Bluetooth.c **** *
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 4
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 4
 
 
  146:Generated_Source\PSoC4/Bluetooth.c **** *   Initializes the component with the parameters set in the customizer.
@@ -238,7 +238,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  200:Generated_Source\PSoC4/Bluetooth.c **** ******************************************************************************/
  201:Generated_Source\PSoC4/Bluetooth.c **** void CyBle_ServiceInit(void)
  202:Generated_Source\PSoC4/Bluetooth.c **** {
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 5
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 5
 
 
  203:Generated_Source\PSoC4/Bluetooth.c ****     #if(CYBLE_GATT_ROLE_CLIENT)
@@ -298,7 +298,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  257:Generated_Source\PSoC4/Bluetooth.c ****     #endif /* CYBLE_CTS */
  258:Generated_Source\PSoC4/Bluetooth.c **** 
  259:Generated_Source\PSoC4/Bluetooth.c ****     #ifdef CYBLE_CUSTOM
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 6
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 6
 
 
  260:Generated_Source\PSoC4/Bluetooth.c ****         CyBle_CustomInit();
@@ -358,7 +358,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  314:Generated_Source\PSoC4/Bluetooth.c ****         
  315:Generated_Source\PSoC4/Bluetooth.c ****     #ifdef CYBLE_PASS
  316:Generated_Source\PSoC4/Bluetooth.c ****         CyBle_PassInit();
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 7
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 7
 
 
  317:Generated_Source\PSoC4/Bluetooth.c ****     #endif /* CYBLE_PASS */
@@ -418,7 +418,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  371:Generated_Source\PSoC4/Bluetooth.c **** *  \param callbackFunc: Event callback function to receive events from BLE stack.
  372:Generated_Source\PSoC4/Bluetooth.c **** *   CYBLE_CALLBACK_T is a function pointer type.
  373:Generated_Source\PSoC4/Bluetooth.c **** * 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 8
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 8
 
 
  374:Generated_Source\PSoC4/Bluetooth.c **** * \return
@@ -478,7 +478,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  428:Generated_Source\PSoC4/Bluetooth.c ****     /* If not initialized then initialize all the required hardware and software */
  429:Generated_Source\PSoC4/Bluetooth.c ****     if(cyBle_initVar == 0u)
  430:Generated_Source\PSoC4/Bluetooth.c ****     {
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 9
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 9
 
 
  431:Generated_Source\PSoC4/Bluetooth.c ****         CyBle_Init();
@@ -538,7 +538,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  485:Generated_Source\PSoC4/Bluetooth.c ****                 apiResult = CyBle_StackInit(&CyBle_EventHandler, cyBle_stackMemoryRam, 
  486:Generated_Source\PSoC4/Bluetooth.c ****                     CYBLE_STACK_RAM_SIZE - CYBLE_GATT_PREPARE_WRITE_BUFF_LEN, cyBle_stackDataBuff, 
  487:Generated_Source\PSoC4/Bluetooth.c ****                     CYBLE_STACK_APP_MIN_POOL, cyBle_flashStorage.stackFlashptr, CYBLE_STACK_FLASH_S
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 10
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 10
 
 
  488:Generated_Source\PSoC4/Bluetooth.c ****             #else
@@ -598,7 +598,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  542:Generated_Source\PSoC4/Bluetooth.c **** * 
  543:Generated_Source\PSoC4/Bluetooth.c **** ******************************************************************************/
  544:Generated_Source\PSoC4/Bluetooth.c **** void CyBle_Stop(void)
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 11
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 11
 
 
  545:Generated_Source\PSoC4/Bluetooth.c **** {
@@ -658,7 +658,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  599:Generated_Source\PSoC4/Bluetooth.c **** ******************************************************************************/
  600:Generated_Source\PSoC4/Bluetooth.c **** CYBLE_API_RESULT_T CyBle_StoreBondingData(uint8 isForceWrite)
  601:Generated_Source\PSoC4/Bluetooth.c **** {
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 12
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 12
 
 
  602:Generated_Source\PSoC4/Bluetooth.c ****     CYBLE_API_RESULT_T apiResult = CYBLE_ERROR_OK;
@@ -718,7 +718,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  656:Generated_Source\PSoC4/Bluetooth.c ****             {
  657:Generated_Source\PSoC4/Bluetooth.c ****                 cyBle_pendingFlashWrite &= (uint8)~CYBLE_PENDING_CCCD_FLASH_CLEAR_BIT;
  658:Generated_Source\PSoC4/Bluetooth.c ****             }
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 13
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 13
 
 
  659:Generated_Source\PSoC4/Bluetooth.c ****         }
@@ -778,7 +778,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  713:Generated_Source\PSoC4/Bluetooth.c ****             cyBle_pendingFlashWrite |= CYBLE_PENDING_CCCD_FLASH_CLEAR_ALL_BIT;
  714:Generated_Source\PSoC4/Bluetooth.c ****         }
  715:Generated_Source\PSoC4/Bluetooth.c ****         else
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 14
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 14
 
 
  716:Generated_Source\PSoC4/Bluetooth.c ****         {
@@ -838,7 +838,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  770:Generated_Source\PSoC4/Bluetooth.c ****     *                                               advertising. Use CyBle_GetState()
  771:Generated_Source\PSoC4/Bluetooth.c ****     *                                               to determine the state. Sequential 
  772:Generated_Source\PSoC4/Bluetooth.c ****     *                                               advertising could be started when
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 15
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 15
 
 
  773:Generated_Source\PSoC4/Bluetooth.c ****     *                                               CYBLE_STATE_DISCONNECTED state is
@@ -898,7 +898,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  827:Generated_Source\PSoC4/Bluetooth.c ****         }
  828:Generated_Source\PSoC4/Bluetooth.c ****         else
  829:Generated_Source\PSoC4/Bluetooth.c ****         {
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 16
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 16
 
 
  830:Generated_Source\PSoC4/Bluetooth.c ****             apiResult = CYBLE_ERROR_INVALID_STATE;
@@ -958,7 +958,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  884:Generated_Source\PSoC4/Bluetooth.c ****         {
  885:Generated_Source\PSoC4/Bluetooth.c ****             #ifdef CYBLE_ADV_PKT_INDEX_BLUETOOTH_DEVICE_ADDRESS
  886:Generated_Source\PSoC4/Bluetooth.c ****                 destBuffer = &cyBle_discoveryData.advData[CYBLE_ADV_PKT_INDEX_BLUETOOTH_DEVICE_ADDR
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 17
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 17
 
 
  887:Generated_Source\PSoC4/Bluetooth.c ****             #endif /* CYBLE_ADV_PKT_INDEX_BLUETOOTH_DEVICE_ADDRESS */
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  941:Generated_Source\PSoC4/Bluetooth.c ****     *                                  to be active scanning.
  942:Generated_Source\PSoC4/Bluetooth.c ****     *   
  943:Generated_Source\PSoC4/Bluetooth.c ****     *   * General Discovery procedure: A device performing the general discovery 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 18
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 18
 
 
  944:Generated_Source\PSoC4/Bluetooth.c ****     *                                  procedure receives the advertisement data and
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  998:Generated_Source\PSoC4/Bluetooth.c ****                 cyBle_discoveryInfo.scanWindow = CYBLE_FAST_SCAN_WINDOW;
  999:Generated_Source\PSoC4/Bluetooth.c ****             }
 1000:Generated_Source\PSoC4/Bluetooth.c ****             else if(scanningIntervalType == CYBLE_SCANNING_SLOW)
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 19
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 19
 
 
 1001:Generated_Source\PSoC4/Bluetooth.c ****             {
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
 1055:Generated_Source\PSoC4/Bluetooth.c ****     ***************************************************************************//**
 1056:Generated_Source\PSoC4/Bluetooth.c ****     * 
 1057:Generated_Source\PSoC4/Bluetooth.c ****     *  This function is used to send a connection request to the remote device with
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 20
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 20
 
 
 1058:Generated_Source\PSoC4/Bluetooth.c ****     *  the connection parameters set in the component customizer. This function needs
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
 1112:Generated_Source\PSoC4/Bluetooth.c ****             cyBle_connectionParameters.peerAddrType = address -> type;
 1113:Generated_Source\PSoC4/Bluetooth.c ****             apiResult = CyBle_GapcInitConnection(&cyBle_connectionParameters);
 1114:Generated_Source\PSoC4/Bluetooth.c ****             
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 21
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 21
 
 
 1115:Generated_Source\PSoC4/Bluetooth.c ****             if(apiResult == CYBLE_ERROR_OK)
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
 1169:Generated_Source\PSoC4/Bluetooth.c ****             }
 1170:Generated_Source\PSoC4/Bluetooth.c ****         }
 1171:Generated_Source\PSoC4/Bluetooth.c ****         return (apiResult);
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 22
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 22
 
 
 1172:Generated_Source\PSoC4/Bluetooth.c ****     }    
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
   43              		.loc 1 1209 0
   44 0006 1B49     		ldr	r1, .L14
   45              	.LVL3:
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 23
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 23
 
 
   46 0008 CE7F     		ldrb	r6, [r1, #31]
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
   75              	.LVL11:
 1226:Generated_Source\PSoC4/Bluetooth.c ****                        (destBuffer[byteCounter] == CYBLE_COMPLETE_LOCAL_NAME))
   76              		.loc 1 1226 0
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 24
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 24
 
 
   77 0024 CA5C     		ldrb	r2, [r1, r3]
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
 1251:Generated_Source\PSoC4/Bluetooth.c ****                 byteCounter++;
  108              		.loc 1 1251 0
  109 0046 0133     		adds	r3, r3, #1
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 25
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 25
 
 
  110              	.LVL17:
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  147              		.loc 1 1260 0
  148 006c A242     		cmp	r2, r4
  149 006e F8D3     		bcc	.L12
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 26
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 26
 
 
  150              	.LVL25:
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  197              		.loc 1 153 0
  198              		.cfi_startproc
  199              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 27
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 27
 
 
  200              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  246              		.loc 1 412 0
  247              		.cfi_startproc
  248              		@ args = 0, pretend = 0, frame = 48
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 28
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 28
 
 
  249              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  294              		.loc 1 460 0
  295 0034 0221     		movs	r1, #2
  296 0036 2181     		strh	r1, [r4, #8]
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 29
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 29
 
 
  464:Generated_Source\PSoC4/Bluetooth.c ****             dleConfigParams.dleMaxRxCapability = CYBLE_LL_MAX_RX_PAYLOAD_SIZE;
@@ -1738,12 +1738,12 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  341 0078 0C4B     		ldr	r3, .L24+28
  342 007a 1A70     		strb	r2, [r3]
  518:Generated_Source\PSoC4/Bluetooth.c ****             #endif /* CYBLE_GATT_ROLE_SERVER */
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 30
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 30
 
 
  343              		.loc 1 518 0
- 344 007c 1432     		adds	r2, r2, #20
- 345 007e 3321     		movs	r1, #51
+ 344 007c 1132     		adds	r2, r2, #17
+ 345 007e 3421     		movs	r1, #52
  346 0080 0B48     		ldr	r0, .L24+32
  347              	.LVL40:
  348 0082 FFF7FEFF 		bl	CyBle_GattsDbRegister
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  393 0002 FFF7FEFF 		bl	CyBle_Shutdown
  394              	.LVL44:
  547:Generated_Source\PSoC4/Bluetooth.c ****     #if(CYBLE_SHARING_MODE_EXPORT)
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 31
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 31
 
 
  395              		.loc 1 547 0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  443 0018 1378     		ldrb	r3, [r2]
  444 001a 0121     		movs	r1, #1
  445 001c 8B43     		bics	r3, r1
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 32
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 32
 
 
  446 001e 1370     		strb	r3, [r2]
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  490 0052 284B     		ldr	r3, .L40+8
  491 0054 C918     		adds	r1, r1, r3
  492 0056 0131     		adds	r1, r1, #1
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 33
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 33
 
 
  493 0058 2300     		movs	r3, r4
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  538 0094 1949     		ldr	r1, .L40+16
  539 0096 01A8     		add	r0, sp, #4
  540 0098 FFF7FEFF 		bl	CyBle_StoreAppData
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 34
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 34
 
 
  541              	.LVL57:
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  589              	.LVL61:
  590              	.L34:
  591              	.LBE4:
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 35
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 35
 
 
  663:Generated_Source\PSoC4/Bluetooth.c **** 
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  642              	.LVL65:
  710:Generated_Source\PSoC4/Bluetooth.c **** 	    {
  643              		.loc 1 710 0
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 36
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 36
 
 
  644 0018 0622     		movs	r2, #6
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  691              	.LBE5:
  734:Generated_Source\PSoC4/Bluetooth.c ****     }
  692              		.loc 1 734 0
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 37
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 37
 
 
  693 005c 0220     		movs	r0, #2
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  741 0018 0BD1     		bne	.L52
  807:Generated_Source\PSoC4/Bluetooth.c ****                 cyBle_discoveryModeInfo.advParam->advIntvMin = CYBLE_FAST_ADV_INT_MIN;
  742              		.loc 1 807 0
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 38
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 38
 
 
  743 001a 1B4B     		ldr	r3, .L57+8
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  788 005c 0028     		cmp	r0, #0
  789 005e 0DD1     		bne	.L51
  825:Generated_Source\PSoC4/Bluetooth.c ****             }
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 39
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 39
 
 
  790              		.loc 1 825 0
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  840              		.cfi_startproc
  841              		@ args = 0, pretend = 0, frame = 0
  842              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 40
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 40
 
 
  843 0000 10B5     		push	{r4, lr}
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  892              		.type	CyBle_GapSetLocalName, %function
  893              	CyBle_GapSetLocalName:
  894              	.LFB12:
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 41
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 41
 
 
 1268:Generated_Source\PSoC4/Bluetooth.c ****         
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
 1307:Generated_Source\PSoC4/Bluetooth.c ****             /* Get the pointer to the Device Name characteristic  */
 1308:Generated_Source\PSoC4/Bluetooth.c ****             ptr = (char8 *) CYBLE_GATT_DB_ATTR_GET_ATTR_GEN_PTR(cyBle_gaps.deviceNameCharHandle);
  910              		.loc 1 1308 0
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 42
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 42
 
 
  911 0006 144B     		ldr	r3, .L70
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
 1321:Generated_Source\PSoC4/Bluetooth.c **** 
 1322:Generated_Source\PSoC4/Bluetooth.c ****             if(i < charLen)
  950              		.loc 1 1322 0 is_stmt 1
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 43
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 43
 
 
  951 0036 8B42     		cmp	r3, r1
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  984              	.L71:
  985              		.align	2
  986              	.L70:
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 44
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 44
 
 
  987 0058 00000000 		.word	cyBle_gaps
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
 1374:Generated_Source\PSoC4/Bluetooth.c ****         uint8 i;
 1375:Generated_Source\PSoC4/Bluetooth.c ****         char8 *ptr;
 1376:Generated_Source\PSoC4/Bluetooth.c **** 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 45
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 45
 
 
 1377:Generated_Source\PSoC4/Bluetooth.c ****         if(NULL != name)
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1046 002c 002A     		cmp	r2, #0
  1047 002e F7D1     		bne	.L76
  1048              	.L75:
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 46
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 46
 
 
 1392:Generated_Source\PSoC4/Bluetooth.c ****             }
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
 1411:Generated_Source\PSoC4/Bluetooth.c **** * 
 1412:Generated_Source\PSoC4/Bluetooth.c **** *  Returns the two-bytes value by using a pointer to the LSB.
 1413:Generated_Source\PSoC4/Bluetooth.c **** * 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 47
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 47
 
 
 1414:Generated_Source\PSoC4/Bluetooth.c **** *  \param ptr: Pointer to the LSB of two-bytes data (little endian).
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1110              		.cfi_startproc
  1111              		@ args = 0, pretend = 0, frame = 0
  1112              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 48
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 48
 
 
  1113              		@ link register save eliminated.
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1164 0001 01       		.byte	1
  1165 0002 06       		.byte	6
  1166 0003 0A       		.byte	10
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 49
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 49
 
 
  1167 0004 09       		.byte	9
@@ -2923,10 +2923,10 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1206 0028 6F       		.byte	111
  1207 0029 6E       		.byte	110
  1208 002a 67       		.byte	103
- 1209 002b 03       		.byte	3
- 1210 002c 03       		.byte	3
- 1211 002d 15       		.byte	21
- 1212 002e 18       		.byte	24
+ 1209 002b 00       		.byte	0
+ 1210 002c 00       		.byte	0
+ 1211 002d 00       		.byte	0
+ 1212 002e 00       		.byte	0
  1213 002f 00       		.byte	0
  1214 0030 00       		.byte	0
  1215 0031 00       		.byte	0
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1221 0037 00       		.byte	0
  1222 0038 00       		.byte	0
  1223 0039 00       		.byte	0
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 50
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 50
 
 
  1224 003a 00       		.byte	0
@@ -2946,7 +2946,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1226 003c 00       		.byte	0
  1227 003d 00       		.byte	0
  1228 003e 00       		.byte	0
- 1229 003f 0F       		.byte	15
+ 1229 003f 0B       		.byte	11
  1230              		.type	cyBle_discoveryModeInfo, %object
  1231              		.size	cyBle_discoveryModeInfo, 20
  1232              	cyBle_discoveryModeInfo:
@@ -2993,12 +2993,12 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1273              		.align	3
  1274              		.set	.LANCHOR3,. + 0
  1275              		.type	cyBle_stackMemoryRam, %object
- 1276              		.size	cyBle_stackMemoryRam, 3512
+ 1276              		.size	cyBle_stackMemoryRam, 3456
  1277              	cyBle_stackMemoryRam:
- 1278 0000 00000000 		.space	3512
+ 1278 0000 00000000 		.space	3456
  1278      00000000 
  1278      00000000 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 51
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 51
 
 
  1278      00000000 
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1331 003d E5180000 		.4byte	.LASF3
  1332 0041 02       		.uleb128 0x2
  1333 0042 04       		.byte	0x4
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 52
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 52
 
 
  1334 0043 05       		.byte	0x5
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1388 00b0 05       		.uleb128 0x5
  1389 00b1 6B000000 		.4byte	0x6b
  1390 00b5 02       		.uleb128 0x2
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 53
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 53
 
 
  1391 00b6 08       		.byte	0x8
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1445 0123 22       		.byte	0x22
  1446 0124 0B       		.uleb128 0xb
  1447 0125 72100000 		.4byte	.LASF28
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 54
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 54
 
 
  1448 0129 23       		.byte	0x23
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1502 0195 35       		.byte	0x35
  1503 0196 0B       		.uleb128 0xb
  1504 0197 98020000 		.4byte	.LASF47
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 55
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 55
 
 
  1505 019b 36       		.byte	0x36
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1559 0207 50       		.byte	0x50
  1560 0208 0B       		.uleb128 0xb
  1561 0209 E9070000 		.4byte	.LASF66
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 56
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 56
 
 
  1562 020d 51       		.byte	0x51
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1616 0279 7A       		.byte	0x7a
  1617 027a 0B       		.uleb128 0xb
  1618 027b A90D0000 		.4byte	.LASF85
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 57
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 57
 
 
  1619 027f FA       		.byte	0xfa
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1673 02e9 78020000 		.4byte	.LASF101
  1674 02ed 0B       		.byte	0xb
  1675 02ee 0B       		.uleb128 0xb
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 58
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 58
 
 
  1676 02ef 0F180000 		.4byte	.LASF102
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1730 035c 98100000 		.4byte	.LASF120
  1731 0360 0101     		.2byte	0x101
  1732 0362 0C       		.uleb128 0xc
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 59
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 59
 
 
  1733 0363 5C040000 		.4byte	.LASF121
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1787 03d9 00       		.byte	0
  1788 03da 0E       		.uleb128 0xe
  1789 03db 52050000 		.4byte	.LASF129
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 60
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 60
 
 
  1790 03df 03       		.byte	0x3
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1844 044e 5505     		.2byte	0x555
  1845 0450 31040000 		.4byte	0x431
  1846 0454 0D       		.uleb128 0xd
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 61
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 61
 
 
  1847 0455 0C       		.byte	0xc
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1901 04c6 03       		.byte	0x3
  1902 04c7 0B       		.uleb128 0xb
  1903 04c8 06090000 		.4byte	.LASF145
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 62
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 62
 
 
  1904 04cc 04       		.byte	0x4
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  1958 053f 07       		.byte	0x7
  1959 0540 0E       		.uleb128 0xe
  1960 0541 2C190000 		.4byte	.LASF153
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 63
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 63
 
 
  1961 0545 04       		.byte	0x4
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2015 05b6 7302     		.2byte	0x273
  2016 05b8 8B050000 		.4byte	0x58b
  2017 05bc 00       		.byte	0
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 64
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 64
 
 
  2018 05bd 0E       		.uleb128 0xe
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2072 062e 07       		.uleb128 0x7
  2073 062f 04       		.byte	0x4
  2074 0630 CB050000 		.4byte	0x5cb
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 65
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 65
 
 
  2075 0634 04       		.uleb128 0x4
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2129 06a3 D8       		.byte	0xd8
  2130 06a4 7C060000 		.4byte	0x67c
  2131 06a8 13       		.uleb128 0x13
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 66
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 66
 
 
  2132 06a9 08       		.byte	0x8
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2186 0712 FA       		.byte	0xfa
  2187 0713 77000000 		.4byte	0x77
  2188 0717 00       		.byte	0
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 67
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 67
 
 
  2189 0718 0E       		.uleb128 0xe
@@ -3994,7 +3994,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2219 0759 04       		.uleb128 0x4
  2220 075a 0E020000 		.4byte	.LASF185
  2221 075e 07       		.byte	0x7
- 2222 075f 0502     		.2byte	0x205
+ 2222 075f 0402     		.2byte	0x204
  2223 0761 C5000000 		.4byte	0xc5
  2224 0765 17       		.uleb128 0x17
  2225 0766 AD02     		.2byte	0x2ad
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2243 078c 08       		.byte	0x8
  2244 078d A6       		.byte	0xa6
  2245 078e 6B000000 		.4byte	0x6b
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 68
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 68
 
 
  2246 0792 AB02     		.2byte	0x2ab
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2300 0801 3C080000 		.4byte	0x83c
  2301 0805 0B       		.uleb128 0xb
  2302 0806 60190000 		.4byte	.LASF195
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 69
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 69
 
 
  2303 080a 00       		.byte	0
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2357 0875 0C       		.byte	0xc
  2358 0876 0A       		.byte	0xa
  2359 0877 060A     		.2byte	0xa06
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 70
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 70
 
 
  2360 0879 CC080000 		.4byte	0x8cc
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2414 08f3 01       		.byte	0x1
  2415 08f4 AD04     		.2byte	0x4ad
  2416 08f6 6D090000 		.4byte	0x96d
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 71
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 71
 
 
  2417 08fa 00000000 		.4byte	.LLST0
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2471 0983 08000000 		.4byte	.LFE3-.LFB3
  2472 0987 01       		.uleb128 0x1
  2473 0988 9C       		.byte	0x9c
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 72
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 72
 
 
  2474 0989 97090000 		.4byte	0x997
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2528 0a11 01       		.byte	0x1
  2529 0a12 C301     		.2byte	0x1c3
  2530 0a14 25040000 		.4byte	0x425
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 73
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 73
 
 
  2531 0a18 02       		.uleb128 0x2
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2585 0a78 02       		.uleb128 0x2
  2586 0a79 91       		.byte	0x91
  2587 0a7a 64       		.sleb128 -28
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 74
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 74
 
 
  2588 0a7b 25       		.uleb128 0x25
@@ -4438,17 +4438,17 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2642 0ace 25       		.uleb128 0x25
  2643 0acf 01       		.uleb128 0x1
  2644 0ad0 51       		.byte	0x51
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 75
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 75
 
 
  2645 0ad1 02       		.uleb128 0x2
  2646 0ad2 08       		.byte	0x8
- 2647 0ad3 33       		.byte	0x33
+ 2647 0ad3 34       		.byte	0x34
  2648 0ad4 25       		.uleb128 0x25
  2649 0ad5 01       		.uleb128 0x1
  2650 0ad6 52       		.byte	0x52
  2651 0ad7 01       		.uleb128 0x1
- 2652 0ad8 45       		.byte	0x45
+ 2652 0ad8 42       		.byte	0x42
  2653 0ad9 00       		.byte	0
  2654 0ada 00       		.byte	0
  2655 0adb 0F       		.uleb128 0xf
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2699 0b4a 26000000 		.4byte	.LBE3-.LBB3
  2700 0b4e 9D0B0000 		.4byte	0xb9d
  2701 0b52 22       		.uleb128 0x22
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 76
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 76
 
 
  2702 0b53 F10E0000 		.4byte	.LASF237
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2756 0ba2 3A000000 		.4byte	.LBE4-.LBB4
  2757 0ba6 F30B0000 		.4byte	0xbf3
  2758 0baa 22       		.uleb128 0x22
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 77
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 77
 
 
  2759 0bab F10E0000 		.4byte	.LASF237
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2813 0c00 25       		.uleb128 0x25
  2814 0c01 01       		.uleb128 0x1
  2815 0c02 50       		.byte	0x50
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 78
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 78
 
 
  2816 0c03 02       		.uleb128 0x2
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2870 0c70 26180000 		.4byte	.LASF240
  2871 0c74 01       		.byte	0x1
  2872 0c75 C402     		.2byte	0x2c4
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 79
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 79
 
 
  2873 0c77 B8030000 		.4byte	0x3b8
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2927 0ccb 02       		.uleb128 0x2
  2928 0ccc 7D       		.byte	0x7d
  2929 0ccd 07       		.sleb128 7
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 80
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 80
 
 
  2930 0cce 25       		.uleb128 0x25
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  2984 0d3a 00       		.byte	0
  2985 0d3b 27       		.uleb128 0x27
  2986 0d3c 6E080000 		.4byte	.LASF243
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 81
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 81
 
 
  2987 0d40 01       		.byte	0x1
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3041 0db6 1205     		.2byte	0x512
  3042 0db8 78030000 		.4byte	0x378
  3043 0dbc 00000000 		.4byte	.LFB12
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 82
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 82
 
 
  3044 0dc0 60000000 		.4byte	.LFE12-.LFB12
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3098 0e3b 01       		.uleb128 0x1
  3099 0e3c 50       		.byte	0x50
  3100 0e3d 02       		.uleb128 0x2
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 83
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 83
 
 
  3101 0e3e 74       		.byte	0x74
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3155 0eb7 CE110000 		.4byte	.LASF248
  3156 0ebb 01       		.byte	0x1
  3157 0ebc 8C05     		.2byte	0x58c
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 84
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 84
 
 
  3158 0ebe 77000000 		.4byte	0x77
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3212 0f3d 05       		.uleb128 0x5
  3213 0f3e 03       		.byte	0x3
  3214 0f3f 00000000 		.4byte	CyBle_ApplCallback
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 85
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 85
 
 
  3215 0f43 2F       		.uleb128 0x2f
@@ -5054,7 +5054,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3225 0f59 650F0000 		.4byte	0xf65
  3226 0f5d 19       		.uleb128 0x19
  3227 0f5e BC000000 		.4byte	0xbc
- 3228 0f62 B70D     		.2byte	0xdb7
+ 3228 0f62 7F0D     		.2byte	0xd7f
  3229 0f64 00       		.byte	0
  3230 0f65 2F       		.uleb128 0x2f
  3231 0f66 E9160000 		.4byte	.LASF254
@@ -5067,7 +5067,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3238 0f76 30       		.uleb128 0x30
  3239 0f77 4D170000 		.4byte	.LASF255
  3240 0f7b 07       		.byte	0x7
- 3241 0f7c A502     		.2byte	0x2a5
+ 3241 0f7c A402     		.2byte	0x2a4
  3242 0f7e B0000000 		.4byte	0xb0
  3243 0f82 2F       		.uleb128 0x2f
  3244 0f83 48040000 		.4byte	.LASF256
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3269 0fba 01       		.byte	0x1
  3270 0fbb 48       		.byte	0x48
  3271 0fbc 9B050000 		.4byte	0x59b
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 86
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 86
 
 
  3272 0fc0 05       		.uleb128 0x5
@@ -5141,7 +5141,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3309 100f 1A100000 		.4byte	0x101a
  3310 1013 10       		.uleb128 0x10
  3311 1014 BC000000 		.4byte	0xbc
- 3312 1018 32       		.byte	0x32
+ 3312 1018 33       		.byte	0x33
  3313 1019 00       		.byte	0
  3314 101a 1E       		.uleb128 0x1e
  3315 101b 4D070000 		.4byte	0x74d
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3326 1035 ED       		.byte	0xed
  3327 1036 D9040000 		.4byte	0x4d9
  3328 103a 31       		.uleb128 0x31
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 87
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 87
 
 
  3329 103b 130D0000 		.4byte	.LASF266
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3383 10c0 03       		.byte	0x3
  3384 10c1 D906     		.2byte	0x6d9
  3385 10c3 33       		.uleb128 0x33
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 88
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 88
 
 
  3386 10c4 EF150000 		.4byte	.LASF276
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3440 0004 0E       		.uleb128 0xe
  3441 0005 13       		.uleb128 0x13
  3442 0006 0B       		.uleb128 0xb
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 89
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 89
 
 
  3443 0007 03       		.uleb128 0x3
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3497 003d 06       		.uleb128 0x6
  3498 003e 0F       		.uleb128 0xf
  3499 003f 00       		.byte	0
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 90
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 90
 
 
  3500 0040 0B       		.uleb128 0xb
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3554 0076 28       		.uleb128 0x28
  3555 0077 00       		.byte	0
  3556 0078 03       		.uleb128 0x3
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 91
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 91
 
 
  3557 0079 0E       		.uleb128 0xe
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3611 00af 0B       		.uleb128 0xb
  3612 00b0 0B       		.uleb128 0xb
  3613 00b1 49       		.uleb128 0x49
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 92
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 92
 
 
  3614 00b2 13       		.uleb128 0x13
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3668 00e8 0B       		.uleb128 0xb
  3669 00e9 3A       		.uleb128 0x3a
  3670 00ea 0B       		.uleb128 0xb
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 93
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 93
 
 
  3671 00eb 3B       		.uleb128 0x3b
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3725 0121 00       		.byte	0
  3726 0122 00       		.byte	0
  3727 0123 1A       		.uleb128 0x1a
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 94
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 94
 
 
  3728 0124 2E       		.uleb128 0x2e
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3782 015b 00       		.byte	0
  3783 015c 03       		.uleb128 0x3
  3784 015d 0E       		.uleb128 0xe
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 95
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 95
 
 
  3785 015e 3A       		.uleb128 0x3a
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3839 0197 3F       		.uleb128 0x3f
  3840 0198 19       		.uleb128 0x19
  3841 0199 03       		.uleb128 0x3
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 96
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 96
 
 
  3842 019a 0E       		.uleb128 0xe
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3896 01d3 00       		.byte	0
  3897 01d4 00       		.byte	0
  3898 01d5 25       		.uleb128 0x25
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 97
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 97
 
 
  3899 01d6 8A8201   		.uleb128 0x410a
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  3953 0212 05       		.uleb128 0x5
  3954 0213 00       		.byte	0
  3955 0214 03       		.uleb128 0x3
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 98
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 98
 
 
  3956 0215 0E       		.uleb128 0xe
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4010 024b 2D       		.uleb128 0x2d
  4011 024c 05       		.uleb128 0x5
  4012 024d 00       		.byte	0
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 99
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 99
 
 
  4013 024e 03       		.uleb128 0x3
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4067 0284 13       		.uleb128 0x13
  4068 0285 3F       		.uleb128 0x3f
  4069 0286 19       		.uleb128 0x19
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 100
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 100
 
 
  4070 0287 3C       		.uleb128 0x3c
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4124 02bd 00       		.byte	0
  4125 02be 34       		.uleb128 0x34
  4126 02bf 2E       		.uleb128 0x2e
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 101
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 101
 
 
  4127 02c0 00       		.byte	0
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4181 005b 4A000000 		.4byte	.LVL18
  4182 005f 4E000000 		.4byte	.LVL19
  4183 0063 0100     		.2byte	0x1
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 102
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 102
 
 
  4184 0065 53       		.byte	0x53
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4238 00f3 30000000 		.4byte	.LVL12
  4239 00f7 0100     		.2byte	0x1
  4240 00f9 53       		.byte	0x53
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 103
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 103
 
 
  4241 00fa 32000000 		.4byte	.LVL13
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4295 018e 49000000 		.4byte	.LVL36-1
  4296 0192 88000000 		.4byte	.LVL42
  4297 0196 0400     		.2byte	0x4
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 104
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 104
 
 
  4298 0198 F3       		.byte	0xf3
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4352 021e F3       		.byte	0xf3
  4353 021f 01       		.uleb128 0x1
  4354 0220 50       		.byte	0x50
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 105
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 105
 
 
  4355 0221 9F       		.byte	0x9f
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4409 02ad 0100     		.2byte	0x1
  4410 02af 55       		.byte	0x55
  4411 02b0 5C000000 		.4byte	.LVL71
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 106
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 106
 
 
  4412 02b4 5E000000 		.4byte	.LVL72
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4466 033e F3       		.byte	0xf3
  4467 033f 01       		.uleb128 0x1
  4468 0340 50       		.byte	0x50
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 107
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 107
 
 
  4469 0341 9F       		.byte	0x9f
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4523 03c6 0100     		.2byte	0x1
  4524 03c8 54       		.byte	0x54
  4525 03c9 54000000 		.4byte	.LVL99
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 108
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 108
 
 
  4526 03cd 56000000 		.4byte	.LVL100
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4580 0459 0100     		.2byte	0x1
  4581 045b 51       		.byte	0x51
  4582 045c 00000000 		.4byte	0
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 109
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 109
 
 
  4583 0460 00000000 		.4byte	0
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4637 04e6 53       		.byte	0x53
  4638 04e7 26000000 		.4byte	.LVL108
  4639 04eb 32000000 		.4byte	.LVL109
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 110
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 110
 
 
  4640 04ef 0100     		.2byte	0x1
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4694 002c B4000000 		.4byte	.LFE4-.LFB4
  4695 0030 00000000 		.4byte	.LFB5
  4696 0034 14000000 		.4byte	.LFE5-.LFB5
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 111
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 111
 
 
  4697 0038 00000000 		.4byte	.LFB6
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4751 0000 93030000 		.section	.debug_str,"MS",%progbits,1
  4751      02008B01 
  4751      00000201 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 112
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 112
 
 
  4751      FB0E0D00 
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4773 00c5 64657374 		.ascii	"destBuffer\000"
  4773      42756666 
  4773      657200
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 113
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 113
 
 
  4774              	.LASF162:
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4793      6F6E00
  4794              	.LASF126:
  4795 0209 74797065 		.ascii	"type\000"
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 114
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 114
 
 
  4795      00
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4814              	.LASF40:
  4815 02e6 4359424C 		.ascii	"CYBLE_EVT_GAP_OOB_GENERATED_NOTIFICATION\000"
  4815      455F4556 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 115
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 115
 
 
  4815      545F4741 
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4835      6F726553 
  4835      7461636B 
  4835      44617461 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 116
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 116
 
 
  4836              	.LASF231:
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4855      4F4E4E45 
  4856              	.LASF76:
  4857 04d4 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 117
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 117
 
 
  4857      455F4556 
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4877 05c1 756E7369 		.ascii	"unsigned char\000"
  4877      676E6564 
  4877      20636861 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 118
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 118
 
 
  4877      7200
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4897      545F4741 
  4897      505F4441 
  4897      54415F4C 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 119
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 119
 
 
  4898              	.LASF15:
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4917      45564943 
  4918              	.LASF59:
  4919 07cb 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BLOB_RSP\000"
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 120
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 120
 
 
  4919      455F4556 
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4939      455F4552 
  4939      524F525F 
  4939      494E5641 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 121
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 121
 
 
  4939      4C49445F 
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4959 09c4 4359424C 		.ascii	"CYBLE_ERROR_MAX\000"
  4959      455F4552 
  4959      524F525F 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 122
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 122
 
 
  4959      4D415800 
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4978      505F4155 
  4978      54485F46 
  4979              	.LASF123:
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 123
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 123
 
 
  4980 0ac4 4359424C 		.ascii	"CYBLE_ERROR_STACK_BUSY\000"
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  4998      7453697A 
  4998      6500
  4999              	.LASF104:
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 124
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 124
 
 
  5000 0bd3 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_PSM_ALREADY_REGISTERED\000"
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5018      505F5041 
  5018      53534B45 
  5019              	.LASF140:
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 125
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 125
 
 
  5020 0ce5 4359424C 		.ascii	"CYBLE_STACK_CONFIG_PARAM_T\000"
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5040 0dc7 6379426C 		.ascii	"cyBle_advertisingIntervalType\000"
  5040      655F6164 
  5040      76657274 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 126
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 126
 
 
  5040      6973696E 
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5060      545F4741 
  5060      5454535F 
  5060      52454144 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 127
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 127
 
 
  5061              	.LASF237:
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5082 0f97 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_PSM_WRONG_ENCODING\000"
  5082      455F4552 
  5082      524F525F 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 128
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 128
 
 
  5082      4C324341 
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5102      53534B45 
  5103              	.LASF120:
  5104 1098 4359424C 		.ascii	"CYBLE_ERROR_IND_DISABLED\000"
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 129
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 129
 
 
  5104      455F4552 
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5122      20646F75 
  5122      626C6500 
  5123              	.LASF128:
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 130
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 130
 
 
  5124 11aa 62756666 		.ascii	"bufferSize\000"
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5143      72636557 
  5143      72697465 
  5143      00
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 131
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 131
 
 
  5144              	.LASF122:
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5165      6F6E6669 
  5165      6700
  5166              	.LASF170:
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 132
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 132
 
 
  5167 135f 61637475 		.ascii	"actualLength\000"
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5188              	.LASF282:
  5189 143a 6D656D63 		.ascii	"memcmp\000"
  5189      6D7000
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 133
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 133
 
 
  5190              	.LASF116:
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5209      00
  5210              	.LASF9:
  5211 153a 75696E74 		.ascii	"uint8\000"
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 134
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 134
 
 
  5211      3800
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5231      62526567 
  5231      69737465 
  5232              	.LASF49:
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 135
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 135
 
 
  5233 1605 4359424C 		.ascii	"CYBLE_EVT_GATTC_ERROR_RSP\000"
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5251      656D6F72 
  5251      7952616D 
  5252              	.LASF46:
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 136
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 136
 
 
  5253 16fe 4359424C 		.ascii	"CYBLE_EVT_GAP_SCAN_REQ_RECVD\000"
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5273      5F5400
  5274              	.LASF265:
  5275 17da 6379426C 		.ascii	"cyBle_attValuesCCCD\000"
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 137
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 137
 
 
  5275      655F6174 
@@ -8218,7 +8218,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5293      63654368 
  5293      61724861 
  5293      6E646C65 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 138
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 138
 
 
  5294              	.LASF3:
@@ -8278,7 +8278,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5315      6E677468 
  5315      00
  5316              	.LASF22:
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 139
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 139
 
 
  5317 19ac 4359424C 		.ascii	"CYBLE_EVT_HCI_STATUS\000"
@@ -8338,7 +8338,7 @@ ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 1
  5336              	.LASF148:
  5337 1aad 61647649 		.ascii	"advIntvMax\000"
  5337      6E74764D 
-ARM GAS  C:\Windows\TEMP\cc9GV4k2.s 			page 140
+ARM GAS  C:\Windows\TEMP\cc4CyKwz.s 			page 140
 
 
  5337      617800

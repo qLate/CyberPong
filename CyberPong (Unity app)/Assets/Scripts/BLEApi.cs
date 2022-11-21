@@ -78,6 +78,8 @@ public class BleApi
         public string serviceUuid;
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
         public string characteristicUuid;
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
+        public string characteristicIndex;
     };
 
     [DllImport("BleWinrtDll.dll", EntryPoint = "PollData")]

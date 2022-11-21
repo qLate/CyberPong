@@ -419,6 +419,30 @@
 <file name=".\debug.h" />
 <file name=".\main_data.h" />
 <file name=".\motorController.h" />
+<file name=".\CortexM0\ARM_GCC_541\Debug\aios_core.o">
+<dep name=".\Generated_Source\PSoC4\Bluetooth.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_Stack.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_StackGap.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_StackGatt.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_StackGattClient.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_StackGattDb.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_StackGattServer.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_StackHostMain.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_StackL2cap.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_aios.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_custom.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_eventHandler.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_gatt.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_ias.h" />
+<dep name=".\Generated_Source\PSoC4\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
+<dep name=".\Generated_Source\PSoC4\CyLib.h" />
+<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC4\cytypes.h" />
+<dep name=".\aios_core.c" />
+</file>
+<file name=".\aios_core.c" />
 <file name=".\CortexM0\ARM_GCC_541\Debug\debug.o">
 <dep name=".\Generated_Source\PSoC4\Control_Rotation.h" />
 <dep name=".\Generated_Source\PSoC4\CyDMA.h" />
@@ -688,6 +712,30 @@
 <dep name=".\motorController.h" />
 </file>
 <file name=".\motorController.c" />
+<file name=".\CortexM0\ARM_GCC_541\Debug\Bluetooth_custom.o">
+<dep name=".\Generated_Source\PSoC4\Bluetooth.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_Stack.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_StackGap.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_StackGatt.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_StackGattClient.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_StackGattDb.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_StackGattServer.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_StackHostMain.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_StackL2cap.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_aios.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_custom.c" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_custom.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_eventHandler.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_gatt.h" />
+<dep name=".\Generated_Source\PSoC4\Bluetooth_ias.h" />
+<dep name=".\Generated_Source\PSoC4\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
+<dep name=".\Generated_Source\PSoC4\CyLib.h" />
+<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC4\cytypes.h" />
+</file>
+<file name=".\Generated_Source\PSoC4\Bluetooth_custom.c" />
 <file name=".\CortexM0\ARM_GCC_541\Debug\bluetoothAios.o">
 <dep name=".\Generated_Source\PSoC4\Control_Rotation.h" />
 <dep name=".\Generated_Source\PSoC4\CyDMA.h" />
@@ -1959,29 +2007,6 @@
 <dep name=".\Generated_Source\PSoC4\cytypes.h" />
 </file>
 <file name=".\Generated_Source\PSoC4\Bluetooth_ias.c" />
-<file name=".\CortexM0\ARM_GCC_541\Debug\Bluetooth_custom.o">
-<dep name=".\Generated_Source\PSoC4\Bluetooth.h" />
-<dep name=".\Generated_Source\PSoC4\Bluetooth_Stack.h" />
-<dep name=".\Generated_Source\PSoC4\Bluetooth_StackGap.h" />
-<dep name=".\Generated_Source\PSoC4\Bluetooth_StackGatt.h" />
-<dep name=".\Generated_Source\PSoC4\Bluetooth_StackGattClient.h" />
-<dep name=".\Generated_Source\PSoC4\Bluetooth_StackGattDb.h" />
-<dep name=".\Generated_Source\PSoC4\Bluetooth_StackGattServer.h" />
-<dep name=".\Generated_Source\PSoC4\Bluetooth_StackHostMain.h" />
-<dep name=".\Generated_Source\PSoC4\Bluetooth_StackL2cap.h" />
-<dep name=".\Generated_Source\PSoC4\Bluetooth_custom.c" />
-<dep name=".\Generated_Source\PSoC4\Bluetooth_custom.h" />
-<dep name=".\Generated_Source\PSoC4\Bluetooth_eventHandler.h" />
-<dep name=".\Generated_Source\PSoC4\Bluetooth_gatt.h" />
-<dep name=".\Generated_Source\PSoC4\Bluetooth_ias.h" />
-<dep name=".\Generated_Source\PSoC4\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC4\CyLFClk.h" />
-<dep name=".\Generated_Source\PSoC4\CyLib.h" />
-<dep name=".\Generated_Source\PSoC4\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC4\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC4\cytypes.h" />
-</file>
-<file name=".\Generated_Source\PSoC4\Bluetooth_custom.c" />
 <file name=".\CortexM0\ARM_GCC_541\Debug\Control_DOWN.o">
 <dep name=".\Generated_Source\PSoC4\Control_DOWN.c" />
 <dep name=".\Generated_Source\PSoC4\Control_DOWN.h" />
@@ -2060,6 +2085,7 @@
 <dep name=".\CortexM0\ARM_GCC_541\Debug\debug.o" />
 <dep name=".\CortexM0\ARM_GCC_541\Debug\motorController.o" />
 <dep name=".\CortexM0\ARM_GCC_541\Debug\aios.o" />
+<dep name=".\CortexM0\ARM_GCC_541\Debug\aios_core.o" />
 <dep name=".\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o" />
 <dep name=".\CortexM0\ARM_GCC_541\Debug\cymetadata.o" />
 <dep name=".\CortexM0\ARM_GCC_541\Debug\Cm0Start.o" />
@@ -2249,6 +2275,7 @@
 <name_val_pair name="test.c" v="-mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="bluetoothAios.c" v="-mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="aios.c" v="-mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="aios_core.c" v="-mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 </name>
 </genericCmdLineData>
 <codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\Oleg\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\CyberPong.cyprj -d CY8C4248LQI-BL583 -s C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
@@ -3046,7 +3073,7 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif</v>
 </warp_dep>
-<deps_time v="133135085010905114" />
+<deps_time v="133135343708718014" />
 <top_block v="TopDesign" />
 <last_generation v="4" />
 <pdl_path v="" />
@@ -3056,7 +3083,7 @@
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
 <link_deps_times>
-<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0" v="133135085032775132" />
+<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0" v="133135343744781084" />
 </link_deps_times>
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
@@ -3064,6 +3091,15 @@
 <CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469 type_name="CyDesigner.Common.Debugger.CyBreakpointList" version="1">
 <debugger_breakpoint_list />
 </CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469>
+</dataGuid>
+<dataGuid v="597c5b74-0c46-4204-8b7f-96f3570671dc">
+<CyGuid_597c5b74-0c46-4204-8b7f-96f3570671dc type_name="CyDesigner.Common.ProjMgmt.DeviceSelector.CyDeviceSelectorState" version="1">
+<name_val_pair name="Dialog Bounds" v="368, 112, 800, 599" />
+<name_val_pair name="Column Order" v="PartNumber;CPU;Family;Series;PACKAGE;SPEED_MHZ;FLASH_KB;SRAM_KB;EEPROM_KB;IO_COUNT;CAPSENSE;INDSENSE;BLUETOOTH;DIRDRIVELCD;SMIF;TIMERCOUNTERPWM_COUNT;BT_COUNT;I2C_COUNT;UDB_COUNT;PRECONFIGURED_BLOCKS;USB_TYPE;CAN20B_COUNT;PVT_COMPLEX_ADC;DAC8_COUNT;DAC12_COUNT;SAMPLEHOLD_COUNT;OPAMP_COUNT;ANALOGBLOCKS_COUNT;ADCCHANNEL_COUNT;LPCOMP_COUNT;DFB_COUNT;DMACHANNELS_COUNT;DSTCCHANNELS_COUNT;PLL_COUNT;BOOSTCONVERTER_VOLTS;MFT_COUNT;MFS_COUNT;CRYPTO;POWER_MODES;PVT_DIGITAL_IN_VOLT_RANGE;PVT_ANALOG_IN_VOLT_RANGE;TEMPMIN_CELSIUS;TEMPMAX_CELSIUS;AUTOMOTIVE_QUALIFIED;TRACEBUFF_KB;SILICONID;DesignFits;" />
+<name_val_pair name="Filter Options" v="" />
+<name_val_pair name="Visible Columns" v="PartNumber;CPU;Series;PACKAGE;SPEED_MHZ;FLASH_KB;SRAM_KB;EEPROM_KB;IO_COUNT;CAPSENSE;INDSENSE;BLUETOOTH;DIRDRIVELCD;SMIF;TIMERCOUNTERPWM_COUNT;BT_COUNT;I2C_COUNT;UDB_COUNT;PRECONFIGURED_BLOCKS;USB_TYPE;CAN20B_COUNT;PVT_COMPLEX_ADC;DAC8_COUNT;DAC12_COUNT;SAMPLEHOLD_COUNT;OPAMP_COUNT;ANALOGBLOCKS_COUNT;ADCCHANNEL_COUNT;LPCOMP_COUNT;DFB_COUNT;DMACHANNELS_COUNT;DSTCCHANNELS_COUNT;PLL_COUNT;BOOSTCONVERTER_VOLTS;MFT_COUNT;MFS_COUNT;CRYPTO;POWER_MODES;PVT_DIGITAL_IN_VOLT_RANGE;PVT_ANALOG_IN_VOLT_RANGE;TEMPMIN_CELSIUS;TEMPMAX_CELSIUS;AUTOMOTIVE_QUALIFIED;TRACEBUFF_KB;SILICONID;" />
+<name_val_pair name="Sort" v="PartNumber;Ascending" />
+</CyGuid_597c5b74-0c46-4204-8b7f-96f3570671dc>
 </dataGuid>
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>

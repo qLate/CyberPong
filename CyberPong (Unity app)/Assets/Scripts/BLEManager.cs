@@ -240,7 +240,8 @@ public class Demo : MonoBehaviour
             size = (short)payload.Length,
             deviceId = selectedDeviceId,
             serviceUuid = selectedServiceId,
-            characteristicUuid = selectedCharacteristicId
+            characteristicUuid = selectedCharacteristicId,
+            characteristicIndex = "2",
         };
         Debug.Log(selectedCharacteristicId);
         for (var i = 0; i < payload.Length; i++)

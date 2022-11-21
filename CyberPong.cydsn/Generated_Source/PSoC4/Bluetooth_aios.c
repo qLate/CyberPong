@@ -22,7 +22,7 @@
 /* Analog characteristic data */
 static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
     {
-        0x0012u, /* Handle of the MotorLeft characteristic */ 
+        0x0012u, /* Handle of the Left characteristic */ 
         
             /* Array of Descriptors handles */
             {
@@ -36,7 +36,7 @@ static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
             }, 
     },
     {
-        0x001Bu, /* Handle of the MotorRight characteristic */ 
+        0x001Bu, /* Handle of the RIght characteristic */ 
         
             /* Array of Descriptors handles */
             {
@@ -50,7 +50,7 @@ static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
             }, 
     },
     {
-        0x0024u, /* Handle of the MotorUp characteristic */ 
+        0x0024u, /* Handle of the Top characteristic */ 
         
             /* Array of Descriptors handles */
             {
@@ -64,7 +64,7 @@ static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
             }, 
     },
     {
-        0x002Du, /* Handle of the MotorDown characteristic */ 
+        0x002Du, /* Handle of the Bottom characteristic */ 
         
             /* Array of Descriptors handles */
             {
@@ -74,7 +74,7 @@ static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
                 0x0031u, /* Handle of the Characteristic Extended Properties descriptor */ 
                 0x0032u, /* Handle of the Value Trigger Setting descriptor */ 
                 0x0033u, /* Handle of the Time Trigger Setting descriptor */ 
-                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, /* Handle of the Valid Range descriptor */ 
+                0x0034u, /* Handle of the Valid Range descriptor */ 
             }, 
     },
 };
