@@ -16,14 +16,14 @@ void AIOS_Callback(uint32 eventCode, void *eventParam){
     {
     case CYBLE_EVT_AIOSS_CHAR_WRITE: {
         uint16 motorSpeed = CyBle_AiosGet16ByPtr(locCharValue->value->val);
-        sprintf(str, "%u\n\r", motorSpeed);
+        sprintf(str, "%X -> %u\n\r", motorSpeed, motorSpeed);
         Print(str);
         
         int motorIndex = locCharValue->charInstance;
         sprintf(str,"charInstance - %d", motorIndex);
         Println(str);
         
-        SetMotorSpeed_Single(motorIndex,motorSpeed);
+        SetMotorSpeed_Single(motorIndex, motorSpeed);
         break;
         }
     }

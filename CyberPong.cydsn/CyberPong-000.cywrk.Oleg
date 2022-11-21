@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CyberPong-000\CyberPong\Header Files\motorController.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CyberPong-000\CyberPong\Header Files\debug.h">
 <ExpandedNodeIds>
 <v>CyberPong-000</v>
 <v>CyberPong-000\CyberPong</v>
@@ -210,18 +210,6 @@
 <v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\FanController_FW_PWM2_PM.lst</v>
 <v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\FanController_FW_PWM3.lst</v>
 <v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\FanController_FW_PWM3_PM.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\FanController_FW_PWM4.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\FanController_FW_PWM4_PM.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\FanController_INT.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\FanController_PID_ISR.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\ISR_Ball_Trigger.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\motorController.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Input_BallTrigger.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Input_BallTrigger_PM.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Input_DOWN.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Input_DOWN_PM.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Input_LEFT.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -284,23 +272,14 @@
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
-<OpenDocs>
-<name v=".\main.c" />
-<name v=".\main_data.h" />
-<name v=".\debug.c" />
-<name v=".\debug.h" />
-<name v=".\bluetooth.c" />
-<name v=".\motorController.h" />
-<name v=".\motorController.c" />
-<name v=".\bluetooth.h" />
-</OpenDocs>
+<OpenDocs />
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
   Actipro Docking/MDI for WinForms
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1482, 733" SelectedTabbedMdiWindow="e2da80ca-7cfc-4f1d-8532-c852f33511a3"><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\main.c" Guid="e2da80ca-7cfc-4f1d-8532-c852f33511a3" /><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\main_data.h" Guid="3057cc99-e929-4cb2-b6e7-35d583bab693" /><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\debug.c" Guid="404f3deb-a390-453e-87ef-7765d50d3272" /><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\debug.h" Guid="c5815c73-bbf6-43f9-ada9-755596bc484c" /><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\bluetooth.c" Guid="df87771b-bb93-4150-9bca-1a1d6dbd0721" /><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\motorController.h" Guid="a8e085cf-3b66-4109-bc08-4ef7e13e34d7" /><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\motorController.c" Guid="aead66bd-7666-43d2-8f72-1c749ac6402d" /><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\bluetooth.h" Guid="82432fe1-6a52-4e8b-a959-56758f88e4e9" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1309, 517" SelectedTabbedMdiWindow="06176151-f3ad-4d66-accc-e477d8efd5e3"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="06176151-f3ad-4d66-accc-e477d8efd5e3" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

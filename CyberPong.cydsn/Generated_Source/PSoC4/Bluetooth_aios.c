@@ -22,84 +22,66 @@
 /* Analog characteristic data */
 static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
     {
-        0x0015u, /* Handle of the MotorLeft characteristic */ 
-        
-            /* Array of Descriptors handles */
-            {
-                0x0016u, /* Handle of the Client Characteristic Configuration descriptor */ 
-                0x0017u, /* Handle of the Characteristic Presentation Format descriptor */ 
-                0x0018u, /* Handle of the Characteristic User Description descriptor */ 
-                0x0019u, /* Handle of the Characteristic Extended Properties descriptor */ 
-                0x001Au, /* Handle of the Value Trigger Setting descriptor */ 
-                0x001Bu, /* Handle of the Time Trigger Setting descriptor */ 
-                0x001Cu, /* Handle of the Valid Range descriptor */ 
-            }, 
-    },
-    {
-        0x001Eu, /* Handle of the MotorRight characteristic */ 
-        
-            /* Array of Descriptors handles */
-            {
-                0x001Fu, /* Handle of the Client Characteristic Configuration descriptor */ 
-                0x0020u, /* Handle of the Characteristic Presentation Format descriptor */ 
-                0x0021u, /* Handle of the Characteristic User Description descriptor */ 
-                0x0022u, /* Handle of the Characteristic Extended Properties descriptor */ 
-                0x0023u, /* Handle of the Value Trigger Setting descriptor */ 
-                0x0024u, /* Handle of the Time Trigger Setting descriptor */ 
-                0x0025u, /* Handle of the Valid Range descriptor */ 
-            }, 
-    },
-    {
-        0x0027u, /* Handle of the MotorUp characteristic */ 
-        
-            /* Array of Descriptors handles */
-            {
-                0x0028u, /* Handle of the Client Characteristic Configuration descriptor */ 
-                0x0029u, /* Handle of the Characteristic Presentation Format descriptor */ 
-                0x002Au, /* Handle of the Characteristic User Description descriptor */ 
-                0x002Bu, /* Handle of the Characteristic Extended Properties descriptor */ 
-                0x002Cu, /* Handle of the Value Trigger Setting descriptor */ 
-                0x002Du, /* Handle of the Time Trigger Setting descriptor */ 
-                0x002Eu, /* Handle of the Valid Range descriptor */ 
-            }, 
-    },
-    {
-        0x0030u, /* Handle of the MotorDown characteristic */ 
-        
-            /* Array of Descriptors handles */
-            {
-                0x0031u, /* Handle of the Client Characteristic Configuration descriptor */ 
-                0x0032u, /* Handle of the Characteristic Presentation Format descriptor */ 
-                0x0033u, /* Handle of the Characteristic User Description descriptor */ 
-                0x0034u, /* Handle of the Characteristic Extended Properties descriptor */ 
-                0x0035u, /* Handle of the Value Trigger Setting descriptor */ 
-                0x0036u, /* Handle of the Time Trigger Setting descriptor */ 
-                0x0037u, /* Handle of the Valid Range descriptor */ 
-            }, 
-    },
-};
-
-/* Aggregate characteristic data */
-static CYBLE_AIOSS_CHAR_T aiossCharIdx2[0x01u] = {
-    {
-        0x0012u, /* Handle of the Aggregate characteristic */ 
+        0x0012u, /* Handle of the MotorLeft characteristic */ 
         
             /* Array of Descriptors handles */
             {
                 0x0013u, /* Handle of the Client Characteristic Configuration descriptor */ 
-                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
-                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
-                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
-                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
-                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
-                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                0x0014u, /* Handle of the Characteristic Presentation Format descriptor */ 
+                0x0015u, /* Handle of the Characteristic User Description descriptor */ 
+                0x0016u, /* Handle of the Characteristic Extended Properties descriptor */ 
+                0x0017u, /* Handle of the Value Trigger Setting descriptor */ 
+                0x0018u, /* Handle of the Time Trigger Setting descriptor */ 
+                0x0019u, /* Handle of the Valid Range descriptor */ 
+            }, 
+    },
+    {
+        0x001Bu, /* Handle of the MotorRight characteristic */ 
+        
+            /* Array of Descriptors handles */
+            {
+                0x001Cu, /* Handle of the Client Characteristic Configuration descriptor */ 
+                0x001Du, /* Handle of the Characteristic Presentation Format descriptor */ 
+                0x001Eu, /* Handle of the Characteristic User Description descriptor */ 
+                0x001Fu, /* Handle of the Characteristic Extended Properties descriptor */ 
+                0x0020u, /* Handle of the Value Trigger Setting descriptor */ 
+                0x0021u, /* Handle of the Time Trigger Setting descriptor */ 
+                0x0022u, /* Handle of the Valid Range descriptor */ 
+            }, 
+    },
+    {
+        0x0024u, /* Handle of the MotorUp characteristic */ 
+        
+            /* Array of Descriptors handles */
+            {
+                0x0025u, /* Handle of the Client Characteristic Configuration descriptor */ 
+                0x0026u, /* Handle of the Characteristic Presentation Format descriptor */ 
+                0x0027u, /* Handle of the Characteristic User Description descriptor */ 
+                0x0028u, /* Handle of the Characteristic Extended Properties descriptor */ 
+                0x0029u, /* Handle of the Value Trigger Setting descriptor */ 
+                0x002Au, /* Handle of the Time Trigger Setting descriptor */ 
+                0x002Bu, /* Handle of the Valid Range descriptor */ 
+            }, 
+    },
+    {
+        0x002Du, /* Handle of the MotorDown characteristic */ 
+        
+            /* Array of Descriptors handles */
+            {
+                0x002Eu, /* Handle of the Client Characteristic Configuration descriptor */ 
+                0x002Fu, /* Handle of the Characteristic Presentation Format descriptor */ 
+                0x0030u, /* Handle of the Characteristic User Description descriptor */ 
+                0x0031u, /* Handle of the Characteristic Extended Properties descriptor */ 
+                0x0032u, /* Handle of the Value Trigger Setting descriptor */ 
+                0x0033u, /* Handle of the Time Trigger Setting descriptor */ 
+                0x0034u, /* Handle of the Valid Range descriptor */ 
             }, 
     },
 };
 
 /* Number of AIOS characteristics instances */
 uint8 cyBle_aiossCharInstances[0x03u] = {
-    0x00u, 0x04u, 0x01u
+    0x00u, 0x04u, 0x00u
 };
 
 const CYBLE_AIOSS_T cyBle_aioss =
@@ -113,7 +95,7 @@ const CYBLE_AIOSS_T cyBle_aioss =
             &aiossCharIdx1[0], /* Handle of the Analog characteristic */ 
         }, 
         {
-            &aiossCharIdx2[0], /* Handle of the Aggregate characteristic */ 
+            NULL, /* Handle of the Aggregate characteristic */ 
         }, 
     },
 };

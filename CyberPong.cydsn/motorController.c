@@ -16,6 +16,6 @@ void SetMotorSpeed(int speeds[]) {
 }
 void SetMotorSpeed_Single(enum MotorDirection dir, int speed) {
     int clamped = Clamp01(speed, MIN_RPM, MAX_RPM);
-    FanController_SetDesiredSpeed(dir+1, clamped);
+    FanController_SetDesiredSpeed(dir+1, 2*clamped);
 }
 /* [] END OF FILE */
