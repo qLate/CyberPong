@@ -9,18 +9,19 @@ void Println(char text[]) {
     UART_UartPutChar('\n');
     UART_UartPutChar('\r');
 }
-const float delay = 1;
-float lastPrintTime = 0;
+
+int counter = 0;
 void PrintMotorSpeeds() {
     if(disablePrintIfZeroRPM && FanController_GetActualSpeed(1)==0 && FanController_GetActualSpeed(2)==0 && 
        FanController_GetActualSpeed(3)==0 && FanController_GetActualSpeed(4)==0)
         return;
-    
-    float seconds = (clock() - lastPrintTime) / CLOCKS_PER_SEC;
-    if (seconds < delay)
+
+    if (counter < 100000){
+        counter++;
         return;
+    }
     else
-        seconds=0;
+        counter=0;
     
     int current_rpm = 0;
     for (int i = 1; i < MOTOR_COUNT + 1; i++) {

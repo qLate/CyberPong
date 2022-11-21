@@ -242,6 +242,7 @@ public class Demo : MonoBehaviour
             serviceUuid = selectedServiceId,
             characteristicUuid = selectedCharacteristicId
         };
+        Debug.Log(selectedCharacteristicId);
         for (var i = 0; i < payload.Length; i++)
             data.buf[i] = payload[i];
         // no error code available in non-blocking mode

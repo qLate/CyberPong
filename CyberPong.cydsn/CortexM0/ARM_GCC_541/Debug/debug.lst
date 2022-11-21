@@ -1,4 +1,4 @@
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
   49              		.code	16
   50              		.thumb_func
   51              		.type	Println, %function
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 2
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 2
 
 
   52              	Println:
@@ -102,9 +102,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
   85              		.type	PrintMotorSpeeds, %function
   86              	PrintMotorSpeeds:
   87              	.LFB38:
-  12:debug.c       **** int counter=0;
-  13:debug.c       **** void PrintMotorSpeeds() {
-  88              		.loc 1 13 0
+  12:debug.c       **** 
+  13:debug.c       **** int counter = 0;
+  14:debug.c       **** void PrintMotorSpeeds() {
+  88              		.loc 1 14 0
   89              		.cfi_startproc
   90              		@ args = 0, pretend = 0, frame = 0
   91              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -116,92 +117,92 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
   97              		.cfi_offset 6, -12
   98              		.cfi_offset 7, -8
   99              		.cfi_offset 14, -4
-  14:debug.c       ****     if(disablePrintIfZeroRPM && FanController_GetActualSpeed(1)==0 && FanController_GetActualSpeed(
- 100              		.loc 1 14 0
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 3
+  15:debug.c       ****     if(disablePrintIfZeroRPM && FanController_GetActualSpeed(1)==0 && FanController_GetActualSpeed(
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 3
 
 
+ 100              		.loc 1 15 0
  101 0002 2C4B     		ldr	r3, .L9
  102 0004 1B78     		ldrb	r3, [r3]
  103 0006 002B     		cmp	r3, #0
  104 0008 13D0     		beq	.L4
- 105              		.loc 1 14 0 is_stmt 0 discriminator 1
+ 105              		.loc 1 15 0 is_stmt 0 discriminator 1
  106 000a 0120     		movs	r0, #1
  107 000c FFF7FEFF 		bl	FanController_GetActualSpeed
  108              	.LVL6:
  109 0010 0028     		cmp	r0, #0
  110 0012 0ED1     		bne	.L4
- 111              		.loc 1 14 0 discriminator 2
+ 111              		.loc 1 15 0 discriminator 2
  112 0014 0230     		adds	r0, r0, #2
  113 0016 FFF7FEFF 		bl	FanController_GetActualSpeed
  114              	.LVL7:
  115 001a 0028     		cmp	r0, #0
  116 001c 09D1     		bne	.L4
-  15:debug.c       ****        FanController_GetActualSpeed(3)==0 && FanController_GetActualSpeed(4)==0)
- 117              		.loc 1 15 0 is_stmt 1 discriminator 3
+  16:debug.c       ****        FanController_GetActualSpeed(3)==0 && FanController_GetActualSpeed(4)==0)
+ 117              		.loc 1 16 0 is_stmt 1 discriminator 3
  118 001e 0330     		adds	r0, r0, #3
  119 0020 FFF7FEFF 		bl	FanController_GetActualSpeed
  120              	.LVL8:
-  14:debug.c       ****     if(disablePrintIfZeroRPM && FanController_GetActualSpeed(1)==0 && FanController_GetActualSpeed(
- 121              		.loc 1 14 0 discriminator 3
+  15:debug.c       ****     if(disablePrintIfZeroRPM && FanController_GetActualSpeed(1)==0 && FanController_GetActualSpeed(
+ 121              		.loc 1 15 0 discriminator 3
  122 0024 0028     		cmp	r0, #0
  123 0026 04D1     		bne	.L4
- 124              		.loc 1 15 0
+ 124              		.loc 1 16 0
  125 0028 0430     		adds	r0, r0, #4
  126 002a FFF7FEFF 		bl	FanController_GetActualSpeed
  127              	.LVL9:
  128 002e 0028     		cmp	r0, #0
  129 0030 3FD0     		beq	.L3
  130              	.L4:
-  16:debug.c       ****         return;
-  17:debug.c       ****     
-  18:debug.c       ****     if (counter < 100000){
- 131              		.loc 1 18 0
+  17:debug.c       ****         return;
+  18:debug.c       **** 
+  19:debug.c       ****     if (counter < 100000){
+ 131              		.loc 1 19 0
  132 0032 214B     		ldr	r3, .L9+4
  133 0034 1B68     		ldr	r3, [r3]
  134 0036 214A     		ldr	r2, .L9+8
  135 0038 9342     		cmp	r3, r2
  136 003a 03DC     		bgt	.L6
-  19:debug.c       ****         counter++;
- 137              		.loc 1 19 0
+  20:debug.c       ****         counter++;
+ 137              		.loc 1 20 0
  138 003c 0133     		adds	r3, r3, #1
  139 003e 1E4A     		ldr	r2, .L9+4
  140 0040 1360     		str	r3, [r2]
-  20:debug.c       ****         return;
- 141              		.loc 1 20 0
+  21:debug.c       ****         return;
+ 141              		.loc 1 21 0
  142 0042 36E0     		b	.L3
  143              	.L6:
-  21:debug.c       ****     }
-  22:debug.c       ****     else
-  23:debug.c       ****         counter=0;
- 144              		.loc 1 23 0
+  22:debug.c       ****     }
+  23:debug.c       ****     else
+  24:debug.c       ****         counter=0;
+ 144              		.loc 1 24 0
  145 0044 0022     		movs	r2, #0
  146 0046 1C4B     		ldr	r3, .L9+4
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 4
+
+
  147 0048 1A60     		str	r2, [r3]
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 4
-
-
  148              	.LVL10:
  149              	.LBB2:
-  24:debug.c       ****     
-  25:debug.c       ****     int current_rpm = 0;
-  26:debug.c       ****     for (int i = 1; i < MOTOR_COUNT + 1; i++) {
- 150              		.loc 1 26 0
+  25:debug.c       ****     
+  26:debug.c       ****     int current_rpm = 0;
+  27:debug.c       ****     for (int i = 1; i < MOTOR_COUNT + 1; i++) {
+ 150              		.loc 1 27 0
  151 004a 0127     		movs	r7, #1
  152 004c 29E0     		b	.L7
  153              	.LVL11:
  154              	.L8:
-  27:debug.c       ****         current_rpm = FanController_GetActualSpeed(i);
- 155              		.loc 1 27 0 discriminator 3
+  28:debug.c       ****         current_rpm = FanController_GetActualSpeed(i);
+ 155              		.loc 1 28 0 discriminator 3
  156 004e FEB2     		uxtb	r6, r7
  157 0050 3000     		movs	r0, r6
  158 0052 FFF7FEFF 		bl	FanController_GetActualSpeed
  159              	.LVL12:
  160 0056 0400     		movs	r4, r0
  161              	.LVL13:
-  28:debug.c       ****         
-  29:debug.c       ****         Print(MotorDirectionStr[i-1]);
- 162              		.loc 1 29 0 discriminator 3
+  29:debug.c       ****         
+  30:debug.c       ****         Print(MotorDirectionStr[i-1]);
+ 162              		.loc 1 30 0 discriminator 3
  163 0058 7B1E     		subs	r3, r7, #1
  164 005a 9B00     		lsls	r3, r3, #2
  165 005c 184A     		ldr	r2, .L9+12
@@ -209,14 +210,14 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  167              	.LVL14:
  168 0060 FFF7FEFF 		bl	Print
  169              	.LVL15:
-  30:debug.c       ****         Print(":");
- 170              		.loc 1 30 0 discriminator 3
+  31:debug.c       ****         Print(":");
+ 170              		.loc 1 31 0 discriminator 3
  171 0064 1748     		ldr	r0, .L9+16
  172 0066 FFF7FEFF 		bl	Print
  173              	.LVL16:
-  31:debug.c       ****         
-  32:debug.c       ****         sprintf(uart_rpm_buff, "%u", current_rpm / 2);
- 174              		.loc 1 32 0 discriminator 3
+  32:debug.c       ****         
+  33:debug.c       ****         sprintf(uart_rpm_buff, "%u", current_rpm / 2);
+ 174              		.loc 1 33 0 discriminator 3
  175 006a E20F     		lsrs	r2, r4, #31
  176 006c 1219     		adds	r2, r2, r4
  177 006e 5210     		asrs	r2, r2, #1
@@ -225,27 +226,27 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  180 0074 2800     		movs	r0, r5
  181 0076 FFF7FEFF 		bl	sprintf
  182              	.LVL17:
-  33:debug.c       ****         Print(uart_rpm_buff);
- 183              		.loc 1 33 0 discriminator 3
+  34:debug.c       ****         Print(uart_rpm_buff);
+ 183              		.loc 1 34 0 discriminator 3
  184 007a 2800     		movs	r0, r5
  185 007c FFF7FEFF 		bl	Print
  186              	.LVL18:
-  34:debug.c       ****         Print(" ");
- 187              		.loc 1 34 0 discriminator 3
+  35:debug.c       ****         Print(" ");
+ 187              		.loc 1 35 0 discriminator 3
  188 0080 1348     		ldr	r0, .L9+28
  189 0082 FFF7FEFF 		bl	Print
  190              	.LVL19:
-  35:debug.c       ****         
-  36:debug.c       ****         current_rpm = FanController_GetDesiredSpeed(i);
- 191              		.loc 1 36 0 discriminator 3
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 5
+  36:debug.c       ****         
+  37:debug.c       ****         current_rpm = FanController_GetDesiredSpeed(i);
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 5
 
 
+ 191              		.loc 1 37 0 discriminator 3
  192 0086 3000     		movs	r0, r6
  193 0088 FFF7FEFF 		bl	FanController_GetDesiredSpeed
  194              	.LVL20:
-  37:debug.c       ****         sprintf(uart_rpm_buff, "%u  ", current_rpm / 2);
- 195              		.loc 1 37 0 discriminator 3
+  38:debug.c       ****         sprintf(uart_rpm_buff, "%u  ", current_rpm / 2);
+ 195              		.loc 1 38 0 discriminator 3
  196 008c C20F     		lsrs	r2, r0, #31
  197 008e 1018     		adds	r0, r2, r0
  198              	.LVL21:
@@ -254,35 +255,35 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  201 0094 2800     		movs	r0, r5
  202 0096 FFF7FEFF 		bl	sprintf
  203              	.LVL22:
-  38:debug.c       ****         Print(uart_rpm_buff);
- 204              		.loc 1 38 0 discriminator 3
+  39:debug.c       ****         Print(uart_rpm_buff);
+ 204              		.loc 1 39 0 discriminator 3
  205 009a 2800     		movs	r0, r5
  206 009c FFF7FEFF 		bl	Print
  207              	.LVL23:
-  26:debug.c       ****         current_rpm = FanController_GetActualSpeed(i);
- 208              		.loc 1 26 0 discriminator 3
+  27:debug.c       ****         current_rpm = FanController_GetActualSpeed(i);
+ 208              		.loc 1 27 0 discriminator 3
  209 00a0 0137     		adds	r7, r7, #1
  210              	.LVL24:
  211              	.L7:
-  26:debug.c       ****         current_rpm = FanController_GetActualSpeed(i);
- 212              		.loc 1 26 0 is_stmt 0 discriminator 1
+  27:debug.c       ****         current_rpm = FanController_GetActualSpeed(i);
+ 212              		.loc 1 27 0 is_stmt 0 discriminator 1
  213 00a2 042F     		cmp	r7, #4
  214 00a4 D3DD     		ble	.L8
  215              	.LBE2:
-  39:debug.c       ****     }
-  40:debug.c       ****     UART_UartPutChar('\n');
- 216              		.loc 1 40 0 is_stmt 1
+  40:debug.c       ****     }
+  41:debug.c       ****     UART_UartPutChar('\n');
+ 216              		.loc 1 41 0 is_stmt 1
  217 00a6 0A20     		movs	r0, #10
  218 00a8 FFF7FEFF 		bl	UART_SpiUartWriteTxData
  219              	.LVL25:
-  41:debug.c       ****     UART_UartPutChar('\r');
- 220              		.loc 1 41 0
+  42:debug.c       ****     UART_UartPutChar('\r');
+ 220              		.loc 1 42 0
  221 00ac 0D20     		movs	r0, #13
  222 00ae FFF7FEFF 		bl	UART_SpiUartWriteTxData
  223              	.LVL26:
  224              	.L3:
-  42:debug.c       **** }
- 225              		.loc 1 42 0
+  43:debug.c       **** }
+ 225              		.loc 1 43 0
  226              		@ sp needed
  227 00b2 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
  228              	.L10:
@@ -297,10 +298,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  237 00cc 04000000 		.word	.LC5
  238 00d0 08000000 		.word	.LC8
  239 00d4 0C000000 		.word	.LC10
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 6
+
+
  240              		.cfi_endproc
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 6
-
-
  241              	.LFE38:
  242              		.size	PrintMotorSpeeds, .-PrintMotorSpeeds
  243              		.section	.text.HandleUARTInput,"ax",%progbits
@@ -311,9 +312,9 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  248              		.type	HandleUARTInput, %function
  249              	HandleUARTInput:
  250              	.LFB39:
-  43:debug.c       **** 
-  44:debug.c       **** void HandleUARTInput(){
- 251              		.loc 1 44 0
+  44:debug.c       **** 
+  45:debug.c       **** void HandleUARTInput(){
+ 251              		.loc 1 45 0
  252              		.cfi_startproc
  253              		@ args = 0, pretend = 0, frame = 0
  254              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -321,27 +322,27 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  256              		.cfi_def_cfa_offset 8
  257              		.cfi_offset 4, -8
  258              		.cfi_offset 14, -4
-  45:debug.c       ****     char ch = UART_UartGetChar();
- 259              		.loc 1 45 0
+  46:debug.c       ****     char ch = UART_UartGetChar();
+ 259              		.loc 1 46 0
  260 0002 FFF7FEFF 		bl	UART_UartGetChar
  261              	.LVL27:
  262 0006 C0B2     		uxtb	r0, r0
  263              	.LVL28:
-  46:debug.c       ****     if (ch == 'a') {
- 264              		.loc 1 46 0
+  47:debug.c       ****     if (ch == 'a') {
+ 264              		.loc 1 47 0
  265 0008 6128     		cmp	r0, #97
  266 000a 04D1     		bne	.L11
-  47:debug.c       ****         disablePrintIfZeroRPM = !disablePrintIfZeroRPM;
- 267              		.loc 1 47 0
+  48:debug.c       ****         disablePrintIfZeroRPM = !disablePrintIfZeroRPM;
+ 267              		.loc 1 48 0
  268 000c 024A     		ldr	r2, .L13
  269 000e 1178     		ldrb	r1, [r2]
  270 0010 0123     		movs	r3, #1
  271 0012 4B40     		eors	r3, r1
  272 0014 1370     		strb	r3, [r2]
  273              	.L11:
-  48:debug.c       ****     }
-  49:debug.c       **** }
- 274              		.loc 1 49 0
+  49:debug.c       ****     }
+  50:debug.c       **** }
+ 274              		.loc 1 50 0
  275              		@ sp needed
  276 0016 10BD     		pop	{r4, pc}
  277              	.L14:
@@ -357,10 +358,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  287              		.comm	uart_rpm_buff,4,4
  288              		.section	.rodata
  289              		.align	2
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 7
+
+
  290              		.set	.LANCHOR1,. + 0
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 7
-
-
  291              		.type	MotorDirectionStr, %object
  292              		.size	MotorDirectionStr, 16
  293              	MotorDirectionStr:
@@ -417,10 +418,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  340              	.Ldebug_info0:
  341 0000 C4050000 		.4byte	0x5c4
  342 0004 0400     		.2byte	0x4
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 8
+
+
  343 0006 00000000 		.4byte	.Ldebug_abbrev0
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 8
-
-
  344 000a 04       		.byte	0x4
  345 000b 01       		.uleb128 0x1
  346 000c BD010000 		.4byte	.LASF116
@@ -477,10 +478,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  397 0073 48000000 		.4byte	0x48
  398 0077 02       		.uleb128 0x2
  399 0078 04       		.byte	0x4
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 9
+
+
  400 0079 04       		.byte	0x4
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 9
-
-
  401 007a 3D030000 		.4byte	.LASF9
  402 007e 02       		.uleb128 0x2
  403 007f 08       		.byte	0x8
@@ -537,10 +538,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  454 00e3 07       		.uleb128 0x7
  455 00e4 0C000000 		.4byte	.LASF23
  456 00e8 22       		.byte	0x22
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 10
+
+
  457 00e9 07       		.uleb128 0x7
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 10
-
-
  458 00ea 1E050000 		.4byte	.LASF24
  459 00ee 23       		.byte	0x23
  460 00ef 07       		.uleb128 0x7
@@ -597,10 +598,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  511 0155 07       		.uleb128 0x7
  512 0156 400A0000 		.4byte	.LASF42
  513 015a 35       		.byte	0x35
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 11
+
+
  514 015b 07       		.uleb128 0x7
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 11
-
-
  515 015c 00040000 		.4byte	.LASF43
  516 0160 36       		.byte	0x36
  517 0161 07       		.uleb128 0x7
@@ -657,10 +658,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  568 01c7 07       		.uleb128 0x7
  569 01c8 140C0000 		.4byte	.LASF61
  570 01cc 50       		.byte	0x50
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 12
+
+
  571 01cd 07       		.uleb128 0x7
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 12
-
-
  572 01ce 6F090000 		.4byte	.LASF62
  573 01d2 51       		.byte	0x51
  574 01d3 07       		.uleb128 0x7
@@ -717,10 +718,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  625 0239 07       		.uleb128 0x7
  626 023a 710B0000 		.4byte	.LASF80
  627 023e 7A       		.byte	0x7a
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 13
+
+
  628 023f 07       		.uleb128 0x7
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 13
-
-
  629 0240 95090000 		.4byte	.LASF81
  630 0244 FA       		.byte	0xfa
  631 0245 07       		.uleb128 0x7
@@ -777,10 +778,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  682 02a8 82040000 		.4byte	.LASF94
  683 02ac 04       		.byte	0x4
  684 02ad 07       		.uleb128 0x7
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 14
+
+
  685 02ae F5090000 		.4byte	.LASF95
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 14
-
-
  686 02b2 05       		.byte	0x5
  687 02b3 07       		.uleb128 0x7
  688 02b4 4B0C0000 		.4byte	.LASF96
@@ -837,10 +838,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  739 0320 0D       		.uleb128 0xd
  740 0321 06000000 		.4byte	.LVL3
  741 0325 82050000 		.4byte	0x582
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 15
+
+
  742 0329 35030000 		.4byte	0x335
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 15
-
-
  743 032d 0C       		.uleb128 0xc
  744 032e 01       		.uleb128 0x1
  745 032f 50       		.byte	0x50
@@ -872,7 +873,7 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  771 0358 0E       		.uleb128 0xe
  772 0359 DE060000 		.4byte	.LASF103
  773 035d 01       		.byte	0x1
- 774 035e 0D       		.byte	0xd
+ 774 035e 0E       		.byte	0xe
  775 035f 00000000 		.4byte	.LFB38
  776 0363 D8000000 		.4byte	.LFE38-.LFB38
  777 0367 01       		.uleb128 0x1
@@ -881,7 +882,7 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  780 036d 0F       		.uleb128 0xf
  781 036e A30A0000 		.4byte	.LASF102
  782 0372 01       		.byte	0x1
- 783 0373 19       		.byte	0x19
+ 783 0373 1A       		.byte	0x1a
  784 0374 5D000000 		.4byte	0x5d
  785 0378 42000000 		.4byte	.LLST2
  786 037c 10       		.uleb128 0x10
@@ -891,16 +892,16 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  790 0389 11       		.uleb128 0x11
  791 038a 6900     		.ascii	"i\000"
  792 038c 01       		.byte	0x1
- 793 038d 1A       		.byte	0x1a
+ 793 038d 1B       		.byte	0x1b
  794 038e 5D000000 		.4byte	0x5d
  795 0392 77000000 		.4byte	.LLST3
  796 0396 0D       		.uleb128 0xd
  797 0397 56000000 		.4byte	.LVL12
  798 039b 9A050000 		.4byte	0x59a
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 16
+
+
  799 039f AA030000 		.4byte	0x3aa
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 16
-
-
  800 03a3 0C       		.uleb128 0xc
  801 03a4 01       		.uleb128 0x1
  802 03a5 50       		.byte	0x50
@@ -957,10 +958,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  853 03fc 52       		.byte	0x52
  854 03fd 09       		.uleb128 0x9
  855 03fe 74       		.byte	0x74
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 17
+
+
  856 03ff 00       		.sleb128 0
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 17
-
-
  857 0400 4F       		.byte	0x4f
  858 0401 25       		.byte	0x25
  859 0402 74       		.byte	0x74
@@ -1017,10 +1018,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  910 045c 51       		.byte	0x51
  911 045d 05       		.uleb128 0x5
  912 045e 03       		.byte	0x3
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 18
+
+
  913 045f 0C000000 		.4byte	.LC10
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 18
-
-
  914 0463 00       		.byte	0
  915 0464 0B       		.uleb128 0xb
  916 0465 A0000000 		.4byte	.LVL23
@@ -1075,19 +1076,19 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  965 04c6 0E       		.uleb128 0xe
  966 04c7 6D000000 		.4byte	.LASF104
  967 04cb 01       		.byte	0x1
- 968 04cc 2C       		.byte	0x2c
+ 968 04cc 2D       		.byte	0x2d
  969 04cd 00000000 		.4byte	.LFB39
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 19
+
+
  970 04d1 1C000000 		.4byte	.LFE39-.LFB39
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 19
-
-
  971 04d5 01       		.uleb128 0x1
  972 04d6 9C       		.byte	0x9c
  973 04d7 F1040000 		.4byte	0x4f1
  974 04db 13       		.uleb128 0x13
  975 04dc 636800   		.ascii	"ch\000"
  976 04df 01       		.byte	0x1
- 977 04e0 2D       		.byte	0x2d
+ 977 04e0 2E       		.byte	0x2e
  978 04e1 85000000 		.4byte	0x85
  979 04e5 01       		.uleb128 0x1
  980 04e6 50       		.byte	0x50
@@ -1137,10 +1138,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1024 0548 19       		.uleb128 0x19
  1025 0549 73747200 		.ascii	"str\000"
  1026 054d 04       		.byte	0x4
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 20
+
+
  1027 054e 0C       		.byte	0xc
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 20
-
-
  1028 054f 38050000 		.4byte	0x538
  1029 0553 05       		.uleb128 0x5
  1030 0554 03       		.byte	0x3
@@ -1148,7 +1149,7 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1032 0559 18       		.uleb128 0x18
  1033 055a 3D010000 		.4byte	.LASF107
  1034 055e 05       		.byte	0x5
- 1035 055f 0A       		.byte	0xa
+ 1035 055f 0B       		.byte	0xb
  1036 0560 6A050000 		.4byte	0x56a
  1037 0564 05       		.uleb128 0x5
  1038 0565 03       		.byte	0x3
@@ -1160,7 +1161,7 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1044 0571 18       		.uleb128 0x18
  1045 0572 0B060000 		.4byte	.LASF109
  1046 0576 01       		.byte	0x1
- 1047 0577 0C       		.byte	0xc
+ 1047 0577 0D       		.byte	0xd
  1048 0578 5D000000 		.4byte	0x5d
  1049 057c 05       		.uleb128 0x5
  1050 057d 03       		.byte	0x3
@@ -1197,10 +1198,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1081 05c5 0F03     		.2byte	0x30f
  1082 05c7 00       		.byte	0
  1083              		.section	.debug_abbrev,"",%progbits
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 21
+
+
  1084              	.Ldebug_abbrev0:
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 21
-
-
  1085 0000 01       		.uleb128 0x1
  1086 0001 11       		.uleb128 0x11
  1087 0002 01       		.byte	0x1
@@ -1257,10 +1258,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1138 0035 00       		.byte	0
  1139 0036 05       		.uleb128 0x5
  1140 0037 0F       		.uleb128 0xf
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 22
+
+
  1141 0038 00       		.byte	0
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 22
-
-
  1142 0039 0B       		.uleb128 0xb
  1143 003a 0B       		.uleb128 0xb
  1144 003b 49       		.uleb128 0x49
@@ -1317,10 +1318,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1195 006e 0B       		.uleb128 0xb
  1196 006f 3B       		.uleb128 0x3b
  1197 0070 0B       		.uleb128 0xb
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 23
+
+
  1198 0071 27       		.uleb128 0x27
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 23
-
-
  1199 0072 19       		.uleb128 0x19
  1200 0073 11       		.uleb128 0x11
  1201 0074 01       		.uleb128 0x1
@@ -1377,10 +1378,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1252 00af 01       		.uleb128 0x1
  1253 00b0 13       		.uleb128 0x13
  1254 00b1 00       		.byte	0
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 24
+
+
  1255 00b2 00       		.byte	0
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 24
-
-
  1256 00b3 0E       		.uleb128 0xe
  1257 00b4 2E       		.uleb128 0x2e
  1258 00b5 01       		.byte	0x1
@@ -1437,10 +1438,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1309 00e9 08       		.uleb128 0x8
  1310 00ea 3A       		.uleb128 0x3a
  1311 00eb 0B       		.uleb128 0xb
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 25
+
+
  1312 00ec 3B       		.uleb128 0x3b
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 25
-
-
  1313 00ed 0B       		.uleb128 0xb
  1314 00ee 49       		.uleb128 0x49
  1315 00ef 13       		.uleb128 0x13
@@ -1497,10 +1498,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1366 0124 0E       		.uleb128 0xe
  1367 0125 3A       		.uleb128 0x3a
  1368 0126 0B       		.uleb128 0xb
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 26
+
+
  1369 0127 3B       		.uleb128 0x3b
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 26
-
-
  1370 0128 0B       		.uleb128 0xb
  1371 0129 49       		.uleb128 0x49
  1372 012a 13       		.uleb128 0x13
@@ -1557,10 +1558,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1423 015d 3C       		.uleb128 0x3c
  1424 015e 19       		.uleb128 0x19
  1425 015f 6E       		.uleb128 0x6e
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 27
+
+
  1426 0160 0E       		.uleb128 0xe
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 27
-
-
  1427 0161 03       		.uleb128 0x3
  1428 0162 0E       		.uleb128 0xe
  1429 0163 3A       		.uleb128 0x3a
@@ -1617,10 +1618,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1480 0039 9F       		.byte	0x9f
  1481 003a 00000000 		.4byte	0
  1482 003e 00000000 		.4byte	0
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 28
+
+
  1483              	.LLST2:
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 28
-
-
  1484 0042 4A000000 		.4byte	.LVL10
  1485 0046 4E000000 		.4byte	.LVL11
  1486 004a 0200     		.2byte	0x2
@@ -1677,10 +1678,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1537 0008 00000000 		.4byte	.LFB37
  1538 000c 14000000 		.4byte	.LFE37
  1539 0010 00000000 		.4byte	.LFB38
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 29
+
+
  1540 0014 D8000000 		.4byte	.LFE38
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 29
-
-
  1541 0018 00000000 		.4byte	.LFB39
  1542 001c 1C000000 		.4byte	.LFE39
  1543 0020 00000000 		.4byte	0
@@ -1737,10 +1738,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1564              	.LASF2:
  1565 00be 73686F72 		.ascii	"short int\000"
  1565      7420696E 
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 30
+
+
  1565      7400
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 30
-
-
  1566              	.LASF26:
  1567 00c8 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_FAILED\000"
  1567      455F4556 
@@ -1797,10 +1798,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1585 019f 4359424C 		.ascii	"CYBLE_EVT_GATTS_XCNHG_MTU_REQ\000"
  1585      455F4556 
  1585      545F4741 
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 31
+
+
  1585      5454535F 
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 31
-
-
  1585      58434E48 
  1586              	.LASF116:
  1587 01bd 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
@@ -1857,10 +1858,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1603      4F535F43 
  1603      4841525F 
  1603      434F554E 
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 32
+
+
  1604              	.LASF76:
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 32
-
-
  1605 030a 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_CNF\000"
  1605      455F4556 
  1605      545F4C32 
@@ -1917,10 +1918,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1625 03e0 4359424C 		.ascii	"CYBLE_AIOS_NUM_OF_DIGITAL_DESCR\000"
  1625      455F4149 
  1625      4F535F4E 
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 33
+
+
  1625      554D5F4F 
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 33
-
-
  1625      465F4449 
  1626              	.LASF43:
  1627 0400 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ_REPLY_ERR\000"
@@ -1977,10 +1978,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1645      545F5354 
  1645      41434B5F 
  1645      42555359 
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 34
+
+
  1646              	.LASF88:
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 34
-
-
  1647 0509 4359424C 		.ascii	"CYBLE_AIOS_AGGREGATE\000"
  1647      455F4149 
  1647      4F535F41 
@@ -2037,10 +2038,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1667              	.LASF82:
  1668 0613 4359424C 		.ascii	"CYBLE_EVT_LE_PING_AUTH_TIMEOUT\000"
  1668      455F4556 
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 35
+
+
  1668      545F4C45 
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 35
-
-
  1668      5F50494E 
  1668      475F4155 
  1669              	.LASF52:
@@ -2097,10 +2098,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1686      57524954 
  1687              	.LASF46:
  1688 0725 4359424C 		.ascii	"CYBLE_EVT_GATT_CONNECT_IND\000"
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 36
+
+
  1688      455F4556 
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 36
-
-
  1688      545F4741 
  1688      54545F43 
  1688      4F4E4E45 
@@ -2157,10 +2158,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1706      6F6C6C65 
  1706      725F4765 
  1706      74446573 
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 37
+
+
  1707              	.LASF84:
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 37
-
-
  1708 0836 4359424C 		.ascii	"CYBLE_EVT_FLASH_CORRUPT\000"
  1708      455F4556 
  1708      545F464C 
@@ -2217,10 +2218,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1727      455F4556 
  1727      545F4741 
  1727      5454435F 
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 38
+
+
  1727      52454144 
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 38
-
-
  1728              	.LASF34:
  1729 0946 4359424C 		.ascii	"CYBLE_EVT_GAP_NUMERIC_COMPARISON_REQUEST\000"
  1729      455F4556 
@@ -2277,10 +2278,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1747      414E5F52 
  1748              	.LASF6:
  1749 0a5d 6C6F6E67 		.ascii	"long long int\000"
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 39
+
+
  1749      206C6F6E 
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 39
-
-
  1749      6720696E 
  1749      7400
  1750              	.LASF17:
@@ -2337,10 +2338,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1767      5843484E 
  1768              	.LASF80:
  1769 0b71 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 40
+
+
  1769      455F4556 
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 40
-
-
  1769      545F4C32 
  1769      4341505F 
  1769      43424643 
@@ -2397,10 +2398,10 @@ ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 1
  1787      5454535F 
  1787      44415441 
  1788              	.LASF83:
+ARM GAS  C:\Windows\TEMP\ccZ5KqOD.s 			page 41
+
+
  1789 0c7e 4359424C 		.ascii	"CYBLE_EVT_HCI_PKT\000"
-ARM GAS  C:\Windows\TEMP\ccniFWBB.s 			page 41
-
-
  1789      455F4556 
  1789      545F4843 
  1789      495F504B 

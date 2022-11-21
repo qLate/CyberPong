@@ -74,7 +74,7 @@ static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
                 0x0031u, /* Handle of the Characteristic Extended Properties descriptor */ 
                 0x0032u, /* Handle of the Value Trigger Setting descriptor */ 
                 0x0033u, /* Handle of the Time Trigger Setting descriptor */ 
-                0x0034u, /* Handle of the Valid Range descriptor */ 
+                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, /* Handle of the Valid Range descriptor */ 
             }, 
     },
 };

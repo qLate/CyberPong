@@ -1,4 +1,4 @@
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
   47              	.LVL2:
   48              	.L1:
    9:aios.c        ****             break;
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 2
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 2
 
 
   10:aios.c        ****     }
@@ -118,7 +118,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
   93 001a 0200     		movs	r2, r0
   94 001c 0B49     		ldr	r1, .L7+4
   95 001e 2000     		movs	r0, r4
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 3
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 3
 
 
   96              	.LVL8:
@@ -178,7 +178,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  137              		.comm	uart_rpm_buff,4,4
  138              		.section	.rodata.str1.4,"aMS",%progbits,1
  139              		.align	2
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 4
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 4
 
 
  140              	.LC0:
@@ -238,7 +238,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  188 0042 04       		.byte	0x4
  189 0043 05       		.byte	0x5
  190 0044 48290000 		.4byte	.LASF4
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 5
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 5
 
 
  191 0048 02       		.uleb128 0x2
@@ -298,7 +298,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  245 00ae F92E0000 		.4byte	.LASF16
  246 00b2 05       		.uleb128 0x5
  247 00b3 04       		.byte	0x4
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 6
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 6
 
 
  248 00b4 06       		.uleb128 0x6
@@ -358,7 +358,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  302 0121 08       		.uleb128 0x8
  303 0122 B6340000 		.4byte	.LASF31
  304 0126 27       		.byte	0x27
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 7
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 7
 
 
  305 0127 08       		.uleb128 0x8
@@ -418,7 +418,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  359 0193 08       		.uleb128 0x8
  360 0194 61030000 		.4byte	.LASF50
  361 0198 42       		.byte	0x42
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 8
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 8
 
 
  362 0199 08       		.uleb128 0x8
@@ -478,7 +478,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  416 0205 08       		.uleb128 0x8
  417 0206 9C040000 		.4byte	.LASF69
  418 020a 55       		.byte	0x55
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 9
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 9
 
 
  419 020b 08       		.uleb128 0x8
@@ -538,7 +538,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  473 0277 08       		.uleb128 0x8
  474 0278 EF290000 		.4byte	.LASF88
  475 027c FF       		.byte	0xff
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 10
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 10
 
 
  476 027d 00       		.byte	0
@@ -598,7 +598,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  530 02e9 0F       		.byte	0xf
  531 02ea 08       		.uleb128 0x8
  532 02eb D7220000 		.4byte	.LASF105
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 11
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 11
 
 
  533 02ef 10       		.byte	0x10
@@ -658,7 +658,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  587 035b A2       		.byte	0xa2
  588 035c 08       		.uleb128 0x8
  589 035d 9B2D0000 		.4byte	.LASF124
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 12
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 12
 
 
  590 0361 A3       		.byte	0xa3
@@ -718,7 +718,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  644 03cf 77000000 		.4byte	0x77
  645 03d3 04       		.byte	0x4
  646 03d4 0B       		.uleb128 0xb
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 13
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 13
 
 
  647 03d5 652C0000 		.4byte	.LASF132
@@ -778,7 +778,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  701 0443 680D0000 		.4byte	.LASF143
  702 0447 04       		.byte	0x4
  703 0448 08       		.uleb128 0x8
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 14
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 14
 
 
  704 0449 141B0000 		.4byte	.LASF144
@@ -838,7 +838,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  758 04b2 8B       		.byte	0x8b
  759 04b3 61040000 		.4byte	0x461
  760 04b7 09       		.uleb128 0x9
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 15
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 15
 
 
  761 04b8 02       		.byte	0x2
@@ -898,7 +898,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  815 0534 DD240000 		.4byte	.LASF170
  816 0538 1001     		.2byte	0x110
  817 053a 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 16
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 16
 
 
  818 053b BA130000 		.4byte	.LASF171
@@ -958,7 +958,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  872 05b9 B1050000 		.4byte	.LASF189
  873 05bd 2301     		.2byte	0x123
  874 05bf 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 17
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 17
 
 
  875 05c0 022F0000 		.4byte	.LASF190
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  929 063e 00260000 		.4byte	.LASF208
  930 0642 3601     		.2byte	0x136
  931 0644 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 18
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 18
 
 
  932 0645 4D100000 		.4byte	.LASF209
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  986 06c3 852A0000 		.4byte	.LASF227
  987 06c7 4901     		.2byte	0x149
  988 06c9 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 19
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 19
 
 
  989 06ca 0D1F0000 		.4byte	.LASF228
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1043 0748 44020000 		.4byte	.LASF246
  1044 074c 5C01     		.2byte	0x15c
  1045 074e 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 20
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 20
 
 
  1046 074f 0A170000 		.4byte	.LASF247
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1100 07cd 8A0D0000 		.4byte	.LASF265
  1101 07d1 6F01     		.2byte	0x16f
  1102 07d3 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 21
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 21
 
 
  1103 07d4 D5140000 		.4byte	.LASF266
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1157 0852 F5150000 		.4byte	.LASF284
  1158 0856 8201     		.2byte	0x182
  1159 0858 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 22
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 22
 
 
  1160 0859 A2390000 		.4byte	.LASF285
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1214 08d7 CC1E0000 		.4byte	.LASF303
  1215 08db 9501     		.2byte	0x195
  1216 08dd 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 23
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 23
 
 
  1217 08de F4280000 		.4byte	.LASF304
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1271 095c 3C360000 		.4byte	.LASF322
  1272 0960 A801     		.2byte	0x1a8
  1273 0962 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 24
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 24
 
 
  1274 0963 B31C0000 		.4byte	.LASF323
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1328 09e1 B2140000 		.4byte	.LASF341
  1329 09e5 BB01     		.2byte	0x1bb
  1330 09e7 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 25
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 25
 
 
  1331 09e8 3C110000 		.4byte	.LASF342
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1385 0a66 C0040000 		.4byte	.LASF360
  1386 0a6a CE01     		.2byte	0x1ce
  1387 0a6c 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 26
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 26
 
 
  1388 0a6d C81B0000 		.4byte	.LASF361
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1442 0aeb 003B0000 		.4byte	.LASF379
  1443 0aef E101     		.2byte	0x1e1
  1444 0af1 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 27
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 27
 
 
  1445 0af2 8A2F0000 		.4byte	.LASF380
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1499 0b70 B8270000 		.4byte	.LASF398
  1500 0b74 F401     		.2byte	0x1f4
  1501 0b76 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 28
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 28
 
 
  1502 0b77 02110000 		.4byte	.LASF399
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1556 0bf5 56230000 		.4byte	.LASF417
  1557 0bf9 0702     		.2byte	0x207
  1558 0bfb 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 29
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 29
 
 
  1559 0bfc 62380000 		.4byte	.LASF418
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1613 0c7a E0080000 		.4byte	.LASF436
  1614 0c7e 1A02     		.2byte	0x21a
  1615 0c80 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 30
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 30
 
 
  1616 0c81 54040000 		.4byte	.LASF437
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1670 0cff 4B2C0000 		.4byte	.LASF455
  1671 0d03 2D02     		.2byte	0x22d
  1672 0d05 10       		.uleb128 0x10
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 31
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 31
 
 
  1673 0d06 1A0A0000 		.4byte	.LASF456
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1727 0d7f 01       		.byte	0x1
  1728 0d80 0C       		.byte	0xc
  1729 0d81 83000000 		.4byte	0x83
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 32
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 32
 
 
  1730 0d85 42000000 		.4byte	.LLST2
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1784 0dfa 01       		.uleb128 0x1
  1785 0dfb 53       		.byte	0x53
  1786 0dfc 02       		.uleb128 0x2
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 33
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 33
 
 
  1787 0dfd 76       		.byte	0x76
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1841 0e57 02       		.uleb128 0x2
  1842 0e58 75       		.byte	0x75
  1843 0e59 00       		.sleb128 0
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 34
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 34
 
 
  1844 0e5a 14       		.uleb128 0x14
@@ -2038,10 +2038,10 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1898 0ec6 1C       		.uleb128 0x1c
  1899 0ec7 961D0000 		.4byte	.LASF469
  1900 0ecb 08       		.byte	0x8
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 35
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 35
 
 
- 1901 0ecc 0A       		.byte	0xa
+ 1901 0ecc 0B       		.byte	0xb
  1902 0ecd D70E0000 		.4byte	0xed7
  1903 0ed1 05       		.uleb128 0x5
  1904 0ed2 03       		.byte	0x3
@@ -2069,12 +2069,12 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1926 0f02 09320000 		.4byte	.LASF474
  1927 0f06 09320000 		.4byte	.LASF474
  1928 0f0a 08       		.byte	0x8
- 1929 0f0b 0C       		.byte	0xc
+ 1929 0f0b 0D       		.byte	0xd
  1930 0f0c 1F       		.uleb128 0x1f
  1931 0f0d 92080000 		.4byte	.LASF475
  1932 0f11 92080000 		.4byte	.LASF475
  1933 0f15 08       		.byte	0x8
- 1934 0f16 0D       		.byte	0xd
+ 1934 0f16 0E       		.byte	0xe
  1935 0f17 1F       		.uleb128 0x1f
  1936 0f18 DF280000 		.4byte	.LASF476
  1937 0f1c DF280000 		.4byte	.LASF476
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  1955 000c 17       		.uleb128 0x17
  1956 000d 11       		.uleb128 0x11
  1957 000e 01       		.uleb128 0x1
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 36
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 36
 
 
  1958 000f 10       		.uleb128 0x10
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2012 0045 00       		.byte	0
  2013 0046 07       		.uleb128 0x7
  2014 0047 04       		.uleb128 0x4
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 37
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 37
 
 
  2015 0048 01       		.byte	0x1
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2069 007e 0E       		.uleb128 0xe
  2070 007f 3A       		.uleb128 0x3a
  2071 0080 0B       		.uleb128 0xb
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 38
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 38
 
 
  2072 0081 3B       		.uleb128 0x3b
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2126 00b7 3A       		.uleb128 0x3a
  2127 00b8 0B       		.uleb128 0xb
  2128 00b9 3B       		.uleb128 0x3b
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 39
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 39
 
 
  2129 00ba 0B       		.uleb128 0xb
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2183 00f1 00       		.byte	0
  2184 00f2 00       		.byte	0
  2185 00f3 13       		.uleb128 0x13
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 40
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 40
 
 
  2186 00f4 898201   		.uleb128 0x4109
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2240 0133 01       		.uleb128 0x1
  2241 0134 31       		.uleb128 0x31
  2242 0135 13       		.uleb128 0x13
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 41
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 41
 
 
  2243 0136 01       		.uleb128 0x1
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2297 016c 00       		.byte	0
  2298 016d 03       		.uleb128 0x3
  2299 016e 08       		.uleb128 0x8
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 42
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 42
 
 
  2300 016f 3A       		.uleb128 0x3a
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2354 000b 0C000000 		.4byte	.LVL1
  2355 000f 12000000 		.4byte	.LFE36
  2356 0013 0400     		.2byte	0x4
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 43
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 43
 
 
  2357 0015 F3       		.byte	0xf3
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2411 0093 13000000 		.4byte	.LVL6-1
  2412 0097 0100     		.2byte	0x1
  2413 0099 51       		.byte	0x51
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 44
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 44
 
 
  2414 009a 13000000 		.4byte	.LVL6-1
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2465      FB0E0D00 
  2465      01010101 
  2466              	.LASF169:
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 45
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 45
 
 
  2467 0000 4359424C 		.ascii	"CYBLE_EVT_GATTC_INCL_DISCOVERY_COMPLETE\000"
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2485 013b 4359424C 		.ascii	"CYBLE_GATT_ERR_CODE_T\000"
  2485      455F4741 
  2485      54545F45 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 46
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 46
 
 
  2485      52525F43 
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2503      53535F49 
  2503      4E444943 
  2504              	.LASF172:
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 47
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 47
 
 
  2505 0268 4359424C 		.ascii	"CYBLE_EVT_GATTC_DISCOVERY_COMPLETE\000"
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2523 039f 6C6F6343 		.ascii	"locCharValue\000"
  2523      68617256 
  2523      616C7565 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 48
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 48
 
 
  2523      00
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2541      44415441 
  2542              	.LASF360:
  2543 04c0 4359424C 		.ascii	"CYBLE_EVT_LNSS_WRITE_CHAR\000"
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 49
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 49
 
 
  2543      455F4556 
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2561      455F4556 
  2561      545F4354 
  2561      53435F52 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 50
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 50
 
 
  2561      4541445F 
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2579      53534B45 
  2580              	.LASF408:
  2581 071b 4359424C 		.ascii	"CYBLE_EVT_RSCSC_READ_CHAR_RESPONSE\000"
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 51
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 51
 
 
  2581      455F4556 
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2599      4F53535F 
  2599      44455343 
  2600              	.LASF126:
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 52
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 52
 
 
  2601 0842 4359424C 		.ascii	"CYBLE_GATT_ERR_PROCEDURE_ALREADY_IN_PROGRESS\000"
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2619      5454435F 
  2619      45584543 
  2620              	.LASF332:
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 53
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 53
 
 
  2621 0995 4359424C 		.ascii	"CYBLE_EVT_HTSS_NOTIFICATION_DISABLED\000"
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2639 0ab2 4359424C 		.ascii	"CYBLE_EVT_CTSC_WRITE_CHAR_RESPONSE\000"
  2639      455F4556 
  2639      545F4354 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 54
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 54
 
 
  2639      53435F57 
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2657      52454144 
  2658              	.LASF115:
  2659 0bfc 4359424C 		.ascii	"CYBLE_GATTS_ERR_CCCD_IMPROPERLY_CONFIGURED\000"
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 55
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 55
 
 
  2659      455F4741 
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2677      52495445 
  2678              	.LASF212:
  2679 0d31 4359424C 		.ascii	"CYBLE_EVT_BCSC_INDICATION\000"
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 56
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 56
 
 
  2679      455F4556 
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2697      545F4149 
  2697      4F53435F 
  2697      494E4449 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 57
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 57
 
 
  2698              	.LASF288:
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2716      4F544946 
  2717              	.LASF454:
  2718 0f96 4359424C 		.ascii	"CYBLE_EVT_WSSS_INDICATION_CONFIRMED\000"
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 58
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 58
 
 
  2718      455F4556 
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2736      455F4741 
  2736      54545F45 
  2736      52525F55 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 59
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 59
 
 
  2736      4E4C494B 
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2756      545F4149 
  2756      4F53535F 
  2756      4E4F5449 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 60
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 60
 
 
  2757              	.LASF188:
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2774      455F4556 
  2774      545F4741 
  2774      5454435F 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 61
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 61
 
 
  2774      494E4449 
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2793              	.LASF79:
  2794 1491 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_CNF\000"
  2794      455F4556 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 62
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 62
 
 
  2794      545F4C32 
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2814 15b1 4359424C 		.ascii	"CYBLE_EVT_HRSC_WRITE_DESCR_RESPONSE\000"
  2814      455F4556 
  2814      545F4852 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 63
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 63
 
 
  2814      53435F57 
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2833              	.LASF434:
  2834 16ee 4359424C 		.ascii	"CYBLE_EVT_UDSC_NOTIFICATION\000"
  2834      455F4556 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 64
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 64
 
 
  2834      545F5544 
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2852      545F5254 
  2852      5553435F 
  2852      52454144 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 65
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 65
 
 
  2853              	.LASF108:
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2873      455F4556 
  2873      545F414E 
  2873      53535F4E 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 66
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 66
 
 
  2873      4F544946 
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2895      455F4556 
  2895      545F504C 
  2895      5853435F 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 67
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 67
 
 
  2895      4E4F5449 
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2915 1b81 4359424C 		.ascii	"CYBLE_EVT_HTSS_NOTIFICATION_ENABLED\000"
  2915      455F4556 
  2915      545F4854 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 68
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 68
 
 
  2915      53535F4E 
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2933      52495445 
  2934              	.LASF323:
  2935 1cb3 4359424C 		.ascii	"CYBLE_EVT_HRSS_ENERGY_EXPENDED_RESET\000"
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 69
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 69
 
 
  2935      455F4556 
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2953      455F4556 
  2953      545F4347 
  2953      4D53535F 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 70
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 70
 
 
  2953      57524954 
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2971      52495445 
  2972              	.LASF229:
  2973 1f30 4359424C 		.ascii	"CYBLE_EVT_BMSC_READ_DESCR_RESPONSE\000"
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 71
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 71
 
 
  2973      455F4556 
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  2991      455F4741 
  2991      54545F45 
  2991      52525F49 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 72
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 72
 
 
  2991      4E535546 
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3011      455F4741 
  3011      54545F45 
  3011      52525F49 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 73
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 73
 
 
  3011      4E56414C 
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3029      4E535550 
  3030              	.LASF86:
  3031 22fd 4359424C 		.ascii	"CYBLE_EVT_HCI_PKT\000"
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 74
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 74
 
 
  3031      455F4556 
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3049      57524954 
  3050              	.LASF315:
  3051 241f 4359424C 		.ascii	"CYBLE_EVT_HPSS_NOTIFICATION_ENABLED\000"
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 75
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 75
 
 
  3051      455F4556 
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3071 2552 4359424C 		.ascii	"CYBLE_EVT_OTSC_READ_CHAR_RESPONSE\000"
  3071      455F4556 
  3071      545F4F54 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 76
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 76
 
 
  3071      53435F52 
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3089      494E4449 
  3090              	.LASF226:
  3091 269b 4359424C 		.ascii	"CYBLE_EVT_BMSS_WRITE_CHAR\000"
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 77
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 77
 
 
  3091      455F4556 
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3108      545F504C 
  3108      5853435F 
  3108      57524954 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 78
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 78
 
 
  3109              	.LASF378:
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3127              	.LASF304:
  3128 28f4 4359424C 		.ascii	"CYBLE_EVT_HIDSS_NOTIFICATION_DISABLED\000"
  3128      455F4556 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 79
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 79
 
 
  3128      545F4849 
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3147              	.LASF59:
  3148 2a26 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_MULTI_RSP\000"
  3148      455F4556 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 80
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 80
 
 
  3148      545F4741 
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3168 2b38 4359424C 		.ascii	"CYBLE_EVT_HPSC_READ_DESCR_RESPONSE\000"
  3168      455F4556 
  3168      545F4850 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 81
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 81
 
 
  3168      53435F52 
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3187              	.LASF213:
  3188 2c6f 4359424C 		.ascii	"CYBLE_EVT_BCSC_READ_CHAR_RESPONSE\000"
  3188      455F4556 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 82
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 82
 
 
  3188      545F4243 
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3206      54545F45 
  3206      52525F41 
  3206      4E43535F 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 83
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 83
 
 
  3207              	.LASF403:
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3225              	.LASF16:
  3226 2ef9 73697A65 		.ascii	"sizetype\000"
  3226      74797065 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 84
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 84
 
 
  3226      00
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3244      52495445 
  3245              	.LASF430:
  3246 300f 4359424C 		.ascii	"CYBLE_EVT_UDSS_NOTIFICATION_DISABLED\000"
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 85
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 85
 
 
  3246      455F4556 
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3264      455F4556 
  3264      545F4553 
  3264      53435F49 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 86
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 86
 
 
  3264      4E444943 
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3284      545F4F54 
  3284      53535F57 
  3284      52495445 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 87
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 87
 
 
  3285              	.LASF147:
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3304 334e 4359424C 		.ascii	"CYBLE_EVT_BCSS_INDICATION_CONFIRMED\000"
  3304      455F4556 
  3304      545F4243 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 88
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 88
 
 
  3304      53535F49 
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3323      545F4449 
  3323      53435F52 
  3323      4541445F 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 89
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 89
 
 
  3324              	.LASF31:
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3344 35dd 4359424C 		.ascii	"CYBLE_EVT_GATTS_XCNHG_MTU_REQ\000"
  3344      455F4556 
  3344      545F4741 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 90
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 90
 
 
  3344      5454535F 
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3363              	.LASF142:
  3364 370a 4359424C 		.ascii	"CYBLE_AIOS_CHAR_EXTENDED_PROPERTIES\000"
  3364      455F4149 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 91
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 91
 
 
  3364      4F535F43 
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3382      52495445 
  3383              	.LASF392:
  3384 383d 4359424C 		.ascii	"CYBLE_EVT_PLXSS_INDICATION_CONFIRMED\000"
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 92
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 92
 
 
  3384      455F4556 
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3404      455F4556 
  3404      545F5544 
  3404      53535F52 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 93
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 93
 
 
  3404      4541445F 
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 1
  3424 3a99 4359424C 		.ascii	"CYBLE_EVT_ESSS_NOTIFICATION_ENABLED\000"
  3424      455F4556 
  3424      545F4553 
-ARM GAS  C:\Windows\TEMP\cc8WBK8V.s 			page 94
+ARM GAS  C:\Windows\TEMP\ccreM4pU.s 			page 94
 
 
  3424      53535F4E 
