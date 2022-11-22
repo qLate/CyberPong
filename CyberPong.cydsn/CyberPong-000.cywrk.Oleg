@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CyberPong-000\CyberPong\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CyberPong-000\CyberPong\CyberPong.cydwr">
 <ExpandedNodeIds>
 <v>CyberPong-000</v>
 <v>CyberPong-000\CyberPong</v>
@@ -215,18 +215,6 @@
 <v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\FanController_FW_PWM2.lst</v>
 <v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\FanController_FW_PWM2_PM.lst</v>
 <v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\FanController_FW_PWM3.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\FanController_FW_PWM3_PM.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\FanController_FW_PWM4.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\FanController_FW_PWM4_PM.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\FanController_INT.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\FanController_PID_ISR.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\ISR_Ball_Trigger.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\motorController.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Input_BallTrigger.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Input_BallTrigger_PM.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Input_DOWN.lst</v>
-<v>CyberPong-000\CyberPong\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Input_DOWN_PM.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -291,11 +279,6 @@
 <Unloaded />
 <OpenDocs>
 <name v=".\main.c" />
-<name v=".\TopDesign\TopDesign.cysch" />
-<name v=".\Generated_Source\PSoC4\Bluetooth_aios.c" />
-<name v=".\Generated_Source\PSoC4\Bluetooth_aios.h" />
-<name v=".\aios_core.c" />
-<name v=".\aios_core.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -303,7 +286,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1439, 733" SelectedTabbedMdiWindow="8f9c3d63-e111-4cca-9826-12552b7b1fde"><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\main.c" Guid="4cac989a-2a0a-487d-ba78-6cb97de97b5c" /><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\TopDesign\TopDesign.cysch" Guid="8f9c3d63-e111-4cca-9826-12552b7b1fde" /><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\Generated_Source\PSoC4\Bluetooth_aios.c" Guid="ec684fe8-86f9-4b55-ab8e-ca6f387ecd6f" /><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\Generated_Source\PSoC4\Bluetooth_aios.h" Guid="2aae1c75-b382-42d0-a8c0-3938cca4281b" /><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\aios_core.c" Guid="4890469d-c1ec-42f8-bab1-0f8e66830bb0" /><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\aios_core.h" Guid="a006a09e-8df4-49ea-b99a-b4211f0c2a6e" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1098, 517" SelectedTabbedMdiWindow="4cac989a-2a0a-487d-ba78-6cb97de97b5c"><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\main.c" Guid="4cac989a-2a0a-487d-ba78-6cb97de97b5c" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

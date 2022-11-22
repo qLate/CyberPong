@@ -1010,7 +1010,7 @@
 #define Pin_Output_UP_GROUND__0__MASK 0x04u
 #define Pin_Output_UP_GROUND__0__OUT_SEL CYREG_UDB_PA3_CFG10
 #define Pin_Output_UP_GROUND__0__OUT_SEL_SHIFT 4u
-#define Pin_Output_UP_GROUND__0__OUT_SEL_VAL 2u
+#define Pin_Output_UP_GROUND__0__OUT_SEL_VAL 0u
 #define Pin_Output_UP_GROUND__0__PA__CFG0 CYREG_UDB_PA3_CFG0
 #define Pin_Output_UP_GROUND__0__PA__CFG1 CYREG_UDB_PA3_CFG1
 #define Pin_Output_UP_GROUND__0__PA__CFG10 CYREG_UDB_PA3_CFG10
@@ -1329,7 +1329,7 @@
 #define Pin_Output_DOWN_GROUND__0__MASK 0x08u
 #define Pin_Output_DOWN_GROUND__0__OUT_SEL CYREG_UDB_PA3_CFG10
 #define Pin_Output_DOWN_GROUND__0__OUT_SEL_SHIFT 6u
-#define Pin_Output_DOWN_GROUND__0__OUT_SEL_VAL 0u
+#define Pin_Output_DOWN_GROUND__0__OUT_SEL_VAL 2u
 #define Pin_Output_DOWN_GROUND__0__PA__CFG0 CYREG_UDB_PA3_CFG0
 #define Pin_Output_DOWN_GROUND__0__PA__CFG1 CYREG_UDB_PA3_CFG1
 #define Pin_Output_DOWN_GROUND__0__PA__CFG10 CYREG_UDB_PA3_CFG10

@@ -73,20 +73,20 @@ extern uint8  PWM_initVar;
 /* Timer/Counter Mode */
 /* Parameters */
 #define PWM_TC_RUN_MODE                    (0lu)
-#define PWM_TC_COUNTER_MODE                (0lu)
+#define PWM_TC_COUNTER_MODE                (1lu)
 #define PWM_TC_COMP_CAP_MODE               (2lu)
 #define PWM_TC_PRESCALER                   (0lu)
 
 /* Signal modes */
 #define PWM_TC_RELOAD_SIGNAL_MODE          (0lu)
-#define PWM_TC_COUNT_SIGNAL_MODE           (3lu)
+#define PWM_TC_COUNT_SIGNAL_MODE           (1lu)
 #define PWM_TC_START_SIGNAL_MODE           (0lu)
 #define PWM_TC_STOP_SIGNAL_MODE            (0lu)
 #define PWM_TC_CAPTURE_SIGNAL_MODE         (0lu)
 
 /* Signal present */
 #define PWM_TC_RELOAD_SIGNAL_PRESENT       (0lu)
-#define PWM_TC_COUNT_SIGNAL_PRESENT        (0lu)
+#define PWM_TC_COUNT_SIGNAL_PRESENT        (1lu)
 #define PWM_TC_START_SIGNAL_PRESENT        (0lu)
 #define PWM_TC_STOP_SIGNAL_PRESENT         (0lu)
 #define PWM_TC_CAPTURE_SIGNAL_PRESENT      (0lu)
@@ -96,10 +96,10 @@ extern uint8  PWM_initVar;
 
 /* PWM Mode */
 /* Parameters */
-#define PWM_PWM_KILL_EVENT                 (1lu)
+#define PWM_PWM_KILL_EVENT                 (0lu)
 #define PWM_PWM_STOP_EVENT                 (0lu)
 #define PWM_PWM_MODE                       (4lu)
-#define PWM_PWM_OUT_N_INVERT               (1lu)
+#define PWM_PWM_OUT_N_INVERT               (0lu)
 #define PWM_PWM_OUT_INVERT                 (0lu)
 #define PWM_PWM_ALIGN                      (0lu)
 #define PWM_PWM_RUN_MODE                   (0lu)
@@ -129,16 +129,16 @@ extern uint8  PWM_initVar;
 ***************************************/
 
 /* Timer/Counter Mode */
-#define PWM_TC_PERIOD_VALUE                (65535lu)
+#define PWM_TC_PERIOD_VALUE                (2lu)
 #define PWM_TC_COMPARE_VALUE               (65535lu)
 #define PWM_TC_COMPARE_BUF_VALUE           (65535lu)
 #define PWM_TC_COMPARE_SWAP                (0lu)
 
 /* PWM Mode */
-#define PWM_PWM_PERIOD_VALUE               (4999lu)
+#define PWM_PWM_PERIOD_VALUE               (10000lu)
 #define PWM_PWM_PERIOD_BUF_VALUE           (65535lu)
 #define PWM_PWM_PERIOD_SWAP                (0lu)
-#define PWM_PWM_COMPARE_VALUE              (2499lu)
+#define PWM_PWM_COMPARE_VALUE              (9lu)
 #define PWM_PWM_COMPARE_BUF_VALUE          (65535lu)
 #define PWM_PWM_COMPARE_SWAP               (0lu)
 

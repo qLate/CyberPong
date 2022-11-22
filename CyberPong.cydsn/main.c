@@ -19,7 +19,7 @@ int main(void)
     // Set up flags
     disablePrintIfZeroRPM = false;
     
-    int speed_config[4] = {4250, 4250, 4250, 4250};
+    int speed_config[4] = {2200, 2500, 2500, 2500};
     SetMotorSpeed(speed_config);
     
     for(;;)
@@ -27,11 +27,6 @@ int main(void)
         CyBle_ProcessEvents();
         PrintMotorSpeeds();
         HandleUARTInput();
-        
-        //uint16 speed;
-        //CyBle_AiossGetCharacteristicValue(CYBLE_AIOS_ANALOG,0u,sizeof(speed),(uint8*)&speed);
-        //sprintf(str,"curr char value: %X",speed);
-        //Println(str);
     }
 }
 

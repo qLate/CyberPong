@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
-using UnityEngine;
+﻿using System.Runtime.InteropServices;
 
 public class BleApi
 {
@@ -78,8 +73,6 @@ public class BleApi
         public string serviceUuid;
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
         public string characteristicUuid;
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
-        public string characteristicIndex;
     };
 
     [DllImport("BleWinrtDll.dll", EntryPoint = "PollData")]

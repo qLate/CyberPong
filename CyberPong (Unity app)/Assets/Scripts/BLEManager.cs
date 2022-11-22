@@ -1,252 +1,186 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Demo : MonoBehaviour
+public class BLEManager : MonoBehaviour
 {
-    public bool isScanningDevices;
-    public bool isScanningServices;
-    public bool isScanningCharacteristics;
-    public bool isSubscribed;
-    public Text deviceScanButtonText;
-    public Text deviceScanStatusText;
-    public GameObject deviceScanResultProto;
-    public Button serviceScanButton;
-    public Text serviceScanStatusText;
-    public Dropdown serviceDropdown;
-    public Button characteristicScanButton;
-    public Text characteristicScanStatusText;
-    public Dropdown characteristicDropdown;
-    public Button subscribeButton;
-    public Text subcribeText;
-    public Button writeButton;
-    public InputField writeInput;
-    public Text errorText;
+    public Text statusText;
+    public List<InputField> inputFields;
 
-    Transform scanResultRoot;
-    public string selectedDeviceId;
-    public string selectedServiceId;
-    Dictionary<string, string> characteristicNames = new Dictionary<string, string>();
-    public string selectedCharacteristicId;
-    Dictionary<string, Dictionary<string, string>> devices = new Dictionary<string, Dictionary<string, string>>();
-    string lastError;
-    private HashSet<string> displayingDevices = new HashSet<string>();
+    private string deviceId;
+    private string serviceId;
+
+    private Dictionary<MotorDirection, string> motorCharIDs = new Dictionary<MotorDirection, string>();
+    private bool connecting;
 
 
-    void Start()
+    private void Start()
     {
-        scanResultRoot = deviceScanResultProto.transform.parent;
-        deviceScanResultProto.transform.SetParent(null);
+        SetUpConnection();
     }
-
-    void Update()
+    
+    public void SetUpConnection()
     {
-        BleApi.ScanStatus status;
-        if (isScanningDevices)
+        StartCoroutine(SetUpConnectionCoroutine());
+    }
+    IEnumerator SetUpConnectionCoroutine()
+    {
+        if (connecting) yield break;
+        connecting = true;
+
+        statusText.text = "Searching for nearby CyberPong...";
+        yield return StartCoroutine(ConnectToDevice());
+
+        statusText.text = "Searching for required service...";
+        yield return StartCoroutine(FindRequiredService());
+
+        statusText.text = "Getting characteristics...";
+        yield return StartCoroutine(FindRequiredCharacteristics());
+
+        connecting = false;
+        statusText.text = "Connected";
+    }
+    private IEnumerator ConnectToDevice()
+    {
+        BleApi.Quit();
+        BleApi.StartDeviceScan();
+        while (true)
         {
+            BleApi.ScanStatus status;
             var res = new BleApi.DeviceUpdate();
             do
             {
                 status = BleApi.PollDevice(ref res, false);
                 if (status == BleApi.ScanStatus.AVAILABLE)
                 {
-                    if (!devices.ContainsKey(res.id))
-                        devices[res.id] = new Dictionary<string, string>
-                        {
-                            { "name", "" },
-                            { "isConnectable", "False" }
-                        };
-                    if (res.nameUpdated)
-                        devices[res.id]["name"] = res.name;
-                    if (res.isConnectableUpdated)
-                        devices[res.id]["isConnectable"] = res.isConnectable.ToString();
-                    // consider only devices which have a name and which are connectable
-                    if (devices[res.id]["name"] != "" && devices[res.id]["isConnectable"] == "True" && !displayingDevices.Contains(res.id))
-                    {
-                        displayingDevices.Add(res.id);
+                    if (!IsCyberPongId(res)) continue; // If it's not CyberPong skip
 
-                        // add new device to list
-                        var g = Instantiate(deviceScanResultProto, scanResultRoot);
-                        g.name = res.id;
-                        g.transform.GetChild(0).GetComponent<Text>().text = devices[res.id]["name"];
-                        g.transform.GetChild(1).GetComponent<Text>().text = res.id;
-                    }
+                    deviceId = res.id;
+                    BleApi.StopDeviceScan();
+                    yield break;
                 }
                 else if (status == BleApi.ScanStatus.FINISHED)
                 {
-                    isScanningDevices = false;
-                    deviceScanButtonText.text = "Scan devices";
-                    deviceScanStatusText.text = "finished";
+                    BleApi.StartDeviceScan();
                 }
+
+                yield return null;
             } while (status == BleApi.ScanStatus.AVAILABLE);
         }
-        if (isScanningServices)
+    }
+    private IEnumerator FindRequiredService()
+    {
+        BleApi.ScanServices(deviceId);
+
+        while (true)
         {
+            BleApi.ScanStatus status;
             do
             {
                 status = BleApi.PollService(out var res, false);
                 if (status == BleApi.ScanStatus.AVAILABLE)
                 {
-                    serviceDropdown.AddOptions(new List<string> { res.uuid });
-                    // first option gets selected
-                    if (serviceDropdown.options.Count == 1)
-                        SelectService(serviceDropdown.gameObject);
+                    if (res.uuid.Substring(5, 4) == "1815")
+                        serviceId = res.uuid;
                 }
                 else if (status == BleApi.ScanStatus.FINISHED)
                 {
-                    isScanningServices = false;
-                    serviceScanButton.interactable = true;
-                    serviceScanStatusText.text = "finished";
+                    if (serviceId != "")
+                        yield break;
+                    BleApi.ScanServices(deviceId);
                 }
+
+                yield return null;
             } while (status == BleApi.ScanStatus.AVAILABLE);
         }
-        if (isScanningCharacteristics)
+    }
+    private IEnumerator FindRequiredCharacteristics()
+    {
+        BleApi.ScanCharacteristics(deviceId, serviceId);
+
+        while (true)
         {
+            BleApi.ScanStatus status;
             do
             {
                 status = BleApi.PollCharacteristic(out var res, false);
                 if (status == BleApi.ScanStatus.AVAILABLE)
                 {
-                    var name = res.userDescription != "no description available" ? res.userDescription : res.uuid;
-                    characteristicNames[name] = res.uuid;
-                    characteristicDropdown.AddOptions(new List<string> { name });
-                    // first option gets selected
-                    if (characteristicDropdown.options.Count == 1)
-                        SelectCharacteristic(characteristicDropdown.gameObject);
+                    //{00002a58
+                    switch (res.uuid.Substring(5, 4))
+                    {
+                        case "2a58": motorCharIDs[MotorDirection.Left] = res.uuid; break;
+                        case "2a59": motorCharIDs[MotorDirection.Right] = res.uuid; break;
+                        case "2a5a": motorCharIDs[MotorDirection.Top] = res.uuid; break;
+                        case "2a5b": motorCharIDs[MotorDirection.Bottom] = res.uuid; break;
+                    }
                 }
                 else if (status == BleApi.ScanStatus.FINISHED)
                 {
-                    isScanningCharacteristics = false;
-                    characteristicScanButton.interactable = true;
-                    characteristicScanStatusText.text = "finished";
+                    if (motorCharIDs.ContainsKey(MotorDirection.Left) &&
+                        motorCharIDs.ContainsKey(MotorDirection.Right) &&
+                        motorCharIDs.ContainsKey(MotorDirection.Top) &&
+                        motorCharIDs.ContainsKey(MotorDirection.Bottom))
+                        yield break;
+                    BleApi.ScanCharacteristics(deviceId, serviceId);
                 }
+
+                yield return null;
             } while (status == BleApi.ScanStatus.AVAILABLE);
         }
-        if (isSubscribed)
-        {
-            while (BleApi.PollData(out var res, false))
-            {
-                subcribeText.text = BitConverter.ToString(res.buf, 0, res.size);
-                // subcribeText.text = Encoding.ASCII.GetString(res.buf, 0, res.size);
-            }
-        }
+    }
+    private static bool IsCyberPongId(BleApi.DeviceUpdate res)
+    {
+        return res.id.Substring(res.id.Length - 17, 17) == "00:ab:cd:dc:ba:00";
+    }
 
+
+    public void WriteMotorSpeeds()
+    {
+        for (var i = 0; i < inputFields.Count; i++)
         {
-            // log potential errors
-            BleApi.GetError(out var res);
-            if (lastError != res.msg)
-            {
-                Debug.LogError(res.msg);
-                errorText.text = res.msg;
-                lastError = res.msg;
-            }
+            var value = int.Parse(inputFields[i].text);
+            Write(motorCharIDs[(MotorDirection)i], value);
         }
+    }
+    public void Write(string charId, int value)
+    {
+        var payload = BitConverter.GetBytes(value);
+        var data = new BleApi.BLEData
+        {
+            buf = new byte[512],
+            size = (short)payload.Length,
+            deviceId = deviceId,
+            serviceUuid = serviceId,
+            characteristicUuid = charId,
+        };
+        for (var i = 0; i < payload.Length; i++)
+            data.buf[i] = payload[i];
+        BleApi.SendData(in data, false);
+    }
+
+
+    public static byte[] StringToByteArray(string hex)
+    {
+        return Enumerable.Range(0, hex.Length)
+            .Where(x => x % 2 == 0)
+            .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+            .ToArray();
     }
 
     private void OnApplicationQuit()
     {
         BleApi.Quit();
     }
+}
 
-    public void StartStopDeviceScan()
-    {
-        if (!isScanningDevices)
-        {
-            // start new scan
-            for (var i = scanResultRoot.childCount - 1; i >= 0; i--)
-                Destroy(scanResultRoot.GetChild(i).gameObject);
-            devices.Clear();
-            displayingDevices.Clear();
-
-            BleApi.StartDeviceScan();
-            isScanningDevices = true;
-            deviceScanButtonText.text = "Stop scan";
-            deviceScanStatusText.text = "scanning";
-        }
-        else
-        {
-            // stop scan
-            isScanningDevices = false;
-            BleApi.StopDeviceScan();
-            deviceScanButtonText.text = "Start scan";
-            deviceScanStatusText.text = "stopped";
-        }
-    }
-
-    public void SelectDevice(GameObject data)
-    {
-        for (var i = 0; i < scanResultRoot.transform.childCount; i++)
-        {
-            var child = scanResultRoot.transform.GetChild(i).gameObject;
-            child.transform.GetChild(0).GetComponent<Text>().color = child == data ? Color.red :
-                deviceScanResultProto.transform.GetChild(0).GetComponent<Text>().color;
-        }
-        selectedDeviceId = data.name;
-        serviceScanButton.interactable = true;
-    }
-
-    public void StartServiceScan()
-    {
-        if (isScanningServices) return;
-
-        // start new scan
-        serviceDropdown.ClearOptions();
-        BleApi.ScanServices(selectedDeviceId);
-        isScanningServices = true;
-        serviceScanStatusText.text = "scanning";
-        serviceScanButton.interactable = false;
-    }
-
-    public void SelectService(GameObject data)
-    {
-        selectedServiceId = serviceDropdown.options[serviceDropdown.value].text;
-        characteristicScanButton.interactable = true;
-    }
-    public void StartCharacteristicScan()
-    {
-        if (isScanningCharacteristics) return;
-
-        // start new scan
-        characteristicDropdown.ClearOptions();
-        BleApi.ScanCharacteristics(selectedDeviceId, selectedServiceId);
-        isScanningCharacteristics = true;
-        characteristicScanStatusText.text = "scanning";
-        characteristicScanButton.interactable = false;
-    }
-
-    public void SelectCharacteristic(GameObject data)
-    {
-        var name = characteristicDropdown.options[characteristicDropdown.value].text;
-        selectedCharacteristicId = characteristicNames[name];
-        subscribeButton.interactable = true;
-        writeButton.interactable = true;
-    }
-
-    public void Subscribe()
-    {
-        // no error code available in non-blocking mode
-        BleApi.SubscribeCharacteristic(selectedDeviceId, selectedServiceId, selectedCharacteristicId, false);
-        isSubscribed = true;
-    }
-
-    public void Write()
-    {
-        var payload = Encoding.ASCII.GetBytes(writeInput.text);
-        var data = new BleApi.BLEData
-        {
-            buf = new byte[512],
-            size = (short)payload.Length,
-            deviceId = selectedDeviceId,
-            serviceUuid = selectedServiceId,
-            characteristicUuid = selectedCharacteristicId,
-            characteristicIndex = "2",
-        };
-        Debug.Log(selectedCharacteristicId);
-        for (var i = 0; i < payload.Length; i++)
-            data.buf[i] = payload[i];
-        // no error code available in non-blocking mode
-        BleApi.SendData(in data, false);
-    }
+public enum MotorDirection
+{
+    Left,
+    Right,
+    Top,
+    Bottom
 }

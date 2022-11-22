@@ -2,7 +2,7 @@
 --	Conversion of CyberPong.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Mon Nov 21 21:59:24 2022
+--	Tue Nov 22 12:59:55 2022
 --
 
 USE cypress.cypress.all;
@@ -21,7 +21,7 @@ SIGNAL zero : bit;
 SIGNAL one : bit;
 SIGNAL tmpINTERRUPT_0__Pin_Output_LEFT_net_0 : bit;
 SIGNAL tmpOE__Pin_Input_LEFT_net_0 : bit;
-SIGNAL Net_824 : bit;
+SIGNAL Net_825 : bit;
 SIGNAL tmpIO_0__Pin_Input_LEFT_net_0 : bit;
 TERMINAL tmpSIOVREF__Pin_Input_LEFT_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Pin_Input_LEFT_net_0 : bit;
@@ -204,22 +204,22 @@ SIGNAL \FanController:Net_343\ : bit;
 SIGNAL \FanController:Net_433_1\ : bit;
 SIGNAL \FanController:Net_344\ : bit;
 SIGNAL \FanController:Net_340\ : bit;
-SIGNAL Net_638 : bit;
-SIGNAL Net_639 : bit;
-SIGNAL Net_640 : bit;
-SIGNAL Net_641 : bit;
-SIGNAL Net_626 : bit;
-SIGNAL Net_627 : bit;
-SIGNAL Net_628 : bit;
-SIGNAL Net_629 : bit;
-SIGNAL Net_630 : bit;
-SIGNAL Net_631 : bit;
-SIGNAL Net_632 : bit;
-SIGNAL Net_633 : bit;
-SIGNAL Net_622 : bit;
-SIGNAL Net_623 : bit;
-SIGNAL Net_624 : bit;
-SIGNAL Net_625 : bit;
+SIGNAL Net_2224 : bit;
+SIGNAL Net_2225 : bit;
+SIGNAL Net_2226 : bit;
+SIGNAL Net_2227 : bit;
+SIGNAL Net_2228 : bit;
+SIGNAL Net_2217 : bit;
+SIGNAL Net_2218 : bit;
+SIGNAL Net_2219 : bit;
+SIGNAL Net_2220 : bit;
+SIGNAL Net_2221 : bit;
+SIGNAL Net_2222 : bit;
+SIGNAL Net_2223 : bit;
+SIGNAL Net_2210 : bit;
+SIGNAL Net_2211 : bit;
+SIGNAL Net_2212 : bit;
+SIGNAL Net_2213 : bit;
 SIGNAL \FanController:FanTach:synced_tach_clock\ : bit;
 SIGNAL \FanController:FanTach:eom\ : bit;
 SIGNAL \FanController:FanTach:nc5\ : bit;
@@ -537,24 +537,24 @@ SIGNAL \FanController:pwm_2\ : bit;
 SIGNAL \FanController:Net_438\ : bit;
 SIGNAL \FanController:pwm_4\ : bit;
 SIGNAL \FanController:Net_441\ : bit;
-SIGNAL Net_1395 : bit;
-SIGNAL Net_646_4 : bit;
-SIGNAL Net_646_3 : bit;
-SIGNAL Net_646_2 : bit;
-SIGNAL Net_646_1 : bit;
-SIGNAL Net_618 : bit;
-SIGNAL Net_619 : bit;
-SIGNAL Net_620 : bit;
-SIGNAL Net_621 : bit;
-SIGNAL Net_1394 : bit;
-SIGNAL Net_711_4 : bit;
-SIGNAL Net_711_3 : bit;
-SIGNAL Net_711_2 : bit;
-SIGNAL Net_711_1 : bit;
-SIGNAL Net_1384 : bit;
+SIGNAL Net_2204 : bit;
+SIGNAL Net_2205_4 : bit;
+SIGNAL Net_2205_3 : bit;
+SIGNAL Net_2205_2 : bit;
+SIGNAL Net_2205_1 : bit;
+SIGNAL Net_2206 : bit;
+SIGNAL Net_2207 : bit;
+SIGNAL Net_2208 : bit;
+SIGNAL Net_2209 : bit;
+SIGNAL Net_2215 : bit;
+SIGNAL Net_2216_4 : bit;
+SIGNAL Net_2216_3 : bit;
+SIGNAL Net_2216_2 : bit;
+SIGNAL Net_2216_1 : bit;
+SIGNAL Net_2006 : bit;
+SIGNAL Net_1720 : bit;
 SIGNAL Net_1389 : bit;
-SIGNAL Net_1379 : bit;
-SIGNAL Net_1237 : bit;
+SIGNAL Net_1948 : bit;
 SIGNAL \FanController:btch_16\ : bit;
 SIGNAL \FanController:btch_15\ : bit;
 SIGNAL \FanController:btch_14\ : bit;
@@ -571,9 +571,9 @@ SIGNAL \FanController:btch_4\ : bit;
 SIGNAL \FanController:btch_3\ : bit;
 SIGNAL \FanController:btch_2\ : bit;
 SIGNAL \FanController:btch_1\ : bit;
-SIGNAL Net_825 : bit;
+SIGNAL Net_824 : bit;
 SIGNAL Net_779 : bit;
-SIGNAL Net_823 : bit;
+SIGNAL Net_1949 : bit;
 SIGNAL Net_757 : bit;
 SIGNAL Net_1378 : bit;
 SIGNAL tmpOE__Pin_Input_RIGHT_net_0 : bit;
@@ -703,10 +703,10 @@ tmpOE__Pin_Output_LEFT_net_0 <=  ('1') ;
 
 \FanController:B_FanCtrl:stall_status\ <= ((\FanController:B_FanCtrl:control_1\ and \FanController:B_FanCtrl:stall_alrt\));
 
-\FanController:FanTach:tach\\D\ <= ((not \FanController:address_1\ and not \FanController:address_0\ and Net_824)
+\FanController:FanTach:tach\\D\ <= ((not \FanController:address_1\ and not \FanController:address_0\ and Net_825)
 	OR (not \FanController:address_0\ and \FanController:address_1\ and Net_779)
-	OR (not \FanController:address_1\ and \FanController:address_0\ and Net_825)
-	OR (\FanController:address_1\ and \FanController:address_0\ and Net_823));
+	OR (not \FanController:address_1\ and \FanController:address_0\ and Net_824)
+	OR (\FanController:address_1\ and \FanController:address_0\ and Net_1949));
 
 \FanController:FanTach:damping_factor_tc\\D\ <= ((\FanController:FanTach:damping_cntr_cs_0\ and \FanController:FanTach:damping_cntr_tc\ and \FanController:FanTach:gf_dmp_state\));
 
@@ -753,21 +753,21 @@ tmpOE__Pin_Output_LEFT_net_0 <=  ('1') ;
 
 \FanController:FanTach:fifo_load\\D\ <= ((\FanController:FanTach:tach_state_2\ and \FanController:FanTach:tach_state_0\));
 
-Net_757 <= ((Net_1379 and Net_1378));
+Net_757 <= ((Net_1389 and Net_1378));
 
-Net_1380 <= ((not Net_1378 and Net_1379));
+Net_1380 <= ((not Net_1378 and Net_1389));
 
-Net_1350 <= ((not Net_1307 and Net_1237));
+Net_1350 <= ((not Net_1307 and Net_1948));
 
-Net_1351 <= ((Net_1237 and Net_1307));
+Net_1351 <= ((Net_1948 and Net_1307));
 
-Net_1551 <= ((Net_1384 and Net_1399));
+Net_1551 <= ((Net_2006 and Net_1399));
 
-Net_1549 <= ((not Net_1399 and Net_1384));
+Net_1549 <= ((not Net_1399 and Net_2006));
 
-Net_1552 <= ((Net_1389 and Net_1388));
+Net_1552 <= ((Net_1720 and Net_1388));
 
-Net_1550 <= ((not Net_1388 and Net_1389));
+Net_1550 <= ((not Net_1388 and Net_1720));
 
 Pin_Output_LEFT:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"e851a3b9-efb8-48be-bbb8-b303b216c393",
@@ -897,7 +897,7 @@ Pin_Input_LEFT:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__Pin_Output_LEFT_net_0),
 		y=>(zero),
-		fb=>Net_824,
+		fb=>Net_825,
 		analog=>(open),
 		io=>(tmpIO_0__Pin_Input_LEFT_net_0),
 		siovref=>(tmpSIOVREF__Pin_Input_LEFT_net_0),
@@ -1143,7 +1143,7 @@ Pin_Input_LEFT:cy_psoc3_pins_v1_10
 		underflow=>\FanController:Net_372\,
 		overflow=>\FanController:Net_371\,
 		compare_match=>\FanController:Net_373\,
-		line_out=>Net_1237,
+		line_out=>Net_1948,
 		line_out_compl=>\FanController:Net_374\,
 		interrupt=>\FanController:Net_370\);
 \FanController:FW_PWM2:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
@@ -1157,7 +1157,7 @@ Pin_Input_LEFT:cy_psoc3_pins_v1_10
 		underflow=>\FanController:Net_362\,
 		overflow=>\FanController:Net_361\,
 		compare_match=>\FanController:Net_363\,
-		line_out=>Net_1389,
+		line_out=>Net_1720,
 		line_out_compl=>\FanController:Net_364\,
 		interrupt=>\FanController:Net_360\);
 \FanController:FW_PWM3:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
@@ -1171,7 +1171,7 @@ Pin_Input_LEFT:cy_psoc3_pins_v1_10
 		underflow=>\FanController:Net_419\,
 		overflow=>\FanController:Net_418\,
 		compare_match=>\FanController:Net_420\,
-		line_out=>Net_1379,
+		line_out=>Net_1389,
 		line_out_compl=>\FanController:Net_421\,
 		interrupt=>\FanController:Net_417\);
 \FanController:FW_PWM1:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
@@ -1185,7 +1185,7 @@ Pin_Input_LEFT:cy_psoc3_pins_v1_10
 		underflow=>\FanController:Net_342\,
 		overflow=>\FanController:Net_341\,
 		compare_match=>\FanController:Net_343\,
-		line_out=>Net_1384,
+		line_out=>Net_2006,
 		line_out_compl=>\FanController:Net_344\,
 		interrupt=>\FanController:Net_340\);
 \FanController:FanTach:ClkSync\:cy_psoc3_udb_clock_enable_v1_0
@@ -1605,7 +1605,7 @@ Pin_Input_RIGHT:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__Pin_Output_LEFT_net_0),
 		y=>(zero),
-		fb=>Net_825,
+		fb=>Net_824,
 		analog=>(open),
 		io=>(tmpIO_0__Pin_Input_RIGHT_net_0),
 		siovref=>(tmpSIOVREF__Pin_Input_RIGHT_net_0),
@@ -1745,7 +1745,7 @@ Pin_Input_DOWN:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__Pin_Output_LEFT_net_0),
 		y=>(zero),
-		fb=>Net_823,
+		fb=>Net_1949,
 		analog=>(open),
 		io=>(tmpIO_0__Pin_Input_DOWN_net_0),
 		siovref=>(tmpSIOVREF__Pin_Input_DOWN_net_0),

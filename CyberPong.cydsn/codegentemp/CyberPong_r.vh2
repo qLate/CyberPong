@@ -1,5 +1,5 @@
 -- Project:   CyberPong
--- Generated: 11/21/2022 21:59:26
+-- Generated: 11/22/2022 12:59:56
 -- PSoC Creator  4.4
 
 ENTITY CyberPong IS
@@ -44,17 +44,14 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     SIGNAL ClockBlock_Routed1 : bit;
     SIGNAL ClockBlock_SysClk : bit;
     SIGNAL ClockBlock_WCO : bit;
-    SIGNAL Net_1237 : bit;
     SIGNAL Net_1307 : bit;
     SIGNAL Net_1350 : bit;
     ATTRIBUTE placement_force OF Net_1350 : SIGNAL IS "U(1,0,B)1";
     SIGNAL Net_1351 : bit;
     ATTRIBUTE placement_force OF Net_1351 : SIGNAL IS "U(1,0,B)2";
     SIGNAL Net_1378 : bit;
-    SIGNAL Net_1379 : bit;
     SIGNAL Net_1380 : bit;
     ATTRIBUTE placement_force OF Net_1380 : SIGNAL IS "U(0,1,A)1";
-    SIGNAL Net_1384 : bit;
     SIGNAL Net_1388 : bit;
     SIGNAL Net_1389 : bit;
     SIGNAL Net_1399 : bit;
@@ -67,13 +64,16 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     SIGNAL Net_1552 : bit;
     ATTRIBUTE placement_force OF Net_1552 : SIGNAL IS "U(0,0,B)2";
     SIGNAL Net_1577 : bit;
+    SIGNAL Net_1720 : bit;
     SIGNAL Net_187 : bit;
+    SIGNAL Net_1948 : bit;
+    SIGNAL Net_1949 : bit;
     SIGNAL Net_196 : bit;
+    SIGNAL Net_2006 : bit;
     SIGNAL Net_205 : bit;
     SIGNAL Net_757 : bit;
     ATTRIBUTE placement_force OF Net_757 : SIGNAL IS "U(0,1,A)2";
     SIGNAL Net_779 : bit;
-    SIGNAL Net_823 : bit;
     SIGNAL Net_824 : bit;
     SIGNAL Net_825 : bit;
     SIGNAL Net_828 : bit;
@@ -918,7 +918,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_Input_LEFT(0)__PA,
             oe => open,
-            fb => Net_824,
+            fb => Net_825,
             pad_in => Pin_Input_LEFT(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -1192,7 +1192,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_Input_RIGHT(0)__PA,
             oe => open,
-            fb => Net_825,
+            fb => Net_824,
             pad_in => Pin_Input_RIGHT(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -1375,7 +1375,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_Input_DOWN(0)__PA,
             oe => open,
-            fb => Net_823,
+            fb => Net_1949,
             pad_in => Pin_Input_DOWN(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -2235,7 +2235,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => Net_757,
-            main_0 => Net_1379,
+            main_0 => Net_1389,
             main_1 => Net_1378);
 
     Net_1380:macrocell
@@ -2245,7 +2245,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => Net_1380,
-            main_0 => Net_1379,
+            main_0 => Net_1389,
             main_1 => Net_1378);
 
     Net_1350:macrocell
@@ -2255,7 +2255,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => Net_1350,
-            main_0 => Net_1237,
+            main_0 => Net_1948,
             main_1 => Net_1307);
 
     Net_1351:macrocell
@@ -2265,7 +2265,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => Net_1351,
-            main_0 => Net_1237,
+            main_0 => Net_1948,
             main_1 => Net_1307);
 
     Net_1551:macrocell
@@ -2275,7 +2275,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => Net_1551,
-            main_0 => Net_1384,
+            main_0 => Net_2006,
             main_1 => Net_1399);
 
     Net_1549:macrocell
@@ -2285,7 +2285,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => Net_1549,
-            main_0 => Net_1384,
+            main_0 => Net_2006,
             main_1 => Net_1399);
 
     Net_1552:macrocell
@@ -2295,7 +2295,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => Net_1552,
-            main_0 => Net_1389,
+            main_0 => Net_1720,
             main_1 => Net_1388);
 
     Net_1550:macrocell
@@ -2305,7 +2305,7 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             q => Net_1550,
-            main_0 => Net_1389,
+            main_0 => Net_1720,
             main_1 => Net_1388);
 
     \UART:SCB\:m0s8scbcell
@@ -2401,7 +2401,7 @@ BEGIN
             tr_underflow => \FanController:Net_372\,
             tr_overflow => \FanController:Net_371\,
             tr_compare_match => \FanController:Net_373\,
-            line => Net_1237,
+            line => Net_1948,
             line_compl => \FanController:Net_374\,
             interrupt => \FanController:Net_370\);
 
@@ -2418,7 +2418,7 @@ BEGIN
             tr_underflow => \FanController:Net_362\,
             tr_overflow => \FanController:Net_361\,
             tr_compare_match => \FanController:Net_363\,
-            line => Net_1389,
+            line => Net_1720,
             line_compl => \FanController:Net_364\,
             interrupt => \FanController:Net_360\);
 
@@ -2435,7 +2435,7 @@ BEGIN
             tr_underflow => \FanController:Net_419\,
             tr_overflow => \FanController:Net_418\,
             tr_compare_match => \FanController:Net_420\,
-            line => Net_1379,
+            line => Net_1389,
             line_compl => \FanController:Net_421\,
             interrupt => \FanController:Net_417\);
 
@@ -2452,7 +2452,7 @@ BEGIN
             tr_underflow => \FanController:Net_342\,
             tr_overflow => \FanController:Net_341\,
             tr_compare_match => \FanController:Net_343\,
-            line => Net_1384,
+            line => Net_2006,
             line_compl => \FanController:Net_344\,
             interrupt => \FanController:Net_340\);
 
@@ -2748,12 +2748,12 @@ BEGIN
             q => \FanController:FanTach:tach\,
             clk_en => \FanController:enable\,
             clock_0 => \FanController:tach_clk_digital\,
-            main_0 => Net_824,
+            main_0 => Net_825,
             main_1 => \FanController:address_1\,
             main_2 => \FanController:address_0\,
-            main_3 => Net_825,
+            main_3 => Net_824,
             main_4 => Net_779,
-            main_5 => Net_823);
+            main_5 => Net_1949);
 
     \FanController:Net_393\:macrocell
         GENERIC MAP(
