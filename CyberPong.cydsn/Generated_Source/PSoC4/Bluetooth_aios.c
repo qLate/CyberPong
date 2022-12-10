@@ -79,9 +79,27 @@ static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
     },
 };
 
+/* Aggregate characteristic data */
+static CYBLE_AIOSS_CHAR_T aiossCharIdx2[0x01u] = {
+    {
+        0x0036u, /* Handle of the Aggregate characteristic */ 
+        
+            /* Array of Descriptors handles */
+            {
+                0x0037u, /* Handle of the Client Characteristic Configuration descriptor */ 
+                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+            }, 
+    },
+};
+
 /* Number of AIOS characteristics instances */
 uint8 cyBle_aiossCharInstances[0x03u] = {
-    0x00u, 0x04u, 0x00u
+    0x00u, 0x04u, 0x01u
 };
 
 const CYBLE_AIOSS_T cyBle_aioss =
@@ -95,7 +113,7 @@ const CYBLE_AIOSS_T cyBle_aioss =
             &aiossCharIdx1[0], /* Handle of the Analog characteristic */ 
         }, 
         {
-            NULL, /* Handle of the Aggregate characteristic */ 
+            &aiossCharIdx2[0], /* Handle of the Aggregate characteristic */ 
         }, 
     },
 };
