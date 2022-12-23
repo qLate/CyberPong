@@ -16,7 +16,7 @@ void PrintMotorSpeeds() {
        FanController_GetActualSpeed(3)==0 && FanController_GetActualSpeed(4)==0)
         return;
 
-    if (counter < 100000){
+    if (counter < 100000) {
         counter++;
         return;
     }

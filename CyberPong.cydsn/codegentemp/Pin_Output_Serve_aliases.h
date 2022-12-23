@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Pin_Serve.h  
+* File Name: Pin_Output_Serve.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_Pin_Serve_ALIASES_H) /* Pins Pin_Serve_ALIASES_H */
-#define CY_PINS_Pin_Serve_ALIASES_H
+#if !defined(CY_PINS_Pin_Output_Serve_ALIASES_H) /* Pins Pin_Output_Serve_ALIASES_H */
+#define CY_PINS_Pin_Output_Serve_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define Pin_Serve_0			(Pin_Serve__0__PC)
-#define Pin_Serve_0_PS		(Pin_Serve__0__PS)
-#define Pin_Serve_0_PC		(Pin_Serve__0__PC)
-#define Pin_Serve_0_DR		(Pin_Serve__0__DR)
-#define Pin_Serve_0_SHIFT	(Pin_Serve__0__SHIFT)
-#define Pin_Serve_0_INTR	((uint16)((uint16)0x0003u << (Pin_Serve__0__SHIFT*2u)))
+#define Pin_Output_Serve_0			(Pin_Output_Serve__0__PC)
+#define Pin_Output_Serve_0_PS		(Pin_Output_Serve__0__PS)
+#define Pin_Output_Serve_0_PC		(Pin_Output_Serve__0__PC)
+#define Pin_Output_Serve_0_DR		(Pin_Output_Serve__0__DR)
+#define Pin_Output_Serve_0_SHIFT	(Pin_Output_Serve__0__SHIFT)
+#define Pin_Output_Serve_0_INTR	((uint16)((uint16)0x0003u << (Pin_Output_Serve__0__SHIFT*2u)))
 
-#define Pin_Serve_INTR_ALL	 ((uint16)(Pin_Serve_0_INTR))
+#define Pin_Output_Serve_INTR_ALL	 ((uint16)(Pin_Output_Serve_0_INTR))
 
 
-#endif /* End Pins Pin_Serve_ALIASES_H */
+#endif /* End Pins Pin_Output_Serve_ALIASES_H */
 
 
 /* [] END OF FILE */

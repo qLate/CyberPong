@@ -1901,6 +1901,6 @@
   </block>
   <block name="Pin_Input_BallTrigger" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Pin_Input_UP" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Pin_Serve" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Pin_Output_Serve" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="ISR_Ball_Trigger" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
 </blockRegMap>

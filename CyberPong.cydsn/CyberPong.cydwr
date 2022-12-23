@@ -23,7 +23,7 @@
       <Data key="43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/78e33e5d-45ea-4b75-88d5-73274e8a7ce4" value="UART_rx" />
       <Data key="57f787e5-d81d-44a9-b285-9caf9cfaafc7" value="LED" />
       <Data key="672584a9-1741-4a1a-8149-4a0e3fa6db14" value="Pin_Output_DOWN" />
-      <Data key="a45133cb-683e-41b9-b6a4-155bde8f41e9" value="Pin_Serve" />
+      <Data key="a45133cb-683e-41b9-b6a4-155bde8f41e9" value="Pin_Output_Serve" />
       <Data key="c3d56674-74c2-4375-b646-dffe16e6448c" value="Pin_Input_RIGHT" />
       <Data key="c8cb8994-cb9c-46dd-adfb-531a4692270b" value="Pin_Input_BallTrigger" />
       <Data key="c487611f-3b62-4bb9-99c1-5669b432c713" value="Pin_Output_DOWN_GROUND" />
@@ -3626,9 +3626,19 @@
         <Data key="Port Format" value="2,3" />
       </Group>
     </Group>
+    <Group key="a45133cb-683e-41b9-b6a4-155bde8f41e9">
+      <Group key="0">
+        <Data key="Port Format" value="2,4" />
+      </Group>
+    </Group>
     <Group key="c3d56674-74c2-4375-b646-dffe16e6448c">
       <Group key="0">
         <Data key="Port Format" value="0,1" />
+      </Group>
+    </Group>
+    <Group key="c8cb8994-cb9c-46dd-adfb-531a4692270b">
+      <Group key="0">
+        <Data key="Port Format" value="2,5" />
       </Group>
     </Group>
     <Group key="c487611f-3b62-4bb9-99c1-5669b432c713">
@@ -3666,14 +3676,7 @@
         <Data key="Port Format" value="3,0" />
       </Group>
     </Group>
-    <Group key="UnAssigned Pins">
-      <Group key="a45133cb-683e-41b9-b6a4-155bde8f41e9">
-        <Data key="0" value="133115217158997809" />
-      </Group>
-      <Group key="c8cb8994-cb9c-46dd-adfb-531a4692270b">
-        <Data key="0" value="133115217055822105" />
-      </Group>
-    </Group>
+    <Group key="UnAssigned Pins" />
   </Group>
   <Group key="PlaceDir">
     <Data key="count" value="0" />

@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Pin_Serve.c  
+* File Name: Pin_Output_Serve.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Pin_Serve.h"
+#include "Pin_Output_Serve.h"
 
 
-#if defined(Pin_Serve__PC)
-    #define Pin_Serve_SetP4PinDriveMode(shift, mode)  \
+#if defined(Pin_Output_Serve__PC)
+    #define Pin_Output_Serve_SetP4PinDriveMode(shift, mode)  \
     do { \
-        Pin_Serve_PC =   (Pin_Serve_PC & \
-                                (uint32)(~(uint32)(Pin_Serve_DRIVE_MODE_IND_MASK << \
-                                (Pin_Serve_DRIVE_MODE_BITS * (shift))))) | \
+        Pin_Output_Serve_PC =   (Pin_Output_Serve_PC & \
+                                (uint32)(~(uint32)(Pin_Output_Serve_DRIVE_MODE_IND_MASK << \
+                                (Pin_Output_Serve_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (Pin_Serve_DRIVE_MODE_BITS * (shift))); \
+                                (Pin_Output_Serve_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define Pin_Serve_SetP4PinDriveMode(shift, mode)  \
+        #define Pin_Output_Serve_SetP4PinDriveMode(shift, mode)  \
         do { \
-            Pin_Serve_USBIO_CTRL_REG = (Pin_Serve_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(Pin_Serve_DRIVE_MODE_IND_MASK << \
-                                    (Pin_Serve_DRIVE_MODE_BITS * (shift))))) | \
+            Pin_Output_Serve_USBIO_CTRL_REG = (Pin_Output_Serve_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(Pin_Output_Serve_DRIVE_MODE_IND_MASK << \
+                                    (Pin_Output_Serve_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (Pin_Serve_DRIVE_MODE_BITS * (shift))); \
+                                    (Pin_Output_Serve_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(Pin_Serve__PC) || (CY_PSOC4_4200L) 
+#if defined(Pin_Output_Serve__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: Pin_Serve_SetDriveMode
+    * Function Name: Pin_Output_Serve_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet Pin_Serve_SUT.c usage_Pin_Serve_SetDriveMode
+    *  \snippet Pin_Output_Serve_SUT.c usage_Pin_Output_Serve_SetDriveMode
     *******************************************************************************/
-    void Pin_Serve_SetDriveMode(uint8 mode)
+    void Pin_Output_Serve_SetDriveMode(uint8 mode)
     {
-		Pin_Serve_SetP4PinDriveMode(Pin_Serve__0__SHIFT, mode);
+		Pin_Output_Serve_SetP4PinDriveMode(Pin_Output_Serve__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: Pin_Serve_Write
+* Function Name: Pin_Output_Serve_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet Pin_Serve_SUT.c usage_Pin_Serve_Write
+*  \snippet Pin_Output_Serve_SUT.c usage_Pin_Output_Serve_Write
 *******************************************************************************/
-void Pin_Serve_Write(uint8 value)
+void Pin_Output_Serve_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(Pin_Serve_DR & (uint8)(~Pin_Serve_MASK));
-    drVal = (drVal | ((uint8)(value << Pin_Serve_SHIFT) & Pin_Serve_MASK));
-    Pin_Serve_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(Pin_Output_Serve_DR & (uint8)(~Pin_Output_Serve_MASK));
+    drVal = (drVal | ((uint8)(value << Pin_Output_Serve_SHIFT) & Pin_Output_Serve_MASK));
+    Pin_Output_Serve_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: Pin_Serve_Read
+* Function Name: Pin_Output_Serve_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void Pin_Serve_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet Pin_Serve_SUT.c usage_Pin_Serve_Read  
+*  \snippet Pin_Output_Serve_SUT.c usage_Pin_Output_Serve_Read  
 *******************************************************************************/
-uint8 Pin_Serve_Read(void)
+uint8 Pin_Output_Serve_Read(void)
 {
-    return (uint8)((Pin_Serve_PS & Pin_Serve_MASK) >> Pin_Serve_SHIFT);
+    return (uint8)((Pin_Output_Serve_PS & Pin_Output_Serve_MASK) >> Pin_Output_Serve_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Pin_Serve_ReadDataReg
+* Function Name: Pin_Output_Serve_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 Pin_Serve_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred Pin_Serve_Read() API because the 
-* Pin_Serve_ReadDataReg() reads the data register instead of the status 
+* preferred Pin_Output_Serve_Read() API because the 
+* Pin_Output_Serve_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 Pin_Serve_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet Pin_Serve_SUT.c usage_Pin_Serve_ReadDataReg 
+*  \snippet Pin_Output_Serve_SUT.c usage_Pin_Output_Serve_ReadDataReg 
 *******************************************************************************/
-uint8 Pin_Serve_ReadDataReg(void)
+uint8 Pin_Output_Serve_ReadDataReg(void)
 {
-    return (uint8)((Pin_Serve_DR & Pin_Serve_MASK) >> Pin_Serve_SHIFT);
+    return (uint8)((Pin_Output_Serve_DR & Pin_Output_Serve_MASK) >> Pin_Output_Serve_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Pin_Serve_SetInterruptMode
+* Function Name: Pin_Output_Serve_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 Pin_Serve_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use Pin_Serve_INTR_ALL to configure the
+*  component. Or you may use Pin_Output_Serve_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - Pin_Serve_0_INTR       (First pin in the list)
-*  - Pin_Serve_1_INTR       (Second pin in the list)
+*  - Pin_Output_Serve_0_INTR       (First pin in the list)
+*  - Pin_Output_Serve_1_INTR       (Second pin in the list)
 *  - ...
-*  - Pin_Serve_INTR_ALL     (All pins in Pins component)
+*  - Pin_Output_Serve_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 Pin_Serve_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet Pin_Serve_SUT.c usage_Pin_Serve_SetInterruptMode
+*  \snippet Pin_Output_Serve_SUT.c usage_Pin_Output_Serve_SetInterruptMode
 *******************************************************************************/
-void Pin_Serve_SetInterruptMode(uint16 position, uint16 mode)
+void Pin_Output_Serve_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  Pin_Serve_INTCFG & (uint32)(~(uint32)position);
-    Pin_Serve_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  Pin_Output_Serve_INTCFG & (uint32)(~(uint32)position);
+    Pin_Output_Serve_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: Pin_Serve_ClearInterrupt
+* Function Name: Pin_Output_Serve_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void Pin_Serve_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet Pin_Serve_SUT.c usage_Pin_Serve_ClearInterrupt
+*  \snippet Pin_Output_Serve_SUT.c usage_Pin_Output_Serve_ClearInterrupt
 *******************************************************************************/
-uint8 Pin_Serve_ClearInterrupt(void)
+uint8 Pin_Output_Serve_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(Pin_Serve_INTSTAT & Pin_Serve_MASK);
-	Pin_Serve_INTSTAT = maskedStatus;
-    return maskedStatus >> Pin_Serve_SHIFT;
+	uint8 maskedStatus = (uint8)(Pin_Output_Serve_INTSTAT & Pin_Output_Serve_MASK);
+	Pin_Output_Serve_INTSTAT = maskedStatus;
+    return maskedStatus >> Pin_Output_Serve_SHIFT;
 }
 
 

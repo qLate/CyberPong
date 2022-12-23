@@ -1,6 +1,6 @@
 // ======================================================================
 // CyberPong.v generated from TopDesign.cysch
-// 11/23/2022 at 01:02
+// 12/23/2022 at 15:54
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -2216,11 +2216,11 @@ module top ;
 		 (.int_signal(Net_828));
 
 
-	wire [0:0] tmpOE__Pin_Serve_net;
-	wire [0:0] tmpFB_0__Pin_Serve_net;
-	wire [0:0] tmpIO_0__Pin_Serve_net;
-	wire [0:0] tmpINTERRUPT_0__Pin_Serve_net;
-	electrical [0:0] tmpSIOVREF__Pin_Serve_net;
+	wire [0:0] tmpOE__Pin_Output_Serve_net;
+	wire [0:0] tmpFB_0__Pin_Output_Serve_net;
+	wire [0:0] tmpIO_0__Pin_Output_Serve_net;
+	wire [0:0] tmpINTERRUPT_0__Pin_Output_Serve_net;
+	electrical [0:0] tmpSIOVREF__Pin_Output_Serve_net;
 
 	cy_psoc3_pins_v1_10
 		#(.id("a45133cb-683e-41b9-b6a4-155bde8f41e9"),
@@ -2275,13 +2275,13 @@ module top ;
 		  .ovt_needed(1'b0),
 		  .ovt_slew_control(2'b00),
 		  .input_buffer_sel(2'b00))
-		Pin_Serve
-		 (.oe(tmpOE__Pin_Serve_net),
+		Pin_Output_Serve
+		 (.oe(tmpOE__Pin_Output_Serve_net),
 		  .y({1'b0}),
-		  .fb({tmpFB_0__Pin_Serve_net[0:0]}),
-		  .io({tmpIO_0__Pin_Serve_net[0:0]}),
-		  .siovref(tmpSIOVREF__Pin_Serve_net),
-		  .interrupt({tmpINTERRUPT_0__Pin_Serve_net[0:0]}),
+		  .fb({tmpFB_0__Pin_Output_Serve_net[0:0]}),
+		  .io({tmpIO_0__Pin_Output_Serve_net[0:0]}),
+		  .siovref(tmpSIOVREF__Pin_Output_Serve_net),
+		  .interrupt({tmpINTERRUPT_0__Pin_Output_Serve_net[0:0]}),
 		  .in_clock({1'b0}),
 		  .in_clock_en({1'b1}),
 		  .in_reset({1'b0}),
@@ -2289,7 +2289,7 @@ module top ;
 		  .out_clock_en({1'b1}),
 		  .out_reset({1'b0}));
 
-	assign tmpOE__Pin_Serve_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+	assign tmpOE__Pin_Output_Serve_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
 	wire [0:0] tmpOE__Pin_Output_UP_GROUND_net;
 	wire [0:0] tmpFB_0__Pin_Output_UP_GROUND_net;
