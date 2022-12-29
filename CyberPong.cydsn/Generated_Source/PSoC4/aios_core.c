@@ -20,9 +20,9 @@
 #ifdef CYBLE_AIOS_SERVER
 /* Generated code */
 /* Analog characteristic data */
-static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
+static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x06u] = {
     {
-        0x0012u, /* Handle of the LeftMotor characteristic */ 
+        0x0012u, /* Handle of the Left characteristic */ 
         
             /* Array of Descriptors handles */
             {
@@ -36,7 +36,7 @@ static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
             }, 
     },
     {
-        0x001Bu, /* Handle of the RightMotor characteristic */ 
+        0x001Bu, /* Handle of the Right characteristic */ 
         
             /* Array of Descriptors handles */
             {
@@ -50,7 +50,7 @@ static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
             }, 
     },
     {
-        0x0024u, /* Handle of the TopMotor characteristic */ 
+        0x0024u, /* Handle of the Top characteristic */ 
         
             /* Array of Descriptors handles */
             {
@@ -64,7 +64,7 @@ static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
             }, 
     },
     {
-        0x002Du, /* Handle of the BottomMotor characteristic */ 
+        0x002Du, /* Handle of the Bottom characteristic */ 
         
             /* Array of Descriptors handles */
             {
@@ -77,11 +77,57 @@ static CYBLE_AIOSS_CHAR_T aiossCharIdx1[0x04u] = {
                 0x0034u, /* Handle of the Valid Range descriptor */ 
             }, 
     },
+    {
+        0x0036u, /* Handle of the BallServe characteristic */ 
+        
+            /* Array of Descriptors handles */
+            {
+                0x0037u, /* Handle of the Client Characteristic Configuration descriptor */ 
+                0x0038u, /* Handle of the Characteristic Presentation Format descriptor */ 
+                0x0039u, /* Handle of the Characteristic User Description descriptor */ 
+                0x003Au, /* Handle of the Characteristic Extended Properties descriptor */ 
+                0x003Bu, /* Handle of the Value Trigger Setting descriptor */ 
+                0x003Cu, /* Handle of the Time Trigger Setting descriptor */ 
+                0x003Du, /* Handle of the Valid Range descriptor */ 
+            }, 
+    },
+    {
+        0x003Fu, /* Handle of the MotorEnable characteristic */ 
+        
+            /* Array of Descriptors handles */
+            {
+                0x0040u, /* Handle of the Client Characteristic Configuration descriptor */ 
+                0x0041u, /* Handle of the Characteristic Presentation Format descriptor */ 
+                0x0042u, /* Handle of the Characteristic User Description descriptor */ 
+                0x0043u, /* Handle of the Characteristic Extended Properties descriptor */ 
+                0x0044u, /* Handle of the Value Trigger Setting descriptor */ 
+                0x0045u, /* Handle of the Time Trigger Setting descriptor */ 
+                0x0046u, /* Handle of the Valid Range descriptor */ 
+            }, 
+    },
+};
+
+/* Aggregate characteristic data */
+static CYBLE_AIOSS_CHAR_T aiossCharIdx2[0x01u] = {
+    {
+        0x0048u, /* Handle of the Aggregate characteristic */ 
+        
+            /* Array of Descriptors handles */
+            {
+                0x0049u, /* Handle of the Client Characteristic Configuration descriptor */ 
+                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+            }, 
+    },
 };
 
 /* Number of AIOS characteristics instances */
 uint8 cyBle_aiossCharInstances[0x03u] = {
-    0x00u, 0x04u, 0x00u
+    0x00u, 0x06u, 0x01u
 };
 
 const CYBLE_AIOSS_T cyBle_aioss =
@@ -95,7 +141,7 @@ const CYBLE_AIOSS_T cyBle_aioss =
             &aiossCharIdx1[0], /* Handle of the Analog characteristic */ 
         }, 
         {
-            NULL, /* Handle of the Aggregate characteristic */ 
+            &aiossCharIdx2[0], /* Handle of the Aggregate characteristic */ 
         }, 
     },
 };

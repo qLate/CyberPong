@@ -23,25 +23,6 @@
 */
 /* This array contains attribute handles for the defined Custom Services and their characteristics and descriptors.
    The array index definitions are located in the CYBLE_custom.h file. */
-const CYBLE_CUSTOMS_T cyBle_customs[0x01u] = {
-
-    /* MotorController service */
-    {
-        0x0010u, /* Handle of the MotorController service */ 
-        {
-
-            /* LeftMotor characteristic */
-            {
-                0x0012u, /* Handle of the LeftMotor characteristic */ 
-                
-                /* Array of Descriptors handles */
-                {
-                    0x0013u, /* Handle of the Description descriptor */ 
-                }, 
-            },
-        }, 
-    },
-};
 
 
 #endif /* (CYBLE_CUSTOM_SERVER) */

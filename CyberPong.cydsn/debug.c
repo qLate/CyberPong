@@ -1,5 +1,5 @@
 #include "debug.h"
-
+#include "ballServeController.h"
 
 void Print(char text[]) {
     UART_UartPutString(text);
@@ -12,9 +12,9 @@ void Println(char text[]) {
 
 int counter = 0;
 void PrintMotorSpeeds() {
-    if(disablePrintIfZeroRPM && FanController_GetActualSpeed(1)==0 && FanController_GetActualSpeed(2)==0 && 
-       FanController_GetActualSpeed(3)==0 && FanController_GetActualSpeed(4)==0)
-        return;
+   // if(disablePrintIfZeroRPM && FanController_GetActualSpeed(1)==0 && FanController_GetActualSpeed(2)==0 && 
+   //    FanController_GetActualSpeed(3)==0 && FanController_GetActualSpeed(4)==0)
+   //     return;
 
     if (counter < 100000) {
         counter++;
@@ -46,6 +46,9 @@ void HandleUARTInput(){
     char ch = UART_UartGetChar();
     if (ch == 'a') {
         disablePrintIfZeroRPM = !disablePrintIfZeroRPM;
+    }
+    else if (ch == 's') {
+        doServe = true;
     }
 }
 

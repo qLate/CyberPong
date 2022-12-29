@@ -1513,7 +1513,7 @@
     <block name="VirtualMux_18" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VirtualMux_5" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VirtualMux_6" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <register name="FanController_ALERT_STATUS" address="0x400F0060" bitWidth="8" desc="Alert Status Register" hidden="false">
+    <register name="FanController_ALERT_STATUS" address="0x400F0063" bitWidth="8" desc="Alert Status Register" hidden="false">
       <field name="STALL_STATUS" from="0" to="0" access="R" resetVal="" desc="Stall status for all Fans" hidden="false">
         <value name="NO_STALL" value="0" desc="No stall occurred" />
         <value name="STALL" value="1" desc="Stall is occurred" />
@@ -1523,7 +1523,7 @@
         <value name="SPEED_ERROR" value="1" desc="Speed error is occurred" />
       </field>
     </register>
-    <register name="FanController_GLBL_CTRL" address="0x400F0070" bitWidth="8" desc="Global Control Register" hidden="false">
+    <register name="FanController_GLBL_CTRL" address="0x400F0073" bitWidth="8" desc="Global Control Register" hidden="false">
       <field name="ALERT_ENABLE" from="0" to="0" access="RW" resetVal="" desc="Global alert enable signal" hidden="false">
         <value name="ALERTS_DIS" value="0" desc="Generation of all alerts is disabled" />
         <value name="ALERTS_EN" value="1" desc="Generation of alerts is enabled" />
@@ -1897,7 +1897,7 @@
   <block name="Pin_Output_UP_GROUND" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="and_4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Control_Rotation" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-    <register name="Control_Rotation_CONTROL_REG" address="0x400F0073" bitWidth="8" desc="" hidden="false" />
+    <register name="Control_Rotation_CONTROL_REG" address="0x400F0070" bitWidth="8" desc="" hidden="false" />
   </block>
   <block name="Pin_Input_BallTrigger" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Pin_Input_UP" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />

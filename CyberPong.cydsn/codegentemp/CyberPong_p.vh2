@@ -1,5 +1,5 @@
 -- Project:   CyberPong
--- Generated: 12/23/2022 15:54:36
+-- Generated: 12/29/2022 11:17:00
 -- PSoC Creator  4.4
 
 ENTITY CyberPong IS
@@ -204,23 +204,25 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     ATTRIBUTE lib_model OF Pin_Output_LEFT(0) : LABEL IS "iocell1";
     ATTRIBUTE Location OF Pin_Output_LEFT(0) : LABEL IS "P2[0]";
     ATTRIBUTE lib_model OF Pin_Input_LEFT(0) : LABEL IS "iocell2";
-    ATTRIBUTE Location OF Pin_Input_LEFT(0) : LABEL IS "P0[0]";
+    ATTRIBUTE Location OF Pin_Input_LEFT(0) : LABEL IS "P1[0]";
     ATTRIBUTE lib_model OF \UART:tx(0)\ : LABEL IS "iocell3";
     ATTRIBUTE Location OF \UART:tx(0)\ : LABEL IS "P1[5]";
     ATTRIBUTE lib_model OF \UART:rx(0)\ : LABEL IS "iocell4";
     ATTRIBUTE Location OF \UART:rx(0)\ : LABEL IS "P1[4]";
     ATTRIBUTE lib_model OF Pin_Input_RIGHT(0) : LABEL IS "iocell5";
-    ATTRIBUTE Location OF Pin_Input_RIGHT(0) : LABEL IS "P0[1]";
+    ATTRIBUTE Location OF Pin_Input_RIGHT(0) : LABEL IS "P1[1]";
     ATTRIBUTE lib_model OF Pin_Output_RIGHT(0) : LABEL IS "iocell6";
     ATTRIBUTE Location OF Pin_Output_RIGHT(0) : LABEL IS "P2[1]";
     ATTRIBUTE lib_model OF Pin_Input_DOWN(0) : LABEL IS "iocell7";
-    ATTRIBUTE Location OF Pin_Input_DOWN(0) : LABEL IS "P0[3]";
+    ATTRIBUTE Location OF Pin_Input_DOWN(0) : LABEL IS "P1[3]";
     ATTRIBUTE lib_model OF Pin_Output_UP(0) : LABEL IS "iocell8";
     ATTRIBUTE Location OF Pin_Output_UP(0) : LABEL IS "P2[2]";
     ATTRIBUTE lib_model OF Pin_Input_UP(0) : LABEL IS "iocell9";
-    ATTRIBUTE Location OF Pin_Input_UP(0) : LABEL IS "P0[2]";
+    ATTRIBUTE Location OF Pin_Input_UP(0) : LABEL IS "P1[2]";
     ATTRIBUTE lib_model OF Pin_Input_BallTrigger(0) : LABEL IS "iocell10";
+    ATTRIBUTE Location OF Pin_Input_BallTrigger(0) : LABEL IS "P2[5]";
     ATTRIBUTE lib_model OF Pin_Output_Serve(0) : LABEL IS "iocell11";
+    ATTRIBUTE Location OF Pin_Output_Serve(0) : LABEL IS "P3[5]";
     ATTRIBUTE lib_model OF Pin_Output_UP_GROUND(0) : LABEL IS "iocell12";
     ATTRIBUTE Location OF Pin_Output_UP_GROUND(0) : LABEL IS "P3[2]";
     ATTRIBUTE lib_model OF Pin_Output_DOWN(0) : LABEL IS "iocell13";

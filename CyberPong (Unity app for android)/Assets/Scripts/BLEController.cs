@@ -12,6 +12,7 @@ public class BLEController : MonoBehaviour
     public Text statusText;
     public List<InputField> inputFields;
     public Button writeBtn;
+    public Button serveBtn;
 
     private string deviceId = null;
     private string serviceId = "1815";
@@ -34,7 +35,6 @@ public class BLEController : MonoBehaviour
     private void SetUpConnection()
     {
         if (deviceId != null || isConnecting) return;
-
         isConnecting = true;
         statusText.text = "Searching for nearby CyberPong...";
         BleManager.Instance.QueueCommand(new DiscoverDevices(OnDeviceFound, 5 * 1000));
@@ -56,11 +56,13 @@ public class BLEController : MonoBehaviour
         statusText.text = "Connected";
         this.deviceId = deviceId;
         writeBtn.interactable = true;
+        serveBtn.interactable = true;
     }
     private void OnDisconnected(string deviceId)
     {
-        writeBtn.interactable = false;
         this.deviceId = null;
+        writeBtn.interactable = false;
+        serveBtn.interactable = false;
 
         BleManager._bleLibrary = null;
         BleManager.Instance.Initialize();
@@ -70,7 +72,15 @@ public class BLEController : MonoBehaviour
 
     public void WriteMotorSpeeds()
     {
-        var bytes = new byte[8];
+        WriteData();
+    }
+    public void DoServe()
+    {
+        WriteData(1);
+    }
+    private void WriteData(byte doServe = 0)
+    {
+        var bytes = new byte[12];
         var pointer = 0;
         for (var i = 0; i < inputFields.Count; i++)
         {
@@ -82,8 +92,14 @@ public class BLEController : MonoBehaviour
                 pointer++;
             }
         }
+
+        bytes[8] = doServe;
+        bytes[9] = doServe;
+        bytes[10] = doServe;
+        bytes[11] = doServe;
         BleManager.Instance.QueueCommand(new WriteToCharacteristic(deviceId, serviceId, "2A5A", bytes.ToArray()));
     }
+
     public static byte[] StringToByteArray(string hex)
     {
         return Enumerable.Range(0, hex.Length)

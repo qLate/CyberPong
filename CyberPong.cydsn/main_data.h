@@ -5,7 +5,7 @@
 
 #define MOTOR_COUNT 4
 
-#define MAX_RPM 4250
+#define MAX_RPM 9999
 #define MIN_RPM 1000
 
 char uart_rpm_buff[4];

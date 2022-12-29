@@ -24,21 +24,12 @@
 ***************************************/
 
 /* Maximum supported Custom Services */
-#define CYBLE_CUSTOMS_SERVICE_COUNT                  (0x01u)
+#define CYBLE_CUSTOMS_SERVICE_COUNT                  (0x00u)
 #define CYBLE_CUSTOMC_SERVICE_COUNT                  (0x00u)
-#define CYBLE_CUSTOM_SERVICE_CHAR_COUNT              (0x01u)
-#define CYBLE_CUSTOM_SERVICE_CHAR_DESCRIPTORS_COUNT  (0x01u)
+#define CYBLE_CUSTOM_SERVICE_CHAR_COUNT              (0x00u)
+#define CYBLE_CUSTOM_SERVICE_CHAR_DESCRIPTORS_COUNT  (0x00u)
 
 /* Below are the indexes and handles of the defined Custom Services and their characteristics */
-#define CYBLE_MOTORCONTROLLER_SERVICE_INDEX   (0x00u) /* Index of MotorController service in the cyBle_customs array */
-#define CYBLE_MOTORCONTROLLER_LEFTMOTOR_CHAR_INDEX   (0x00u) /* Index of LeftMotor characteristic */
-#define CYBLE_MOTORCONTROLLER_LEFTMOTOR_DESCRIPTION_DESC_INDEX   (0x00u) /* Index of Description descriptor */
-
-
-#define CYBLE_MOTORCONTROLLER_SERVICE_HANDLE   (0x0010u) /* Handle of MotorController service */
-#define CYBLE_MOTORCONTROLLER_LEFTMOTOR_DECL_HANDLE   (0x0011u) /* Handle of LeftMotor characteristic declaration */
-#define CYBLE_MOTORCONTROLLER_LEFTMOTOR_CHAR_HANDLE   (0x0012u) /* Handle of LeftMotor characteristic */
-#define CYBLE_MOTORCONTROLLER_LEFTMOTOR_DESCRIPTION_DESC_HANDLE   (0x0013u) /* Handle of Description descriptor */
 
 
 
