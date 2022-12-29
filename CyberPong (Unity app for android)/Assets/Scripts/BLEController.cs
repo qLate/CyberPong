@@ -13,6 +13,7 @@ public class BLEController : MonoBehaviour
     public List<InputField> inputFields;
     public Button writeBtn;
     public Button serveBtn;
+    public Toggle enabledToggle;
 
     private string deviceId = null;
     private string serviceId = "1815";
@@ -57,12 +58,14 @@ public class BLEController : MonoBehaviour
         this.deviceId = deviceId;
         writeBtn.interactable = true;
         serveBtn.interactable = true;
+        enabledToggle.interactable = true;
     }
     private void OnDisconnected(string deviceId)
     {
         this.deviceId = null;
         writeBtn.interactable = false;
         serveBtn.interactable = false;
+        enabledToggle.interactable = false;
 
         BleManager._bleLibrary = null;
         BleManager.Instance.Initialize();
@@ -95,8 +98,8 @@ public class BLEController : MonoBehaviour
 
         bytes[8] = doServe;
         bytes[9] = doServe;
-        bytes[10] = doServe;
-        bytes[11] = doServe;
+        bytes[10] = Convert.ToByte(enabledToggle.isOn);
+        bytes[11] = Convert.ToByte(enabledToggle.isOn);
         BleManager.Instance.QueueCommand(new WriteToCharacteristic(deviceId, serviceId, "2A5A", bytes.ToArray()));
     }
 

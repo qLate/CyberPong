@@ -2,6 +2,7 @@
 #define MainData_H
 
 #include <stdint.h>
+#include <stdbool.h>
 
 #define MOTOR_COUNT 4
 
@@ -10,6 +11,8 @@
 
 char uart_rpm_buff[4];
 char str[16];
+int motor_speeds[4];
+bool motorsEnabled;
 
 enum MotorDirection{
     Left=0,

@@ -30,6 +30,10 @@ void AIOS_Callback(uint32 eventCode, void *eventParam){
         uint8 zero = 0;
         doServe = CyBle_AiosGet16ByPtr(locCharValue->value->val+8);
         CyBle_AiossSetCharacteristicValue(CYBLE_AIOS_ANALOG, 4, 2, &zero);
+        
+        bool enabled = CyBle_AiosGet16ByPtr(locCharValue->value->val+10);
+        sprintf(str, "testing: %d", enabled);
+        SetMotorsEnabled(enabled);
         break;
         }
     }

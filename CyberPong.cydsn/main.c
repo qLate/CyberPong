@@ -21,12 +21,11 @@ int main(void)
     CyBle_Start(AIOS_Handler);
     CyBle_AiosRegisterAttrCallback(AIOS_Callback);
     
-    
     // Set up flags
     disablePrintIfZeroRPM = false;
     
-    int speed_config[4] = {0, 0, 0, 0};
-    SetMotorSpeed(speed_config);
+    motorsEnabled = true;
+    SetMotorsEnabled(false);
     
     clock_t c_=clock();
     for(;;)

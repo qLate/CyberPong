@@ -37,6 +37,10 @@ void PrintMotorSpeeds() {
         current_rpm = FanController_GetDesiredSpeed(i);
         sprintf(uart_rpm_buff, "%u  ", current_rpm / 2);
         Print(uart_rpm_buff);
+        
+        current_rpm = motor_speeds[i-1];
+        sprintf(uart_rpm_buff, "%u  ", current_rpm / 2);
+        Print(uart_rpm_buff);
     }
     UART_UartPutChar('\n');
     UART_UartPutChar('\r');

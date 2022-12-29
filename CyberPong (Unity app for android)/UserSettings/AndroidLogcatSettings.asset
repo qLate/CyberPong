@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "R58N90YA64Z",
         "name": "com.ucu.edu.ua.CyberPong",
-        "processId": 12259,
+        "processId": 16038,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -126,6 +126,30 @@
             "deviceId": "R58N90YA64Z",
             "name": "com.ucu.edu.ua.CyberPong",
             "processId": 12259,
+            "exited": false
+        },
+        {
+            "deviceId": "R58N90YA64Z",
+            "name": "com.ucu.edu.ua.CyberPong",
+            "processId": 13825,
+            "exited": false
+        },
+        {
+            "deviceId": "R58N90YA64Z",
+            "name": "com.ucu.edu.ua.CyberPong",
+            "processId": 14765,
+            "exited": false
+        },
+        {
+            "deviceId": "R58N90YA64Z",
+            "name": "com.ucu.edu.ua.CyberPong",
+            "processId": 15496,
+            "exited": false
+        },
+        {
+            "deviceId": "R58N90YA64Z",
+            "name": "com.ucu.edu.ua.CyberPong",
+            "processId": 16038,
             "exited": false
         }
     ],
