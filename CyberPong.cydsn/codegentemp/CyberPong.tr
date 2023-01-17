@@ -70,10 +70,10 @@ All values are in Picoseconds
 
 Port Name               Setup to Clk  Clock Name:Phase               
 ----------------------  ------------  -----------------------------  
-Pin_Input_DOWN(0)_PAD   18887         FanController_TACH_CLK_500K:R  
-Pin_Input_LEFT(0)_PAD   18066         FanController_TACH_CLK_500K:R  
-Pin_Input_RIGHT(0)_PAD  18959         FanController_TACH_CLK_500K:R  
-Pin_Input_UP(0)_PAD     17948         FanController_TACH_CLK_500K:R  
+Pin_Input_DOWN(0)_PAD   18886         FanController_TACH_CLK_500K:R  
+Pin_Input_LEFT(0)_PAD   18037         FanController_TACH_CLK_500K:R  
+Pin_Input_RIGHT(0)_PAD  18981         FanController_TACH_CLK_500K:R  
+Pin_Input_UP(0)_PAD     17943         FanController_TACH_CLK_500K:R  
 
 
                        3.2::Clock to Out
@@ -81,20 +81,20 @@ Pin_Input_UP(0)_PAD     17948         FanController_TACH_CLK_500K:R
 
 Port Name                       Clock to Out  Clock Name:Phase                          
 ------------------------------  ------------  ----------------------------------------  
-Pin_Output_DOWN(0)_PAD          30136         CyHFClk:R                                 
-Pin_Output_DOWN(0)_PAD          29876         FanController_PWM_CLOCK_25k_10b_1(FFB):R  
+Pin_Output_DOWN(0)_PAD          30001         CyHFClk:R                                 
+Pin_Output_DOWN(0)_PAD          29741         FanController_PWM_CLOCK_25k_10b_1(FFB):R  
 Pin_Output_DOWN_GROUND(0)_PAD   29837         CyHFClk:R                                 
 Pin_Output_DOWN_GROUND(0)_PAD   29578         FanController_PWM_CLOCK_25k_10b_1(FFB):R  
-Pin_Output_LEFT(0)_PAD          28928         CyHFClk:R                                 
-Pin_Output_LEFT(0)_PAD          28747         FanController_PWM_CLOCK_25k_10b_1(FFB):R  
+Pin_Output_LEFT(0)_PAD          29330         CyHFClk:R                                 
+Pin_Output_LEFT(0)_PAD          29149         FanController_PWM_CLOCK_25k_10b_1(FFB):R  
 Pin_Output_LEFT_GROUND(0)_PAD   29414         CyHFClk:R                                 
 Pin_Output_LEFT_GROUND(0)_PAD   29232         FanController_PWM_CLOCK_25k_10b_1(FFB):R  
-Pin_Output_RIGHT(0)_PAD         30569         FanController_PWM_CLOCK_25k_10b_1(FFB):R  
-Pin_Output_RIGHT(0)_PAD         30019         CyHFClk:R                                 
-Pin_Output_RIGHT_GROUND(0)_PAD  30395         FanController_PWM_CLOCK_25k_10b_1(FFB):R  
-Pin_Output_RIGHT_GROUND(0)_PAD  29844         CyHFClk:R                                 
-Pin_Output_UP(0)_PAD            30374         FanController_PWM_CLOCK_25k_10b_1(FFB):R  
-Pin_Output_UP(0)_PAD            30159         CyHFClk:R                                 
+Pin_Output_RIGHT(0)_PAD         30380         FanController_PWM_CLOCK_25k_10b_1(FFB):R  
+Pin_Output_RIGHT(0)_PAD         29830         CyHFClk:R                                 
+Pin_Output_RIGHT_GROUND(0)_PAD  30705         FanController_PWM_CLOCK_25k_10b_1(FFB):R  
+Pin_Output_RIGHT_GROUND(0)_PAD  30155         CyHFClk:R                                 
+Pin_Output_UP(0)_PAD            29896         FanController_PWM_CLOCK_25k_10b_1(FFB):R  
+Pin_Output_UP(0)_PAD            29681         CyHFClk:R                                 
 Pin_Output_UP_GROUND(0)_PAD     30052         FanController_PWM_CLOCK_25k_10b_1(FFB):R  
 Pin_Output_UP_GROUND(0)_PAD     29837         CyHFClk:R                                 
 

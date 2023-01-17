@@ -14,14 +14,12 @@ char str[16];
 int motor_speeds[4];
 bool motorsEnabled;
 
+
 enum MotorDirection{
     Left=0,
     Right=1,
     Top=2,
     Bottom=3
-};
-static char *MotorDirectionStr[] = {
-    "Left", "Right", "Top", "Bottom",
 };
 
 

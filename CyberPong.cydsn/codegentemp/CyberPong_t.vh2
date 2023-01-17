@@ -1,5 +1,5 @@
 -- Project:   C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\CyberPong.cyprj
--- Generated: 12/29/2022 11:17:03
+-- Generated: 01/15/2023 16:22:55
 -- PSoC Creator  4.4
 
 ENTITY CyberPong IS
@@ -247,9 +247,9 @@ ARCHITECTURE __DEFAULT__ OF CyberPong IS
     ATTRIBUTE lib_model OF Pin_Input_UP(0) : LABEL IS "iocell9";
     ATTRIBUTE Location OF Pin_Input_UP(0) : LABEL IS "P1[2]";
     ATTRIBUTE lib_model OF Pin_Input_BallTrigger(0) : LABEL IS "iocell10";
-    ATTRIBUTE Location OF Pin_Input_BallTrigger(0) : LABEL IS "P2[5]";
+    ATTRIBUTE Location OF Pin_Input_BallTrigger(0) : LABEL IS "P2[4]";
     ATTRIBUTE lib_model OF Pin_Output_Serve(0) : LABEL IS "iocell11";
-    ATTRIBUTE Location OF Pin_Output_Serve(0) : LABEL IS "P3[5]";
+    ATTRIBUTE Location OF Pin_Output_Serve(0) : LABEL IS "P3[4]";
     ATTRIBUTE lib_model OF Pin_Output_UP_GROUND(0) : LABEL IS "iocell12";
     ATTRIBUTE Location OF Pin_Output_UP_GROUND(0) : LABEL IS "P3[2]";
     ATTRIBUTE lib_model OF Pin_Output_DOWN(0) : LABEL IS "iocell13";

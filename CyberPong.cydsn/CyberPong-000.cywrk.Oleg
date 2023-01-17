@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CyberPong-000\CyberPong\Header Files\main_data.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CyberPong-000\CyberPong\Source Files\debug.c">
 <ExpandedNodeIds>
 <v>CyberPong-000</v>
 <v>CyberPong-000\CyberPong</v>
@@ -74,7 +74,7 @@
 <v>CyberPong-000\CyberPong\Generated_Source</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CyberPong-000\CyberPong\TopDesign\TopDesign.cysch">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CyberPong-000\CyberPong">
 <ExpandedNodeIds>
 <v>CyberPong-000</v>
 <v>CyberPong-000\CyberPong</v>
@@ -284,7 +284,10 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
+<name v=".\debug.c" />
+<name v=".\main_data.h" />
 <name v=".\main.c" />
+<name v=".\TopDesign\TopDesign.cysch" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -292,7 +295,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1027, 495" SelectedTabbedMdiWindow="747fe257-7b56-42b4-8120-6ac3dbee04c7"><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\main.c" Guid="747fe257-7b56-42b4-8120-6ac3dbee04c7" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="984, 495" SelectedTabbedMdiWindow="b6185a26-e8e3-4b7b-b4a2-d317c31804b9"><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\debug.c" Guid="d0c972a6-3902-4442-bbfb-4e592114b2e9" /><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\main_data.h" Guid="7a704261-7df3-4575-8283-9f35f01b90c3" /><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\main.c" Guid="ab4516b7-3442-4be9-b3b8-68b5580304d8" /><DocumentWindow Key="C:\Users\Oleg\Documents\Programming\POK\CyberPong\CyberPong.cydsn\TopDesign\TopDesign.cysch" Guid="b6185a26-e8e3-4b7b-b4a2-d317c31804b9" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

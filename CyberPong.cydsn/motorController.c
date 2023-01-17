@@ -1,5 +1,5 @@
 #include "motorController.h"
-
+#include "stdlib.h"
 
 int Clamp(int v, int min, int max){
     if (v < min)
@@ -20,7 +20,13 @@ void SetMotorSpeed_Single(enum MotorDirection dir, int speed) {
         motor_speeds[dir] = speed;
         return;
     }
-    int clamped = Clamp(speed, MIN_RPM, MAX_RPM);
+    // Setting rotation direction
+    uint8 bits = Control_Rotation_Read();
+    bits ^= (-(speed < 0 ? -1 : 1) ^ bits) & (1UL << dir);
+    Control_Rotation_Write(bits);
+    
+    // Setting speed
+    int clamped = Clamp(abs(speed), MIN_RPM, MAX_RPM);
     FanController_SetDesiredSpeed(dir+1, motorsEnabled ? 2*clamped : 0);
     motor_speeds[dir] = speed;
 }
@@ -28,6 +34,8 @@ void SetMotorSpeed_Single(enum MotorDirection dir, int speed) {
 void SetMotorsEnabled(bool enabled) {
     if(motorsEnabled == enabled)
         return;
+    if(enabled==false)
+        StopBallServe();
     motorsEnabled = enabled;
     for (int i = 0; i < MOTOR_COUNT; i++) {
         SetMotorSpeed_Single(i, enabled ? motor_speeds[i] : 0);

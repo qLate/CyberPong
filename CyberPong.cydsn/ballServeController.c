@@ -3,6 +3,8 @@
 void CheckForBallServeRequest() {
     if(doServe) {
         doServe = false;
+        if(motorsEnabled == false)
+            return;
         isServing = true;
         Pin_Output_Serve_Write(1);
     }

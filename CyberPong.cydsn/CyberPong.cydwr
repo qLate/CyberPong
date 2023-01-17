@@ -3628,7 +3628,7 @@
     </Group>
     <Group key="a45133cb-683e-41b9-b6a4-155bde8f41e9">
       <Group key="0">
-        <Data key="Port Format" value="3,5" />
+        <Data key="Port Format" value="3,4" />
       </Group>
     </Group>
     <Group key="c3d56674-74c2-4375-b646-dffe16e6448c">
@@ -3638,7 +3638,7 @@
     </Group>
     <Group key="c8cb8994-cb9c-46dd-adfb-531a4692270b">
       <Group key="0">
-        <Data key="Port Format" value="2,5" />
+        <Data key="Port Format" value="2,4" />
       </Group>
     </Group>
     <Group key="c487611f-3b62-4bb9-99c1-5669b432c713">

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Android.BLE;
 using Android.BLE.Commands;
 using UnityEngine;
@@ -9,6 +8,8 @@ using UnityEngine.UI;
 
 public class BLEController : MonoBehaviour
 {
+    public static BLEController instance;
+
     public Text statusText;
     public List<InputField> inputFields;
     public Button writeBtn;
@@ -26,6 +27,22 @@ public class BLEController : MonoBehaviour
     };
 
     private bool isConnecting;
+
+    private List<short> currentSpeeds;
+
+
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        else
+            instance = this;
+    }
+
 
 
     private void Start()
@@ -73,22 +90,30 @@ public class BLEController : MonoBehaviour
         Invoke(nameof(SetUpConnection), 1f);
     }
 
-    public void WriteMotorSpeeds()
+    public void WriteMotorSpeeds(List<int> newSpeeds)
     {
+        this.currentSpeeds = newSpeeds.ConvertAll((speed) => (short)speed);
         WriteData();
     }
     public void DoServe()
     {
         WriteData(1);
     }
+    private List<int> GetSpeedsFromInputBoxes()
+    {
+        var speeds = new List<int>();
+        for (int i = 0; i < 4; i++)
+            speeds.Add((short.Parse(inputFields[i].text) * 1000));
+        return speeds;
+    }
+
     private void WriteData(byte doServe = 0)
     {
         var bytes = new byte[12];
         var pointer = 0;
         for (var i = 0; i < inputFields.Count; i++)
         {
-            var intValue = Int16.Parse(inputFields[i].text);
-            var bytes_ = BitConverter.GetBytes(intValue);
+            var bytes_ = BitConverter.GetBytes(currentSpeeds[i]);
             foreach (var b in bytes_)
             {
                 bytes[pointer] = b;

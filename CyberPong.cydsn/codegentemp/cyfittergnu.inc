@@ -1314,7 +1314,7 @@
 .set Pin_Output_LEFT__0__MASK, 0x01
 .set Pin_Output_LEFT__0__OUT_SEL, CYREG_UDB_PA2_CFG10
 .set Pin_Output_LEFT__0__OUT_SEL_SHIFT, 0
-.set Pin_Output_LEFT__0__OUT_SEL_VAL, 2
+.set Pin_Output_LEFT__0__OUT_SEL_VAL, 1
 .set Pin_Output_LEFT__0__PA__CFG0, CYREG_UDB_PA2_CFG0
 .set Pin_Output_LEFT__0__PA__CFG1, CYREG_UDB_PA2_CFG1
 .set Pin_Output_LEFT__0__PA__CFG10, CYREG_UDB_PA2_CFG10
@@ -1487,7 +1487,7 @@
 .set Pin_Output_RIGHT__0__MASK, 0x02
 .set Pin_Output_RIGHT__0__OUT_SEL, CYREG_UDB_PA2_CFG10
 .set Pin_Output_RIGHT__0__OUT_SEL_SHIFT, 2
-.set Pin_Output_RIGHT__0__OUT_SEL_VAL, 1
+.set Pin_Output_RIGHT__0__OUT_SEL_VAL, 2
 .set Pin_Output_RIGHT__0__PA__CFG0, CYREG_UDB_PA2_CFG0
 .set Pin_Output_RIGHT__0__PA__CFG1, CYREG_UDB_PA2_CFG1
 .set Pin_Output_RIGHT__0__PA__CFG10, CYREG_UDB_PA2_CFG10
@@ -1608,13 +1608,13 @@
 .set Pin_Output_Serve__0__DR_INV, CYREG_GPIO_PRT3_DR_INV
 .set Pin_Output_Serve__0__DR_SET, CYREG_GPIO_PRT3_DR_SET
 .set Pin_Output_Serve__0__HSIOM, CYREG_HSIOM_PORT_SEL3
-.set Pin_Output_Serve__0__HSIOM_MASK, 0x00F00000
-.set Pin_Output_Serve__0__HSIOM_SHIFT, 20
+.set Pin_Output_Serve__0__HSIOM_MASK, 0x000F0000
+.set Pin_Output_Serve__0__HSIOM_SHIFT, 16
 .set Pin_Output_Serve__0__INTCFG, CYREG_GPIO_PRT3_INTR_CFG
 .set Pin_Output_Serve__0__INTR, CYREG_GPIO_PRT3_INTR
 .set Pin_Output_Serve__0__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
 .set Pin_Output_Serve__0__INTSTAT, CYREG_GPIO_PRT3_INTR
-.set Pin_Output_Serve__0__MASK, 0x20
+.set Pin_Output_Serve__0__MASK, 0x10
 .set Pin_Output_Serve__0__PA__CFG0, CYREG_UDB_PA3_CFG0
 .set Pin_Output_Serve__0__PA__CFG1, CYREG_UDB_PA3_CFG1
 .set Pin_Output_Serve__0__PA__CFG10, CYREG_UDB_PA3_CFG10
@@ -1634,7 +1634,7 @@
 .set Pin_Output_Serve__0__PC2, CYREG_GPIO_PRT3_PC2
 .set Pin_Output_Serve__0__PORT, 3
 .set Pin_Output_Serve__0__PS, CYREG_GPIO_PRT3_PS
-.set Pin_Output_Serve__0__SHIFT, 5
+.set Pin_Output_Serve__0__SHIFT, 4
 .set Pin_Output_Serve__DR, CYREG_GPIO_PRT3_DR
 .set Pin_Output_Serve__DR_CLR, CYREG_GPIO_PRT3_DR_CLR
 .set Pin_Output_Serve__DR_INV, CYREG_GPIO_PRT3_DR_INV
@@ -1643,7 +1643,7 @@
 .set Pin_Output_Serve__INTR, CYREG_GPIO_PRT3_INTR
 .set Pin_Output_Serve__INTR_CFG, CYREG_GPIO_PRT3_INTR_CFG
 .set Pin_Output_Serve__INTSTAT, CYREG_GPIO_PRT3_INTR
-.set Pin_Output_Serve__MASK, 0x20
+.set Pin_Output_Serve__MASK, 0x10
 .set Pin_Output_Serve__PA__CFG0, CYREG_UDB_PA3_CFG0
 .set Pin_Output_Serve__PA__CFG1, CYREG_UDB_PA3_CFG1
 .set Pin_Output_Serve__PA__CFG10, CYREG_UDB_PA3_CFG10
@@ -1663,7 +1663,7 @@
 .set Pin_Output_Serve__PC2, CYREG_GPIO_PRT3_PC2
 .set Pin_Output_Serve__PORT, 3
 .set Pin_Output_Serve__PS, CYREG_GPIO_PRT3_PS
-.set Pin_Output_Serve__SHIFT, 5
+.set Pin_Output_Serve__SHIFT, 4
 
 /* Pin_Input_BallTrigger */
 .set Pin_Input_BallTrigger__0__DR, CYREG_GPIO_PRT2_DR
@@ -1671,13 +1671,13 @@
 .set Pin_Input_BallTrigger__0__DR_INV, CYREG_GPIO_PRT2_DR_INV
 .set Pin_Input_BallTrigger__0__DR_SET, CYREG_GPIO_PRT2_DR_SET
 .set Pin_Input_BallTrigger__0__HSIOM, CYREG_HSIOM_PORT_SEL2
-.set Pin_Input_BallTrigger__0__HSIOM_MASK, 0x00F00000
-.set Pin_Input_BallTrigger__0__HSIOM_SHIFT, 20
+.set Pin_Input_BallTrigger__0__HSIOM_MASK, 0x000F0000
+.set Pin_Input_BallTrigger__0__HSIOM_SHIFT, 16
 .set Pin_Input_BallTrigger__0__INTCFG, CYREG_GPIO_PRT2_INTR_CFG
 .set Pin_Input_BallTrigger__0__INTR, CYREG_GPIO_PRT2_INTR
 .set Pin_Input_BallTrigger__0__INTR_CFG, CYREG_GPIO_PRT2_INTR_CFG
 .set Pin_Input_BallTrigger__0__INTSTAT, CYREG_GPIO_PRT2_INTR
-.set Pin_Input_BallTrigger__0__MASK, 0x20
+.set Pin_Input_BallTrigger__0__MASK, 0x10
 .set Pin_Input_BallTrigger__0__PA__CFG0, CYREG_UDB_PA2_CFG0
 .set Pin_Input_BallTrigger__0__PA__CFG1, CYREG_UDB_PA2_CFG1
 .set Pin_Input_BallTrigger__0__PA__CFG10, CYREG_UDB_PA2_CFG10
@@ -1697,7 +1697,7 @@
 .set Pin_Input_BallTrigger__0__PC2, CYREG_GPIO_PRT2_PC2
 .set Pin_Input_BallTrigger__0__PORT, 2
 .set Pin_Input_BallTrigger__0__PS, CYREG_GPIO_PRT2_PS
-.set Pin_Input_BallTrigger__0__SHIFT, 5
+.set Pin_Input_BallTrigger__0__SHIFT, 4
 .set Pin_Input_BallTrigger__DR, CYREG_GPIO_PRT2_DR
 .set Pin_Input_BallTrigger__DR_CLR, CYREG_GPIO_PRT2_DR_CLR
 .set Pin_Input_BallTrigger__DR_INV, CYREG_GPIO_PRT2_DR_INV
@@ -1706,7 +1706,7 @@
 .set Pin_Input_BallTrigger__INTR, CYREG_GPIO_PRT2_INTR
 .set Pin_Input_BallTrigger__INTR_CFG, CYREG_GPIO_PRT2_INTR_CFG
 .set Pin_Input_BallTrigger__INTSTAT, CYREG_GPIO_PRT2_INTR
-.set Pin_Input_BallTrigger__MASK, 0x20
+.set Pin_Input_BallTrigger__MASK, 0x10
 .set Pin_Input_BallTrigger__PA__CFG0, CYREG_UDB_PA2_CFG0
 .set Pin_Input_BallTrigger__PA__CFG1, CYREG_UDB_PA2_CFG1
 .set Pin_Input_BallTrigger__PA__CFG10, CYREG_UDB_PA2_CFG10
@@ -1726,7 +1726,7 @@
 .set Pin_Input_BallTrigger__PC2, CYREG_GPIO_PRT2_PC2
 .set Pin_Input_BallTrigger__PORT, 2
 .set Pin_Input_BallTrigger__PS, CYREG_GPIO_PRT2_PS
-.set Pin_Input_BallTrigger__SHIFT, 5
+.set Pin_Input_BallTrigger__SHIFT, 4
 
 /* Miscellaneous */
 .set CYDEV_BCLK__HFCLK__HZ, 48000000
